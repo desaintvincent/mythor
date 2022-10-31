@@ -1,6 +1,6 @@
 {
   "name": "@mythor/math",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "> TODO: description",
   "author": "thomas <destvincent@hotmail.fr>",
   "homepage": "",
@@ -23,7 +23,7 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "devDependencies": {
-    "@mythor/eslint-config": "^1.0.1",
+    "@mythor/eslint-config": "^1.0.2",
     "eslint": "^8.26.0"
   }
 }
