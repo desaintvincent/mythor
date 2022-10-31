@@ -1,0 +1,27 @@
+{
+  "name": "@mythor/game",
+  "version": "0.0.1",
+  "description": "> TODO: description",
+  "author": "thomas <destvincent@hotmail.fr>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "tsc": "tsc",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "@mythor/core": "^0.0.1"
+  }
+}

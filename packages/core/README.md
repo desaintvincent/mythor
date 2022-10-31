@@ -1,0 +1,3 @@
+# `@mythor/core`
+
+> TODO: description

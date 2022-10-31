@@ -1,0 +1,3 @@
+# `@mythor/game`
+
+> TODO: description
