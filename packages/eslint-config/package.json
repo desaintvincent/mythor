@@ -1,0 +1,38 @@
+{
+  "name": "@mythor/eslint-config",
+  "version": "1.0.0",
+  "description": "> TODO: description",
+  "author": "thomas <destvincent@hotmail.fr>",
+  "homepage": "https://github.com/desaintvincent/mythor#readme",
+  "license": "MIT",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.yarnpkg.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/desaintvincent/mythor.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/@mythor/eslint-config.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/desaintvincent/mythor/issues"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
+    "eslint": "^8.26.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-filenames": "^1.3.2",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.7.1"
+  }
+}

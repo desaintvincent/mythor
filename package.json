@@ -12,6 +12,9 @@
   },
   "scripts": {
     "lerna": "lerna",
-    "tsc": "lerna run tsc"
+    "postinstall": "lerna bootstrap",
+    "publish": "lerna run tsc && lerna publish",
+    "build": "lerna run build",
+    "lint": "lerna run lint --stream"
   }
 }
