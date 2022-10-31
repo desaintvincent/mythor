@@ -23,7 +23,7 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@mythor/core": "^0.0.3"
+    "@mythor/core": "*"
   },
   "devDependencies": {
     "@mythor/eslint-config": "^1.0.2",
