@@ -11,6 +11,4 @@ const log = (text: unknown, color = 'none'): void => {
   }
 }
 
-export const POUET = 'POUET'
-
 export default log

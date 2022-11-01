@@ -1,4 +1,4 @@
-import { root, round } from './math'
+import { root, round } from './util'
 
 type ObserveCbFunction = () => void
 
