@@ -1,4 +1,3 @@
-// eslint-disable-next-line filenames/no-index
 const DISABLED = 0
 const WARN = 1
 const ERROR = 2
