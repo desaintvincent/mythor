@@ -1,2 +1,7 @@
 export { default as log } from './util/log'
 export { default as throwError } from './util/throwError'
+export { default as Entity } from './ecs/Entity'
+export { default as Component } from './ecs/Component'
+export { default as System } from './ecs/System'
+export { default as Owner } from './components/Owner'
+export { default as Transform } from './components/Transform'

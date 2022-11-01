@@ -45,10 +45,12 @@ class List<T extends { _id: string }> {
     this.__remove(data)
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   protected __add(data: T): void {
     throw new Error('should be implemented')
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   protected __remove(data: T): void {
     throw new Error('should be implemented')
   }
