@@ -20,7 +20,7 @@
   "scripts": {
     "build": "tsc",
     "lint": "eslint .",
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"Todo tests\""
   },
   "dependencies": {
     "@mythor/core": "*"
