@@ -15,13 +15,22 @@ jobs:
       - name: Install
         run: yarn install
 
-      - name: Lint
-        run: yarn lint
-
       - name: Test
-        run: yarn test
+        run: yarn test --coverage
 
-      - name: PR title
-        env:
-          PR_TITLE: ${{ github.event.pull_request.title }}
-        run: echo "$PR_TITLE" | yarn commitlint
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v2
+        with:
+          name: ref-lcov.info
+          path: ./coverage/lcov.info
+
+      - name: Generate Code Coverage report
+        id: code-coverage
+        uses: barecheck/code-coverage-action@v1
+        with:
+          barecheck-github-app-token: ${{ secrets.BARECHECK_GITHUB_APP_TOKEN }}
+          lcov-file: "./coverage/lcov.info"
+          base-lcov-file: "./lcov.info"
+          minimum-ratio: 0 # Fails Github action once code coverage is decreasing
+          send-summary-comment: true
+          show-annotations: "warning" # Possible options warning|error

@@ -19,8 +19,7 @@
   ],
   "scripts": {
     "build": "tsc",
-    "lint": "eslint .",
-    "test": "echo \"Todo tests\""
+    "lint": "eslint ."
   },
   "devDependencies": {
     "@mythor/eslint-config": "^1.0.2",

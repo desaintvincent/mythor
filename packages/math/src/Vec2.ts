@@ -37,8 +37,8 @@ export default class Vec2 {
     this._observers.push(cb)
   }
 
-  public constructor(x: number, y: number) {
-    this.set(x, y)
+  public constructor(x: number, y?: number) {
+    this.set(x, y ?? x)
   }
 
   public static create(x: number, y?: number): Vec2 {
@@ -49,9 +49,9 @@ export default class Vec2 {
     return new Vec2(0, 0)
   }
 
-  public set(x: number, y: number): Vec2 {
+  public set(x: number, y?: number): Vec2 {
     this.x = x
-    this.y = y
+    this.y = y ?? x
 
     return this
   }

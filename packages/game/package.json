@@ -19,11 +19,11 @@
   ],
   "scripts": {
     "build": "tsc",
-    "lint": "eslint .",
-    "test": "echo \"Todo tests\""
+    "lint": "eslint ."
   },
   "dependencies": {
-    "@mythor/core": "*"
+    "@mythor/core": "*",
+    "@mythor/math": "*"
   },
   "devDependencies": {
     "@mythor/eslint-config": "^1.0.2",
