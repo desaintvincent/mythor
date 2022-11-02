@@ -22,10 +22,8 @@
     "lint": "eslint ."
   },
   "devDependencies": {
-    "@mythor/eslint-config": "*",
-    "eslint": "^8.26.0"
+    "@mythor/eslint-config": "*"
   },
-  "gitHead": "c664cc2c9ce6081ac06a82cb2676582b460c4adf",
   "dependencies": {
     "@mythor/math": "^0.0.5"
   }

@@ -1,0 +1,3 @@
+# `@mythor/events`
+
+> TODO: description
