@@ -1,0 +1,3 @@
+# `@mythor/math`
+
+> TODO: description
