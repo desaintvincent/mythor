@@ -1,0 +1,36 @@
+{
+  "name": "@mythor/events",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Thomas Robert de Saint Vincent <thomas.rdsv@viaco.fr>",
+  "homepage": "https://github.com/desaintvincent/mythor#readme",
+  "license": "MIT",
+  "main": "lib/events.js",
+  "typings": "lib/events.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/desaintvincent/mythor.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint . --max-warnings 0"
+  },
+  "bugs": {
+    "url": "https://github.com/desaintvincent/mythor/issues"
+  },
+  "dependencies": {
+    "@mythor/core": "^0.0.4",
+    "@mythor/math": "^0.0.5",
+    "@mythor/renderer": "^0.0.0"
+  }
+}
