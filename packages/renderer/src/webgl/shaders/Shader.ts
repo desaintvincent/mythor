@@ -103,10 +103,12 @@ export default class Shader {
     )
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public onEntityCreation(entity: Entity): void {
     // do nothing
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public async init(renderer: Renderer): Promise<void> {
     // do nothing
   }
@@ -120,17 +122,24 @@ export default class Shader {
   }
 
   public render(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     entity: Entity,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     camera: Camera,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     elapsedTimeInSeconds: number,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     totalTimeInSeconds: number
   ): void {
     // do nothing
   }
 
   public postRender(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     camera: Camera,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     elapsedTimeInSeconds: number,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     totalTimeInSeconds: number
   ): void {
     this.flush()
@@ -202,7 +211,9 @@ export default class Shader {
     this.elemNumber = 0
   }
 
-  protected beforeDraw(): void {}
+  protected beforeDraw(): void {
+    // do nothing
+  }
 
   protected setBufferToAttribute(name: string, value: WebGLBuffer): void {
     const attribute = this.attributes.get(name)

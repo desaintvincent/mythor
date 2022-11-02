@@ -4,7 +4,6 @@ import Shader, { DrawFunctionType } from './Shader'
 import { FillPolyOptions } from '../../systems/ShaderOptions'
 import FillRectComponent from '../../components/FillRect'
 import { Entity, Transform } from '@mythor/core'
-import Camera from '../../toRename/Camera'
 import { Vec2 } from '@mythor/math'
 
 const numVertices = 6
@@ -70,7 +69,7 @@ export default class FillRect extends Shader {
     })
   }
 
-  public render(entity: Entity, camera: Camera): void {
+  public render(entity: Entity): void {
     const { offset, color, size: fillRectSize } = entity.get(FillRectComponent)
     const { position, rotation, size } = entity.get(Transform)
 

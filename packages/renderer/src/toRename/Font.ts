@@ -22,7 +22,7 @@ export default class Font {
   public glyphInfos: Map<string, Glyph>
   public texture: Texture
 
-  public constructor (texture: Texture, options?: FontOptions) {
+  public constructor(texture: Texture, options?: FontOptions) {
     this.letterHeight = options?.letterHeight ?? 8
     this.spaceWidth = options?.spaceWidth ?? 8
     this.spacing = options?.spacing ?? -1
@@ -36,7 +36,7 @@ export default class Font {
     }
   }
 
-  public getGlyph (char: string): Glyph | undefined {
+  public getGlyph(char: string): Glyph | undefined {
     return this.glyphInfos.get(char)
   }
 }

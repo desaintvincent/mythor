@@ -3,7 +3,6 @@ import Font from '../../toRename/Font'
 import RenderedText from '../../components/RenderedText'
 import generateFontTexture from './helpers/generateFontTexture'
 import { Entity, Transform } from '@mythor/core'
-import Camera from '../../toRename/Camera'
 import { Vec2 } from '@mythor/math'
 import Color, { colorWhite } from '../../color/Color'
 import { UniformType } from './Shader'
@@ -23,7 +22,7 @@ export default class Text extends Sprite {
     this.currentFont = await generateFontTexture(this.gl)
   }
 
-  public render(entity: Entity, camera: Camera): void {
+  public render(entity: Entity): void {
     if (!entity.has(RenderedText)) {
       return
     }

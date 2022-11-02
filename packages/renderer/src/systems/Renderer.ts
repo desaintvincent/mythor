@@ -19,7 +19,6 @@ import Color, { colorWhite } from '../color/Color'
 import Shader from '../webgl/shaders/Shader'
 import FillTriangle from '../webgl/shaders/FillTriangle'
 import Renderable from '../components/Renderable'
-import Ecs from '@mythor/core/lib/ecs/Ecs'
 import ParticlesUpdate from '../webgl/shaders/ParticlesUpdate'
 import ParticlesRender from '../webgl/shaders/ParticlesRender'
 import Lines from '../webgl/shaders/Lines'
@@ -106,10 +105,12 @@ class Renderer extends System {
       this.onEntityUpdate(entity, elapsedTimeInSeconds, totalTimeInSeconds)
     }
 
+    const entities = this.entities as QuadTreeList
+
     if (this.useTree) {
-      (this.entities as QuadTreeList).searchForEach(this.fov, cb)
+      entities.searchForEach(this.fov, cb)
     } else {
-      (this.entities as QuadTreeList).naiveSearchForeach(this.fov, cb)
+      entities.naiveSearchForeach(this.fov, cb)
     }
 
     this.applyDrawingFunctions()
@@ -199,8 +200,9 @@ class Renderer extends System {
   }
 
   private updateMovedEntities(): void {
+    const entities = this.entities as QuadTreeList
     this.movedEntities.forEach((entity) => {
-      (this.entities as QuadTreeList).update(entity)
+      entities.update(entity)
     })
     this.movedEntities.clear()
   }

@@ -6,7 +6,6 @@ import Renderer from '../../systems/Renderer'
 import ParticlesUpdate from './ParticlesUpdate'
 import particleAttributes from './helpers/particleAttributes'
 import { Entity } from '@mythor/core'
-import Camera from '../../toRename/Camera'
 import isParticleEmitterAlive from './helpers/isParticleEmitterAlive'
 import getParticleEmitterBuffers from './helpers/getParticleEmitterBuffers'
 
@@ -105,11 +104,7 @@ class ParticlesRender extends Shader {
     // do nothing
   }
 
-  public render(
-    entity: Entity,
-    camera: Camera,
-    elapsedTimeInSeconds: number
-  ): void {
+  public render(entity: Entity): void {
     const particleEmitter = entity.get(ParticleEmitter)
 
     if (!isParticleEmitterAlive(particleEmitter) || !particleEmitter.texture) {

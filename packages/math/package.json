@@ -19,6 +19,6 @@
   ],
   "scripts": {
     "build": "tsc",
-    "lint": "eslint ."
+    "lint": "eslint . --max-warnings 0"
   }
 }

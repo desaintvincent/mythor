@@ -5,7 +5,6 @@ import RenderedCircle from '../../components/RenderedCircle'
 import { Entity, Transform } from '@mythor/core'
 import { CircleOptions } from '../../systems/ShaderOptions'
 import { Vec2 } from '@mythor/math'
-import Camera from '../../toRename/Camera'
 
 const numVertices = 6
 
@@ -78,7 +77,7 @@ export default class Circle extends Shader {
     })
   }
 
-  public render(entity: Entity, camera: Camera): void {
+  public render(entity: Entity): void {
     const { offset, color, radius, width, fill } = entity.get(RenderedCircle)
     const { position, rotation, size } = entity.get(Transform)
     this.circle(

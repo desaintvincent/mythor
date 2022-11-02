@@ -23,7 +23,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "lint": "eslint ."
+    "lint": "eslint . --max-warnings 0"
   },
   "bugs": {
     "url": "https://github.com/desaintvincent/mythor/issues"

@@ -1,7 +1,7 @@
 import { Vec2 } from '@mythor/math'
 import { Component, Entity } from '@mythor/core'
 import Texture from '../toRename/Texture'
-import Color from '../color/Color'
+import Color, { colorWhite } from '../color/Color'
 
 export interface BufferContent {
   buffer1: WebGLBuffer
@@ -15,12 +15,12 @@ type Minmax<T> =
       max: T
     }
 
-type StartEnd<T> =
-  | T
-  | {
-      start: T
-      end: T
-    }
+type StartEnd<T> = {
+  start: T
+  end: T
+}
+
+type TOrStartEnd<T> = T | StartEnd<T>
 
 type TimingValues = [number, number, number, number]
 export enum TimingFunction {
@@ -77,7 +77,7 @@ interface ParticleEmitterParameters {
   onEndOfLife?: (entity: Entity) => void
   gravity?: Vec2
   texture?: Texture
-  color?: StartEnd<Color> & {
+  color?: TOrStartEnd<Color> & {
     timing?: Timing
   }
 }
@@ -190,10 +190,14 @@ class ParticleEmitter extends Component {
       minMaxSized.max.x,
       minMaxSized.max.y,
     ]
-    // @ts-expect-error
-    this.startColor = params?.color?.start ?? params?.color ?? colorWhite
-    // @ts-expect-error
-    this.endColor = params?.color?.end ?? params?.color ?? colorWhite
+    this.startColor =
+      (params?.color as StartEnd<Color>)?.start ??
+      (params?.color as Color) ??
+      colorWhite
+    this.endColor =
+      (params?.color as StartEnd<Color>)?.end ??
+      (params?.color as Color) ??
+      colorWhite
     this.texture = params?.texture
     this.respawn = params?.respawn ?? false
     this.deleteOnEndOfLife = params?.deleteOnEndOfLife ?? false

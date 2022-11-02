@@ -132,7 +132,7 @@ enum Key {
   Quote2 = '"',
   AngleBracketLeft = '<',
   AngleBracketRight = '>',
-  QuestionMark = '?'
+  QuestionMark = '?',
 }
 
 export default Key

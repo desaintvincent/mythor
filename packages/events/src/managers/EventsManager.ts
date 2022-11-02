@@ -1,7 +1,8 @@
-import { Manager } from "@mythor/core";
-import { Vec2 } from "@mythor/math";
-import Key from "../definitions/Key";
-import MouseButton from "../definitions/MouseButton";
+import { Manager } from '@mythor/core'
+import { Vec2 } from '@mythor/math'
+import Key from '../definitions/Key'
+import MouseButton from '../definitions/MouseButton'
+import { Renderer } from '@mythor/renderer'
 
 interface EventManagerOptions {
   canvas?: HTMLCanvasElement
@@ -28,20 +29,20 @@ class EventsManager extends Manager {
   private initialized = false
 
   private readonly events = {
-    blur: (event: FocusEvent) => {},
+    //  blur: (event: FocusEvent) => {},
     contextmenu: (event: MouseEvent) => event.preventDefault(),
-    focus: (event: FocusEvent) => {},
+    // focus: (event: FocusEvent) => {},
     keydown: (event: KeyboardEvent) => this.setKeyValue(event, true),
     keyup: (event: KeyboardEvent) => this.setKeyValue(event, false),
     mousedown: (event: MouseEvent) => this.setMouseValue(event, true),
-    mouseenter: (event: MouseEvent) => this.canvas.focus(),
-    mouseleave: (event: MouseEvent) => {},
+    mouseenter: () => this.canvas.focus(),
+    // mouseleave: (event: MouseEvent) => {},
     mousemove: (event: MouseEvent) => this.setMousePosition(event),
     mouseup: (event: MouseEvent) => this.setMouseValue(event, false),
     wheel: (event: WheelEvent) => this.setWheel(event),
   }
 
-  public constructor (options?: EventManagerOptions) {
+  public constructor(options?: EventManagerOptions) {
     super('EventsManager')
     if (EventsManager.instance) {
       return EventsManager.instance
@@ -70,36 +71,38 @@ class EventsManager extends Manager {
     this._minDragDelta = options?.minDragDelta ?? 1
   }
 
-  private setMousePosition (event: MouseEvent): void {
+  private setMousePosition(event: MouseEvent): void {
     this.canvasRect = this.canvas.getBoundingClientRect()
 
-    const x = ((event.clientX - this.canvasRect.left) /
-            (this.canvasRect.right - this.canvasRect.left)) *
-        this.canvas.width
+    const x =
+      ((event.clientX - this.canvasRect.left) /
+        (this.canvasRect.right - this.canvasRect.left)) *
+      this.canvas.width
 
-    const y = ((event.clientY - this.canvasRect.top) /
-            (this.canvasRect.bottom - this.canvasRect.top)) *
-        this.canvas.height
+    const y =
+      ((event.clientY - this.canvasRect.top) /
+        (this.canvasRect.bottom - this.canvasRect.top)) *
+      this.canvas.height
 
     this._mousePosition.set(x, y)
   }
 
-  private setWheel (event: WheelEvent): void {
+  private setWheel(event: WheelEvent): void {
     event.preventDefault()
     this._wheelDelta += event.deltaY
   }
 
-  private setKeyValue (event: KeyboardEvent, value: boolean): void {
+  private setKeyValue(event: KeyboardEvent, value: boolean): void {
     event.preventDefault()
     this._keysDown.set(getKey(event), value)
   }
 
-  private setMouseValue (event: MouseEvent, value: boolean): void {
+  private setMouseValue(event: MouseEvent, value: boolean): void {
     event.preventDefault()
     this._mousesDown.set(getMouse(event), value)
   }
 
-  public async init (): Promise<void> {
+  public async init(): Promise<void> {
     if (this.initialized) {
       return
     }
@@ -114,17 +117,20 @@ class EventsManager extends Manager {
     })
   }
 
-  public clear (): void {
+  public clear(): void {
     Object.entries(this.events).forEach(([eventName, fn]) => {
       this.canvas.removeEventListener(eventName, fn, false)
     })
   }
 
-  public postUpdate (): void {
+  public postUpdate(): void {
     this._previousKeysDown.clear()
     this._previousMousesDown.clear()
     this._wheelDelta = 0
-    this._previousMousePosition.set(this._mousePosition.x, this._mousePosition.y)
+    this._previousMousePosition.set(
+      this._mousePosition.x,
+      this._mousePosition.y
+    )
 
     this._keysDown.forEach((value, key) => {
       this._previousKeysDown.set(key, value)
@@ -139,43 +145,51 @@ class EventsManager extends Manager {
     return map.get(key) ?? false
   }
 
-  private pressed<T>(map: Map<T, boolean>, previousMap: Map<T, boolean>, key: T): boolean {
+  private pressed<T>(
+    map: Map<T, boolean>,
+    previousMap: Map<T, boolean>,
+    key: T
+  ): boolean {
     return this.isDown(map, key) && !this.isDown(previousMap, key)
   }
 
-  private released<T>(map: Map<T, boolean>, previousMap: Map<T, boolean>, key: T): boolean {
+  private released<T>(
+    map: Map<T, boolean>,
+    previousMap: Map<T, boolean>,
+    key: T
+  ): boolean {
     return !this.isDown(map, key) && this.isDown(previousMap, key)
   }
 
-  public keyIsDown (key: Key): boolean {
+  public keyIsDown(key: Key): boolean {
     return this.isDown(this._keysDown, key)
   }
 
-  public keyPressed (key: Key): boolean {
+  public keyPressed(key: Key): boolean {
     return this.pressed(this._keysDown, this._previousKeysDown, key)
   }
 
-  public keyReleased (key: Key): boolean {
+  public keyReleased(key: Key): boolean {
     return this.released(this._keysDown, this._previousKeysDown, key)
   }
 
-  public mouseIsDown (mouse: MouseButton): boolean {
+  public mouseIsDown(mouse: MouseButton): boolean {
     return this.isDown(this._mousesDown, mouse)
   }
 
-  public mousePressed (mouse: MouseButton): boolean {
+  public mousePressed(mouse: MouseButton): boolean {
     return this.pressed(this._mousesDown, this._previousMousesDown, mouse)
   }
 
-  public isWheeling (): boolean {
+  public isWheeling(): boolean {
     return this._wheelDelta !== 0
   }
 
-  public wheelDelta (coefficient = 1): number {
+  public wheelDelta(coefficient = 1): number {
     return this._wheelDelta * coefficient
   }
 
-  public isDragging (mouse: MouseButton): boolean {
+  public isDragging(mouse: MouseButton): boolean {
     if (this.mouseIsDown(mouse) && !this.mousePressed(mouse)) {
       const delta = this.dragDelta()
 
@@ -185,16 +199,16 @@ class EventsManager extends Manager {
     return false
   }
 
-  public dragDelta (): Vec2 {
+  public dragDelta(): Vec2 {
     return this._mousePosition.sub(this._previousMousePosition)
   }
 
-  public mouseReleased (mouse: MouseButton): boolean {
+  public mouseReleased(mouse: MouseButton): boolean {
     return this.released(this._mousesDown, this._previousMousesDown, mouse)
   }
 
-  public mousePosition (convertToWorldPosition = true): Vec2 {
-    if (!this.ecs.systems.has(Renderer)) {
+  public mousePosition(convertToWorldPosition = true): Vec2 {
+    if (!convertToWorldPosition || !this.ecs.systems.has(Renderer)) {
       return this._mousePosition
     }
     const camera = this.ecs.system(Renderer).getCamera()

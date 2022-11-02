@@ -1,4 +1,4 @@
-import { Vec2 } from "@mythor/math"
+import { Vec2 } from '@mythor/math'
 
 export default class Texture {
   private readonly source: HTMLImageElement | HTMLCanvasElement
@@ -7,7 +7,12 @@ export default class Texture {
   public readonly size: Vec2
   private readonly glTexture: WebGLTexture = 0
 
-  public constructor (source: HTMLImageElement | HTMLCanvasElement, gl: WebGL2RenderingContext, alphaTest = 0, smooth = true) {
+  public constructor(
+    source: HTMLImageElement | HTMLCanvasElement,
+    gl: WebGL2RenderingContext,
+    alphaTest = 0,
+    smooth = true
+  ) {
     this.source = source
     this.alphaTest = alphaTest
     this.smooth = smooth
@@ -27,16 +32,33 @@ export default class Texture {
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST)
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST)
     if (source instanceof HTMLImageElement) {
-      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, this.source.width, this.source.height, 0, gl.RGBA, gl.UNSIGNED_BYTE, this.source)
+      gl.texImage2D(
+        gl.TEXTURE_2D,
+        0,
+        gl.RGBA,
+        this.source.width,
+        this.source.height,
+        0,
+        gl.RGBA,
+        gl.UNSIGNED_BYTE,
+        this.source
+      )
     } else {
-      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, this.source)
+      gl.texImage2D(
+        gl.TEXTURE_2D,
+        0,
+        gl.RGBA,
+        gl.RGBA,
+        gl.UNSIGNED_BYTE,
+        this.source
+      )
     }
 
     this.size.x = this.source.width
     this.size.y = this.source.height
   }
 
-  public get webGLTexture (): WebGLTexture {
+  public get webGLTexture(): WebGLTexture {
     return this.glTexture
   }
 }

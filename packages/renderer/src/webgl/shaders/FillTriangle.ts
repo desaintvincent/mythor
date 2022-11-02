@@ -1,8 +1,6 @@
 import simpleVertexShader from '../glsl/triangle.vs'
 import colorFragmentShader from '../glsl/color.fs'
 import Shader from './Shader'
-import Camera from '../../toRename/Camera'
-import { Entity } from '@mythor/core'
 import { Vec2 } from '@mythor/math'
 import Color from '../../color/Color'
 import { FillPolyOptions } from '../../systems/ShaderOptions'
@@ -21,7 +19,7 @@ export default class FillTriangle extends Shader {
     })
   }
 
-  public render(entity: Entity, camera: Camera): void {
+  public render(): void {
     // @todo DrawableFillPoly
     // do nothing
   }

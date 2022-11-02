@@ -3,7 +3,6 @@ import textureFragmentShader from '../glsl/texture.fs'
 import Shader, { DrawFunctionType, UniformType } from './Shader'
 import Texture from '../../toRename/Texture'
 import { Component, Constructor, Entity, Transform } from '@mythor/core'
-import Camera from '../../toRename/Camera'
 import SpriteComponent from '../../components/Sprite'
 import { colorWhite } from '../../color/Color'
 const numVertices = 6
@@ -117,7 +116,7 @@ export default class Sprite extends Shader {
     })
   }
 
-  public render(entity: Entity, camera: Camera): void {
+  public render(entity: Entity): void {
     const {
       texture,
       size: textureSize,
