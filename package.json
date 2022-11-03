@@ -24,6 +24,7 @@
     "publish": "lerna run build && lerna publish",
     "build": "lerna run build",
     "test": "jest",
+    "clean": "lerna run clean && lerna clean",
     "lint": "lerna run lint --stream",
     "commitlint": "commitlint"
   }
