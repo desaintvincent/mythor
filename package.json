@@ -23,6 +23,7 @@
     "postinstall": "lerna bootstrap",
     "publish": "lerna run build && lerna publish",
     "build": "lerna run build",
+    "start": "lerna run start",
     "test": "jest",
     "clean": "lerna run clean && lerna clean",
     "lint": "lerna run lint --stream",

@@ -11,24 +11,14 @@
     <% if (htmlWebpackPlugin.files.favicon) { %>
         <link rel="shortcut icon" href="<%= htmlWebpackPlugin.files.favicon%>">
     <% } %>
-    <% if (htmlWebpackPlugin.options.mobile) { %>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    <% } %>
 </head>
 <body>
-
-<nav>
+<div id="root">
     <ul class="list">
-        <li class="item"><a class="link" href="/">Home</a></li>
         <% for (var entry of htmlWebpackPlugin.options.exampleNames) { %>
         <li class="item"><a class="link" href="/<%= [entry]%>.html"><%= [entry]%></a></li>
         <% } %>
     </ul>
-</nav>
-<div id="statistics"></div>
-<div id="root">
-
-    <canvas id="canvas" width="1024" height="512"></canvas>
 </div>
 
 <% if (htmlWebpackPlugin.options.appMountId) { %>
@@ -39,14 +29,6 @@
     <% for (var index in htmlWebpackPlugin.options.appMountIds) { %>
         <div id="<%= htmlWebpackPlugin.options.appMountIds[index]%>"></div>
     <% } %>
-<% } %>
-
-<% if (htmlWebpackPlugin.options.window) { %>
-    <script>
-        <% for (var varName in htmlWebpackPlugin.options.window) { %>
-        window['<%=varName%>'] = <%= JSON.stringify(htmlWebpackPlugin.options.window[varName]) %>;
-        <% } %>
-    </script>
 <% } %>
 
 <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>

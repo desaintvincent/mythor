@@ -1,33 +1,55 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const htmlWebpackPlugin = require('html-webpack-plugin')
+const miniCssExtractPlugin = require('mini-css-extract-plugin')
+
 const path = require('path')
 const fs = require('fs')
 
-const filesDir = __dirname + '/src/examples/'
+const examplesDir = path.resolve(__dirname, './src/examples/')
 
 // @todo sort by number
 
-const entries = fs
-  .readdirSync(filesDir, {
+const examples = fs
+  .readdirSync(examplesDir, {
     withFileTypes: true,
   })
   .filter((file) => file.isFile())
-  .map((file) => file.name.replace(/\.[^/.]+$/, ''))
+  .sort()
+  .map((file) => ({
+    name: file.name
+      .replace(/\.[^/.]+$/, '')
+      .split('--')
+      .pop(),
+    path: file.name,
+  }))
+
+const exampleNames = examples.map((example) => example.name)
+
+const typescriptEntries = examples.reduce(
+  (acc, curr) => ({
+    ...acc,
+    [curr.name]: path.resolve(examplesDir, curr.path),
+  }),
+  {}
+)
 
 module.exports = {
   mode: 'development',
-  entry: entries.reduce(
-    (acc, curr) => ({
-      ...acc,
-      [curr]: `${filesDir}${curr}.ts`,
-    }),
-    {}
-  ),
+  entry: {
+    ...typescriptEntries,
+    cssGlobal: path.resolve(__dirname, './src/templates/global.css'),
+    cssIndex: path.resolve(__dirname, './src/templates/index.css'),
+    cssExample: path.resolve(__dirname, './src/templates/example.css'),
+  },
   module: {
     rules: [
       {
         test: /\.ts$/,
         use: 'ts-loader',
         exclude: /node_modules/,
+      },
+      {
+        test: /\.css$/i,
+        use: [miniCssExtractPlugin.loader, 'css-loader'],
       },
     ],
   },
@@ -42,7 +64,7 @@ module.exports = {
     static: './dist',
     historyApiFallback: {
       rewrites: [
-        ...entries.map((entry) => ({
+        ...examples.map((entry) => ({
           from: `/${entry}`,
           to: `/${entry}.html`,
         })),
@@ -51,18 +73,23 @@ module.exports = {
     },
   },
   plugins: [
-    new HtmlWebpackPlugin({
+    new miniCssExtractPlugin(),
+    new htmlWebpackPlugin({
+      exampleNames,
+      template: path.resolve(__dirname, 'src/templates/index.html'),
       filename: `index.html`,
-      chunks: [],
+      chunks: ['cssGlobal', 'cssIndex'],
+      devServer: true,
     }),
-    ...entries.map(
+    ...examples.map(
       (entry) =>
-        new HtmlWebpackPlugin({
-          entries,
-          template: 'src/templates/example.html',
-          filename: `${entry}.html`,
-          chunks: [entry],
-          title: entry,
+        new htmlWebpackPlugin({
+          exampleNames,
+          template: path.resolve(__dirname, 'src/templates/example.html'),
+          filename: `${entry.name}.html`,
+          chunks: ['cssGlobal', 'cssExample', entry.name],
+          devServer: true,
+          title: entry.name,
         })
     ),
   ],

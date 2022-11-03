@@ -19,7 +19,7 @@
   ],
   "scripts": {
     "build": "tsc",
-    "clean": "rm -rf dist",
+    "clean": "rm -rf lib",
     "lint": "eslint . --max-warnings 0"
   }
 }

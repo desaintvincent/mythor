@@ -1,1 +1,5 @@
 export { default as Renderer } from './systems/Renderer'
+export { default as TextureManager } from './managers/TextureManager'
+export { default as Texture } from './toRename/Texture'
+export { default as Renderable } from './components/Renderable'
+export { default as Sprite } from './components/Sprite'
