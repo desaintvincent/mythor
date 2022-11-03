@@ -1,4 +1,4 @@
-#version 300 es
+export default `#version 300 es
 precision highp float;
 
 in vec2 position;
@@ -75,3 +75,4 @@ void main() {
         reset();
     }
 }
+`

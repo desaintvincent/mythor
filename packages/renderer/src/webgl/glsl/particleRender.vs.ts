@@ -1,4 +1,4 @@
-#version 300 es
+export default `#version 300 es
 in vec2 vertex;
 in vec4 position;
 in vec2 ageAndLifetime;
@@ -148,3 +148,4 @@ void main() {
     v_texture_origin = texture_origin;
     v_texture_size = texture_size;
 }
+`

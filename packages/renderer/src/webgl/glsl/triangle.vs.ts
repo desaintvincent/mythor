@@ -1,4 +1,4 @@
-#version 300 es
+export default `#version 300 es
 precision highp float;
 
 in vec2 a_position;
@@ -15,3 +15,4 @@ void main() {
     // Copy the color from the attribute to the varying.
     v_color = a_color;
 }
+`

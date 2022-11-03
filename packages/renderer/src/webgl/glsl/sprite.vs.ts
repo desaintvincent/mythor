@@ -1,34 +1,35 @@
-#version 300 es
+export default `#version 300 es
 precision highp float;
 
 in vec2 a_vertex;
 in float a_rotation;
-in float a_width;
-in float a_fill;
 in vec2 a_position;
 in vec2 a_size;
+in vec2 a_scale;
 in vec4 a_color;
+in vec2 a_texcoord;
+in vec2 a_texture_origin;
+in vec2 a_texture_size;
 
 uniform mat4 matrix_camera;
 
 out vec4 v_color;
-out vec2 v_vertex;
-out float v_radius;
-out float v_width;
-out float v_fill;
+out vec2 v_texcoord;
+out vec2 v_texture_origin;
+out vec2 v_texture_size;
 
 void main() {
+    float phi = a_rotation;
+
     mat3 scale = mat3(
-        a_size.x, 0, 0,
-        0, a_size.y, 0,
+        a_size.x * a_scale.x, 0, 0,
+        0, a_size.y * a_scale.y, 0,
         0, 0, 1
     );
 
-    float c = cos(a_rotation);
-    float s = sin(a_rotation);
     mat3 rotate = mat3(
-        c, s, 0,
-        -s, c, 0,
+        cos(phi), sin(phi), 0,
+        -sin(phi), cos(phi), 0,
         0, 0, 1
     );
 
@@ -40,9 +41,9 @@ void main() {
 
     gl_Position = matrix_camera * vec4(translate * rotate *  scale * vec3(a_vertex.xy, 1), 1.0);
 
-    v_radius = (a_size.x + a_size.y) * 0.5;
-    v_width = a_width;
-    v_fill = a_fill;
-    v_vertex = a_vertex;
     v_color = a_color;
+    v_texture_origin = a_texture_origin;
+    v_texture_size = a_texture_size;
+    v_texcoord = a_texcoord;
 }
+`

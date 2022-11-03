@@ -1,4 +1,4 @@
-#version 300 es
+export default `#version 300 es
 precision highp float;
 
 in vec3 vertexPos;
@@ -35,3 +35,4 @@ void main(void) {
 
     gl_Position = matrix_camera * vec4(translate *  rotate *  scale * vertexPos, 1.0);
 }
+`

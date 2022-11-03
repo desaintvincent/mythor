@@ -1,4 +1,4 @@
-#version 300 es
+export default `#version 300 es
 precision highp float;
 
 in vec2 a_vertex;
@@ -36,3 +36,4 @@ void main() {
 
     v_color = a_color;
 }
+`
