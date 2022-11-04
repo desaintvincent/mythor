@@ -80,6 +80,7 @@ module.exports = {
       filename: `index.html`,
       chunks: ['cssGlobal', 'cssIndex'],
       devServer: true,
+      title: 'mythor',
     }),
     ...examples.map(
       (entry) =>

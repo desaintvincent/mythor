@@ -15,6 +15,8 @@ import {
   Renderer,
 } from '@mythor/renderer'
 import { EventsManager, MouseButton, Key } from '@mythor/events'
+import { createGame, Game } from '@mythor/game'
+import cat from '../assets/cat'
 
 class Velocity extends Vec2 implements Component {
   public _entity: Entity
@@ -144,16 +146,14 @@ class KittenSpawner extends Manager {
   }
 }
 
-// export default function (): Game {
-//   return createGame({
-//     managers: [
-//       new EventsManager(),
-//       new KittenSpawner(),
-//       new TextureManager([['cat', cat]]),
-//     ],
-//     onInit: async (ecs) => {
-//       spawnKitten(ecs, ecs.manager(TextureManager).get('cat'), 0)
-//     },
-//     systems: [new CustomPhysic(), new Renderer()],
-//   })
-// }
+createGame({
+  managers: [
+    new EventsManager(),
+    new KittenSpawner(),
+    new TextureManager([['cat', cat]]),
+  ],
+  onInit: async (ecs) => {
+    spawnKitten(ecs, ecs.manager(TextureManager).get('cat'), 0)
+  },
+  systems: [new CustomPhysic(), new Renderer()],
+})
