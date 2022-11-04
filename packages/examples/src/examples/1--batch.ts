@@ -15,7 +15,7 @@ import {
   Renderer,
 } from '@mythor/renderer'
 import { EventsManager, MouseButton, Key } from '@mythor/events'
-import { createGame, Game } from '@mythor/game'
+import { createGame } from '@mythor/game'
 import cat from '../assets/cat'
 
 class Velocity extends Vec2 implements Component {
@@ -103,11 +103,7 @@ class KittenSpawner extends Manager {
     super('KittenSpawner')
   }
 
-  public update(
-    ecs: Ecs,
-    elapsedTimeInSeconds: number,
-    totalTimeInSeconds: number
-  ): void {
+  public update(ecs: Ecs): void {
     const event = ecs.manager(EventsManager)
     const total = ecs.duration
 
