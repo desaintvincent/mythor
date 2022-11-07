@@ -51,6 +51,10 @@ module.exports = {
         test: /\.css$/i,
         use: [miniCssExtractPlugin.loader, 'css-loader'],
       },
+      {
+        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+        loader: 'file-loader',
+      },
     ],
   },
   resolve: {
@@ -61,7 +65,9 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   devServer: {
+    port: 9000,
     static: './dist',
+    hot: true,
     historyApiFallback: {
       rewrites: [
         ...examples.map((entry) => ({
@@ -79,7 +85,6 @@ module.exports = {
       template: path.resolve(__dirname, 'src/templates/index.html'),
       filename: `index.html`,
       chunks: ['cssGlobal', 'cssIndex'],
-      devServer: true,
       title: 'mythor',
     }),
     ...examples.map(
@@ -89,7 +94,6 @@ module.exports = {
           template: path.resolve(__dirname, 'src/templates/example.html'),
           filename: `${entry.name}.html`,
           chunks: ['cssGlobal', 'cssExample', entry.name],
-          devServer: true,
           title: entry.name,
         })
     ),

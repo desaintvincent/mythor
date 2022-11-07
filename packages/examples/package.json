@@ -43,6 +43,7 @@
     "@mythor/game": "^0.0.6",
     "@mythor/math": "^0.0.5",
     "@mythor/physic2d": "^0.0.1",
-    "@mythor/renderer": "^0.0.0"
+    "@mythor/renderer": "^0.0.0",
+    "file-loader": "^6.2.0"
   }
 }
