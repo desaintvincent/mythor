@@ -1,5 +1,5 @@
 import { Vec2 } from '@mythor/math'
-import Texture from '../toRename/Texture'
+import Texture from '../objects/Texture'
 import { Component } from '@mythor/core'
 
 interface SpriteOptions {

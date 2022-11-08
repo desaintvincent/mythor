@@ -1,5 +1,5 @@
 import Sprite from './Sprite'
-import Font from '../../toRename/Font'
+import Font from '../../objects/Font'
 import RenderedText from '../../components/RenderedText'
 import generateFontTexture from './helpers/generateFontTexture'
 import { Entity, Transform } from '@mythor/core'

@@ -11,7 +11,7 @@ import { Entity, Transform } from '@mythor/core'
 import isParticleEmitterAlive from './helpers/isParticleEmitterAlive'
 import makeBuffer from './helpers/makeBuffer'
 import makeDefaultTexture from './helpers/makeDefaultTexture'
-import Camera from '../../toRename/Camera'
+import Camera from '../../objects/Camera'
 import { Vec2 } from '@mythor/math'
 import getParticleEmitterBuffers from './helpers/getParticleEmitterBuffers'
 

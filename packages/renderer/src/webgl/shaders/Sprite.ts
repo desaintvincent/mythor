@@ -1,7 +1,7 @@
 import spriteVertexShader from '../glsl/sprite.vs'
 import textureFragmentShader from '../glsl/texture.fs'
 import Shader, { DrawFunctionType, UniformType } from './Shader'
-import Texture from '../../toRename/Texture'
+import Texture from '../../objects/Texture'
 import { Component, Constructor, Entity, Transform } from '@mythor/core'
 import SpriteComponent from '../../components/Sprite'
 import { colorWhite } from '../../color/Color'

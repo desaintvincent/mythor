@@ -1,4 +1,4 @@
-import Texture from '../../../toRename/Texture'
+import Texture from '../../../objects/Texture'
 
 const makeDefaultTexture = (
   gl: WebGL2RenderingContext,

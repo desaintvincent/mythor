@@ -6,7 +6,7 @@ import {
   System,
   Transform,
 } from '@mythor/core'
-import Camera from '../toRename/Camera'
+import Camera from '../objects/Camera'
 import { Rect, Vec2 } from '@mythor/math'
 import QuadTreeList from '../quadTree/QuadTreeList'
 import {
