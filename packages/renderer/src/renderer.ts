@@ -7,6 +7,7 @@ export { default as QuadTreeList } from './quadTree/QuadTreeList'
 
 export { default as Renderable } from './components/Renderable'
 export { default as FillRect } from './components/FillRect'
+export { default as RenderedText } from './components/RenderedText'
 export { default as Sprite } from './components/Sprite'
 export { default as Animation } from './components/Animation'
 export { default as lerpCamera } from './lerpCamera'

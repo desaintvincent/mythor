@@ -7,6 +7,7 @@ import StatisticsManager from '../managers/StatisticsManager'
 import PhysicDebugManager from '../managers/PhysicDebugManager'
 import SelectDebugManager from '../managers/SelectDebugManager'
 import RendererDebugManager from '../managers/RendererDebugManager'
+import createLoadingScene from '../util/createLoadingScene'
 
 interface GameMakerOptions extends SceneOptions {
   addLoadingStateManager?: boolean
@@ -67,23 +68,21 @@ function getManagers(options: GameMakerOptions): Manager[] {
 }
 
 function createGame(options: GameMakerOptions): Game {
-  return (
-    new Game()
-      // .addScene(createLoadingScene())
-      .addScene(
-        new Scene('Mainscene', {
-          ...options,
-          managers: getManagers(options),
-          onLoaded: async (ecs) => {
-            options?.onLoaded?.(ecs)
-            if (ecs.managers.has(LoadingStateManager)) {
-              ecs.managers.delete(LoadingStateManager)
-            }
-          },
-        })
-      )
-      .start()
-  )
+  return new Game()
+    .addScene(createLoadingScene())
+    .addScene(
+      new Scene('Mainscene', {
+        ...options,
+        managers: getManagers(options),
+        onLoaded: async (ecs) => {
+          options?.onLoaded?.(ecs)
+          if (ecs.managers.has(LoadingStateManager)) {
+            ecs.managers.delete(LoadingStateManager)
+          }
+        },
+      })
+    )
+    .start()
 }
 
 export default createGame
