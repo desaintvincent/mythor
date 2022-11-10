@@ -50,7 +50,7 @@ Component.constructor
 
 #### Defined in
 
-[renderer/src/components/Animation.ts:26](https://github.com/desaintvincent/mythor/blob/1d60040/packages/renderer/src/components/Animation.ts#L26)
+[renderer/src/components/Animation.ts:26](https://github.com/desaintvincent/mythor/blob/4a55505/packages/renderer/src/components/Animation.ts#L26)
 
 ## Properties
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Animation.ts:23](https://github.com/desaintvincent/mythor/blob/1d60040/packages/renderer/src/components/Animation.ts#L23)
+[renderer/src/components/Animation.ts:23](https://github.com/desaintvincent/mythor/blob/4a55505/packages/renderer/src/components/Animation.ts#L23)
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Animation.ts:22](https://github.com/desaintvincent/mythor/blob/1d60040/packages/renderer/src/components/Animation.ts#L22)
+[renderer/src/components/Animation.ts:22](https://github.com/desaintvincent/mythor/blob/4a55505/packages/renderer/src/components/Animation.ts#L22)
 
 ___
 
@@ -94,7 +94,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Animation.ts:20](https://github.com/desaintvincent/mythor/blob/1d60040/packages/renderer/src/components/Animation.ts#L20)
+[renderer/src/components/Animation.ts:20](https://github.com/desaintvincent/mythor/blob/4a55505/packages/renderer/src/components/Animation.ts#L20)
 
 ___
 
@@ -104,7 +104,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Animation.ts:18](https://github.com/desaintvincent/mythor/blob/1d60040/packages/renderer/src/components/Animation.ts#L18)
+[renderer/src/components/Animation.ts:18](https://github.com/desaintvincent/mythor/blob/4a55505/packages/renderer/src/components/Animation.ts#L18)
 
 ___
 
@@ -114,7 +114,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Animation.ts:24](https://github.com/desaintvincent/mythor/blob/1d60040/packages/renderer/src/components/Animation.ts#L24)
+[renderer/src/components/Animation.ts:24](https://github.com/desaintvincent/mythor/blob/4a55505/packages/renderer/src/components/Animation.ts#L24)
 
 ___
 
@@ -124,7 +124,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Animation.ts:21](https://github.com/desaintvincent/mythor/blob/1d60040/packages/renderer/src/components/Animation.ts#L21)
+[renderer/src/components/Animation.ts:21](https://github.com/desaintvincent/mythor/blob/4a55505/packages/renderer/src/components/Animation.ts#L21)
 
 ___
 
@@ -134,7 +134,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Animation.ts:19](https://github.com/desaintvincent/mythor/blob/1d60040/packages/renderer/src/components/Animation.ts#L19)
+[renderer/src/components/Animation.ts:19](https://github.com/desaintvincent/mythor/blob/4a55505/packages/renderer/src/components/Animation.ts#L19)
 
 ___
 
@@ -171,7 +171,7 @@ core/lib/collections/Signable.d.ts:2
 
 #### Defined in
 
-[renderer/src/components/Animation.ts:41](https://github.com/desaintvincent/mythor/blob/1d60040/packages/renderer/src/components/Animation.ts#L41)
+[renderer/src/components/Animation.ts:41](https://github.com/desaintvincent/mythor/blob/4a55505/packages/renderer/src/components/Animation.ts#L41)
 
 ___
 
@@ -192,7 +192,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Animation.ts:60](https://github.com/desaintvincent/mythor/blob/1d60040/packages/renderer/src/components/Animation.ts#L60)
+[renderer/src/components/Animation.ts:60](https://github.com/desaintvincent/mythor/blob/4a55505/packages/renderer/src/components/Animation.ts#L60)
 
 ___
 
@@ -212,4 +212,4 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Animation.ts:37](https://github.com/desaintvincent/mythor/blob/1d60040/packages/renderer/src/components/Animation.ts#L37)
+[renderer/src/components/Animation.ts:37](https://github.com/desaintvincent/mythor/blob/4a55505/packages/renderer/src/components/Animation.ts#L37)

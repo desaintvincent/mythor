@@ -43,7 +43,7 @@
 
 #### Defined in
 
-[ecs/Component.ts:6](https://github.com/desaintvincent/mythor/blob/1d60040/packages/core/src/ecs/Component.ts#L6)
+[ecs/Component.ts:6](https://github.com/desaintvincent/mythor/blob/4a55505/packages/core/src/ecs/Component.ts#L6)
 
 ___
 
@@ -57,4 +57,4 @@ ___
 
 #### Defined in
 
-[collections/Signable.ts:2](https://github.com/desaintvincent/mythor/blob/1d60040/packages/core/src/collections/Signable.ts#L2)
+[collections/Signable.ts:2](https://github.com/desaintvincent/mythor/blob/4a55505/packages/core/src/collections/Signable.ts#L2)

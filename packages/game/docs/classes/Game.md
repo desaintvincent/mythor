@@ -37,7 +37,7 @@
 
 #### Defined in
 
-[game/src/objects/Game.ts:9](https://github.com/desaintvincent/mythor/blob/1d60040/packages/game/src/objects/Game.ts#L9)
+[objects/Game.ts:9](https://github.com/desaintvincent/mythor/blob/4a55505/packages/game/src/objects/Game.ts#L9)
 
 ## Properties
 
@@ -47,7 +47,7 @@
 
 #### Defined in
 
-[game/src/objects/Game.ts:7](https://github.com/desaintvincent/mythor/blob/1d60040/packages/game/src/objects/Game.ts#L7)
+[objects/Game.ts:7](https://github.com/desaintvincent/mythor/blob/4a55505/packages/game/src/objects/Game.ts#L7)
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 #### Defined in
 
-[game/src/objects/Game.ts:6](https://github.com/desaintvincent/mythor/blob/1d60040/packages/game/src/objects/Game.ts#L6)
+[objects/Game.ts:6](https://github.com/desaintvincent/mythor/blob/4a55505/packages/game/src/objects/Game.ts#L6)
 
 ## Accessors
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[game/src/objects/Game.ts:18](https://github.com/desaintvincent/mythor/blob/1d60040/packages/game/src/objects/Game.ts#L18)
+[objects/Game.ts:18](https://github.com/desaintvincent/mythor/blob/4a55505/packages/game/src/objects/Game.ts#L18)
 
 ## Methods
 
@@ -91,7 +91,7 @@ ___
 
 #### Defined in
 
-[game/src/objects/Game.ts:22](https://github.com/desaintvincent/mythor/blob/1d60040/packages/game/src/objects/Game.ts#L22)
+[objects/Game.ts:22](https://github.com/desaintvincent/mythor/blob/4a55505/packages/game/src/objects/Game.ts#L22)
 
 ___
 
@@ -112,7 +112,7 @@ ___
 
 #### Defined in
 
-[game/src/objects/Game.ts:28](https://github.com/desaintvincent/mythor/blob/1d60040/packages/game/src/objects/Game.ts#L28)
+[objects/Game.ts:28](https://github.com/desaintvincent/mythor/blob/4a55505/packages/game/src/objects/Game.ts#L28)
 
 ___
 
@@ -126,4 +126,4 @@ ___
 
 #### Defined in
 
-[game/src/objects/Game.ts:38](https://github.com/desaintvincent/mythor/blob/1d60040/packages/game/src/objects/Game.ts#L38)
+[objects/Game.ts:38](https://github.com/desaintvincent/mythor/blob/4a55505/packages/game/src/objects/Game.ts#L38)

@@ -2,17 +2,23 @@
   "name": "root",
   "private": true,
   "version": "0.0.0",
+  "license": "MIT",
   "workspaces": [
     "packages/*"
   ],
   "engines": {
     "node": "^16.18.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/desaintvincent/mythor.git"
+  },
   "devDependencies": {
     "@commitlint/cli": "^17.2.0",
     "@commitlint/config-conventional": "^17.2.0",
     "@types/jest": "^29.2.1",
     "@types/node": "^18.11.8",
+    "conventional-changelog-cli": "^2.2.2",
     "jest": "^29.2.2",
     "lerna": "^6.0.1",
     "ts-jest": "^29.0.3",
@@ -23,8 +29,9 @@
   "scripts": {
     "lerna": "lerna",
     "postinstall": "lerna bootstrap",
-    "publish": "learn run doc && lerna run build && lerna publish",
+    "publish": "lerna run doc && lerna run build && lerna publish --conventional-commits",
     "build": "lerna run build",
+    "doc": "lerna run doc",
     "start": "lerna run start --stream --parallel",
     "test": "jest",
     "clean": "lerna run clean && lerna clean",

@@ -1,6 +1,6 @@
 {
   "name": "@mythor/core",
-  "version": "0.0.4",
+  "version": "0.2.0",
   "description": "> TODO: description",
   "author": "thomas <destvincent@hotmail.fr>",
   "homepage": "",
@@ -25,9 +25,9 @@
     "lint": "eslint . --max-warnings 0"
   },
   "devDependencies": {
-    "@mythor/eslint-config": "*"
+    "@mythor/eslint-config": "^1.2.0"
   },
   "dependencies": {
-    "@mythor/math": "^0.0.5"
+    "@mythor/math": "^0.2.0"
   }
 }
