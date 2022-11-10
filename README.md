@@ -1,37 +1,38 @@
-# mythor <!--[![website][websiteBadge]][websiteUrl]-->
+# Mythor 
 
-<!--[![release][releaseBadge]][releaseUrl]-->
-<!--[![test][testBadge]][testUrl]-->
-<!--![release][licenseBadge]-->
+<p>
+Mythor is a typescript 2d game framework
+</p>
+<p align="center">
+    <a href="">
+      <img alt="MIT Licensed" src="https://img.shields.io/npm/l/@mythor/core.svg?style=flat" />
+    </a>
+</p>
+<hr />
 
-Game engine
 
 ## /!\ Disclaimer /!\
-This is a wip project
+This is a wip project, provided as is, mainly for myself (for now)
 
 ## Install
 ```sh
 yarn install
 ```
 
+## Examples
+[Examples](https://desaintvincent.github.io/mythor/)
+
+## Documentation
+Each Mythor library provides it's own documentation
 
 ## Run
-| command       | description           |
-|---------------|-----------------------|
-| yarn build    | build the application |
-| yarn lint     | lint                  |
-| yarn test     | run unit tests        |
+| command    | description                 |
+|------------|-----------------------------|
+| yarn build | build the application       |
+| yarn lint  | lint                        |
+| yarn test  | run unit tests              |
+| yarn start | locally run the application |
 
 ## License
 
-[MIT][mit] © [desaintvincent][author]
-
-[testUrl]: https://github.com/desaintvincent/mythor/actions?query=branch%3Amain
-[testBadge]: https://img.shields.io/github/workflow/status/desaintvincent/mythor/Tests?label=tests
-[releaseUrl]: https://github.com/desaintvincent/mythor/releases
-[websiteBadge]: https://img.shields.io/badge/website-blue
-[websiteUrl]: https://desaintvincent.github.io/mythor/
-[releaseBadge]: https://img.shields.io/github/v/release/desaintvincent/mythor
-[licenseBadge]: https://img.shields.io/github/license/desaintvincent/mythor
-[mit]: http://opensource.org/licenses/MIT
-[author]: http://github.com/desaintvincent
+<a href="http://opensource.org/licenses/MIT">MIT</a> © <a href="http://github.com/desaintvincent">desaintvincent</a>

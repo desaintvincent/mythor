@@ -1,6 +1,6 @@
 {
   "name": "@mythor/renderer",
-  "version": "0.0.0",
+  "version": "0.2.0",
   "description": "> TODO: description",
   "author": "Thomas Robert de Saint Vincent <thomas.rdsv@viaco.fr>",
   "homepage": "https://github.com/desaintvincent/mythor#readme",
@@ -24,14 +24,15 @@
   "scripts": {
     "build": "tsc",
     "start": "tsc --watch",
-    "clean": "rm -rf dist",
+    "doc": "typedoc --plugin typedoc-plugin-markdown --out docs ./src/renderer.ts",
+    "clean": "rm -rf dist docs",
     "lint": "eslint . --max-warnings 0"
   },
   "bugs": {
     "url": "https://github.com/desaintvincent/mythor/issues"
   },
   "dependencies": {
-    "@mythor/core": "^0.0.4",
-    "@mythor/math": "^0.0.5"
+    "@mythor/core": "^0.2.0",
+    "@mythor/math": "^0.2.0"
   }
 }

@@ -1,10 +1,10 @@
 {
   "name": "@mythor/math",
-  "version": "0.0.5",
+  "version": "0.2.0",
   "description": "> TODO: description",
   "author": "thomas <destvincent@hotmail.fr>",
   "homepage": "",
-  "license": "ISC",
+  "license": "MIT",
   "main": "lib/math.js",
   "typings": "lib/math.d.ts",
   "directories": {
@@ -20,7 +20,8 @@
   "scripts": {
     "build": "tsc",
     "start": "tsc --watch",
-    "clean": "rm -rf lib",
+    "doc": "typedoc --plugin typedoc-plugin-markdown --out docs ./src/math.ts",
+    "clean": "rm -rf lib docs",
     "lint": "eslint . --max-warnings 0"
   }
 }
