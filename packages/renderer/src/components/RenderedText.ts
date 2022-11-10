@@ -1,6 +1,6 @@
 import { Vec2 } from '@mythor/math'
 import Color from '../color/Color'
-import Font from '../toRename/Font'
+import Font from '../objects/Font'
 import { Component } from '@mythor/core'
 
 interface RenderTextOptions {

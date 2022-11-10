@@ -19,10 +19,16 @@
   ],
   "scripts": {
     "build": "tsc",
+    "start": "tsc --watch",
+    "clean": "rm -rf dist",
     "lint": "eslint . --max-warnings 0"
   },
   "dependencies": {
     "@mythor/core": "*",
-    "@mythor/math": "*"
+    "@mythor/events": "^0.0.0",
+    "@mythor/math": "*",
+    "@mythor/renderer": "^0.0.0",
+    "@types/stats": "^0.16.30",
+    "stats.js": "^0.17.0"
   }
 }

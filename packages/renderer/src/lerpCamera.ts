@@ -1,5 +1,5 @@
 import { lerp, Vec2 } from '@mythor/math'
-import Camera from './toRename/Camera'
+import Camera from './objects/Camera'
 
 const lerpCamera =
   (lerpAmout = 0.05) =>

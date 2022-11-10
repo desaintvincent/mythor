@@ -1,6 +1,6 @@
 import { Component, Constructor, Entity, log, throwError } from '@mythor/core'
 import Attribute, { AttributeOptions } from '../Attribute'
-import Camera, { Projection } from '../../toRename/Camera'
+import Camera, { Projection } from '../../objects/Camera'
 import createGLProgram from './helpers/createGLProgram'
 import makeVertexArray from './helpers/makeVertexArray'
 import Renderer from '../../systems/Renderer'

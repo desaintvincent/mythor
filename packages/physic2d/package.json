@@ -23,6 +23,8 @@
   },
   "scripts": {
     "build": "tsc",
+    "start": "tsc --watch",
+    "clean": "rm -rf dist",
     "lint": "eslint . --max-warnings 0"
   },
   "bugs": {

@@ -1,6 +1,6 @@
 import { Vec2 } from '@mythor/math'
 import { Component, Entity } from '@mythor/core'
-import Texture from '../toRename/Texture'
+import Texture from '../objects/Texture'
 import Color, { colorWhite } from '../color/Color'
 
 export interface BufferContent {

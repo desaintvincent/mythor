@@ -1,5 +1,5 @@
 import { loadTexture } from '../../../managers/TextureManager'
-import Font, { Glyph } from '../../../toRename/Font'
+import Font, { Glyph } from '../../../objects/Font'
 
 const generateChars = (): string => {
   const startAscii = 33 // 32 is space

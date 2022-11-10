@@ -1,0 +1,49 @@
+{
+  "name": "@mythor/examples",
+  "version": "1.0.0",
+  "description": "> TODO: description",
+  "private": true,
+  "author": "thomas <destvincent@hotmail.fr>",
+  "homepage": "https://github.com/desaintvincent/mythor#readme",
+  "license": "ISC",
+  "main": "src/examples.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/desaintvincent/mythor.git"
+  },
+  "scripts": {
+    "start": "webpack serve --open",
+    "build": "webpack",
+    "clean": "rm -rf dist",
+    "lint": "eslint . --max-warnings 0"
+  },
+  "bugs": {
+    "url": "https://github.com/desaintvincent/mythor/issues"
+  },
+  "devDependencies": {
+    "@mythor/eslint-config": "^1.0.6",
+    "css-loader": "^6.7.1",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "ts-loader": "^9.4.1",
+    "typescript": "^4.8.4",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1"
+  },
+  "dependencies": {
+    "@mythor/core": "^0.0.4",
+    "@mythor/events": "^0.0.0",
+    "@mythor/game": "^0.0.6",
+    "@mythor/math": "^0.0.5",
+    "@mythor/physic2d": "^0.0.1",
+    "@mythor/renderer": "^0.0.0",
+    "file-loader": "^6.2.0"
+  }
+}

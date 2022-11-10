@@ -1,11 +1,10 @@
-import { log } from '@mythor/core'
-import { Vec2 } from '@mythor/math'
-
-function game(): string {
-  log('patate')
-  const vec2 = Vec2.create(18)
-
-  return vec2.toString()
-}
-
-export default game
+export { default as Scene } from './objects/Scene'
+export { default as GameLoop } from './objects/GameLoop'
+export { default as Game } from './objects/Game'
+export { default as createGame } from './objects/createGame'
+export { default as CameraMovementManager } from './managers/CameraMovementManager'
+export { default as StatisticsManager } from './managers/StatisticsManager'
+export { default as PhysicDebugManager } from './managers/PhysicDebugManager'
+export { default as SelectDebugManager } from './managers/SelectDebugManager'
+export { default as RendererDebugManager } from './managers/RendererDebugManager'
+export { default as createLoadingScene } from './util/createLoadingScene'

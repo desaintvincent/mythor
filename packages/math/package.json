@@ -19,6 +19,8 @@
   ],
   "scripts": {
     "build": "tsc",
+    "start": "tsc --watch",
+    "clean": "rm -rf lib",
     "lint": "eslint . --max-warnings 0"
   }
 }

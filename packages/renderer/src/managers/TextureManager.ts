@@ -1,5 +1,5 @@
 import { LoadingStateManager, log, Manager } from '@mythor/core'
-import Texture from '../toRename/Texture'
+import Texture from '../objects/Texture'
 import Renderer from '../systems/Renderer'
 
 interface LoadTextureOptions {

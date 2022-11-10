@@ -4,4 +4,5 @@ lerna-debug.log
 yarn-error.log
 npm-debug.log
 packages/*/lib
+packages/*/dist
 .idea

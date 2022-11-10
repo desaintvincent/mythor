@@ -1,4 +1,4 @@
-#version 300 es
+export default `#version 300 es
 precision highp float;
 
 in vec2 position;
@@ -32,11 +32,12 @@ void update(float newAge, float elapsedTimeInSeconds) {
 int randIndex = 0;
 
 vec2 getRand() {
-    int seed = (gl_VertexID + randIndex++) % 512;
+    int textureSize = 512;
+    int seed = (gl_VertexID + randIndex++) % textureSize;
 
-    int oneDSeed = (gl_VertexID + int(u_time.y) + randIndex++) % (512 * 512);
-    int y = oneDSeed / 512;
-    int x = oneDSeed % 512;
+    int oneDSeed = (gl_VertexID + int(u_time.y) + randIndex++) % (textureSize * textureSize);
+    int y = oneDSeed / textureSize;
+    int x = oneDSeed % textureSize;
     ivec2 noise_coord = ivec2(x, y);
 
     return texelFetch(rgNoise, noise_coord, 0).rg;
@@ -75,3 +76,4 @@ void main() {
         reset();
     }
 }
+`
