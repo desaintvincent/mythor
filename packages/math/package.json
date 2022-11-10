@@ -24,5 +24,5 @@
     "clean": "rm -rf lib docs",
     "lint": "eslint . --max-warnings 0"
   },
-  "gitHead": "eecdc4f1438a040025ecc5838a78d886b18269da"
+  "gitHead": "5ef8ef3c4fab00cf28f36f72b3d9cf499755a7ec"
 }
