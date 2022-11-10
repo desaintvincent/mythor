@@ -1,7 +1,7 @@
 {
   "name": "@mythor/renderer",
   "version": "0.3.0",
-  "description": "> TODO: description",
+  "description": "Mythor renderer",
   "author": "Thomas Robert de Saint Vincent <thomas.rdsv@viaco.fr>",
   "homepage": "https://github.com/desaintvincent/mythor#readme",
   "license": "MIT",
