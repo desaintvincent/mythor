@@ -1,0 +1,46 @@
+/*!*********************************************************************************!*\
+  !*** css ../../node_modules/css-loader/dist/cjs.js!./src/templates/example.css ***!
+  \*********************************************************************************/
+body {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    position: relative;
+}
+
+nav {
+    width: 200px;
+    overflow-y: auto;
+    background-color: rgb(18, 18, 18);
+}
+
+#root {
+    flex: 1;
+}
+
+#canvas {
+    aspect-ratio: 2 / 1;
+    background-color: black;
+    left: 50%;
+    max-height: 100%;
+    outline: none;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+#statistics {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    left: 0;
+    position: absolute;
+    text-align: left;
+    top: 0;
+}
+
+
+#statistics div {
+    margin: 10px;
+}
+
