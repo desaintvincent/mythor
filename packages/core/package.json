@@ -1,7 +1,7 @@
 {
   "name": "@mythor/core",
   "description": "Mythor core",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "author": "thomas <destvincent@hotmail.fr>",
   "homepage": "",
   "license": "MIT",
@@ -25,10 +25,10 @@
     "lint": "eslint . --max-warnings 0"
   },
   "devDependencies": {
-    "@mythor/eslint-config": "^1.3.0"
+    "@mythor/eslint-config": "^1.3.1"
   },
   "dependencies": {
-    "@mythor/math": "^0.3.0"
+    "@mythor/math": "^0.3.1"
   },
   "gitHead": "eecdc4f1438a040025ecc5838a78d886b18269da"
 }
