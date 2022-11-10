@@ -24,7 +24,8 @@
   "scripts": {
     "build": "tsc",
     "start": "tsc --watch",
-    "clean": "rm -rf dist",
+    "doc": "typedoc --plugin typedoc-plugin-markdown --out docs ./src/renderer.ts",
+    "clean": "rm -rf dist docs",
     "lint": "eslint . --max-warnings 0"
   },
   "bugs": {

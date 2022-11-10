@@ -24,7 +24,8 @@
   "scripts": {
     "build": "tsc",
     "start": "tsc --watch",
-    "clean": "rm -rf dist",
+    "doc": "typedoc --plugin typedoc-plugin-markdown --out docs ./src/physic2d.ts",
+    "clean": "rm -rf dist docs",
     "lint": "eslint . --max-warnings 0"
   },
   "bugs": {
@@ -34,5 +35,8 @@
     "@mythor/core": "^0.0.4",
     "@mythor/math": "^0.0.5",
     "planck-js": "^0.3.31"
+  },
+  "devDependencies": {
+    "typedoc": "^0.23.20"
   }
 }

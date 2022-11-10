@@ -5,7 +5,7 @@
   "private": true,
   "author": "thomas <destvincent@hotmail.fr>",
   "homepage": "https://github.com/desaintvincent/mythor#readme",
-  "license": "ISC",
+  "license": "MIT",
   "main": "src/examples.ts",
   "directories": {
     "lib": "lib"
@@ -20,7 +20,7 @@
   "scripts": {
     "start": "webpack serve --open",
     "build": "webpack",
-    "clean": "rm -rf dist",
+    "clean": "rm -rf dist docs",
     "lint": "eslint . --max-warnings 0"
   },
   "bugs": {
