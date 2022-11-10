@@ -29,5 +29,6 @@
   },
   "dependencies": {
     "@mythor/math": "^0.3.0"
-  }
+  },
+  "gitHead": "eecdc4f1438a040025ecc5838a78d886b18269da"
 }

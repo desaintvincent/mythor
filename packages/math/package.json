@@ -23,5 +23,6 @@
     "doc": "typedoc --plugin typedoc-plugin-markdown --out docs ./src/math.ts",
     "clean": "rm -rf lib docs",
     "lint": "eslint . --max-warnings 0"
-  }
+  },
+  "gitHead": "eecdc4f1438a040025ecc5838a78d886b18269da"
 }

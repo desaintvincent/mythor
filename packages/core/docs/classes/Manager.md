@@ -44,7 +44,7 @@
 
 #### Defined in
 
-[ecs/Manager.ts:7](https://github.com/desaintvincent/mythor/blob/2f103ed/packages/core/src/ecs/Manager.ts#L7)
+[ecs/Manager.ts:7](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/core/src/ecs/Manager.ts#L7)
 
 ## Properties
 
@@ -54,7 +54,7 @@
 
 #### Defined in
 
-[ecs/Manager.ts:4](https://github.com/desaintvincent/mythor/blob/2f103ed/packages/core/src/ecs/Manager.ts#L4)
+[ecs/Manager.ts:4](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/core/src/ecs/Manager.ts#L4)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[ecs/Manager.ts:5](https://github.com/desaintvincent/mythor/blob/2f103ed/packages/core/src/ecs/Manager.ts#L5)
+[ecs/Manager.ts:5](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/core/src/ecs/Manager.ts#L5)
 
 ## Accessors
 
@@ -78,7 +78,7 @@ ___
 
 #### Defined in
 
-[ecs/Manager.ts:11](https://github.com/desaintvincent/mythor/blob/2f103ed/packages/core/src/ecs/Manager.ts#L11)
+[ecs/Manager.ts:11](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/core/src/ecs/Manager.ts#L11)
 
 ## Methods
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[ecs/Manager.ts:33](https://github.com/desaintvincent/mythor/blob/2f103ed/packages/core/src/ecs/Manager.ts#L33)
+[ecs/Manager.ts:33](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/core/src/ecs/Manager.ts#L33)
 
 ___
 
@@ -112,7 +112,7 @@ ___
 
 #### Defined in
 
-[ecs/Manager.ts:16](https://github.com/desaintvincent/mythor/blob/2f103ed/packages/core/src/ecs/Manager.ts#L16)
+[ecs/Manager.ts:16](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/core/src/ecs/Manager.ts#L16)
 
 ___
 
@@ -132,7 +132,7 @@ ___
 
 #### Defined in
 
-[ecs/Manager.ts:20](https://github.com/desaintvincent/mythor/blob/2f103ed/packages/core/src/ecs/Manager.ts#L20)
+[ecs/Manager.ts:20](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/core/src/ecs/Manager.ts#L20)
 
 ___
 
@@ -154,4 +154,4 @@ ___
 
 #### Defined in
 
-[ecs/Manager.ts:23](https://github.com/desaintvincent/mythor/blob/2f103ed/packages/core/src/ecs/Manager.ts#L23)
+[ecs/Manager.ts:23](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/core/src/ecs/Manager.ts#L23)
