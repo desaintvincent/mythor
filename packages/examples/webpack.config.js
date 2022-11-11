@@ -23,8 +23,6 @@ const examples = fs
     path: file.name,
   }))
 
-const exampleNames = examples.map((example) => example.name)
-
 const typescriptEntries = examples.reduce(
   (acc, curr) => ({
     ...acc,
@@ -96,6 +94,7 @@ module.exports = {
           filename: `${entry.path}.html`,
           chunks: ['cssGlobal', 'cssExample', entry.name],
           title: entry.name,
+          path: entry.path,
         })
     ),
   ],

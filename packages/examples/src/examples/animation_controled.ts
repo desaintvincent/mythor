@@ -25,12 +25,8 @@ enum ANIMATION {
   WALK,
 }
 
-console.log(
-  Object.entries(ANIMATION).filter(([key]) => isNaN(parseInt(key, 10)))
-)
-
 class DrawHelp extends Manager {
-  private entries: Array<[string, number]>
+  private entries: Array<[string, string | ANIMATION]>
   public constructor() {
     super('DrawGeometry')
     this.entries = Object.entries(ANIMATION).filter(([key]) =>
@@ -40,7 +36,10 @@ class DrawHelp extends Manager {
 
   public update(): void {
     this.ecs.system(Renderer).onDraw((renderer) => {
-      renderer.text(new Vec2(-350, -160), 'regular', {
+      const text = this.entries
+        .map(([animationName, key]) => `${animationName}: press ${key}`)
+        .join('\n')
+      renderer.text(new Vec2(-350, -160), text, {
         color: [0, 1, 0, 1],
       })
     })
@@ -79,9 +78,9 @@ createGame({
       new Sprite(ecs.manager(TextureManager).get('character'), {
         size: Vec2.create(1, 1).vDivide(imageSprites),
       }),
-      new Animation(0.2)
+      new Animation(0.1)
         .add(ANIMATION.IDLE, 0, 0)
-        .add(ANIMATION.CLIMB, 5, 6, { loop: false, fallBack: ANIMATION.IDLE })
+        .add(ANIMATION.CLIMB, 5, 6, { speed: 0.2 })
         .add(ANIMATION.CHEER, 7, 8, { loop: false, fallBack: ANIMATION.IDLE })
         .add(ANIMATION.SWITCH, 12, 13, {
           loop: false,

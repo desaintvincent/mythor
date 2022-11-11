@@ -13,6 +13,12 @@ nav {
 
 #root {
     flex: 1;
+    align-items: initial;
+    justify-content: initial;
+}
+
+#root a {
+    color: #fff;
 }
 
 #canvas {
@@ -25,6 +31,7 @@ nav {
     top: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
+    max-width: 1024px;
 }
 
 #statistics {
