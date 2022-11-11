@@ -6,8 +6,6 @@ const fs = require('fs')
 
 const examplesDir = path.resolve(__dirname, './src/examples/')
 
-// @todo sort by number
-
 const examples = fs
   .readdirSync(examplesDir, {
     withFileTypes: true,
@@ -84,7 +82,7 @@ module.exports = {
       template: path.resolve(__dirname, 'src/templates/index.html'),
       filename: `index.html`,
       chunks: ['cssGlobal', 'cssIndex'],
-      title: 'mythor',
+      title: 'Mythor',
     }),
     ...examples.map(
       (entry) =>
@@ -93,7 +91,7 @@ module.exports = {
           template: path.resolve(__dirname, 'src/templates/example.html'),
           filename: `${entry.path}.html`,
           chunks: ['cssGlobal', 'cssExample', entry.name],
-          title: entry.name,
+          title: `Mythor: ${entry.name}`,
           path: entry.path,
         })
     ),

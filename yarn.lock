@@ -6707,6 +6707,16 @@ planck-js@^0.3.31:
   dependencies:
     stage-js "^0.9.4"
 
+poly-decomp@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/poly-decomp/-/poly-decomp-0.3.0.tgz#aa499289bbc1a4ca2213e966587fa5bffc1ca5f5"
+  integrity sha512-hWeBxGzPYiybmI4548Fca7Up/0k1qS5+79cVHI9+H33dKya5YNb9hxl0ZnDaDgvrZSuYFBhkCK/HOnqN7gefkQ==
+
+polybooljs@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/polybooljs/-/polybooljs-1.2.0.tgz#b4390c2e079d4c262d3b2504c6288d95ba7a4758"
+  integrity sha512-mKjR5nolISvF+q2BtC1fi/llpxBPTQ3wLWN8+ldzdw2Hocpc8C72ZqnamCM4Z6z+68GVVjkeM01WJegQmZ8MEQ==
+
 postcss-modules-extract-imports@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/postcss-modules-extract-imports/-/postcss-modules-extract-imports-3.0.0.tgz#cda1f047c0ae80c97dbe28c3e76a43b88025741d"
