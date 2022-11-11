@@ -9,22 +9,28 @@ export default class Animator extends System {
 
   protected onEntityUpdate(entity: Entity, elapsedTimeInSeconds: number): void {
     const animation = entity.get(Animation)
-    if (!animation.animations[animation.currentAnimation]) {
+    if (!animation.animations.has(animation.currentAnimation)) {
+      return
+    }
+    const currentAnimation = animation.animations.get(
+      animation.currentAnimation
+    )
+
+    if (!currentAnimation) {
       return
     }
     const sprite = entity.get(Sprite)
     animation.time += elapsedTimeInSeconds
-    const { speed } = animation.animations[animation.currentAnimation]
+    const { speed, start, end, loop } = currentAnimation
     if (animation.time >= (speed || animation.animationSpeed)) {
       animation.time = 0
       animation.currentFrame++
 
-      const { start, end, loop } =
-        animation.animations[animation.currentAnimation]
-
       if (animation.currentFrame > end) {
         if (loop) {
           animation.currentFrame = start
+        } else if (currentAnimation.fallBack !== null) {
+          animation.run(currentAnimation.fallBack)
         } else {
           animation.finished = true
           animation.currentFrame--

@@ -17,6 +17,7 @@ const examples = fs
   .map((file) => ({
     name: file.name
       .replace(/\.[^/.]+$/, '')
+      .replace(/_/g, ' ')
       .split('--')
       .pop(),
     path: file.name,
@@ -81,7 +82,7 @@ module.exports = {
   plugins: [
     new miniCssExtractPlugin(),
     new htmlWebpackPlugin({
-      exampleNames,
+      examples,
       template: path.resolve(__dirname, 'src/templates/index.html'),
       filename: `index.html`,
       chunks: ['cssGlobal', 'cssIndex'],
@@ -90,9 +91,9 @@ module.exports = {
     ...examples.map(
       (entry) =>
         new htmlWebpackPlugin({
-          exampleNames,
+          examples,
           template: path.resolve(__dirname, 'src/templates/example.html'),
-          filename: `${entry.name}.html`,
+          filename: `${entry.path}.html`,
           chunks: ['cssGlobal', 'cssExample', entry.name],
           title: entry.name,
         })

@@ -20,8 +20,8 @@
 <nav>
     <ul class="list">
         <li class="item"><a class="link" href="./">Home</a></li>
-        <% for (var entry of htmlWebpackPlugin.options.exampleNames) { %>
-        <li class="item"><a class="link" href="./<%= [entry]%>.html"><%= [entry]%></a></li>
+        <% for (var entry of htmlWebpackPlugin.options.examples) { %>
+        <li class="item"><a class="link" href="./<%= [entry.path]%>.html"><%= [entry.name]%></a></li>
         <% } %>
     </ul>
 </nav>

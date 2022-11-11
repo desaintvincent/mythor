@@ -1,3 +1,5 @@
+// @todo fix cubicBezier
+
 export default `#version 300 es
 in vec2 vertex;
 in vec4 position;
@@ -12,7 +14,7 @@ uniform vec4 u_startColor;
 uniform vec4 u_endColor;
 uniform vec4 u_minMaxSize;
 
-uniform vec4[2] u_bezier;
+// uniform vec4[2] u_bezier;
 
 out vec4 v_color;
 out vec2 v_texcoord;
@@ -22,7 +24,6 @@ out vec2 v_texture_size;
 
 /*
 start bezier
-*/
 
 float curveAA(float t, float x1, float x2) {
     float v = 1.0 - t;
@@ -86,7 +87,6 @@ float cubicBezier(float x1, float y1, float x2, float y2, float epsilon, float t
     return curveAA(t2, y1, y2);
 }
 
-/*
 end bezier
 */
 
@@ -114,10 +114,10 @@ float minMax(float value) {
 
 void main() {
     float t = minMax(ageAndLifetime.x / ageAndLifetime.y);
-    vec4 sizeCubic = u_bezier[1];
-    vec4 colorCubic = u_bezier[0];
-    float sizePercentage = minMax(cubicBezier(sizeCubic[0], sizeCubic[1], sizeCubic[2], sizeCubic[3], 0.01, t));
-    float colorPercentage = minMax(cubicBezier(colorCubic[0], colorCubic[1], colorCubic[2], colorCubic[3], 0.01, t));
+    // vec4 sizeCubic = u_bezier[1];
+    // vec4 colorCubic = u_bezier[0];
+    float sizePercentage = t; // minMax(cubicBezier(sizeCubic[0], sizeCubic[1], sizeCubic[2], sizeCubic[3], 0.01, t));
+    float colorPercentage = t; // minMax(cubicBezier(colorCubic[0], colorCubic[1], colorCubic[2], colorCubic[3], 0.01, t));
 
     float phi = torqueAndRotation.y;
 
