@@ -8,7 +8,10 @@ export { default as Ecs } from './ecs/Ecs'
 export { default as Manager } from './ecs/Manager'
 export { default as Owner } from './components/Owner'
 export { default as Transform } from './components/Transform'
-export { default as LoadingStateManager } from './managers/LoadingStateManager'
+export {
+  default as LoadingStateManager,
+  LoadingState,
+} from './managers/LoadingStateManager'
 export { default as IList } from './lists/IList'
 export { default as List, ArrayListOptions } from './lists/List'
 export {

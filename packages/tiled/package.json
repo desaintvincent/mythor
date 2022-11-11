@@ -1,0 +1,37 @@
+{
+  "name": "@mythor/tiled",
+  "version": "0.3.1",
+  "description": "Mythor tiled library",
+  "author": "thomas <destvincent@hotmail.fr>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "lib/tiled.js",
+  "typings": "lib/tiled.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc --watch",
+    "doc": "typedoc --plugin typedoc-plugin-markdown --out docs ./src/tiled.ts",
+    "clean": "rm -rf lib docs",
+    "lint": "eslint . --max-warnings 0"
+  },
+  "gitHead": "5ef8ef3c4fab00cf28f36f72b3d9cf499755a7ec",
+  "dependencies": {
+    "@mythor/core": "^0.3.1",
+    "@mythor/math": "^0.3.1",
+    "@mythor/physic2d": "^0.3.1",
+    "@mythor/renderer": "^0.3.1",
+    "ajv": "^8.11.0",
+    "poly-decomp": "^0.3.0",
+    "polybooljs": "^1.2.0"
+  }
+}
