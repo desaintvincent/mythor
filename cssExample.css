@@ -44,6 +44,7 @@ nav {
     position: absolute;
     text-align: left;
     top: 0;
+    z-index: 1;
 }
 
 
