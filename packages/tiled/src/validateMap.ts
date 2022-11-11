@@ -134,6 +134,7 @@ const tileSchema: JSONSchemaType<Tile> = {
   properties: {
     id: { type: 'number' },
     image: { nullable: true, type: 'string' },
+    name: { nullable: true, type: 'string' },
     objectgroup: {
       nullable: true,
       properties: {
