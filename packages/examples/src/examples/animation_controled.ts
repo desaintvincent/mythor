@@ -8,42 +8,12 @@ import {
   TextureManager,
   Animation,
 } from '@mythor/renderer'
-import { Entity, System, Transform } from '@mythor/core'
+import { Entity, Manager, System, Transform } from '@mythor/core'
 import { Vec2 } from '@mythor/math'
 import character from '../assets/character_malePerson_sheet.png'
 
 const imageSprites = Vec2.create(9, 5)
 const spriteSize = Vec2.create(96, 128)
-
-const aa = [
-  { name: 'idle', x: 0, y: 0 },
-  { name: 'climb', x: 480, y: 0 },
-  { name: 'climb', x: 576, y: 0 },
-  { name: 'cheer', x: 672, y: 0 },
-  { name: 'cheer', x: 768, y: 0 },
-  { name: 'switch', x: 288, y: 128 },
-  { name: 'switch', x: 384, y: 128 },
-  { name: 'run', x: 576, y: 256 },
-  { name: 'run', x: 672, y: 256 },
-  { name: 'run', x: 768, y: 256 },
-  { name: 'attack', x: 0, y: 384 },
-  { name: 'attack', x: 96, y: 384 },
-  { name: 'attack', x: 192, y: 384 },
-  { name: 'walk', x: 0, y: 512 },
-  { name: 'walk', x: 96, y: 512 },
-  { name: 'walk', x: 192, y: 512 },
-  { name: 'walk', x: 288, y: 512 },
-  { name: 'walk', x: 384, y: 512 },
-  { name: 'walk', x: 480, y: 512 },
-  { name: 'walk', x: 576, y: 512 },
-  { name: 'walk', x: 672, y: 512 },
-]
-
-aa.forEach((a) => {
-  const x = a.x / 96
-  const y = a.y / 128
-  console.log('name', a.name, x, y, y * imageSprites.x + x)
-})
 
 enum ANIMATION {
   IDLE,
@@ -53,6 +23,28 @@ enum ANIMATION {
   RUN,
   ATTACK,
   WALK,
+}
+
+console.log(
+  Object.entries(ANIMATION).filter(([key]) => isNaN(parseInt(key, 10)))
+)
+
+class DrawHelp extends Manager {
+  private entries: Array<[string, number]>
+  public constructor() {
+    super('DrawGeometry')
+    this.entries = Object.entries(ANIMATION).filter(([key]) =>
+      isNaN(parseInt(key, 10))
+    )
+  }
+
+  public update(): void {
+    this.ecs.system(Renderer).onDraw((renderer) => {
+      renderer.text(new Vec2(-350, -160), 'regular', {
+        color: [0, 1, 0, 1],
+      })
+    })
+  }
 }
 
 class ControlAnimations extends System {
@@ -66,7 +58,6 @@ class ControlAnimations extends System {
 
     Object.values(ANIMATION).forEach((animationValue) => {
       if (events.keyPressed(Key[`Digit${animationValue}`])) {
-        console.log('run animation', animationValue)
         animation.run(animationValue, true)
       }
     })
@@ -77,6 +68,7 @@ createGame({
   managers: [
     new EventsManager(),
     new TextureManager([['character', character]]),
+    new DrawHelp(),
   ],
   onInit: async (ecs) => {
     ecs.create().add(
