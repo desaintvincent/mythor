@@ -1,6 +1,6 @@
 {
   "name": "@mythor/examples",
-  "version": "1.3.1",
+  "version": "1.4.0",
   "description": "> TODO: description",
   "private": true,
   "author": "thomas <destvincent@hotmail.fr>",
@@ -27,7 +27,7 @@
     "url": "https://github.com/desaintvincent/mythor/issues"
   },
   "devDependencies": {
-    "@mythor/eslint-config": "^1.3.1",
+    "@mythor/eslint-config": "^1.3.2",
     "css-loader": "^6.7.1",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.1",
@@ -38,12 +38,12 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
-    "@mythor/core": "^0.3.1",
-    "@mythor/events": "^0.3.1",
-    "@mythor/game": "^0.3.1",
-    "@mythor/math": "^0.3.1",
-    "@mythor/physic2d": "^0.3.1",
-    "@mythor/renderer": "^0.3.1",
+    "@mythor/core": "^0.4.0",
+    "@mythor/events": "^0.3.2",
+    "@mythor/game": "^0.3.2",
+    "@mythor/math": "^0.3.2",
+    "@mythor/physic2d": "^0.3.2",
+    "@mythor/renderer": "^0.4.0",
     "file-loader": "^6.2.0"
   }
 }

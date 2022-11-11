@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/desaintvincent/mythor/compare/@mythor/core@0.3.1...@mythor/core@0.4.0) (2022-11-11)
+
+### Features
+
+- **tiled:** introduce tiled ([3ec9a81](https://github.com/desaintvincent/mythor/commit/3ec9a817c0f7a8a2c112add6a01c279e7ca3a565))
+
 ## [0.3.1](https://github.com/desaintvincent/mythor/compare/@mythor/core@0.3.0...@mythor/core@0.3.1) (2022-11-10)
 
 **Note:** Version bump only for package @mythor/core

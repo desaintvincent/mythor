@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/desaintvincent/mythor/compare/@mythor/renderer@0.3.1...@mythor/renderer@0.4.0) (2022-11-11)
+
+### Features
+
+- **renderer:** add fallback to animation ([5d52318](https://github.com/desaintvincent/mythor/commit/5d523183e69dfbe104cb1683bb306d6cb6b8cbf6))
+
 ## [0.3.1](https://github.com/desaintvincent/mythor/compare/@mythor/renderer@0.3.0...@mythor/renderer@0.3.1) (2022-11-10)
 
 **Note:** Version bump only for package @mythor/renderer
