@@ -10,7 +10,7 @@ import {
 } from '@mythor/renderer'
 import ParticleEmitter from '@mythor/renderer/lib/components/ParticleEmitter'
 import cat from '../assets/cat'
-import plume from '../assets/plume.png'
+import star from '../assets/star_07.png'
 
 class Player extends Component {}
 
@@ -37,12 +37,12 @@ class SpawnParticles extends Manager {
             max: Math.PI,
             min: -Math.PI,
           },
-          size: Vec2.create(12, 20),
+          size: Vec2.create(30, 30),
           speed: {
             max: 150,
             min: 100,
           },
-          texture: textures.get('plume'),
+          texture: textures.get('star'),
           torque: {
             max: 10,
             min: -10,
@@ -50,7 +50,7 @@ class SpawnParticles extends Manager {
         }),
         new Transform({
           position: events.mousePosition(),
-          size: Vec2.create(12, 20),
+          size: Vec2.create(30, 30),
         })
       )
     }
@@ -93,7 +93,7 @@ createGame({
   managers: [
     new SpawnParticles(),
     new TextureManager([
-      ['plume', plume],
+      ['star', star],
       ['cat', cat],
     ]),
   ],

@@ -20,14 +20,20 @@
 <nav>
     <ul class="list">
         <li class="item"><a class="link" href="./">Home</a></li>
-        <% for (var entry of htmlWebpackPlugin.options.exampleNames) { %>
-        <li class="item"><a class="link" href="./<%= [entry]%>.html"><%= [entry]%></a></li>
+        <% for (var entry of htmlWebpackPlugin.options.examples) { %>
+        <% if (htmlWebpackPlugin.options.title === entry.name) { %>
+            <li class="item"><a class="link active" href="./<%= [entry.path]%>.html"><%= [entry.name]%></a></li>
+        <% } else { %>
+            <li class="item"><a class="link" href="./<%= [entry.path]%>.html"><%= [entry.name]%></a></li>
+        <% } %>
         <% } %>
     </ul>
 </nav>
 <div id="root">
-    <canvas id="canvas" width="1024" height="512"></canvas>
     <div id="statistics"></div>
+    <div><a target="_blank" href="https://github.com/desaintvincent/mythor/blob/main/packages/examples/src/examples/<%= htmlWebpackPlugin.options.path %>">Source</a></div>
+    <div>Assets by <a target="_blank" href="https://www.kenney.nl/">kenney</a></div>
+    <canvas id="canvas" width="1024" height="512"></canvas>
 </div>
 
 <% if (htmlWebpackPlugin.options.appMountId) { %>

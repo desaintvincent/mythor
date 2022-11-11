@@ -81,7 +81,7 @@ class ParticlesRender extends Shader {
         'u_endColor',
         'u_texture',
         'u_minMaxSize',
-        'u_bezier',
+        // 'u_bezier',
       ],
     })
   }
@@ -154,10 +154,10 @@ class ParticlesRender extends Shader {
       UniformType.FV_4,
       particleEmitter.minMaxSize
     )
-    this.setUniform('u_bezier', UniformType.FV_8, [
-      ...particleEmitter.colorTimingBezier,
-      ...particleEmitter.sizeTimingBezier,
-    ])
+    // this.setUniform('u_bezier', UniformType.FV_8, [
+    //   ...particleEmitter.colorTimingBezier,
+    //   ...particleEmitter.sizeTimingBezier,
+    // ])
     this.gl.drawArraysInstanced(this.gl.TRIANGLES, 0, 6, totalNumber)
   }
 }
