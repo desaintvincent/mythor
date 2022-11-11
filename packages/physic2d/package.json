@@ -1,6 +1,6 @@
 {
   "name": "@mythor/physic2d",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Mythor physics",
   "author": "thomas <destvincent@hotmail.fr>",
   "homepage": "https://github.com/desaintvincent/mythor#readme",
@@ -32,12 +32,12 @@
     "url": "https://github.com/desaintvincent/mythor/issues"
   },
   "dependencies": {
-    "@mythor/core": "^0.3.1",
-    "@mythor/math": "^0.3.1",
+    "@mythor/core": "^0.4.0",
+    "@mythor/math": "^0.3.2",
     "planck-js": "^0.3.31"
   },
   "devDependencies": {
     "typedoc": "^0.23.20"
   },
-  "gitHead": "5ef8ef3c4fab00cf28f36f72b3d9cf499755a7ec"
+  "gitHead": "4773ef4d50c9a9e9bb4d84dcca5d24310f13433f"
 }
