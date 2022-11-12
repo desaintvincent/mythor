@@ -27,4 +27,4 @@ jobs:
         run: |
           git config --global user.email "ci@example.com"
           git config --global user.name "@$GITHUB_ACTOR"
-      - run: lerna ci
+      - run: yarn ci
