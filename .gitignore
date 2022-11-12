@@ -6,3 +6,4 @@ npm-debug.log
 packages/*/lib
 packages/*/dist
 .idea
+.npmrc

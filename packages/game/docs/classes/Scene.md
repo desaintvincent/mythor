@@ -38,7 +38,7 @@
 
 #### Defined in
 
-[objects/Scene.ts:16](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/game/src/objects/Scene.ts#L16)
+[objects/Scene.ts:16](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/game/src/objects/Scene.ts#L16)
 
 ## Properties
 
@@ -48,7 +48,7 @@
 
 #### Defined in
 
-[objects/Scene.ts:12](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/game/src/objects/Scene.ts#L12)
+[objects/Scene.ts:12](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/game/src/objects/Scene.ts#L12)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[objects/Scene.ts:13](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/game/src/objects/Scene.ts#L13)
+[objects/Scene.ts:13](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/game/src/objects/Scene.ts#L13)
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 #### Defined in
 
-[objects/Scene.ts:14](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/game/src/objects/Scene.ts#L14)
+[objects/Scene.ts:14](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/game/src/objects/Scene.ts#L14)
 
 ___
 
@@ -78,7 +78,7 @@ ___
 
 #### Defined in
 
-[objects/Scene.ts:11](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/game/src/objects/Scene.ts#L11)
+[objects/Scene.ts:11](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/game/src/objects/Scene.ts#L11)
 
 ## Methods
 
@@ -98,7 +98,7 @@ ___
 
 #### Defined in
 
-[objects/Scene.ts:40](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/game/src/objects/Scene.ts#L40)
+[objects/Scene.ts:40](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/game/src/objects/Scene.ts#L40)
 
 ___
 
@@ -112,7 +112,7 @@ ___
 
 #### Defined in
 
-[objects/Scene.ts:25](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/game/src/objects/Scene.ts#L25)
+[objects/Scene.ts:25](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/game/src/objects/Scene.ts#L25)
 
 ___
 
@@ -126,7 +126,7 @@ ___
 
 #### Defined in
 
-[objects/Scene.ts:56](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/game/src/objects/Scene.ts#L56)
+[objects/Scene.ts:56](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/game/src/objects/Scene.ts#L56)
 
 ___
 
@@ -140,7 +140,7 @@ ___
 
 #### Defined in
 
-[objects/Scene.ts:60](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/game/src/objects/Scene.ts#L60)
+[objects/Scene.ts:60](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/game/src/objects/Scene.ts#L60)
 
 ___
 
@@ -161,4 +161,4 @@ ___
 
 #### Defined in
 
-[objects/Scene.ts:29](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/game/src/objects/Scene.ts#L29)
+[objects/Scene.ts:29](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/game/src/objects/Scene.ts#L29)

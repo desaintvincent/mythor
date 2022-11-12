@@ -33,7 +33,7 @@
 
 #### Defined in
 
-[objects/createGame.ts:70](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/game/src/objects/createGame.ts#L70)
+[objects/createGame.ts:70](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/game/src/objects/createGame.ts#L70)
 
 ___
 
@@ -47,4 +47,4 @@ ___
 
 #### Defined in
 
-[util/createLoadingScene.ts:110](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/game/src/util/createLoadingScene.ts#L110)
+[util/createLoadingScene.ts:110](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/game/src/util/createLoadingScene.ts#L110)

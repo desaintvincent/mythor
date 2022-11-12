@@ -1,6 +1,12 @@
 [@mythor/renderer](../README.md) / [Exports](../modules.md) / Animation
 
-# Class: Animation
+# Class: Animation<AnimationId\>
+
+## Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `AnimationId` | extends `string` \| `number` = `string` \| `number` |
 
 ## Hierarchy
 
@@ -36,7 +42,13 @@
 
 ### constructor
 
-• **new Animation**(`animationSpeedInSeconds?`)
+• **new Animation**<`AnimationId`\>(`animationSpeedInSeconds?`)
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `AnimationId` | extends `string` \| `number` = `string` \| `number` |
 
 #### Parameters
 
@@ -50,7 +62,7 @@ Component.constructor
 
 #### Defined in
 
-[renderer/src/components/Animation.ts:26](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/renderer/src/components/Animation.ts#L26)
+[renderer/src/components/Animation.ts:28](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/renderer/src/components/Animation.ts#L28)
 
 ## Properties
 
@@ -74,27 +86,27 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Animation.ts:23](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/renderer/src/components/Animation.ts#L23)
+[renderer/src/components/Animation.ts:25](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/renderer/src/components/Animation.ts#L25)
 
 ___
 
 ### animations
 
-• **animations**: `Record`<`string`, `AnimationDefinition`\>
+• **animations**: `Map`<`AnimationId`, `AnimationDefinition`\>
 
 #### Defined in
 
-[renderer/src/components/Animation.ts:22](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/renderer/src/components/Animation.ts#L22)
+[renderer/src/components/Animation.ts:24](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/renderer/src/components/Animation.ts#L24)
 
 ___
 
 ### currentAnimation
 
-• **currentAnimation**: `string`
+• **currentAnimation**: `AnimationId`
 
 #### Defined in
 
-[renderer/src/components/Animation.ts:20](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/renderer/src/components/Animation.ts#L20)
+[renderer/src/components/Animation.ts:22](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/renderer/src/components/Animation.ts#L22)
 
 ___
 
@@ -104,7 +116,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Animation.ts:18](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/renderer/src/components/Animation.ts#L18)
+[renderer/src/components/Animation.ts:20](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/renderer/src/components/Animation.ts#L20)
 
 ___
 
@@ -114,17 +126,17 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Animation.ts:24](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/renderer/src/components/Animation.ts#L24)
+[renderer/src/components/Animation.ts:26](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/renderer/src/components/Animation.ts#L26)
 
 ___
 
 ### previousAnimation
 
-• **previousAnimation**: `string`
+• **previousAnimation**: `AnimationId`
 
 #### Defined in
 
-[renderer/src/components/Animation.ts:21](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/renderer/src/components/Animation.ts#L21)
+[renderer/src/components/Animation.ts:23](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/renderer/src/components/Animation.ts#L23)
 
 ___
 
@@ -134,7 +146,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Animation.ts:19](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/renderer/src/components/Animation.ts#L19)
+[renderer/src/components/Animation.ts:21](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/renderer/src/components/Animation.ts#L21)
 
 ___
 
@@ -154,45 +166,45 @@ core/lib/collections/Signable.d.ts:2
 
 ### add
 
-▸ **add**(`name`, `start`, `end`, `params?`): [`Animation`](Animation.md)
+▸ **add**(`name`, `start`, `end`, `params?`): [`Animation`](Animation.md)<`string` \| `number`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `name` | `string` |
+| `name` | `AnimationId` |
 | `start` | `number` |
 | `end` | `number` |
 | `params?` | `AddParams` |
 
 #### Returns
 
-[`Animation`](Animation.md)
+[`Animation`](Animation.md)<`string` \| `number`\>
 
 #### Defined in
 
-[renderer/src/components/Animation.ts:41](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/renderer/src/components/Animation.ts#L41)
+[renderer/src/components/Animation.ts:43](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/renderer/src/components/Animation.ts#L43)
 
 ___
 
 ### run
 
-▸ **run**(`name`, `reset?`): [`Animation`](Animation.md)
+▸ **run**(`name`, `reset?`): [`Animation`](Animation.md)<`string` \| `number`\>
 
 #### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `name` | `string` | `undefined` |
+| `name` | `AnimationId` | `undefined` |
 | `reset` | `boolean` | `false` |
 
 #### Returns
 
-[`Animation`](Animation.md)
+[`Animation`](Animation.md)<`string` \| `number`\>
 
 #### Defined in
 
-[renderer/src/components/Animation.ts:60](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/renderer/src/components/Animation.ts#L60)
+[renderer/src/components/Animation.ts:63](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/renderer/src/components/Animation.ts#L63)
 
 ___
 
@@ -204,7 +216,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `name` | `string` |
+| `name` | `AnimationId` |
 
 #### Returns
 
@@ -212,4 +224,4 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Animation.ts:37](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/renderer/src/components/Animation.ts#L37)
+[renderer/src/components/Animation.ts:39](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/renderer/src/components/Animation.ts#L39)

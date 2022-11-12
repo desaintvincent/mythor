@@ -23,7 +23,7 @@
 
 #### Defined in
 
-[renderer/src/components/ParticleEmitter.ts:28](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/renderer/src/components/ParticleEmitter.ts#L28)
+[renderer/src/components/ParticleEmitter.ts:28](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/renderer/src/components/ParticleEmitter.ts#L28)
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/ParticleEmitter.ts:29](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/renderer/src/components/ParticleEmitter.ts#L29)
+[renderer/src/components/ParticleEmitter.ts:29](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/renderer/src/components/ParticleEmitter.ts#L29)
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/ParticleEmitter.ts:30](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/renderer/src/components/ParticleEmitter.ts#L30)
+[renderer/src/components/ParticleEmitter.ts:30](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/renderer/src/components/ParticleEmitter.ts#L30)
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/ParticleEmitter.ts:31](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/renderer/src/components/ParticleEmitter.ts#L31)
+[renderer/src/components/ParticleEmitter.ts:31](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/renderer/src/components/ParticleEmitter.ts#L31)
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/ParticleEmitter.ts:27](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/renderer/src/components/ParticleEmitter.ts#L27)
+[renderer/src/components/ParticleEmitter.ts:27](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/renderer/src/components/ParticleEmitter.ts#L27)
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/ParticleEmitter.ts:32](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/renderer/src/components/ParticleEmitter.ts#L32)
+[renderer/src/components/ParticleEmitter.ts:32](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/renderer/src/components/ParticleEmitter.ts#L32)
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/ParticleEmitter.ts:34](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/renderer/src/components/ParticleEmitter.ts#L34)
+[renderer/src/components/ParticleEmitter.ts:34](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/renderer/src/components/ParticleEmitter.ts#L34)
 
 ___
 
@@ -93,4 +93,4 @@ ___
 
 #### Defined in
 
-[renderer/src/components/ParticleEmitter.ts:33](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/renderer/src/components/ParticleEmitter.ts#L33)
+[renderer/src/components/ParticleEmitter.ts:33](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/renderer/src/components/ParticleEmitter.ts#L33)
