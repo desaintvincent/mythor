@@ -27,4 +27,4 @@ jobs:
         run: |
           git config --global user.email "ci@example.com"
           git config --global user.name "@$GITHUB_ACTOR"
-      - run: npx lerna publish from-git --conventional-commits --yes
+      - run: lerna ci

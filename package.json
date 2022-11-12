@@ -29,7 +29,7 @@
   "scripts": {
     "lerna": "lerna",
     "postinstall": "lerna bootstrap",
-    "publish": "lerna run build && lerna publish --conventional-commits",
+    "ci": "lerna run build && lerna publish from-git --conventional-commits --yes",
     "postpublish": "lerna run doc",
     "build": "lerna run build",
     "doc": "lerna run doc",
