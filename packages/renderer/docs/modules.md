@@ -12,6 +12,7 @@
 
 - [Animation](classes/Animation.md)
 - [Animator](classes/Animator.md)
+- [Camera](classes/Camera.md)
 - [FillRect](classes/FillRect.md)
 - [ParticleEmitter](classes/ParticleEmitter.md)
 - [QuadTree](classes/QuadTree.md)
@@ -47,7 +48,7 @@
 
 #### Defined in
 
-[renderer/src/color/Color.ts:1](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/renderer/src/color/Color.ts#L1)
+[renderer/src/color/Color.ts:1](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/renderer/src/color/Color.ts#L1)
 
 ## Variables
 
@@ -57,7 +58,7 @@
 
 #### Defined in
 
-[renderer/src/color/Color.ts:4](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/renderer/src/color/Color.ts#L4)
+[renderer/src/color/Color.ts:4](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/renderer/src/color/Color.ts#L4)
 
 ___
 
@@ -67,7 +68,7 @@ ___
 
 #### Defined in
 
-[renderer/src/color/Color.ts:7](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/renderer/src/color/Color.ts#L7)
+[renderer/src/color/Color.ts:7](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/renderer/src/color/Color.ts#L7)
 
 ___
 
@@ -77,7 +78,7 @@ ___
 
 #### Defined in
 
-[renderer/src/color/Color.ts:6](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/renderer/src/color/Color.ts#L6)
+[renderer/src/color/Color.ts:6](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/renderer/src/color/Color.ts#L6)
 
 ___
 
@@ -87,7 +88,7 @@ ___
 
 #### Defined in
 
-[renderer/src/color/Color.ts:5](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/renderer/src/color/Color.ts#L5)
+[renderer/src/color/Color.ts:5](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/renderer/src/color/Color.ts#L5)
 
 ___
 
@@ -97,13 +98,13 @@ ___
 
 #### Defined in
 
-[renderer/src/color/Color.ts:3](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/renderer/src/color/Color.ts#L3)
+[renderer/src/color/Color.ts:3](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/renderer/src/color/Color.ts#L3)
 
 ## Functions
 
 ### lerpCamera
 
-▸ **lerpCamera**(`lerpAmout?`): (`target`: `default`, `currentPosition`: `default`, `elapsedTimeInSeconds`: `number`, `camera`: `default`) => `default`
+▸ **lerpCamera**(`lerpAmout?`): (`target`: `default`, `currentPosition`: `default`, `elapsedTimeInSeconds`: `number`, `camera`: [`Camera`](classes/Camera.md)) => `default`
 
 #### Parameters
 
@@ -124,7 +125,7 @@ ___
 | `target` | `default` |
 | `currentPosition` | `default` |
 | `elapsedTimeInSeconds` | `number` |
-| `camera` | `default` |
+| `camera` | [`Camera`](classes/Camera.md) |
 
 ##### Returns
 
@@ -132,4 +133,4 @@ ___
 
 #### Defined in
 
-[renderer/src/lerpCamera.ts:5](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/renderer/src/lerpCamera.ts#L5)
+[renderer/src/lerpCamera.ts:5](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/renderer/src/lerpCamera.ts#L5)

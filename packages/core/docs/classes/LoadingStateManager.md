@@ -46,7 +46,7 @@
 
 #### Defined in
 
-[managers/LoadingStateManager.ts:14](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/core/src/managers/LoadingStateManager.ts#L14)
+[managers/LoadingStateManager.ts:14](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/core/src/managers/LoadingStateManager.ts#L14)
 
 ## Properties
 
@@ -60,17 +60,17 @@
 
 #### Defined in
 
-[ecs/Manager.ts:5](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/core/src/ecs/Manager.ts#L5)
+[ecs/Manager.ts:5](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/core/src/ecs/Manager.ts#L5)
 
 ___
 
 ### loadingStates
 
-• `Private` `Readonly` **loadingStates**: `Map`<`string`, `LoadingState`\>
+• `Private` `Readonly` **loadingStates**: `Map`<`string`, [`LoadingState`](../interfaces/LoadingState.md)\>
 
 #### Defined in
 
-[managers/LoadingStateManager.ts:12](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/core/src/managers/LoadingStateManager.ts#L12)
+[managers/LoadingStateManager.ts:12](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/core/src/managers/LoadingStateManager.ts#L12)
 
 ## Accessors
 
@@ -88,7 +88,7 @@ Manager.name
 
 #### Defined in
 
-[ecs/Manager.ts:11](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/core/src/ecs/Manager.ts#L11)
+[ecs/Manager.ts:11](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/core/src/ecs/Manager.ts#L11)
 
 ## Methods
 
@@ -106,27 +106,27 @@ Manager.name
 
 #### Defined in
 
-[ecs/Manager.ts:33](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/core/src/ecs/Manager.ts#L33)
+[ecs/Manager.ts:33](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/core/src/ecs/Manager.ts#L33)
 
 ___
 
 ### createState
 
-▸ **createState**(`state`): `LoadingState`
+▸ **createState**(`state`): [`LoadingState`](../interfaces/LoadingState.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `state` | `Partial`<`LoadingState`\> & { `name`: `string`  } |
+| `state` | `Partial`<[`LoadingState`](../interfaces/LoadingState.md)\> & { `name`: `string`  } |
 
 #### Returns
 
-`LoadingState`
+[`LoadingState`](../interfaces/LoadingState.md)
 
 #### Defined in
 
-[managers/LoadingStateManager.ts:19](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/core/src/managers/LoadingStateManager.ts#L19)
+[managers/LoadingStateManager.ts:19](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/core/src/managers/LoadingStateManager.ts#L19)
 
 ___
 
@@ -140,7 +140,7 @@ ___
 
 #### Defined in
 
-[managers/LoadingStateManager.ts:60](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/core/src/managers/LoadingStateManager.ts#L60)
+[managers/LoadingStateManager.ts:60](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/core/src/managers/LoadingStateManager.ts#L60)
 
 ___
 
@@ -154,13 +154,13 @@ ___
 
 #### Defined in
 
-[managers/LoadingStateManager.ts:39](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/core/src/managers/LoadingStateManager.ts#L39)
+[managers/LoadingStateManager.ts:39](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/core/src/managers/LoadingStateManager.ts#L39)
 
 ___
 
 ### getState
 
-▸ **getState**(`stateName`): `LoadingState`
+▸ **getState**(`stateName`): [`LoadingState`](../interfaces/LoadingState.md)
 
 #### Parameters
 
@@ -170,11 +170,11 @@ ___
 
 #### Returns
 
-`LoadingState`
+[`LoadingState`](../interfaces/LoadingState.md)
 
 #### Defined in
 
-[managers/LoadingStateManager.ts:35](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/core/src/managers/LoadingStateManager.ts#L35)
+[managers/LoadingStateManager.ts:35](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/core/src/managers/LoadingStateManager.ts#L35)
 
 ___
 
@@ -198,7 +198,7 @@ ___
 
 #### Defined in
 
-[ecs/Manager.ts:16](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/core/src/ecs/Manager.ts#L16)
+[ecs/Manager.ts:16](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/core/src/ecs/Manager.ts#L16)
 
 ___
 
@@ -222,7 +222,7 @@ ___
 
 #### Defined in
 
-[ecs/Manager.ts:20](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/core/src/ecs/Manager.ts#L20)
+[ecs/Manager.ts:20](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/core/src/ecs/Manager.ts#L20)
 
 ___
 
@@ -248,4 +248,4 @@ ___
 
 #### Defined in
 
-[ecs/Manager.ts:23](https://github.com/desaintvincent/mythor/blob/eecdc4f/packages/core/src/ecs/Manager.ts#L23)
+[ecs/Manager.ts:23](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/core/src/ecs/Manager.ts#L23)

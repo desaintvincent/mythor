@@ -3,5 +3,10 @@
   "useWorkspaces": true,
   "version": "independent",
   "npmClient": "yarn",
-  "ignoreChanges": ["**/docs/**", "**/*.md"]
+  "ignoreChanges": ["**/docs/**", "**/*.md"],
+  "command": {
+    "version": {
+      "message": "chore(release): publish %s"
+    }
+  }
 }
