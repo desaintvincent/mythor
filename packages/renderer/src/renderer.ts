@@ -11,6 +11,7 @@ export { default as RenderedText } from './components/RenderedText'
 export { default as Sprite } from './components/Sprite'
 export { default as Animation } from './components/Animation'
 export { default as lerpCamera } from './lerpCamera'
+export { default as Camera } from './objects/Camera'
 export {
   default as ParticleEmitter,
   TimingFunction,

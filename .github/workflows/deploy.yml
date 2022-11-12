@@ -1,0 +1,30 @@
+name: lerna publish
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+
+jobs:
+  publish:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    env:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          fetch-depth: 0
+          node-version: '16.18'
+
+      - name: Install
+        run: yarn install
+
+      - name: Configure Git User
+        run: |
+          git config --global user.email "ci@example.com"
+          git config --global user.name "@$GITHUB_ACTOR"
+      - run: npx lerna publish from-git --conventional-commits --yes
