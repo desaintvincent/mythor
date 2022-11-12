@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.4.1 (2022-11-12)
+
+### Bug Fixes
+
+- **root:** do not publish from git ([92b9203](https://github.com/desaintvincent/mythor/commit/92b920302e85ccf1d91dcabf2351ed5c4d92f249))
+
 # [1.4.0](https://github.com/desaintvincent/mythor/compare/@mythor/examples@1.3.1...@mythor/examples@1.4.0) (2022-11-11)
 
 ### Features

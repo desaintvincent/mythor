@@ -1,6 +1,6 @@
 {
   "name": "@mythor/tiled",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Mythor tiled library",
   "author": "thomas <destvincent@hotmail.fr>",
   "homepage": "",
@@ -26,10 +26,10 @@
   },
   "gitHead": "4773ef4d50c9a9e9bb4d84dcca5d24310f13433f",
   "dependencies": {
-    "@mythor/core": "^0.4.0",
-    "@mythor/math": "^0.3.2",
-    "@mythor/physic2d": "^0.3.2",
-    "@mythor/renderer": "^0.4.0",
+    "@mythor/core": "^0.4.1",
+    "@mythor/math": "^0.3.3",
+    "@mythor/physic2d": "^0.3.3",
+    "@mythor/renderer": "^0.4.1",
     "ajv": "^8.11.0",
     "poly-decomp": "^0.3.0",
     "polybooljs": "^1.2.0"
