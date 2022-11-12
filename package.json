@@ -29,7 +29,7 @@
   "scripts": {
     "lerna": "lerna",
     "postinstall": "lerna bootstrap",
-    "publish:ci": "lerna publish --yes --no-verify-access --conventional-commits --ignore-changes '**/*.md'",
+    "publish:ci": "lerna publish --yes --no-verify-access --conventional-commits",
     "build": "lerna run build",
     "doc": "lerna run doc",
     "start": "lerna run start --stream --parallel",

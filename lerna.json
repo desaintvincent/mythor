@@ -3,9 +3,5 @@
   "useWorkspaces": true,
   "version": "independent",
   "npmClient": "yarn",
-  "commands": {
-    "version": {
-      "ignore": ["**/*.md"]
-    }
-  }
+  "ignoreChanges": ["**/docs/**", "**/*.md"]
 }
