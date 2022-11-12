@@ -35,14 +35,12 @@ jobs:
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
 
       - name: Install dependencies
-        working-directory: ui
         run: yarn install
+
       - name: Build
-        working-directory: ui
         run: yarn build
 
       - name: Bump versions and publish packages
-        working-directory: ui
         run: yarn publish:ci
 
       - name: Put examples on gh-page
