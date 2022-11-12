@@ -23,8 +23,27 @@ jobs:
       - name: Install
         run: yarn install
 
+      - name: Build
+        run: yarn build
+
       - name: Configure Git User
         run: |
           git config --global user.email "ci@example.com"
           git config --global user.name "@$GITHUB_ACTOR"
-      - run: yarn ci
+
+      - name: "NPM Identity"
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+
+      - name: "Publish"
+        run: |
+          npx lerna publish from-package --conventional-commits --no-verify-access --yes
+
+      - name: "Examples"
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./packages/examples/dist
