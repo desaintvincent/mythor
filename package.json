@@ -30,6 +30,7 @@
     "lerna": "lerna",
     "postinstall": "lerna bootstrap",
     "postpublish": "lerna run doc",
+    "publish:ci": "lerna publish --yes --no-verify-access --conventional-commits",
     "build": "lerna run build",
     "doc": "lerna run doc",
     "start": "lerna run start --stream --parallel",
