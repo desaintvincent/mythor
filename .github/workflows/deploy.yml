@@ -20,28 +20,33 @@ jobs:
           fetch-depth: 0
           node-version: '16.18'
 
-      - name: Install
-        run: yarn install
+      - name: Pull all tags for Lerna semantic release
+        run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
 
-      - name: Build
-        run: yarn build
-
-      - name: Configure Git User
+      - name: Ensure access
+        working-directory: ui
         run: |
-          git config --global user.email "ci@example.com"
-          git config --global user.name "@$GITHUB_ACTOR"
-
-      - name: "NPM Identity"
+          npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
 
-      - name: "Publish"
+      - name: Config git user
         run: |
-          npx lerna publish from-package --conventional-commits --no-verify-access --yes
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
 
-      - name: "Examples"
+      - name: Install dependencies
+        working-directory: ui
+        run: yarn install
+      - name: Build
+        working-directory: ui
+        run: yarn build
+
+      - name: Bump versions and publish packages
+        working-directory: ui
+        run: yarn publish:ci
+
+      - name: Put examples on gh-page
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
