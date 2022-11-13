@@ -57,7 +57,7 @@ Component.constructor
 
 #### Defined in
 
-physic2D/src/components/Physic.ts:41
+[physic2d/src/components/Physic.ts:41](https://github.com/desaintvincent/mythor/blob/d8ac596/packages/physic2d/src/components/Physic.ts#L41)
 
 ## Properties
 
@@ -81,7 +81,7 @@ ___
 
 #### Defined in
 
-physic2D/src/components/Physic.ts:24
+[physic2d/src/components/Physic.ts:24](https://github.com/desaintvincent/mythor/blob/d8ac596/packages/physic2d/src/components/Physic.ts#L24)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 #### Defined in
 
-physic2D/src/components/Physic.ts:36
+[physic2d/src/components/Physic.ts:36](https://github.com/desaintvincent/mythor/blob/d8ac596/packages/physic2d/src/components/Physic.ts#L36)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-physic2D/src/components/Physic.ts:34
+[physic2d/src/components/Physic.ts:34](https://github.com/desaintvincent/mythor/blob/d8ac596/packages/physic2d/src/components/Physic.ts#L34)
 
 ___
 
@@ -111,7 +111,7 @@ ___
 
 #### Defined in
 
-physic2D/src/components/Physic.ts:25
+[physic2d/src/components/Physic.ts:25](https://github.com/desaintvincent/mythor/blob/d8ac596/packages/physic2d/src/components/Physic.ts#L25)
 
 ___
 
@@ -121,7 +121,7 @@ ___
 
 #### Defined in
 
-physic2D/src/components/Physic.ts:29
+[physic2d/src/components/Physic.ts:29](https://github.com/desaintvincent/mythor/blob/d8ac596/packages/physic2d/src/components/Physic.ts#L29)
 
 ___
 
@@ -131,7 +131,7 @@ ___
 
 #### Defined in
 
-physic2D/src/components/Physic.ts:26
+[physic2d/src/components/Physic.ts:26](https://github.com/desaintvincent/mythor/blob/d8ac596/packages/physic2d/src/components/Physic.ts#L26)
 
 ___
 
@@ -141,7 +141,7 @@ ___
 
 #### Defined in
 
-physic2D/src/components/Physic.ts:32
+[physic2d/src/components/Physic.ts:32](https://github.com/desaintvincent/mythor/blob/d8ac596/packages/physic2d/src/components/Physic.ts#L32)
 
 ___
 
@@ -151,7 +151,7 @@ ___
 
 #### Defined in
 
-physic2D/src/components/Physic.ts:38
+[physic2d/src/components/Physic.ts:38](https://github.com/desaintvincent/mythor/blob/d8ac596/packages/physic2d/src/components/Physic.ts#L38)
 
 ___
 
@@ -161,7 +161,7 @@ ___
 
 #### Defined in
 
-physic2D/src/components/Physic.ts:37
+[physic2d/src/components/Physic.ts:37](https://github.com/desaintvincent/mythor/blob/d8ac596/packages/physic2d/src/components/Physic.ts#L37)
 
 ___
 
@@ -171,7 +171,7 @@ ___
 
 #### Defined in
 
-physic2D/src/components/Physic.ts:39
+[physic2d/src/components/Physic.ts:39](https://github.com/desaintvincent/mythor/blob/d8ac596/packages/physic2d/src/components/Physic.ts#L39)
 
 ___
 
@@ -181,7 +181,7 @@ ___
 
 #### Defined in
 
-physic2D/src/components/Physic.ts:35
+[physic2d/src/components/Physic.ts:35](https://github.com/desaintvincent/mythor/blob/d8ac596/packages/physic2d/src/components/Physic.ts#L35)
 
 ___
 
@@ -191,7 +191,7 @@ ___
 
 #### Defined in
 
-physic2D/src/components/Physic.ts:27
+[physic2d/src/components/Physic.ts:27](https://github.com/desaintvincent/mythor/blob/d8ac596/packages/physic2d/src/components/Physic.ts#L27)
 
 ___
 
@@ -201,7 +201,7 @@ ___
 
 #### Defined in
 
-physic2D/src/components/Physic.ts:31
+[physic2d/src/components/Physic.ts:31](https://github.com/desaintvincent/mythor/blob/d8ac596/packages/physic2d/src/components/Physic.ts#L31)
 
 ___
 
@@ -211,7 +211,7 @@ ___
 
 #### Defined in
 
-physic2D/src/components/Physic.ts:28
+[physic2d/src/components/Physic.ts:28](https://github.com/desaintvincent/mythor/blob/d8ac596/packages/physic2d/src/components/Physic.ts#L28)
 
 ___
 
@@ -221,7 +221,7 @@ ___
 
 #### Defined in
 
-physic2D/src/components/Physic.ts:33
+[physic2d/src/components/Physic.ts:33](https://github.com/desaintvincent/mythor/blob/d8ac596/packages/physic2d/src/components/Physic.ts#L33)
 
 ___
 
@@ -231,7 +231,7 @@ ___
 
 #### Defined in
 
-physic2D/src/components/Physic.ts:30
+[physic2d/src/components/Physic.ts:30](https://github.com/desaintvincent/mythor/blob/d8ac596/packages/physic2d/src/components/Physic.ts#L30)
 
 ___
 
@@ -265,4 +265,4 @@ core/lib/collections/Signable.d.ts:2
 
 #### Defined in
 
-physic2D/src/components/Physic.ts:60
+[physic2d/src/components/Physic.ts:60](https://github.com/desaintvincent/mythor/blob/d8ac596/packages/physic2d/src/components/Physic.ts#L60)

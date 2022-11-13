@@ -20,7 +20,7 @@
 
 #### Defined in
 
-[managers/LoadingStateManager.ts:5](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/core/src/managers/LoadingStateManager.ts#L5)
+[managers/LoadingStateManager.ts:5](https://github.com/desaintvincent/mythor/blob/d8ac596/packages/core/src/managers/LoadingStateManager.ts#L5)
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 #### Defined in
 
-[managers/LoadingStateManager.ts:8](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/core/src/managers/LoadingStateManager.ts#L8)
+[managers/LoadingStateManager.ts:8](https://github.com/desaintvincent/mythor/blob/d8ac596/packages/core/src/managers/LoadingStateManager.ts#L8)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[managers/LoadingStateManager.ts:4](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/core/src/managers/LoadingStateManager.ts#L4)
+[managers/LoadingStateManager.ts:4](https://github.com/desaintvincent/mythor/blob/d8ac596/packages/core/src/managers/LoadingStateManager.ts#L4)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[managers/LoadingStateManager.ts:6](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/core/src/managers/LoadingStateManager.ts#L6)
+[managers/LoadingStateManager.ts:6](https://github.com/desaintvincent/mythor/blob/d8ac596/packages/core/src/managers/LoadingStateManager.ts#L6)
 
 ___
 
@@ -60,4 +60,4 @@ ___
 
 #### Defined in
 
-[managers/LoadingStateManager.ts:7](https://github.com/desaintvincent/mythor/blob/6cabc00/packages/core/src/managers/LoadingStateManager.ts#L7)
+[managers/LoadingStateManager.ts:7](https://github.com/desaintvincent/mythor/blob/d8ac596/packages/core/src/managers/LoadingStateManager.ts#L7)

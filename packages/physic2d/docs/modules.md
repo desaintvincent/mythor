@@ -22,4 +22,4 @@
 
 #### Defined in
 
-physic2D/src/systems/PhysicSystem.ts:30
+[physic2d/src/systems/PhysicSystem.ts:30](https://github.com/desaintvincent/mythor/blob/d8ac596/packages/physic2d/src/systems/PhysicSystem.ts#L30)
