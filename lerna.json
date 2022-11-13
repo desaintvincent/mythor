@@ -7,11 +7,7 @@
   "granularPathspec": false,
   "command": {
     "version": {
-      "ignore": ["**/*.md"],
       "message": "chore(release): publish %s"
     },
-    "publish": {
-      "ignore": ["**/*.md"]
-    }
   }
 }
