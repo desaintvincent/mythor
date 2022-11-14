@@ -4,11 +4,19 @@
 
 ## Table of contents
 
+### Enumerations
+
+- [PhysicType](enums/PhysicType.md)
+
 ### Classes
 
 - [ColliderCallback](classes/ColliderCallback.md)
 - [Physic](classes/Physic.md)
 - [PhysicSystem](classes/PhysicSystem.md)
+
+### Interfaces
+
+- [PhysicParams](interfaces/PhysicParams.md)
 
 ### Variables
 
@@ -22,4 +30,4 @@
 
 #### Defined in
 
-[physic2d/src/systems/PhysicSystem.ts:30](https://github.com/desaintvincent/mythor/blob/b67d207/packages/physic2d/src/systems/PhysicSystem.ts#L30)
+[physic2d/src/systems/PhysicSystem.ts:30](https://github.com/desaintvincent/mythor/blob/2f03ed2/packages/physic2d/src/systems/PhysicSystem.ts#L30)

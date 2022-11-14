@@ -20,7 +20,6 @@
 - [body](Physic.md#body)
 - [bullet](Physic.md#bullet)
 - [density](Physic.md#density)
-- [dynamic](Physic.md#dynamic)
 - [ellipses](Physic.md#ellipses)
 - [fixedRotation](Physic.md#fixedrotation)
 - [friction](Physic.md#friction)
@@ -33,11 +32,8 @@
 - [polygons](Physic.md#polygons)
 - [restitution](Physic.md#restitution)
 - [size](Physic.md#size)
+- [type](Physic.md#type)
 - [signature](Physic.md#signature)
-
-### Methods
-
-- [setBody](Physic.md#setbody)
 
 ## Constructors
 
@@ -49,7 +45,7 @@
 
 | Name | Type |
 | :------ | :------ |
-| `options?` | `PhysicParams` |
+| `options?` | [`PhysicParams`](../interfaces/PhysicParams.md) |
 
 #### Overrides
 
@@ -57,7 +53,7 @@ Component.constructor
 
 #### Defined in
 
-[physic2d/src/components/Physic.ts:41](https://github.com/desaintvincent/mythor/blob/b67d207/packages/physic2d/src/components/Physic.ts#L41)
+[physic2d/src/components/Physic.ts:47](https://github.com/desaintvincent/mythor/blob/2f03ed2/packages/physic2d/src/components/Physic.ts#L47)
 
 ## Properties
 
@@ -81,7 +77,7 @@ ___
 
 #### Defined in
 
-[physic2d/src/components/Physic.ts:24](https://github.com/desaintvincent/mythor/blob/b67d207/packages/physic2d/src/components/Physic.ts#L24)
+[physic2d/src/components/Physic.ts:30](https://github.com/desaintvincent/mythor/blob/2f03ed2/packages/physic2d/src/components/Physic.ts#L30)
 
 ___
 
@@ -91,7 +87,7 @@ ___
 
 #### Defined in
 
-[physic2d/src/components/Physic.ts:36](https://github.com/desaintvincent/mythor/blob/b67d207/packages/physic2d/src/components/Physic.ts#L36)
+[physic2d/src/components/Physic.ts:41](https://github.com/desaintvincent/mythor/blob/2f03ed2/packages/physic2d/src/components/Physic.ts#L41)
 
 ___
 
@@ -101,17 +97,7 @@ ___
 
 #### Defined in
 
-[physic2d/src/components/Physic.ts:34](https://github.com/desaintvincent/mythor/blob/b67d207/packages/physic2d/src/components/Physic.ts#L34)
-
-___
-
-### dynamic
-
-• `Readonly` **dynamic**: `boolean`
-
-#### Defined in
-
-[physic2d/src/components/Physic.ts:25](https://github.com/desaintvincent/mythor/blob/b67d207/packages/physic2d/src/components/Physic.ts#L25)
+[physic2d/src/components/Physic.ts:39](https://github.com/desaintvincent/mythor/blob/2f03ed2/packages/physic2d/src/components/Physic.ts#L39)
 
 ___
 
@@ -121,7 +107,7 @@ ___
 
 #### Defined in
 
-[physic2d/src/components/Physic.ts:29](https://github.com/desaintvincent/mythor/blob/b67d207/packages/physic2d/src/components/Physic.ts#L29)
+[physic2d/src/components/Physic.ts:34](https://github.com/desaintvincent/mythor/blob/2f03ed2/packages/physic2d/src/components/Physic.ts#L34)
 
 ___
 
@@ -131,7 +117,7 @@ ___
 
 #### Defined in
 
-[physic2d/src/components/Physic.ts:26](https://github.com/desaintvincent/mythor/blob/b67d207/packages/physic2d/src/components/Physic.ts#L26)
+[physic2d/src/components/Physic.ts:31](https://github.com/desaintvincent/mythor/blob/2f03ed2/packages/physic2d/src/components/Physic.ts#L31)
 
 ___
 
@@ -141,7 +127,7 @@ ___
 
 #### Defined in
 
-[physic2d/src/components/Physic.ts:32](https://github.com/desaintvincent/mythor/blob/b67d207/packages/physic2d/src/components/Physic.ts#L32)
+[physic2d/src/components/Physic.ts:37](https://github.com/desaintvincent/mythor/blob/2f03ed2/packages/physic2d/src/components/Physic.ts#L37)
 
 ___
 
@@ -151,7 +137,7 @@ ___
 
 #### Defined in
 
-[physic2d/src/components/Physic.ts:38](https://github.com/desaintvincent/mythor/blob/b67d207/packages/physic2d/src/components/Physic.ts#L38)
+[physic2d/src/components/Physic.ts:43](https://github.com/desaintvincent/mythor/blob/2f03ed2/packages/physic2d/src/components/Physic.ts#L43)
 
 ___
 
@@ -161,7 +147,7 @@ ___
 
 #### Defined in
 
-[physic2d/src/components/Physic.ts:37](https://github.com/desaintvincent/mythor/blob/b67d207/packages/physic2d/src/components/Physic.ts#L37)
+[physic2d/src/components/Physic.ts:42](https://github.com/desaintvincent/mythor/blob/2f03ed2/packages/physic2d/src/components/Physic.ts#L42)
 
 ___
 
@@ -171,7 +157,7 @@ ___
 
 #### Defined in
 
-[physic2d/src/components/Physic.ts:39](https://github.com/desaintvincent/mythor/blob/b67d207/packages/physic2d/src/components/Physic.ts#L39)
+[physic2d/src/components/Physic.ts:44](https://github.com/desaintvincent/mythor/blob/2f03ed2/packages/physic2d/src/components/Physic.ts#L44)
 
 ___
 
@@ -181,7 +167,7 @@ ___
 
 #### Defined in
 
-[physic2d/src/components/Physic.ts:35](https://github.com/desaintvincent/mythor/blob/b67d207/packages/physic2d/src/components/Physic.ts#L35)
+[physic2d/src/components/Physic.ts:40](https://github.com/desaintvincent/mythor/blob/2f03ed2/packages/physic2d/src/components/Physic.ts#L40)
 
 ___
 
@@ -191,7 +177,7 @@ ___
 
 #### Defined in
 
-[physic2d/src/components/Physic.ts:27](https://github.com/desaintvincent/mythor/blob/b67d207/packages/physic2d/src/components/Physic.ts#L27)
+[physic2d/src/components/Physic.ts:32](https://github.com/desaintvincent/mythor/blob/2f03ed2/packages/physic2d/src/components/Physic.ts#L32)
 
 ___
 
@@ -201,7 +187,7 @@ ___
 
 #### Defined in
 
-[physic2d/src/components/Physic.ts:31](https://github.com/desaintvincent/mythor/blob/b67d207/packages/physic2d/src/components/Physic.ts#L31)
+[physic2d/src/components/Physic.ts:36](https://github.com/desaintvincent/mythor/blob/2f03ed2/packages/physic2d/src/components/Physic.ts#L36)
 
 ___
 
@@ -211,7 +197,7 @@ ___
 
 #### Defined in
 
-[physic2d/src/components/Physic.ts:28](https://github.com/desaintvincent/mythor/blob/b67d207/packages/physic2d/src/components/Physic.ts#L28)
+[physic2d/src/components/Physic.ts:33](https://github.com/desaintvincent/mythor/blob/2f03ed2/packages/physic2d/src/components/Physic.ts#L33)
 
 ___
 
@@ -221,7 +207,7 @@ ___
 
 #### Defined in
 
-[physic2d/src/components/Physic.ts:33](https://github.com/desaintvincent/mythor/blob/b67d207/packages/physic2d/src/components/Physic.ts#L33)
+[physic2d/src/components/Physic.ts:38](https://github.com/desaintvincent/mythor/blob/2f03ed2/packages/physic2d/src/components/Physic.ts#L38)
 
 ___
 
@@ -231,7 +217,17 @@ ___
 
 #### Defined in
 
-[physic2d/src/components/Physic.ts:30](https://github.com/desaintvincent/mythor/blob/b67d207/packages/physic2d/src/components/Physic.ts#L30)
+[physic2d/src/components/Physic.ts:35](https://github.com/desaintvincent/mythor/blob/2f03ed2/packages/physic2d/src/components/Physic.ts#L35)
+
+___
+
+### type
+
+• `Readonly` **type**: [`PhysicType`](../enums/PhysicType.md)
+
+#### Defined in
+
+[physic2d/src/components/Physic.ts:45](https://github.com/desaintvincent/mythor/blob/2f03ed2/packages/physic2d/src/components/Physic.ts#L45)
 
 ___
 
@@ -246,23 +242,3 @@ Component.signature
 #### Defined in
 
 core/lib/collections/Signable.d.ts:2
-
-## Methods
-
-### setBody
-
-▸ **setBody**(`body`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `body` | `Body` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[physic2d/src/components/Physic.ts:60](https://github.com/desaintvincent/mythor/blob/b67d207/packages/physic2d/src/components/Physic.ts#L60)
