@@ -15,13 +15,15 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
         with:
           fetch-depth: 0
+
+      - uses: actions/setup-node@v1
+        with:
           node-version: '16.18'
 
       - name: Pull all tags for Lerna semantic release
-        run: git fetch --tags
+        run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
 
       - name: Ensure access
         run: |
