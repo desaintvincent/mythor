@@ -46,7 +46,7 @@
 
 #### Defined in
 
-[components/Transform.ts:15](https://github.com/desaintvincent/mythor/blob/2f03ed2/packages/core/src/components/Transform.ts#L15)
+[components/Transform.ts:15](https://github.com/desaintvincent/mythor/blob/0d79ef8/packages/core/src/components/Transform.ts#L15)
 
 ## Properties
 
@@ -60,7 +60,7 @@
 
 #### Defined in
 
-[ecs/Component.ts:6](https://github.com/desaintvincent/mythor/blob/2f03ed2/packages/core/src/ecs/Component.ts#L6)
+[ecs/Component.ts:6](https://github.com/desaintvincent/mythor/blob/0d79ef8/packages/core/src/ecs/Component.ts#L6)
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-[components/Transform.ts:12](https://github.com/desaintvincent/mythor/blob/2f03ed2/packages/core/src/components/Transform.ts#L12)
+[components/Transform.ts:12](https://github.com/desaintvincent/mythor/blob/0d79ef8/packages/core/src/components/Transform.ts#L12)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[components/Transform.ts:11](https://github.com/desaintvincent/mythor/blob/2f03ed2/packages/core/src/components/Transform.ts#L11)
+[components/Transform.ts:11](https://github.com/desaintvincent/mythor/blob/0d79ef8/packages/core/src/components/Transform.ts#L11)
 
 ___
 
@@ -90,7 +90,7 @@ ___
 
 #### Defined in
 
-[components/Transform.ts:13](https://github.com/desaintvincent/mythor/blob/2f03ed2/packages/core/src/components/Transform.ts#L13)
+[components/Transform.ts:13](https://github.com/desaintvincent/mythor/blob/0d79ef8/packages/core/src/components/Transform.ts#L13)
 
 ___
 
@@ -104,7 +104,7 @@ ___
 
 #### Defined in
 
-[collections/Signable.ts:2](https://github.com/desaintvincent/mythor/blob/2f03ed2/packages/core/src/collections/Signable.ts#L2)
+[collections/Signable.ts:2](https://github.com/desaintvincent/mythor/blob/0d79ef8/packages/core/src/collections/Signable.ts#L2)
 
 ## Accessors
 
@@ -118,7 +118,7 @@ ___
 
 #### Defined in
 
-[components/Transform.ts:30](https://github.com/desaintvincent/mythor/blob/2f03ed2/packages/core/src/components/Transform.ts#L30)
+[components/Transform.ts:30](https://github.com/desaintvincent/mythor/blob/0d79ef8/packages/core/src/components/Transform.ts#L30)
 
 ___
 
@@ -132,7 +132,7 @@ ___
 
 #### Defined in
 
-[components/Transform.ts:46](https://github.com/desaintvincent/mythor/blob/2f03ed2/packages/core/src/components/Transform.ts#L46)
+[components/Transform.ts:46](https://github.com/desaintvincent/mythor/blob/0d79ef8/packages/core/src/components/Transform.ts#L46)
 
 • `set` **rotation**(`value`): `void`
 
@@ -148,7 +148,7 @@ ___
 
 #### Defined in
 
-[components/Transform.ts:58](https://github.com/desaintvincent/mythor/blob/2f03ed2/packages/core/src/components/Transform.ts#L58)
+[components/Transform.ts:58](https://github.com/desaintvincent/mythor/blob/0d79ef8/packages/core/src/components/Transform.ts#L58)
 
 ___
 
@@ -162,4 +162,4 @@ ___
 
 #### Defined in
 
-[components/Transform.ts:26](https://github.com/desaintvincent/mythor/blob/2f03ed2/packages/core/src/components/Transform.ts#L26)
+[components/Transform.ts:26](https://github.com/desaintvincent/mythor/blob/0d79ef8/packages/core/src/components/Transform.ts#L26)

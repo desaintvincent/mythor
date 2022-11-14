@@ -32,4 +32,4 @@
 
 #### Defined in
 
-[collections/Signable.ts:2](https://github.com/desaintvincent/mythor/blob/2f03ed2/packages/core/src/collections/Signable.ts#L2)
+[collections/Signable.ts:2](https://github.com/desaintvincent/mythor/blob/0d79ef8/packages/core/src/collections/Signable.ts#L2)
