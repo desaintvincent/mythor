@@ -33,13 +33,19 @@
 
 #### Defined in
 
-[objects/createGame.ts:70](https://github.com/desaintvincent/mythor/blob/d8ac596/packages/game/src/objects/createGame.ts#L70)
+[objects/createGame.ts:72](https://github.com/desaintvincent/mythor/blob/701fd16/packages/game/src/objects/createGame.ts#L72)
 
 ___
 
 ### createLoadingScene
 
-▸ **createLoadingScene**(): [`Scene`](classes/Scene.md)
+▸ **createLoadingScene**(`camera?`): [`Scene`](classes/Scene.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `camera?` | `default` |
 
 #### Returns
 
@@ -47,4 +53,4 @@ ___
 
 #### Defined in
 
-[util/createLoadingScene.ts:110](https://github.com/desaintvincent/mythor/blob/d8ac596/packages/game/src/util/createLoadingScene.ts#L110)
+[util/createLoadingScene.ts:111](https://github.com/desaintvincent/mythor/blob/701fd16/packages/game/src/util/createLoadingScene.ts#L111)
