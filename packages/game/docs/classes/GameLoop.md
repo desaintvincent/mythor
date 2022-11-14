@@ -51,7 +51,7 @@
 
 #### Defined in
 
-[objects/GameLoop.ts:14](https://github.com/desaintvincent/mythor/blob/0d79ef8/packages/game/src/objects/GameLoop.ts#L14)
+[objects/GameLoop.ts:14](https://github.com/desaintvincent/mythor/blob/1a100e7/packages/game/src/objects/GameLoop.ts#L14)
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 #### Defined in
 
-[objects/GameLoop.ts:13](https://github.com/desaintvincent/mythor/blob/0d79ef8/packages/game/src/objects/GameLoop.ts#L13)
+[objects/GameLoop.ts:13](https://github.com/desaintvincent/mythor/blob/1a100e7/packages/game/src/objects/GameLoop.ts#L13)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[objects/GameLoop.ts:11](https://github.com/desaintvincent/mythor/blob/0d79ef8/packages/game/src/objects/GameLoop.ts#L11)
+[objects/GameLoop.ts:11](https://github.com/desaintvincent/mythor/blob/1a100e7/packages/game/src/objects/GameLoop.ts#L11)
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 #### Defined in
 
-[objects/GameLoop.ts:7](https://github.com/desaintvincent/mythor/blob/0d79ef8/packages/game/src/objects/GameLoop.ts#L7)
+[objects/GameLoop.ts:7](https://github.com/desaintvincent/mythor/blob/1a100e7/packages/game/src/objects/GameLoop.ts#L7)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 #### Defined in
 
-[objects/GameLoop.ts:12](https://github.com/desaintvincent/mythor/blob/0d79ef8/packages/game/src/objects/GameLoop.ts#L12)
+[objects/GameLoop.ts:12](https://github.com/desaintvincent/mythor/blob/1a100e7/packages/game/src/objects/GameLoop.ts#L12)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-[objects/GameLoop.ts:10](https://github.com/desaintvincent/mythor/blob/0d79ef8/packages/game/src/objects/GameLoop.ts#L10)
+[objects/GameLoop.ts:10](https://github.com/desaintvincent/mythor/blob/1a100e7/packages/game/src/objects/GameLoop.ts#L10)
 
 ___
 
@@ -111,7 +111,7 @@ ___
 
 #### Defined in
 
-[objects/GameLoop.ts:8](https://github.com/desaintvincent/mythor/blob/0d79ef8/packages/game/src/objects/GameLoop.ts#L8)
+[objects/GameLoop.ts:8](https://github.com/desaintvincent/mythor/blob/1a100e7/packages/game/src/objects/GameLoop.ts#L8)
 
 ___
 
@@ -121,7 +121,7 @@ ___
 
 #### Defined in
 
-[objects/GameLoop.ts:9](https://github.com/desaintvincent/mythor/blob/0d79ef8/packages/game/src/objects/GameLoop.ts#L9)
+[objects/GameLoop.ts:9](https://github.com/desaintvincent/mythor/blob/1a100e7/packages/game/src/objects/GameLoop.ts#L9)
 
 ## Methods
 
@@ -141,7 +141,7 @@ ___
 
 #### Defined in
 
-[objects/GameLoop.ts:31](https://github.com/desaintvincent/mythor/blob/0d79ef8/packages/game/src/objects/GameLoop.ts#L31)
+[objects/GameLoop.ts:31](https://github.com/desaintvincent/mythor/blob/1a100e7/packages/game/src/objects/GameLoop.ts#L31)
 
 ___
 
@@ -161,7 +161,7 @@ ___
 
 #### Defined in
 
-[objects/GameLoop.ts:27](https://github.com/desaintvincent/mythor/blob/0d79ef8/packages/game/src/objects/GameLoop.ts#L27)
+[objects/GameLoop.ts:27](https://github.com/desaintvincent/mythor/blob/1a100e7/packages/game/src/objects/GameLoop.ts#L27)
 
 ___
 
@@ -181,7 +181,7 @@ ___
 
 #### Defined in
 
-[objects/GameLoop.ts:23](https://github.com/desaintvincent/mythor/blob/0d79ef8/packages/game/src/objects/GameLoop.ts#L23)
+[objects/GameLoop.ts:23](https://github.com/desaintvincent/mythor/blob/1a100e7/packages/game/src/objects/GameLoop.ts#L23)
 
 ___
 
@@ -195,7 +195,7 @@ ___
 
 #### Defined in
 
-[objects/GameLoop.ts:60](https://github.com/desaintvincent/mythor/blob/0d79ef8/packages/game/src/objects/GameLoop.ts#L60)
+[objects/GameLoop.ts:60](https://github.com/desaintvincent/mythor/blob/1a100e7/packages/game/src/objects/GameLoop.ts#L60)
 
 ___
 
@@ -209,7 +209,7 @@ ___
 
 #### Defined in
 
-[objects/GameLoop.ts:51](https://github.com/desaintvincent/mythor/blob/0d79ef8/packages/game/src/objects/GameLoop.ts#L51)
+[objects/GameLoop.ts:51](https://github.com/desaintvincent/mythor/blob/1a100e7/packages/game/src/objects/GameLoop.ts#L51)
 
 ___
 
@@ -223,7 +223,7 @@ ___
 
 #### Defined in
 
-[objects/GameLoop.ts:64](https://github.com/desaintvincent/mythor/blob/0d79ef8/packages/game/src/objects/GameLoop.ts#L64)
+[objects/GameLoop.ts:64](https://github.com/desaintvincent/mythor/blob/1a100e7/packages/game/src/objects/GameLoop.ts#L64)
 
 ___
 
@@ -244,4 +244,4 @@ ___
 
 #### Defined in
 
-[objects/GameLoop.ts:16](https://github.com/desaintvincent/mythor/blob/0d79ef8/packages/game/src/objects/GameLoop.ts#L16)
+[objects/GameLoop.ts:16](https://github.com/desaintvincent/mythor/blob/1a100e7/packages/game/src/objects/GameLoop.ts#L16)
