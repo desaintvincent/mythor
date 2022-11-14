@@ -1,4 +1,5 @@
 import {
+  Camera,
   Color,
   colorWhite,
   FillRect,
@@ -107,7 +108,7 @@ class Loading extends Manager {
   }
 }
 
-function createLoadingScene(): Scene {
+function createLoadingScene(camera?: Camera): Scene {
   return new Scene('CreateLoadingScene', {
     managers: [new EventsManager(), new Loading()],
     onInit: async (ecs) => {
@@ -120,7 +121,7 @@ function createLoadingScene(): Scene {
         })
       )
     },
-    systems: [new Renderer()],
+    systems: [new Renderer({ camera })],
   })
 }
 
