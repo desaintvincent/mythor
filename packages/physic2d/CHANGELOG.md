@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.8](https://github.com/desaintvincent/mythor/compare/@mythor/physic2d@0.3.7...@mythor/physic2d@0.3.8) (2022-11-14)
+
+**Note:** Version bump only for package @mythor/physic2d
+
 ## 0.3.7 (2022-11-14)
 
 **Note:** Version bump only for package @mythor/physic2d

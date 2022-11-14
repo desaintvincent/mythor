@@ -1,6 +1,6 @@
 {
   "name": "@mythor/examples",
-  "version": "1.4.5",
+  "version": "1.4.6",
   "description": "> TODO: description",
   "private": true,
   "author": "thomas <destvincent@hotmail.fr>",
@@ -43,7 +43,7 @@
     "@mythor/events": "^0.3.7",
     "@mythor/game": "^0.3.7",
     "@mythor/math": "^0.3.7",
-    "@mythor/physic2d": "^0.3.7",
+    "@mythor/physic2d": "^0.3.8",
     "@mythor/renderer": "^0.4.5"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@mythor/tiled",
-  "version": "0.4.5",
+  "version": "0.4.6",
   "description": "Mythor tiled library",
   "author": "thomas <destvincent@hotmail.fr>",
   "homepage": "",
@@ -29,7 +29,7 @@
   "dependencies": {
     "@mythor/core": "^0.4.5",
     "@mythor/math": "^0.3.7",
-    "@mythor/physic2d": "^0.3.7",
+    "@mythor/physic2d": "^0.3.8",
     "@mythor/renderer": "^0.4.5",
     "ajv": "^8.11.0",
     "poly-decomp": "^0.3.0",
