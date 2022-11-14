@@ -8,6 +8,7 @@ import PhysicDebugManager from '../managers/PhysicDebugManager'
 import SelectDebugManager from '../managers/SelectDebugManager'
 import RendererDebugManager from '../managers/RendererDebugManager'
 import createLoadingScene from '../util/createLoadingScene'
+import { Camera } from '@mythor/renderer'
 
 interface GameMakerOptions extends SceneOptions {
   addLoadingStateManager?: boolean
@@ -17,6 +18,7 @@ interface GameMakerOptions extends SceneOptions {
   addPhysicDebugManager?: boolean
   addSelectDebugManager?: boolean
   addRendererDebugManager?: boolean
+  camera?: Camera
 }
 
 interface ConditionalAdd<T> {
@@ -69,7 +71,7 @@ function getManagers(options: GameMakerOptions): Manager[] {
 
 function createGame(options: GameMakerOptions): Game {
   return new Game()
-    .addScene(createLoadingScene())
+    .addScene(createLoadingScene(options?.camera))
     .addScene(
       new Scene('Mainscene', {
         ...options,
