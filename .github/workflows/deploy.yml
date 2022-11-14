@@ -21,7 +21,7 @@ jobs:
           node-version: '16.18'
 
       - name: Pull all tags for Lerna semantic release
-        run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
+        run: git fetch --tags
 
       - name: Ensure access
         run: |

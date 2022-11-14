@@ -141,6 +141,7 @@ export default class PhysicSystem extends System {
       initialLinearVelocity,
       gravityScale,
       interactWithWorld,
+      type,
     } = physic
     const {
       size: { x: width, y: height },
@@ -152,6 +153,7 @@ export default class PhysicSystem extends System {
       fixedRotation,
       gravityScale,
       linearDamping,
+      type,
     })
 
     const shapes = [
@@ -184,10 +186,6 @@ export default class PhysicSystem extends System {
         shape,
       })
     })
-
-    if (physic.dynamic) {
-      body.setDynamic()
-    }
 
     // now we place the body in the world
     body.setPosition(

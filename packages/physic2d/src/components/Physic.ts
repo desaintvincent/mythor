@@ -2,8 +2,14 @@ import { Vec2 } from '@mythor/math'
 import { Body } from 'planck-js'
 import { Component } from '@mythor/core'
 
-interface PhysicParams {
-  dynamic?: boolean
+export enum PhysicType {
+  STATIC = 'static',
+  KINEMATIC = 'kinematic',
+  DYNAMIC = 'dynamic',
+}
+
+export interface PhysicParams {
+  type?: PhysicType
   fixedRotation?: boolean
   interactWithWorld?: boolean
   mass?: number
@@ -22,7 +28,6 @@ interface PhysicParams {
 
 export default class Physic extends Component {
   public body: Body
-  public readonly dynamic: boolean
   public readonly fixedRotation: boolean
   public readonly mass: number
   public readonly polygons: Array<Array<{ x: number; y: number }>>
@@ -37,10 +42,11 @@ export default class Physic extends Component {
   public readonly initialLinearVelocity: Vec2
   public readonly gravityScale: number
   public readonly interactWithWorld: boolean
+  public readonly type: PhysicType
 
   public constructor(options?: PhysicParams) {
     super()
-    this.dynamic = options?.dynamic ?? false
+    this.type = options?.type ?? PhysicType.STATIC
     this.mass = options?.mass ?? 1
     this.fixedRotation = options?.fixedRotation ?? false
     this.polygons = options?.polygons ?? []
@@ -55,9 +61,5 @@ export default class Physic extends Component {
     this.initialLinearVelocity = options?.initialLinearVelocity ?? Vec2.zero()
     this.gravityScale = options?.gravityScale ?? 1
     this.ellipses = options?.ellipses ?? []
-  }
-
-  public setBody(body: Body): void {
-    this.body = body
   }
 }

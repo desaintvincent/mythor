@@ -9,7 +9,7 @@ import {
   LoadingStateManager,
   Transform,
 } from '@mythor/core'
-import { Physic } from '@mythor/physic2d'
+import { Physic, PhysicType } from '@mythor/physic2d'
 import { getPolygonCentroid, Vec2 } from '@mythor/math'
 import { Renderable, Renderer, Sprite, TextureManager } from '@mythor/renderer'
 
@@ -39,7 +39,7 @@ function addPhysic(
     const ellipse = tile.collider.ellipses[0]
     entity.add(
       new Physic({
-        dynamic: false,
+        type: PhysicType.STATIC,
         ellipses: [(ellipse.width + ellipse.height) / 4],
         offset: new Vec2(
           ellipse.x - ellipse.width / 2,
