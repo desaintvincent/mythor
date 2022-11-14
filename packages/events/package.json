@@ -1,6 +1,6 @@
 {
   "name": "@mythor/events",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "description": "Mythor events",
   "author": "Thomas Robert de Saint Vincent <thomas.rdsv@viaco.fr>",
   "homepage": "https://github.com/desaintvincent/mythor#readme",
@@ -33,9 +33,9 @@
     "url": "https://github.com/desaintvincent/mythor/issues"
   },
   "dependencies": {
-    "@mythor/core": "^0.4.4",
-    "@mythor/math": "^0.3.6",
-    "@mythor/renderer": "^0.4.4"
+    "@mythor/core": "^0.4.5",
+    "@mythor/math": "^0.3.7",
+    "@mythor/renderer": "^0.4.5"
   },
   "gitHead": "4773ef4d50c9a9e9bb4d84dcca5d24310f13433f"
 }
