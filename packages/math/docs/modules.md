@@ -43,7 +43,7 @@
 
 #### Defined in
 
-[Rect.ts:8](https://github.com/desaintvincent/mythor/blob/701fd16/packages/math/src/Rect.ts#L8)
+[Rect.ts:8](https://github.com/desaintvincent/mythor/blob/b5b1f22/packages/math/src/Rect.ts#L8)
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-[Rect.ts:41](https://github.com/desaintvincent/mythor/blob/701fd16/packages/math/src/Rect.ts#L41)
+[Rect.ts:41](https://github.com/desaintvincent/mythor/blob/b5b1f22/packages/math/src/Rect.ts#L41)
 
 ___
 
@@ -88,7 +88,7 @@ ___
 
 #### Defined in
 
-[util.ts:30](https://github.com/desaintvincent/mythor/blob/701fd16/packages/math/src/util.ts#L30)
+[util.ts:30](https://github.com/desaintvincent/mythor/blob/b5b1f22/packages/math/src/util.ts#L30)
 
 ___
 
@@ -108,7 +108,7 @@ ___
 
 #### Defined in
 
-[Rect.ts:38](https://github.com/desaintvincent/mythor/blob/701fd16/packages/math/src/Rect.ts#L38)
+[Rect.ts:38](https://github.com/desaintvincent/mythor/blob/b5b1f22/packages/math/src/Rect.ts#L38)
 
 ___
 
@@ -130,7 +130,7 @@ ___
 
 #### Defined in
 
-[util.ts:9](https://github.com/desaintvincent/mythor/blob/701fd16/packages/math/src/util.ts#L9)
+[util.ts:9](https://github.com/desaintvincent/mythor/blob/b5b1f22/packages/math/src/util.ts#L9)
 
 ___
 
@@ -152,7 +152,7 @@ ___
 
 #### Defined in
 
-[util.ts:18](https://github.com/desaintvincent/mythor/blob/701fd16/packages/math/src/util.ts#L18)
+[util.ts:18](https://github.com/desaintvincent/mythor/blob/b5b1f22/packages/math/src/util.ts#L18)
 
 ___
 
@@ -173,7 +173,7 @@ ___
 
 #### Defined in
 
-[Rect.ts:23](https://github.com/desaintvincent/mythor/blob/701fd16/packages/math/src/Rect.ts#L23)
+[Rect.ts:23](https://github.com/desaintvincent/mythor/blob/b5b1f22/packages/math/src/Rect.ts#L23)
 
 ___
 
@@ -193,7 +193,7 @@ ___
 
 #### Defined in
 
-[util.ts:16](https://github.com/desaintvincent/mythor/blob/701fd16/packages/math/src/util.ts#L16)
+[util.ts:16](https://github.com/desaintvincent/mythor/blob/b5b1f22/packages/math/src/util.ts#L16)
 
 ___
 
@@ -214,4 +214,4 @@ ___
 
 #### Defined in
 
-[util.ts:3](https://github.com/desaintvincent/mythor/blob/701fd16/packages/math/src/util.ts#L3)
+[util.ts:3](https://github.com/desaintvincent/mythor/blob/b5b1f22/packages/math/src/util.ts#L3)
