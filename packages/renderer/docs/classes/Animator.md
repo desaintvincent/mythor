@@ -54,7 +54,7 @@ System.constructor
 
 #### Defined in
 
-[renderer/src/systems/Animator.ts:6](https://github.com/desaintvincent/mythor/blob/6e85b1e/packages/renderer/src/systems/Animator.ts#L6)
+[renderer/src/systems/Animator.ts:6](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/renderer/src/systems/Animator.ts#L6)
 
 ## Properties
 
@@ -331,7 +331,7 @@ System.onEntityUpdate
 
 #### Defined in
 
-[renderer/src/systems/Animator.ts:10](https://github.com/desaintvincent/mythor/blob/6e85b1e/packages/renderer/src/systems/Animator.ts#L10)
+[renderer/src/systems/Animator.ts:10](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/renderer/src/systems/Animator.ts#L10)
 
 ___
 

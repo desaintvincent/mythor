@@ -30,4 +30,4 @@
 
 #### Defined in
 
-[physic2d/src/systems/PhysicSystem.ts:30](https://github.com/desaintvincent/mythor/blob/6e85b1e/packages/physic2d/src/systems/PhysicSystem.ts#L30)
+[physic2d/src/systems/PhysicSystem.ts:30](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/physic2d/src/systems/PhysicSystem.ts#L30)
