@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.9](https://github.com/desaintvincent/mythor/compare/@mythor/game@0.3.8...@mythor/game@0.3.9) (2022-11-17)
+
+### Bug Fixes
+
+- **tiled:** fix crash ([0213b87](https://github.com/desaintvincent/mythor/commit/0213b872d42158d89858e8d62fff1473316b3493))
+
 ## 0.3.8 (2022-11-17)
 
 **Note:** Version bump only for package @mythor/game

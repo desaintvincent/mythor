@@ -1,6 +1,6 @@
 {
   "name": "@mythor/game",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "description": "Mythor game functionalities",
   "author": "thomas <destvincent@hotmail.fr>",
   "homepage": "https://github.com/desaintvincent/mythor/blob/main/packages/game#readme",
@@ -26,10 +26,10 @@
     "lint": "eslint . --max-warnings 0"
   },
   "dependencies": {
-    "@mythor/core": "^0.4.6",
-    "@mythor/events": "^0.3.8",
-    "@mythor/math": "^0.3.7",
-    "@mythor/renderer": "^0.4.6",
+    "@mythor/core": "^0.4.7",
+    "@mythor/events": "^0.3.9",
+    "@mythor/math": "^0.3.8",
+    "@mythor/renderer": "^0.4.7",
     "@types/stats": "^0.16.30",
     "stats.js": "^0.17.0"
   },
