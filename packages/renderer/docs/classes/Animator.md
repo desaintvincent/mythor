@@ -21,6 +21,7 @@
 - [dependencies](Animator.md#dependencies)
 - [ecs](Animator.md#ecs)
 - [entities](Animator.md#entities)
+- [signature](Animator.md#signature)
 
 ### Accessors
 
@@ -53,7 +54,7 @@ System.constructor
 
 #### Defined in
 
-[renderer/src/systems/Animator.ts:6](https://github.com/desaintvincent/mythor/blob/1a100e7/packages/renderer/src/systems/Animator.ts#L6)
+[renderer/src/systems/Animator.ts:6](https://github.com/desaintvincent/mythor/blob/6e85b1e/packages/renderer/src/systems/Animator.ts#L6)
 
 ## Properties
 
@@ -124,6 +125,20 @@ System.entities
 #### Defined in
 
 core/lib/ecs/System.d.ts:17
+
+___
+
+### signature
+
+▪ `Static` `Optional` **signature**: `number`
+
+#### Inherited from
+
+System.signature
+
+#### Defined in
+
+core/lib/collections/Signable.d.ts:2
 
 ## Accessors
 
@@ -316,7 +331,7 @@ System.onEntityUpdate
 
 #### Defined in
 
-[renderer/src/systems/Animator.ts:10](https://github.com/desaintvincent/mythor/blob/1a100e7/packages/renderer/src/systems/Animator.ts#L10)
+[renderer/src/systems/Animator.ts:10](https://github.com/desaintvincent/mythor/blob/6e85b1e/packages/renderer/src/systems/Animator.ts#L10)
 
 ___
 

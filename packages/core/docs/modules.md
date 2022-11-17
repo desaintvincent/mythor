@@ -15,6 +15,7 @@
 - [Manager](classes/Manager.md)
 - [Owner](classes/Owner.md)
 - [Signable](classes/Signable.md)
+- [SignableMap](classes/SignableMap.md)
 - [System](classes/System.md)
 - [Transform](classes/Transform.md)
 
@@ -50,7 +51,7 @@
 
 #### Defined in
 
-[collections/Signable.ts:5](https://github.com/desaintvincent/mythor/blob/1a100e7/packages/core/src/collections/Signable.ts#L5)
+[collections/Signable.ts:5](https://github.com/desaintvincent/mythor/blob/6e85b1e/packages/core/src/collections/Signable.ts#L5)
 
 ## Functions
 
@@ -76,7 +77,7 @@
 
 #### Defined in
 
-[collections/Signable.ts:9](https://github.com/desaintvincent/mythor/blob/1a100e7/packages/core/src/collections/Signable.ts#L9)
+[collections/Signable.ts:9](https://github.com/desaintvincent/mythor/blob/6e85b1e/packages/core/src/collections/Signable.ts#L9)
 
 ___
 
@@ -102,7 +103,7 @@ ___
 
 #### Defined in
 
-[collections/Signable.ts:15](https://github.com/desaintvincent/mythor/blob/1a100e7/packages/core/src/collections/Signable.ts#L15)
+[collections/Signable.ts:15](https://github.com/desaintvincent/mythor/blob/6e85b1e/packages/core/src/collections/Signable.ts#L15)
 
 ___
 
@@ -122,7 +123,7 @@ ___
 
 #### Defined in
 
-[collections/Signable.ts:25](https://github.com/desaintvincent/mythor/blob/1a100e7/packages/core/src/collections/Signable.ts#L25)
+[collections/Signable.ts:25](https://github.com/desaintvincent/mythor/blob/6e85b1e/packages/core/src/collections/Signable.ts#L25)
 
 ___
 
@@ -143,7 +144,7 @@ ___
 
 #### Defined in
 
-[util/log.ts:1](https://github.com/desaintvincent/mythor/blob/1a100e7/packages/core/src/util/log.ts#L1)
+[util/log.ts:1](https://github.com/desaintvincent/mythor/blob/6e85b1e/packages/core/src/util/log.ts#L1)
 
 ___
 
@@ -163,4 +164,4 @@ ___
 
 #### Defined in
 
-[util/throwError.ts:1](https://github.com/desaintvincent/mythor/blob/1a100e7/packages/core/src/util/throwError.ts#L1)
+[util/throwError.ts:1](https://github.com/desaintvincent/mythor/blob/6e85b1e/packages/core/src/util/throwError.ts#L1)

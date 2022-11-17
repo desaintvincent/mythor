@@ -4,9 +4,11 @@
 
 ## Hierarchy
 
-- **`Manager`**
+- [`Signable`](Signable.md)
 
-  ↳ [`LoadingStateManager`](LoadingStateManager.md)
+  ↳ **`Manager`**
+
+  ↳↳ [`LoadingStateManager`](LoadingStateManager.md)
 
 ## Table of contents
 
@@ -18,6 +20,7 @@
 
 - [\_name](Manager.md#_name)
 - [ecs](Manager.md#ecs)
+- [signature](Manager.md#signature)
 
 ### Accessors
 
@@ -42,9 +45,13 @@
 | :------ | :------ |
 | `name` | `string` |
 
+#### Overrides
+
+[Signable](Signable.md).[constructor](Signable.md#constructor)
+
 #### Defined in
 
-[ecs/Manager.ts:7](https://github.com/desaintvincent/mythor/blob/1a100e7/packages/core/src/ecs/Manager.ts#L7)
+[ecs/Manager.ts:8](https://github.com/desaintvincent/mythor/blob/6e85b1e/packages/core/src/ecs/Manager.ts#L8)
 
 ## Properties
 
@@ -54,7 +61,7 @@
 
 #### Defined in
 
-[ecs/Manager.ts:4](https://github.com/desaintvincent/mythor/blob/1a100e7/packages/core/src/ecs/Manager.ts#L4)
+[ecs/Manager.ts:5](https://github.com/desaintvincent/mythor/blob/6e85b1e/packages/core/src/ecs/Manager.ts#L5)
 
 ___
 
@@ -64,7 +71,21 @@ ___
 
 #### Defined in
 
-[ecs/Manager.ts:5](https://github.com/desaintvincent/mythor/blob/1a100e7/packages/core/src/ecs/Manager.ts#L5)
+[ecs/Manager.ts:6](https://github.com/desaintvincent/mythor/blob/6e85b1e/packages/core/src/ecs/Manager.ts#L6)
+
+___
+
+### signature
+
+▪ `Static` `Optional` **signature**: `number`
+
+#### Inherited from
+
+[Signable](Signable.md).[signature](Signable.md#signature)
+
+#### Defined in
+
+[collections/Signable.ts:2](https://github.com/desaintvincent/mythor/blob/6e85b1e/packages/core/src/collections/Signable.ts#L2)
 
 ## Accessors
 
@@ -78,7 +99,7 @@ ___
 
 #### Defined in
 
-[ecs/Manager.ts:11](https://github.com/desaintvincent/mythor/blob/1a100e7/packages/core/src/ecs/Manager.ts#L11)
+[ecs/Manager.ts:13](https://github.com/desaintvincent/mythor/blob/6e85b1e/packages/core/src/ecs/Manager.ts#L13)
 
 ## Methods
 
@@ -92,7 +113,7 @@ ___
 
 #### Defined in
 
-[ecs/Manager.ts:33](https://github.com/desaintvincent/mythor/blob/1a100e7/packages/core/src/ecs/Manager.ts#L33)
+[ecs/Manager.ts:35](https://github.com/desaintvincent/mythor/blob/6e85b1e/packages/core/src/ecs/Manager.ts#L35)
 
 ___
 
@@ -112,7 +133,7 @@ ___
 
 #### Defined in
 
-[ecs/Manager.ts:16](https://github.com/desaintvincent/mythor/blob/1a100e7/packages/core/src/ecs/Manager.ts#L16)
+[ecs/Manager.ts:18](https://github.com/desaintvincent/mythor/blob/6e85b1e/packages/core/src/ecs/Manager.ts#L18)
 
 ___
 
@@ -132,7 +153,7 @@ ___
 
 #### Defined in
 
-[ecs/Manager.ts:20](https://github.com/desaintvincent/mythor/blob/1a100e7/packages/core/src/ecs/Manager.ts#L20)
+[ecs/Manager.ts:22](https://github.com/desaintvincent/mythor/blob/6e85b1e/packages/core/src/ecs/Manager.ts#L22)
 
 ___
 
@@ -154,4 +175,4 @@ ___
 
 #### Defined in
 
-[ecs/Manager.ts:23](https://github.com/desaintvincent/mythor/blob/1a100e7/packages/core/src/ecs/Manager.ts#L23)
+[ecs/Manager.ts:25](https://github.com/desaintvincent/mythor/blob/6e85b1e/packages/core/src/ecs/Manager.ts#L25)

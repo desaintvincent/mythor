@@ -8,6 +8,10 @@
 
   ↳ [`Component`](Component.md)
 
+  ↳ [`System`](System.md)
+
+  ↳ [`Manager`](Manager.md)
+
 ## Table of contents
 
 ### Constructors
@@ -32,4 +36,4 @@
 
 #### Defined in
 
-[collections/Signable.ts:2](https://github.com/desaintvincent/mythor/blob/1a100e7/packages/core/src/collections/Signable.ts#L2)
+[collections/Signable.ts:2](https://github.com/desaintvincent/mythor/blob/6e85b1e/packages/core/src/collections/Signable.ts#L2)
