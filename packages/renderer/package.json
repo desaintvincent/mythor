@@ -1,6 +1,6 @@
 {
   "name": "@mythor/renderer",
-  "version": "0.4.5",
+  "version": "0.4.6",
   "description": "Mythor renderer",
   "author": "Thomas Robert de Saint Vincent <thomas.rdsv@viaco.fr>",
   "homepage": "https://github.com/desaintvincent/mythor#readme",
@@ -33,7 +33,7 @@
     "url": "https://github.com/desaintvincent/mythor/issues"
   },
   "dependencies": {
-    "@mythor/core": "^0.4.5",
+    "@mythor/core": "^0.4.6",
     "@mythor/math": "^0.3.7"
   },
   "gitHead": "4773ef4d50c9a9e9bb4d84dcca5d24310f13433f"

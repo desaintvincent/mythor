@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.7](https://github.com/desaintvincent/mythor/compare/@mythor/examples@1.4.6...@mythor/examples@1.4.7) (2022-11-17)
+
+**Note:** Version bump only for package @mythor/examples
+
 ## [1.4.6](https://github.com/desaintvincent/mythor/compare/@mythor/examples@1.4.5...@mythor/examples@1.4.6) (2022-11-14)
 
 **Note:** Version bump only for package @mythor/examples
