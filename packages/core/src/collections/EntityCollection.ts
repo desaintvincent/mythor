@@ -51,7 +51,7 @@ class EntityCollection {
     const { constructors } = options
     const signature = this.buildListSignature(...constructors)
     log(
-      `Create %clist%c "${constructors
+      `Registering %clist%c "${constructors
         .map((constructor) => constructor.name)
         .join()}" as ${signature}`,
       'yellow'
