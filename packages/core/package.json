@@ -3,7 +3,7 @@
   "description": "Mythor core",
   "version": "0.4.6",
   "author": "thomas <destvincent@hotmail.fr>",
-  "homepage": "",
+  "homepage": "https://github.com/desaintvincent/mythor/blob/main/packages/core#readme",
   "license": "MIT",
   "main": "lib/core.js",
   "typings": "lib/core.d.ts",

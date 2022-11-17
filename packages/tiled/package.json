@@ -3,7 +3,7 @@
   "version": "0.4.7",
   "description": "Mythor tiled library",
   "author": "thomas <destvincent@hotmail.fr>",
-  "homepage": "",
+  "homepage": "https://github.com/desaintvincent/mythor/blob/main/packages/tiled#readme",
   "license": "MIT",
   "main": "lib/tiled.js",
   "typings": "lib/tiled.d.ts",

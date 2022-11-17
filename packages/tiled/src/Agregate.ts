@@ -1,5 +1,5 @@
-import PolyBool from 'polybooljs'
-import decomp from 'poly-decomp'
+import * as PolyBool from 'polybooljs'
+import * as decomp from 'poly-decomp'
 import TiledMapParser, {
   ParsedObject,
   TileMapParserOptions,
@@ -24,6 +24,7 @@ export interface LoadState {
 interface AgregateOptions extends TileMapParserOptions {
   onCreateCollider?: (collider: AggregateCollider) => void
   onLoad?: (args: LoadState) => void
+  maxBacth?: number
 }
 
 interface Segment {
@@ -42,11 +43,13 @@ interface Segment {
 
 class Agregate {
   private readonly tilemapParser: TiledMapParser
+  private readonly maxBacth: number
   private readonly tiles: ParsedObject[] = []
   private readonly onCreateCollider?: (collider: AggregateCollider) => void
   private readonly onLoad?: (args: LoadState) => void
 
   public constructor(map: unknown, options?: AgregateOptions) {
+    this.maxBacth = options?.maxBacth ?? 10
     const { onCreateCollider, onLoad, ...tilemapParserOptions } = options ?? {}
     this.onCreateCollider = onCreateCollider
     this.onLoad = onLoad
@@ -74,11 +77,17 @@ class Agregate {
     }
 
     const polygons = this.extractPolygons()
+
+    if (!polygons.length) {
+      return
+    }
+
     this.onLoad?.({
       current: 0,
       total: polygons.length,
       weight: 90,
     })
+    PolyBool.epsilon(0.5)
     const regions = await this.extractRegions(polygons)
     const convexRegions = this.convertToConvexRegions(regions)
     convexRegions.forEach((convexRegion: Region) => {
@@ -105,7 +114,6 @@ class Agregate {
 
   private async extractRegions(polygons: Poly[]): Promise<Region[]> {
     return await new Promise<Region[]>((resolve) => {
-      const maxBacth = 0
       let batch = 0
       let segments = PolyBool.segments(polygons[0])
 
@@ -128,7 +136,7 @@ class Agregate {
           weight: 90,
         })
 
-        if (batch++ >= maxBacth) {
+        if (batch++ >= this.maxBacth) {
           batch = 0
           setTimeout(asyncSegments.bind(null, i + 1, cb), 0)
         } else {
