@@ -1,5 +1,5 @@
 import Ecs from './Ecs'
-import { Constructor } from '../collections/Signable'
+import Signable, { Constructor } from '../collections/Signable'
 import Entity from './Entity'
 import Component from './Component'
 import Manager from './Manager'
@@ -11,7 +11,7 @@ interface SystemDependencies {
   list?: Constructor<IList<Entity>>
 }
 
-abstract class System {
+abstract class System extends Signable {
   public ecs: Ecs
   private readonly _name: string
   private _disabled = false
@@ -25,6 +25,7 @@ abstract class System {
     components: Array<Constructor<Component>>,
     dependencies?: Partial<SystemDependencies>
   ) {
+    super()
     this._duration = 0
     this._name = name
     this.components = components

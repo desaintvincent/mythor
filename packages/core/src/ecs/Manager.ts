@@ -1,10 +1,12 @@
 import Ecs from './Ecs'
+import Signable from '../collections/Signable'
 
-class Manager {
+class Manager extends Signable {
   private readonly _name: string
   protected readonly ecs: Ecs
 
   public constructor(name: string) {
+    super()
     this._name = name
   }
 

@@ -1,4 +1,4 @@
-import { Ecs, Manager } from '@mythor/core'
+import { Ecs, getConstructor, getSignature, Manager } from '@mythor/core'
 import STATS from 'stats.js'
 import { EventsManager, Key } from '@mythor/events'
 
@@ -44,13 +44,17 @@ const box = (name: string, content: string): string => `
 interface SystemStats extends Record<string, string | number> {
   name: string
   time: string
-  entities: number
-  signature: number
-  components: string
+  id: number
+  list: number | string
 }
 
 interface ManagerStats extends Record<string, string | number> {
+  id: number
   name: string
+}
+interface ListStats extends Record<string, string | number> {
+  id: string
+  components: string
 }
 
 interface ComponentStats extends Record<string, string | number> {
@@ -119,9 +123,11 @@ class StatisticsManager extends Manager {
     const systemStats = this.getSystemStats(ecs)
     const managerStats = this.getManagerStats(ecs)
     const componentStats = this.getComponentStats(ecs)
+    const listStats = this.getListStats(ecs)
     this.elem.innerHTML =
-      box('Systems:', objectToTable(systemStats)) +
       box('Managers:', objectToTable(managerStats)) +
+      box('Systems:', objectToTable(systemStats)) +
+      box('Lists:', objectToTable(listStats)) +
       box('Components:', objectToTable(componentStats))
   }
 
@@ -135,29 +141,44 @@ class StatisticsManager extends Manager {
   }
 
   private getManagerStats(ecs: Ecs): ManagerStats[] {
-    return ecs.managers.map((m) => ({
-      name: m.name,
-    }))
+    return ecs.managers
+      .map((m) => ({
+        id: getSignature(getConstructor(m)),
+        name: m.name,
+      }))
+      .sort((a, b) => (a.id < b.id ? -1 : 1))
+  }
+
+  private getListStats(ecs: Ecs): ListStats[] {
+    return Object.entries(ecs.entityCollections.lists)
+      .map(
+        ([id, list]) =>
+          ({
+            id,
+            components:
+              list.constructors
+                .map((c) => c.name)
+                .sort((a, b) => (a < b ? -1 : 1))
+                .join(', ') ?? '',
+          } as ListStats)
+      )
+      .sort((a, b) => (a.id < b.id ? -1 : 1))
   }
 
   private getSystemStats(ecs: Ecs): SystemStats[] {
     return [
-      ...ecs.systems.map((system) => ({
-        components:
-          system
-            .getEntities()
-            .constructors.map((c) => c.name)
-            .join(', ') ?? '',
-        entities: system.getEntities().length,
-        name: system.name,
-        signature: system.getEntities().signature,
-        time: `${system.duration.toFixed(2)} ms`,
-      })),
+      ...ecs.systems
+        .map((system) => ({
+          id: getSignature(getConstructor(system)),
+          name: system.name,
+          list: system.getEntities().signature,
+          time: `${system.duration.toFixed(2)} ms`,
+        }))
+        .sort((a, b) => (a.id < b.id ? -1 : 1)),
       {
-        components: '',
-        entities: ecs.getEntityNumber(),
         name: 'Total',
-        signature: 0,
+        id: 0,
+        list: '',
         time: `${ecs.duration.toFixed(2)} ms`,
       },
     ]

@@ -7,18 +7,18 @@ import {
   isRegistered,
 } from '../collections/Signable'
 import Manager from './Manager'
-import ConstructorMap from './ConstructorMap'
 import now from '../util/now'
 import { ArrayListOptions } from '../lists/List'
 import IList from '../lists/IList'
+import SignableMap from '../collections/SignableMap'
 
 export interface EcsOptions {
   queueEntities?: boolean
 }
 
 export default class Ecs {
-  private readonly _systems: ConstructorMap<System>
-  private readonly _managers: ConstructorMap<Manager>
+  private readonly _systems: SignableMap<System>
+  private readonly _managers: SignableMap<Manager>
   private readonly _entityCollections: EntityCollection
   private readonly _entities: Map<string, Entity>
 
@@ -33,8 +33,8 @@ export default class Ecs {
     this._entities = new Map()
     this._duration = 0
 
-    this._systems = new ConstructorMap<System>()
-    this._managers = new ConstructorMap<Manager>()
+    this._systems = new SignableMap<System>('system', 'lightblue')
+    this._managers = new SignableMap<Manager>('manager', 'red')
     this._entityCollections = new EntityCollection()
 
     this._entityCollections.onNewList = (list) => {
@@ -52,11 +52,11 @@ export default class Ecs {
     return this._entities.size
   }
 
-  public get systems(): ConstructorMap<System> {
+  public get systems(): SignableMap<System> {
     return this._systems
   }
 
-  public get managers(): ConstructorMap<Manager> {
+  public get managers(): SignableMap<Manager> {
     return this._managers
   }
 

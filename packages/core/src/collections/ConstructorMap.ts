@@ -1,4 +1,4 @@
-import { Constructor, getConstructor } from '../collections/Signable'
+import { Constructor, getConstructor } from './Signable'
 
 class ConstructorMap<T> {
   private readonly _map: Map<Constructor<T>, T>

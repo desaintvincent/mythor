@@ -1,11 +1,11 @@
-import {
+import Signable, {
   Constructor,
   getSignature,
   isRegistered,
 } from '../collections/Signable'
 import log from '../util/log'
 
-class ConstructorRegistry<T> {
+class ConstructorRegistry<T extends Signable> {
   private bits = 0
   private readonly name: string
   private readonly color: string
