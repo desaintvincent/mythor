@@ -3,7 +3,7 @@
   "version": "0.3.8",
   "description": "Mythor events",
   "author": "Thomas Robert de Saint Vincent <thomas.rdsv@viaco.fr>",
-  "homepage": "https://github.com/desaintvincent/mythor#readme",
+  "homepage": "https://github.com/desaintvincent/mythor/blob/main/packages/events#readme",
   "license": "MIT",
   "main": "lib/events.js",
   "typings": "lib/events.d.ts",

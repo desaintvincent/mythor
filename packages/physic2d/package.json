@@ -3,7 +3,7 @@
   "version": "0.3.9",
   "description": "Mythor physics",
   "author": "thomas <destvincent@hotmail.fr>",
-  "homepage": "https://github.com/desaintvincent/mythor#readme",
+  "homepage": "https://github.com/desaintvincent/mythor/blob/main/packages/physic2d#readme",
   "license": "MIT",
   "main": "lib/physic2d.js",
   "typings": "lib/physic2d.d.ts",

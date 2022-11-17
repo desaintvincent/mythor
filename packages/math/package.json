@@ -3,7 +3,7 @@
   "version": "0.3.7",
   "description": "Mythor math library",
   "author": "thomas <destvincent@hotmail.fr>",
-  "homepage": "",
+  "homepage": "https://github.com/desaintvincent/mythor/blob/main/packages/math#readme",
   "license": "MIT",
   "main": "lib/math.js",
   "typings": "lib/math.d.ts",

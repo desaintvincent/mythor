@@ -3,7 +3,7 @@
   "version": "0.4.6",
   "description": "Mythor renderer",
   "author": "Thomas Robert de Saint Vincent <thomas.rdsv@viaco.fr>",
-  "homepage": "https://github.com/desaintvincent/mythor#readme",
+  "homepage": "https://github.com/desaintvincent/mythor/blob/main/packages/renderer#readme",
   "license": "MIT",
   "main": "lib/renderer.js",
   "typings": "lib/renderer.d.ts",

@@ -18,20 +18,27 @@ type NameCallback = (entity: Entity, object: TiledObject) => void
 interface GenerateEntitiesFromTiledOptions {
   name?: Record<string, NameCallback>
   aggreateColliders?: boolean
+  generatePassiveColliders?: boolean
+  maxBacth?: number
 }
 
 function addPhysic(
   tile: ParsedObject,
   entity: Entity,
-  interactWithWorld = true
+  aggreateColliders,
+  generatePassiveColliders
 ): void {
   if (!isRegistered(Physic)) {
     return
   }
-  if (tile.collider.polygons.length > 0) {
+
+  if (
+    tile.collider.polygons.length > 0 &&
+    (generatePassiveColliders || !aggreateColliders)
+  ) {
     entity.add(
       new Physic({
-        interactWithWorld: interactWithWorld,
+        interactWithWorld: !aggreateColliders,
         polygons: tile.collider.polygons,
       })
     )
@@ -47,6 +54,12 @@ function addPhysic(
         ),
       })
     )
+  } else if (generatePassiveColliders) {
+    entity.add(
+      new Physic({
+        interactWithWorld: false,
+      })
+    )
   }
 }
 
@@ -57,6 +70,7 @@ async function generateEntitiesFromTiled(
 ): Promise<Record<string, Entity>> {
   const textures = ecs.manager(TextureManager)
   const aggreateColliders = options?.aggreateColliders ?? true
+  const generatePassiveColliders = options?.generatePassiveColliders ?? true
   const entitiesToReturn: Record<string, Entity> = {}
   let state: LoadingState | undefined
 
@@ -102,7 +116,7 @@ async function generateEntitiesFromTiled(
         new Renderable(),
         new Sprite(textures.get(textureName), tile.sprite)
       )
-    addPhysic(tile, entity, !aggreateColliders)
+    addPhysic(tile, entity, aggreateColliders, generatePassiveColliders)
   }
 
   const onCreateCollider = (polygon: AggregateCollider): void => {
@@ -151,6 +165,7 @@ async function generateEntitiesFromTiled(
     onCreateTile,
     onLoad,
     onParsed,
+    maxBacth: options?.maxBacth,
   })
 
   await mapParser.parse()
