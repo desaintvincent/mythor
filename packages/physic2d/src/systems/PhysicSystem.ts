@@ -1,14 +1,14 @@
 import {
-  Contact,
-  World,
-  Body,
-  WeldJoint,
   AABB,
+  Body,
+  Contact,
   Vec2 as PlankVec2,
+  WeldJoint,
+  World,
 } from 'planck-js'
 import { Vec2 } from '@mythor/math'
 import { Entity, Owner, System, Transform } from '@mythor/core'
-import Physic from '../components/Physic'
+import Physic, { PhysicType } from '../components/Physic'
 import ColliderCallback from '../components/ColliderCallback'
 import { Box, Circle, Polygon } from 'planck-js/lib'
 
@@ -210,6 +210,17 @@ export default class PhysicSystem extends System {
 
     body.setUserData({ entityId: entity._id })
 
+    if (type !== PhysicType.STATIC) {
+      position.observe((newPos: Vec2) => {
+        body.setPosition(
+          PlankVec2(
+            (newPos.x + physic.offset.x) / this.worldScale,
+            (newPos.y + physic.offset.y) / this.worldScale
+          )
+        )
+      })
+    }
+
     physic.body = body
   }
 
@@ -247,8 +258,11 @@ export default class PhysicSystem extends System {
       transform = entity.get(Transform)
       physic = entity.get(Physic)
 
-      transform.position.x = bodyPosition.x * this.worldScale - physic.offset.x
-      transform.position.y = bodyPosition.y * this.worldScale - physic.offset.y
+      transform.position.set(
+        bodyPosition.x * this.worldScale - physic.offset.x,
+        bodyPosition.y * this.worldScale - physic.offset.y,
+        false
+      )
       transform.rotation = bodyAngle
     }
 

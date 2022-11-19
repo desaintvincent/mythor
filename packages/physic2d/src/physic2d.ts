@@ -8,3 +8,4 @@ export {
   default as PhysicSystem,
   IGNORED_BY_WORLD,
 } from './systems/PhysicSystem'
+export { default as toPlank } from './utils/toPlank'
