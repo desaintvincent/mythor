@@ -28,7 +28,7 @@ export interface PhysicParams {
 
 export default class Physic extends Component {
   public body: Body
-  public readonly fixedRotation: boolean
+  public fixedRotation: boolean
   public readonly mass: number
   public readonly polygons: Array<Array<{ x: number; y: number }>>
   public readonly ellipses: number[]
@@ -40,9 +40,9 @@ export default class Physic extends Component {
   public readonly linearDamping: number
   public readonly bullet: boolean
   public readonly initialLinearVelocity: Vec2
-  public readonly gravityScale: number
+  public gravityScale: number
   public readonly interactWithWorld: boolean
-  public readonly type: PhysicType
+  public type: PhysicType
 
   public constructor(options?: PhysicParams) {
     super()

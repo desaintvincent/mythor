@@ -16,6 +16,7 @@ import PlatformerMovements from './components/PlatformerMovements'
 import PlatformerMovementsSystem from './system/PlatformerMovementsSystem'
 import EventControls from './components/EventControls'
 import { Transform } from '@mythor/core'
+import MovementStats from './components/MovementStats'
 
 const camera = new Camera(Vec2.create(1920, 1080))
 
@@ -33,11 +34,12 @@ createGame({
         size: new Vec2(45, 70),
       }),
       new Physic({
-        type: PhysicType.DYNAMIC,
-        fixedRotation: true,
+        friction: 0,
+        bullet: true,
       }),
       new PlatformerMovements(),
-      new EventControls()
+      new EventControls(),
+      new MovementStats()
     )
 
     ecs

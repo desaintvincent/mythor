@@ -21,7 +21,16 @@ class PhysicManipulator {
     body.setLinearVelocity(v)
   }
 
-  // public static applyForce({ body }: Physic, force: Vec2): {}
+  public static applyForce({ body }: Physic, force: Vec2): void {
+    const point = body.getWorldCenter()
+    body.applyForce(toPlank(force.x, force.y), point)
+  }
+
+  public static applyImpulse({ body }: Physic, impulse: Vec2): void {
+    const point = body.getWorldCenter()
+    console.log('====> impulse.x', impulse.x)
+    body.applyLinearImpulse(toPlank(impulse.x, impulse.y), point)
+  }
 }
 
 export default PhysicManipulator
