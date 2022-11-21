@@ -20,6 +20,7 @@ interface GenerateEntitiesFromTiledOptions {
   aggreateColliders?: boolean
   generatePassiveColliders?: boolean
   maxBacth?: number
+  setTree?: boolean
 }
 
 function addPhysic(
@@ -147,8 +148,7 @@ async function generateEntitiesFromTiled(
     tileheight,
     tilewidth,
   }: TiledMap): void => {
-    // @todo offset ??? position ??
-    if (ecs.systems.has(Renderer)) {
+    if (ecs.systems.has(Renderer) && (options?.setTree ?? true)) {
       const w = width * tilewidth
       const h = height * tileheight
       ecs.system(Renderer).setTree({

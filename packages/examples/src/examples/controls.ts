@@ -32,7 +32,10 @@ createGame({
         position: new Vec2(500, 400),
         size: new Vec2(45, 70),
       }),
-      new Physic({ type: PhysicType.DYNAMIC, gravityScale: 0 }),
+      new Physic({
+        type: PhysicType.DYNAMIC,
+        fixedRotation: true,
+      }),
       new PlatformerMovements(),
       new EventControls()
     )

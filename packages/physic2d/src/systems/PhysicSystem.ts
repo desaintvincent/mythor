@@ -260,8 +260,7 @@ export default class PhysicSystem extends System {
 
       transform.position.set(
         bodyPosition.x * this.worldScale - physic.offset.x,
-        bodyPosition.y * this.worldScale - physic.offset.y,
-        false
+        bodyPosition.y * this.worldScale - physic.offset.y
       )
       transform.rotation = bodyAngle
     }
