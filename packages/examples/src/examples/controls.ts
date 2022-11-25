@@ -17,6 +17,7 @@ import PlatformerMovementsSystem from './system/PlatformerMovementsSystem'
 import EventControls from './components/EventControls'
 import { Transform } from '@mythor/core'
 import MovementStats from './components/MovementStats'
+import PlatformerSensors from './components/PlatformerSensors'
 
 const camera = new Camera(Vec2.create(1920, 1080))
 
@@ -39,6 +40,7 @@ createGame({
       }),
       new PlatformerMovements(),
       new EventControls(),
+      new PlatformerSensors(),
       new MovementStats()
     )
 

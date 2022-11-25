@@ -1,9 +1,9 @@
 import { Component } from '@mythor/core'
-import Movement from './Movement'
 
 class MovementStats extends Component {
-  public jump = 20000
-  public move = 50000
+  public gravity = 98.1
+  public jump = 2000
+  public move = 10
 }
 
 export default MovementStats
