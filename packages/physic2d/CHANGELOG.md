@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/desaintvincent/mythor/compare/@mythor/physic2d@0.3.11...@mythor/physic2d@0.4.0) (2022-11-26)
+
+### Features
+
+- **physic2d:** add PhysicManipulator ([5afc26e](https://github.com/desaintvincent/mythor/commit/5afc26e14a152bd91500e6d220a7ec6bab335aea))
+
 ## [0.3.11](https://github.com/desaintvincent/mythor/compare/@mythor/physic2d@0.3.10...@mythor/physic2d@0.3.11) (2022-11-26)
 
 ### Bug Fixes

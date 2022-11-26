@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/desaintvincent/mythor/compare/@mythor/tiled@0.4.9...@mythor/tiled@0.5.0) (2022-11-26)
+
+### Features
+
+- **physic2d:** add PhysicManipulator ([5afc26e](https://github.com/desaintvincent/mythor/commit/5afc26e14a152bd91500e6d220a7ec6bab335aea))
+
 ## [0.4.9](https://github.com/desaintvincent/mythor/compare/@mythor/tiled@0.4.8...@mythor/tiled@0.4.9) (2022-11-26)
 
 **Note:** Version bump only for package @mythor/tiled
