@@ -63,7 +63,7 @@ Component.constructor
 
 #### Defined in
 
-[renderer/src/components/ParticleEmitter.ts:163](https://github.com/desaintvincent/mythor/blob/c0bd7c9/packages/renderer/src/components/ParticleEmitter.ts#L163)
+[renderer/src/components/ParticleEmitter.ts:163](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/components/ParticleEmitter.ts#L163)
 
 ## Properties
 
@@ -87,7 +87,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/ParticleEmitter.ts:157](https://github.com/desaintvincent/mythor/blob/c0bd7c9/packages/renderer/src/components/ParticleEmitter.ts#L157)
+[renderer/src/components/ParticleEmitter.ts:157](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/components/ParticleEmitter.ts#L157)
 
 ___
 
@@ -97,7 +97,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/ParticleEmitter.ts:138](https://github.com/desaintvincent/mythor/blob/c0bd7c9/packages/renderer/src/components/ParticleEmitter.ts#L138)
+[renderer/src/components/ParticleEmitter.ts:138](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/components/ParticleEmitter.ts#L138)
 
 ___
 
@@ -107,7 +107,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/ParticleEmitter.ts:160](https://github.com/desaintvincent/mythor/blob/c0bd7c9/packages/renderer/src/components/ParticleEmitter.ts#L160)
+[renderer/src/components/ParticleEmitter.ts:160](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/components/ParticleEmitter.ts#L160)
 
 ___
 
@@ -117,7 +117,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/ParticleEmitter.ts:158](https://github.com/desaintvincent/mythor/blob/c0bd7c9/packages/renderer/src/components/ParticleEmitter.ts#L158)
+[renderer/src/components/ParticleEmitter.ts:158](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/components/ParticleEmitter.ts#L158)
 
 ___
 
@@ -127,7 +127,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/ParticleEmitter.ts:150](https://github.com/desaintvincent/mythor/blob/c0bd7c9/packages/renderer/src/components/ParticleEmitter.ts#L150)
+[renderer/src/components/ParticleEmitter.ts:150](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/components/ParticleEmitter.ts#L150)
 
 ___
 
@@ -137,7 +137,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/ParticleEmitter.ts:148](https://github.com/desaintvincent/mythor/blob/c0bd7c9/packages/renderer/src/components/ParticleEmitter.ts#L148)
+[renderer/src/components/ParticleEmitter.ts:148](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/components/ParticleEmitter.ts#L148)
 
 ___
 
@@ -147,7 +147,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/ParticleEmitter.ts:151](https://github.com/desaintvincent/mythor/blob/c0bd7c9/packages/renderer/src/components/ParticleEmitter.ts#L151)
+[renderer/src/components/ParticleEmitter.ts:151](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/components/ParticleEmitter.ts#L151)
 
 ___
 
@@ -157,7 +157,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/ParticleEmitter.ts:140](https://github.com/desaintvincent/mythor/blob/c0bd7c9/packages/renderer/src/components/ParticleEmitter.ts#L140)
+[renderer/src/components/ParticleEmitter.ts:140](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/components/ParticleEmitter.ts#L140)
 
 ___
 
@@ -167,7 +167,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/ParticleEmitter.ts:142](https://github.com/desaintvincent/mythor/blob/c0bd7c9/packages/renderer/src/components/ParticleEmitter.ts#L142)
+[renderer/src/components/ParticleEmitter.ts:142](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/components/ParticleEmitter.ts#L142)
 
 ___
 
@@ -177,7 +177,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/ParticleEmitter.ts:145](https://github.com/desaintvincent/mythor/blob/c0bd7c9/packages/renderer/src/components/ParticleEmitter.ts#L145)
+[renderer/src/components/ParticleEmitter.ts:145](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/components/ParticleEmitter.ts#L145)
 
 ___
 
@@ -187,7 +187,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/ParticleEmitter.ts:155](https://github.com/desaintvincent/mythor/blob/c0bd7c9/packages/renderer/src/components/ParticleEmitter.ts#L155)
+[renderer/src/components/ParticleEmitter.ts:155](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/components/ParticleEmitter.ts#L155)
 
 ___
 
@@ -197,7 +197,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/ParticleEmitter.ts:144](https://github.com/desaintvincent/mythor/blob/c0bd7c9/packages/renderer/src/components/ParticleEmitter.ts#L144)
+[renderer/src/components/ParticleEmitter.ts:144](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/components/ParticleEmitter.ts#L144)
 
 ___
 
@@ -207,7 +207,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/ParticleEmitter.ts:143](https://github.com/desaintvincent/mythor/blob/c0bd7c9/packages/renderer/src/components/ParticleEmitter.ts#L143)
+[renderer/src/components/ParticleEmitter.ts:143](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/components/ParticleEmitter.ts#L143)
 
 ___
 
@@ -217,7 +217,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/ParticleEmitter.ts:146](https://github.com/desaintvincent/mythor/blob/c0bd7c9/packages/renderer/src/components/ParticleEmitter.ts#L146)
+[renderer/src/components/ParticleEmitter.ts:146](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/components/ParticleEmitter.ts#L146)
 
 ___
 
@@ -227,7 +227,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/ParticleEmitter.ts:147](https://github.com/desaintvincent/mythor/blob/c0bd7c9/packages/renderer/src/components/ParticleEmitter.ts#L147)
+[renderer/src/components/ParticleEmitter.ts:147](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/components/ParticleEmitter.ts#L147)
 
 ___
 
@@ -251,7 +251,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/ParticleEmitter.ts:159](https://github.com/desaintvincent/mythor/blob/c0bd7c9/packages/renderer/src/components/ParticleEmitter.ts#L159)
+[renderer/src/components/ParticleEmitter.ts:159](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/components/ParticleEmitter.ts#L159)
 
 ___
 
@@ -261,7 +261,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/ParticleEmitter.ts:141](https://github.com/desaintvincent/mythor/blob/c0bd7c9/packages/renderer/src/components/ParticleEmitter.ts#L141)
+[renderer/src/components/ParticleEmitter.ts:141](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/components/ParticleEmitter.ts#L141)
 
 ___
 
@@ -271,7 +271,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/ParticleEmitter.ts:156](https://github.com/desaintvincent/mythor/blob/c0bd7c9/packages/renderer/src/components/ParticleEmitter.ts#L156)
+[renderer/src/components/ParticleEmitter.ts:156](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/components/ParticleEmitter.ts#L156)
 
 ___
 
@@ -281,7 +281,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/ParticleEmitter.ts:161](https://github.com/desaintvincent/mythor/blob/c0bd7c9/packages/renderer/src/components/ParticleEmitter.ts#L161)
+[renderer/src/components/ParticleEmitter.ts:161](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/components/ParticleEmitter.ts#L161)
 
 ___
 
@@ -291,7 +291,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/ParticleEmitter.ts:149](https://github.com/desaintvincent/mythor/blob/c0bd7c9/packages/renderer/src/components/ParticleEmitter.ts#L149)
+[renderer/src/components/ParticleEmitter.ts:149](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/components/ParticleEmitter.ts#L149)
 
 ___
 
@@ -301,7 +301,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/ParticleEmitter.ts:152](https://github.com/desaintvincent/mythor/blob/c0bd7c9/packages/renderer/src/components/ParticleEmitter.ts#L152)
+[renderer/src/components/ParticleEmitter.ts:152](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/components/ParticleEmitter.ts#L152)
 
 ___
 
@@ -311,7 +311,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/ParticleEmitter.ts:136](https://github.com/desaintvincent/mythor/blob/c0bd7c9/packages/renderer/src/components/ParticleEmitter.ts#L136)
+[renderer/src/components/ParticleEmitter.ts:136](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/components/ParticleEmitter.ts#L136)
 
 ___
 
@@ -329,7 +329,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/ParticleEmitter.ts:153](https://github.com/desaintvincent/mythor/blob/c0bd7c9/packages/renderer/src/components/ParticleEmitter.ts#L153)
+[renderer/src/components/ParticleEmitter.ts:153](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/components/ParticleEmitter.ts#L153)
 
 ___
 
@@ -339,7 +339,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/ParticleEmitter.ts:137](https://github.com/desaintvincent/mythor/blob/c0bd7c9/packages/renderer/src/components/ParticleEmitter.ts#L137)
+[renderer/src/components/ParticleEmitter.ts:137](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/components/ParticleEmitter.ts#L137)
 
 ___
 
@@ -357,7 +357,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/ParticleEmitter.ts:154](https://github.com/desaintvincent/mythor/blob/c0bd7c9/packages/renderer/src/components/ParticleEmitter.ts#L154)
+[renderer/src/components/ParticleEmitter.ts:154](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/components/ParticleEmitter.ts#L154)
 
 ___
 

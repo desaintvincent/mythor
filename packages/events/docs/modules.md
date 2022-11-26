@@ -12,3 +12,7 @@
 ### Classes
 
 - [EventsManager](classes/EventsManager.md)
+
+### Interfaces
+
+- [EventManagerOptions](interfaces/EventManagerOptions.md)
