@@ -35,7 +35,7 @@
 
 #### Defined in
 
-[components/Owner.ts:8](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/components/Owner.ts#L8)
+[components/Owner.ts:8](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/core/src/components/Owner.ts#L8)
 
 ## Properties
 
@@ -49,7 +49,7 @@
 
 #### Defined in
 
-[components/Owner.ts:5](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/components/Owner.ts#L5)
+[components/Owner.ts:5](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/core/src/components/Owner.ts#L5)
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 #### Defined in
 
-[components/Owner.ts:6](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/components/Owner.ts#L6)
+[components/Owner.ts:6](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/core/src/components/Owner.ts#L6)
 
 ## Methods
 
@@ -79,4 +79,4 @@ ___
 
 #### Defined in
 
-[components/Owner.ts:12](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/components/Owner.ts#L12)
+[components/Owner.ts:12](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/core/src/components/Owner.ts#L12)

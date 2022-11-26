@@ -18,7 +18,7 @@
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:8](https://github.com/desaintvincent/mythor/blob/38f422f/packages/events/src/managers/EventsManager.ts#L8)
+[events/src/managers/EventsManager.ts:8](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/events/src/managers/EventsManager.ts#L8)
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:9](https://github.com/desaintvincent/mythor/blob/38f422f/packages/events/src/managers/EventsManager.ts#L9)
+[events/src/managers/EventsManager.ts:9](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/events/src/managers/EventsManager.ts#L9)
 
 ___
 
@@ -38,4 +38,4 @@ ___
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:10](https://github.com/desaintvincent/mythor/blob/38f422f/packages/events/src/managers/EventsManager.ts#L10)
+[events/src/managers/EventsManager.ts:10](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/events/src/managers/EventsManager.ts#L10)

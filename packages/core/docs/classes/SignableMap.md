@@ -56,7 +56,7 @@
 
 #### Defined in
 
-[collections/SignableMap.ts:16](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/collections/SignableMap.ts#L16)
+[collections/SignableMap.ts:16](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/core/src/collections/SignableMap.ts#L16)
 
 ## Properties
 
@@ -66,7 +66,7 @@
 
 #### Defined in
 
-[collections/SignableMap.ts:10](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/collections/SignableMap.ts#L10)
+[collections/SignableMap.ts:10](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/core/src/collections/SignableMap.ts#L10)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[collections/SignableMap.ts:15](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/collections/SignableMap.ts#L15)
+[collections/SignableMap.ts:15](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/core/src/collections/SignableMap.ts#L15)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[collections/SignableMap.ts:11](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/collections/SignableMap.ts#L11)
+[collections/SignableMap.ts:11](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/core/src/collections/SignableMap.ts#L11)
 
 ## Accessors
 
@@ -100,7 +100,7 @@ ___
 
 #### Defined in
 
-[collections/SignableMap.ts:81](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/collections/SignableMap.ts#L81)
+[collections/SignableMap.ts:81](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/core/src/collections/SignableMap.ts#L81)
 
 ## Methods
 
@@ -114,7 +114,7 @@ ___
 
 #### Defined in
 
-[collections/SignableMap.ts:27](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/collections/SignableMap.ts#L27)
+[collections/SignableMap.ts:27](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/core/src/collections/SignableMap.ts#L27)
 
 ___
 
@@ -134,7 +134,7 @@ ___
 
 #### Defined in
 
-[collections/SignableMap.ts:31](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/collections/SignableMap.ts#L31)
+[collections/SignableMap.ts:31](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/core/src/collections/SignableMap.ts#L31)
 
 ___
 
@@ -154,7 +154,7 @@ ___
 
 #### Defined in
 
-[collections/SignableMap.ts:41](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/collections/SignableMap.ts#L41)
+[collections/SignableMap.ts:41](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/core/src/collections/SignableMap.ts#L41)
 
 ___
 
@@ -174,7 +174,7 @@ ___
 
 #### Defined in
 
-[collections/SignableMap.ts:47](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/collections/SignableMap.ts#L47)
+[collections/SignableMap.ts:47](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/core/src/collections/SignableMap.ts#L47)
 
 ___
 
@@ -200,7 +200,7 @@ ___
 
 #### Defined in
 
-[collections/SignableMap.ts:57](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/collections/SignableMap.ts#L57)
+[collections/SignableMap.ts:57](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/core/src/collections/SignableMap.ts#L57)
 
 ___
 
@@ -220,7 +220,7 @@ ___
 
 #### Defined in
 
-[collections/SignableMap.ts:61](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/collections/SignableMap.ts#L61)
+[collections/SignableMap.ts:61](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/core/src/collections/SignableMap.ts#L61)
 
 ___
 
@@ -246,7 +246,7 @@ ___
 
 #### Defined in
 
-[collections/SignableMap.ts:35](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/collections/SignableMap.ts#L35)
+[collections/SignableMap.ts:35](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/core/src/collections/SignableMap.ts#L35)
 
 ___
 
@@ -266,4 +266,4 @@ ___
 
 #### Defined in
 
-[collections/SignableMap.ts:69](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/collections/SignableMap.ts#L69)
+[collections/SignableMap.ts:69](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/core/src/collections/SignableMap.ts#L69)

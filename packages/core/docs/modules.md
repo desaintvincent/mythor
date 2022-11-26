@@ -51,7 +51,7 @@
 
 #### Defined in
 
-[collections/Signable.ts:5](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/collections/Signable.ts#L5)
+[collections/Signable.ts:5](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/core/src/collections/Signable.ts#L5)
 
 ## Functions
 
@@ -77,7 +77,7 @@
 
 #### Defined in
 
-[collections/Signable.ts:9](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/collections/Signable.ts#L9)
+[collections/Signable.ts:9](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/core/src/collections/Signable.ts#L9)
 
 ___
 
@@ -103,7 +103,7 @@ ___
 
 #### Defined in
 
-[collections/Signable.ts:15](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/collections/Signable.ts#L15)
+[collections/Signable.ts:15](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/core/src/collections/Signable.ts#L15)
 
 ___
 
@@ -123,7 +123,7 @@ ___
 
 #### Defined in
 
-[collections/Signable.ts:25](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/collections/Signable.ts#L25)
+[collections/Signable.ts:25](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/core/src/collections/Signable.ts#L25)
 
 ___
 
@@ -144,7 +144,7 @@ ___
 
 #### Defined in
 
-[util/log.ts:1](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/util/log.ts#L1)
+[util/log.ts:1](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/core/src/util/log.ts#L1)
 
 ___
 
@@ -164,4 +164,4 @@ ___
 
 #### Defined in
 
-[util/throwError.ts:1](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/util/throwError.ts#L1)
+[util/throwError.ts:1](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/core/src/util/throwError.ts#L1)

@@ -63,17 +63,17 @@ List&lt;Entity\&gt;.constructor
 
 #### Defined in
 
-[renderer/src/quadTree/QuadTreeList.ts:16](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/quadTree/QuadTreeList.ts#L16)
+[renderer/src/quadTree/QuadTreeList.ts:16](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/renderer/src/quadTree/QuadTreeList.ts#L16)
 
 ## Properties
 
 ### \_data
 
-• `Private` **\_data**: `Map`<`string`, `default`\>
+• `Private` **\_data**: `Map`<`string`, `default`\>[]
 
 #### Defined in
 
-[renderer/src/quadTree/QuadTreeList.ts:12](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/quadTree/QuadTreeList.ts#L12)
+[renderer/src/quadTree/QuadTreeList.ts:12](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/renderer/src/quadTree/QuadTreeList.ts#L12)
 
 ___
 
@@ -97,7 +97,7 @@ ___
 
 #### Defined in
 
-[renderer/src/quadTree/QuadTreeList.ts:14](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/quadTree/QuadTreeList.ts#L14)
+[renderer/src/quadTree/QuadTreeList.ts:14](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/renderer/src/quadTree/QuadTreeList.ts#L14)
 
 ___
 
@@ -107,7 +107,7 @@ ___
 
 #### Defined in
 
-[renderer/src/quadTree/QuadTreeList.ts:13](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/quadTree/QuadTreeList.ts#L13)
+[renderer/src/quadTree/QuadTreeList.ts:13](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/renderer/src/quadTree/QuadTreeList.ts#L13)
 
 ## Accessors
 
@@ -147,7 +147,7 @@ IList.length
 
 #### Defined in
 
-[renderer/src/quadTree/QuadTreeList.ts:89](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/quadTree/QuadTreeList.ts#L89)
+[renderer/src/quadTree/QuadTreeList.ts:95](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/renderer/src/quadTree/QuadTreeList.ts#L95)
 
 ___
 
@@ -193,7 +193,7 @@ List.\_\_add
 
 #### Defined in
 
-[renderer/src/quadTree/QuadTreeList.ts:33](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/quadTree/QuadTreeList.ts#L33)
+[renderer/src/quadTree/QuadTreeList.ts:33](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/renderer/src/quadTree/QuadTreeList.ts#L33)
 
 ___
 
@@ -217,7 +217,7 @@ List.\_\_remove
 
 #### Defined in
 
-[renderer/src/quadTree/QuadTreeList.ts:38](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/quadTree/QuadTreeList.ts#L38)
+[renderer/src/quadTree/QuadTreeList.ts:42](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/renderer/src/quadTree/QuadTreeList.ts#L42)
 
 ___
 
@@ -263,7 +263,7 @@ IList.clear
 
 #### Defined in
 
-[renderer/src/quadTree/QuadTreeList.ts:52](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/quadTree/QuadTreeList.ts#L52)
+[renderer/src/quadTree/QuadTreeList.ts:57](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/renderer/src/quadTree/QuadTreeList.ts#L57)
 
 ___
 
@@ -287,7 +287,7 @@ IList.forEach
 
 #### Defined in
 
-[renderer/src/quadTree/QuadTreeList.ts:61](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/quadTree/QuadTreeList.ts#L61)
+[renderer/src/quadTree/QuadTreeList.ts:66](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/renderer/src/quadTree/QuadTreeList.ts#L66)
 
 ___
 
@@ -308,7 +308,7 @@ ___
 
 #### Defined in
 
-[renderer/src/quadTree/QuadTreeList.ts:65](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/quadTree/QuadTreeList.ts#L65)
+[renderer/src/quadTree/QuadTreeList.ts:70](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/renderer/src/quadTree/QuadTreeList.ts#L70)
 
 ___
 
@@ -356,7 +356,7 @@ ___
 
 #### Defined in
 
-[renderer/src/quadTree/QuadTreeList.ts:25](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/quadTree/QuadTreeList.ts#L25)
+[renderer/src/quadTree/QuadTreeList.ts:25](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/renderer/src/quadTree/QuadTreeList.ts#L25)
 
 ___
 
@@ -377,7 +377,7 @@ ___
 
 #### Defined in
 
-[renderer/src/quadTree/QuadTreeList.ts:74](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/quadTree/QuadTreeList.ts#L74)
+[renderer/src/quadTree/QuadTreeList.ts:80](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/renderer/src/quadTree/QuadTreeList.ts#L80)
 
 ___
 
@@ -397,4 +397,4 @@ ___
 
 #### Defined in
 
-[renderer/src/quadTree/QuadTreeList.ts:56](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/quadTree/QuadTreeList.ts#L56)
+[renderer/src/quadTree/QuadTreeList.ts:61](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/renderer/src/quadTree/QuadTreeList.ts#L61)

@@ -28,4 +28,4 @@
 
 #### Defined in
 
-[generateEntitiesFromTiled.ts:67](https://github.com/desaintvincent/mythor/blob/38f422f/packages/tiled/src/generateEntitiesFromTiled.ts#L67)
+[generateEntitiesFromTiled.ts:67](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/tiled/src/generateEntitiesFromTiled.ts#L67)
