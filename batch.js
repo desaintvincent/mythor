@@ -21551,9 +21551,13 @@ var math_1 = __webpack_require__(/*! @mythor/math */ "../math/lib/math.js");
 var getEntityStats_1 = __importDefault(__webpack_require__(/*! ../util/getEntityStats */ "../game/lib/util/getEntityStats.js"));
 var SelectDebugManager = (function (_super) {
     __extends(SelectDebugManager, _super);
-    function SelectDebugManager() {
-        var _this = _super.call(this, 'SelectDebugManager') || this;
-        _this.show = false;
+    function SelectDebugManager(params) {
+        var _this = this;
+        var _a;
+        _this = _super.call(this, 'SelectDebugManager') || this;
+        _this.show = true;
+        _this.onSelect = params === null || params === void 0 ? void 0 : params.onSelect;
+        _this.debugSize = (_a = params === null || params === void 0 ? void 0 : params.debugSize) !== null && _a !== void 0 ? _a : 0.7;
         return _this;
     }
     SelectDebugManager.prototype.update = function () {
@@ -21573,8 +21577,10 @@ var SelectDebugManager = (function (_super) {
         if (events.mousePressed(events_1.MouseButton.Left)) {
             var found_1 = false;
             this.ecs.system(physic2d_1.PhysicSystem).query(events.mousePosition(), function (entity) {
+                var _a;
                 if (entity.has(renderer_1.Renderable) && entity.has(core_1.Transform)) {
                     _this.selectedEntity = entity;
+                    (_a = _this.onSelect) === null || _a === void 0 ? void 0 : _a.call(_this, entity);
                     found_1 = true;
                     return false;
                 }
@@ -21601,7 +21607,7 @@ var SelectDebugManager = (function (_super) {
                 renderer.strokeRect(position, size, {
                     color: renderer_1.colorRed,
                     rotation: rotation,
-                    width: 2 / renderer.getCamera().scale,
+                    width: (_this.debugSize * 3) / renderer.getCamera().scale,
                 });
             }
             var fov = renderer.fov;
@@ -21610,13 +21616,13 @@ var SelectDebugManager = (function (_super) {
                 ? (0, getEntityStats_1.default)(_this.selectedEntity)
                 : 'No selected entity';
             var linesNumber = entityStats.split('\n').length + 1;
-            var maskSize = math_1.Vec2.create(380, linesNumber * renderer.lineHeight() * 0.7).divide(renderer.getCamera().scale);
+            var maskSize = math_1.Vec2.create(550 * _this.debugSize, linesNumber * renderer.lineHeight() * _this.debugSize).divide(renderer.getCamera().scale);
             renderer.fillRect((0, math_1.getTopLeft)(fov).add(maskSize.divide(2)), maskSize, {
                 color: [0, 0, 0, 0.75],
             });
             renderer.text(topLeft, entityStats, {
                 color: renderer_1.colorWhite,
-                size: 0.7 / renderer.getCamera().scale,
+                size: _this.debugSize / renderer.getCamera().scale,
             });
         });
     };
@@ -21681,9 +21687,10 @@ var objectToTable = function (objs) {
 var box = function (name, content) { return "\n  <div>\n    <h3>".concat(name, "</h3>\n    <div>").concat(content, "</div>\n  </div>\n"); };
 var StatisticsManager = (function (_super) {
     __extends(StatisticsManager, _super);
-    function StatisticsManager(debugElementId) {
-        if (debugElementId === void 0) { debugElementId = 'statistics'; }
-        var _this = _super.call(this, 'StatisticsManager') || this;
+    function StatisticsManager(params) {
+        var _this = this;
+        var _a;
+        _this = _super.call(this, 'StatisticsManager') || this;
         _this.count = 0;
         _this.display = false;
         _this.count = 0;
@@ -21693,7 +21700,7 @@ var StatisticsManager = (function (_super) {
         _this.entityPanel = _this.stats.addPanel(new stats_js_1.default.Panel('Entities', '#0ff', '#002'));
         _this.stats.showPanel(0);
         document.body.appendChild(_this.stats.dom);
-        var elem = document.getElementById(debugElementId);
+        var elem = document.getElementById((_a = params === null || params === void 0 ? void 0 : params.debugElementId) !== null && _a !== void 0 ? _a : 'statistics');
         if (elem) {
             _this.elem = elem;
         }
@@ -22098,7 +22105,7 @@ var defaultManagers = [
     },
     {
         condition: function (options) { var _a; return (_a = options === null || options === void 0 ? void 0 : options.addEventsManager) !== null && _a !== void 0 ? _a : true; },
-        getItem: function () { return new events_1.EventsManager(); },
+        getItem: function (options) { var _a; return new events_1.EventsManager((_a = options === null || options === void 0 ? void 0 : options.params) === null || _a === void 0 ? void 0 : _a.eventsManager); },
     },
     {
         condition: function (options) { var _a; return (_a = options === null || options === void 0 ? void 0 : options.addCameraMovementManager) !== null && _a !== void 0 ? _a : true; },
@@ -22106,7 +22113,7 @@ var defaultManagers = [
     },
     {
         condition: function (options) { var _a; return (_a = options === null || options === void 0 ? void 0 : options.addStatisticsManager) !== null && _a !== void 0 ? _a : true; },
-        getItem: function () { return new StatisticsManager_1.default(); },
+        getItem: function (options) { var _a; return new StatisticsManager_1.default((_a = options === null || options === void 0 ? void 0 : options.params) === null || _a === void 0 ? void 0 : _a.statisticsManager); },
     },
     {
         condition: function (options) { var _a; return (_a = options === null || options === void 0 ? void 0 : options.addPhysicDebugManager) !== null && _a !== void 0 ? _a : true; },
@@ -22114,7 +22121,7 @@ var defaultManagers = [
     },
     {
         condition: function (options) { var _a; return (_a = options === null || options === void 0 ? void 0 : options.addSelectDebugManager) !== null && _a !== void 0 ? _a : true; },
-        getItem: function () { return new SelectDebugManager_1.default(); },
+        getItem: function (options) { var _a; return new SelectDebugManager_1.default((_a = options === null || options === void 0 ? void 0 : options.params) === null || _a === void 0 ? void 0 : _a.selectDebugManager); },
     },
     {
         condition: function (options) { var _a; return (_a = options === null || options === void 0 ? void 0 : options.addRendererDebugManager) !== null && _a !== void 0 ? _a : true; },
@@ -24535,7 +24542,7 @@ var Renderer = (function (_super) {
     __extends(Renderer, _super);
     function Renderer(params) {
         var _this = this;
-        var _a, _b, _c, _d, _e;
+        var _a, _b, _c, _d, _e, _f;
         _this = _super.call(this, 'Renderer', [Renderable_1.default, core_1.Transform], {
             list: QuadTreeList_1.default,
         }) || this;
@@ -24551,16 +24558,17 @@ var Renderer = (function (_super) {
         if (!canvas) {
             throw new Error('Could not find canvas');
         }
+        _this.initDefaultShaders = (_d = params === null || params === void 0 ? void 0 : params.initDefaultShaders) !== null && _d !== void 0 ? _d : true;
         _this.canvas = canvas;
         _this.canvas.tabIndex = 1;
-        _this.useTree = (_d = params === null || params === void 0 ? void 0 : params.useTree) !== null && _d !== void 0 ? _d : defaultParams.useTree;
+        _this.useTree = (_e = params === null || params === void 0 ? void 0 : params.useTree) !== null && _e !== void 0 ? _e : defaultParams.useTree;
         _this.canvas.focus();
         var gl = _this.canvas.getContext('webgl2', _this.opts);
         if (!gl) {
             throw new Error('Could not create GL context');
         }
         _this.gl = gl;
-        _this.camera = (_e = params === null || params === void 0 ? void 0 : params.camera) !== null && _e !== void 0 ? _e : new Camera_1.default();
+        _this.camera = (_f = params === null || params === void 0 ? void 0 : params.camera) !== null && _f !== void 0 ? _f : new Camera_1.default();
         _this.canvas.width = _this.camera.getSize().x;
         _this.canvas.height = _this.camera.getSize().y;
         _this._shaders = new core_1.ConstructorMap();
@@ -24626,7 +24634,11 @@ var Renderer = (function (_super) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4, this.addShader(new Sprite_1.default(this.gl))];
+                    case 0:
+                        if (!this.initDefaultShaders) {
+                            return [2];
+                        }
+                        return [4, this.addShader(new Sprite_1.default(this.gl))];
                     case 1:
                         _a.sent();
                         return [4, this.addShader(new FillTriangle_1.default(this.gl))];
