@@ -24240,7 +24240,7 @@ var QuadTreeList = (function (_super) {
         var _a, _b;
         _this = _super.call(this, signature, options) || this;
         _this.rendered = 0;
-        _this._data = new Map();
+        _this._data = [];
         _this.resize({
             position: (_a = options === null || options === void 0 ? void 0 : options.position) !== null && _a !== void 0 ? _a : math_1.Vec2.zero(),
             size: (_b = options === null || options === void 0 ? void 0 : options.size) !== null && _b !== void 0 ? _b : math_1.Vec2.create(5000, 5000),
@@ -24250,16 +24250,21 @@ var QuadTreeList = (function (_super) {
     QuadTreeList.prototype.resize = function (rect) {
         var _this = this;
         this.quadTree = new QuadTree_1.default(rect);
-        this._data.forEach(function (entity) {
-            _this.quadTree.insert(entity);
+        this._data.forEach(function (layerData) {
+            return layerData.forEach(function (entity) { return _this.quadTree.insert(entity); });
         });
     };
     QuadTreeList.prototype.__add = function (entity) {
-        this._data.set(entity._id, entity);
+        var layer = entity.get(Renderable_1.default).layer;
+        if (!this._data[layer]) {
+            this._data[layer] = new Map();
+        }
+        this._data[layer].set(entity._id, entity);
         entity.get(Renderable_1.default).quadTree = this.quadTree.insert(entity);
     };
     QuadTreeList.prototype.__remove = function (entity) {
-        this._data.delete(entity._id);
+        var layer = entity.get(Renderable_1.default).layer;
+        this._data[layer].delete(entity._id);
         var renderable = entity.get(Renderable_1.default);
         if (!renderable.quadTree) {
             return;
@@ -24270,14 +24275,14 @@ var QuadTreeList = (function (_super) {
         }
     };
     QuadTreeList.prototype.clear = function () {
-        this._data = new Map();
+        this._data = [];
     };
     QuadTreeList.prototype.update = function (entity) {
         this.__remove(entity);
         this.__add(entity);
     };
     QuadTreeList.prototype.forEach = function (callback) {
-        this._data.forEach(callback);
+        this._data.forEach(function (layer) { return layer.forEach(callback); });
     };
     QuadTreeList.prototype.naiveSearchForeach = function (rect, callback) {
         var cb = function (entity) {
@@ -24285,7 +24290,7 @@ var QuadTreeList = (function (_super) {
                 callback(entity);
             }
         };
-        this._data.forEach(cb);
+        this.forEach(cb);
     };
     QuadTreeList.prototype.searchForEach = function (rect, callback) {
         var entitiesByLayer = [];
@@ -24301,7 +24306,7 @@ var QuadTreeList = (function (_super) {
     };
     Object.defineProperty(QuadTreeList.prototype, "length", {
         get: function () {
-            return this._data.size;
+            return this._data.reduce(function (acc, curr) { return acc + curr.size; }, 0);
         },
         enumerable: false,
         configurable: true
