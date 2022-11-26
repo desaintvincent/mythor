@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.3](https://github.com/desaintvincent/mythor/compare/@mythor/game@0.4.2...@mythor/game@0.4.3) (2022-11-26)
+
+### Bug Fixes
+
+- **game:** do not show select debug manager by default ([eafe594](https://github.com/desaintvincent/mythor/commit/eafe594dc2ec66dac64b8a687d92ef069291a211))
+
 ## [0.4.2](https://github.com/desaintvincent/mythor/compare/@mythor/game@0.4.1...@mythor/game@0.4.2) (2022-11-26)
 
 **Note:** Version bump only for package @mythor/game
