@@ -41,7 +41,7 @@
 
 #### Defined in
 
-[physic2d/src/utils/PhysicManipulator.ts:16](https://github.com/desaintvincent/mythor/blob/52410ce/packages/physic2d/src/utils/PhysicManipulator.ts#L16)
+[physic2d/src/utils/PhysicManipulator.ts:16](https://github.com/desaintvincent/mythor/blob/38f422f/packages/physic2d/src/utils/PhysicManipulator.ts#L16)
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 #### Defined in
 
-[physic2d/src/utils/PhysicManipulator.ts:24](https://github.com/desaintvincent/mythor/blob/52410ce/packages/physic2d/src/utils/PhysicManipulator.ts#L24)
+[physic2d/src/utils/PhysicManipulator.ts:24](https://github.com/desaintvincent/mythor/blob/38f422f/packages/physic2d/src/utils/PhysicManipulator.ts#L24)
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 #### Defined in
 
-[physic2d/src/utils/PhysicManipulator.ts:29](https://github.com/desaintvincent/mythor/blob/52410ce/packages/physic2d/src/utils/PhysicManipulator.ts#L29)
+[physic2d/src/utils/PhysicManipulator.ts:29](https://github.com/desaintvincent/mythor/blob/38f422f/packages/physic2d/src/utils/PhysicManipulator.ts#L29)
 
 ___
 
@@ -103,7 +103,7 @@ ___
 
 #### Defined in
 
-[physic2d/src/utils/PhysicManipulator.ts:10](https://github.com/desaintvincent/mythor/blob/52410ce/packages/physic2d/src/utils/PhysicManipulator.ts#L10)
+[physic2d/src/utils/PhysicManipulator.ts:10](https://github.com/desaintvincent/mythor/blob/38f422f/packages/physic2d/src/utils/PhysicManipulator.ts#L10)
 
 ___
 
@@ -124,4 +124,4 @@ ___
 
 #### Defined in
 
-[physic2d/src/utils/PhysicManipulator.ts:6](https://github.com/desaintvincent/mythor/blob/52410ce/packages/physic2d/src/utils/PhysicManipulator.ts#L6)
+[physic2d/src/utils/PhysicManipulator.ts:6](https://github.com/desaintvincent/mythor/blob/38f422f/packages/physic2d/src/utils/PhysicManipulator.ts#L6)

@@ -89,7 +89,7 @@ System.constructor
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:67](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L67)
+[renderer/src/systems/Renderer.ts:67](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L67)
 
 ## Properties
 
@@ -113,7 +113,7 @@ ___
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:54](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L54)
+[renderer/src/systems/Renderer.ts:54](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L54)
 
 ___
 
@@ -123,7 +123,7 @@ ___
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:53](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L53)
+[renderer/src/systems/Renderer.ts:53](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L53)
 
 ___
 
@@ -133,7 +133,7 @@ ___
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:63](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L63)
+[renderer/src/systems/Renderer.ts:63](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L63)
 
 ___
 
@@ -199,7 +199,7 @@ ___
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:64](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L64)
+[renderer/src/systems/Renderer.ts:64](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L64)
 
 ___
 
@@ -209,7 +209,7 @@ ___
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:65](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L65)
+[renderer/src/systems/Renderer.ts:65](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L65)
 
 ___
 
@@ -219,7 +219,7 @@ ___
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:56](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L56)
+[renderer/src/systems/Renderer.ts:56](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L56)
 
 ___
 
@@ -229,7 +229,7 @@ ___
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:58](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L58)
+[renderer/src/systems/Renderer.ts:58](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L58)
 
 ___
 
@@ -239,7 +239,7 @@ ___
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:52](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L52)
+[renderer/src/systems/Renderer.ts:52](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L52)
 
 ___
 
@@ -249,7 +249,7 @@ ___
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:57](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L57)
+[renderer/src/systems/Renderer.ts:57](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L57)
 
 ___
 
@@ -259,7 +259,7 @@ ___
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:55](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L55)
+[renderer/src/systems/Renderer.ts:55](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L55)
 
 ___
 
@@ -269,7 +269,7 @@ ___
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:62](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L62)
+[renderer/src/systems/Renderer.ts:62](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L62)
 
 ___
 
@@ -315,7 +315,7 @@ ___
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:129](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L129)
+[renderer/src/systems/Renderer.ts:129](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L129)
 
 ___
 
@@ -353,7 +353,7 @@ core/lib/ecs/System.d.ts:22
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:218](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L218)
+[renderer/src/systems/Renderer.ts:219](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L219)
 
 ___
 
@@ -367,7 +367,7 @@ ___
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:394](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L394)
+[renderer/src/systems/Renderer.ts:395](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L395)
 
 ___
 
@@ -381,7 +381,7 @@ ___
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:245](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L245)
+[renderer/src/systems/Renderer.ts:246](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L246)
 
 ___
 
@@ -399,7 +399,7 @@ System.clear
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:239](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L239)
+[renderer/src/systems/Renderer.ts:240](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L240)
 
 ___
 
@@ -445,7 +445,7 @@ ___
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:281](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L281)
+[renderer/src/systems/Renderer.ts:282](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L282)
 
 ___
 
@@ -467,7 +467,7 @@ ___
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:377](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L377)
+[renderer/src/systems/Renderer.ts:378](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L378)
 
 ___
 
@@ -489,7 +489,7 @@ ___
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:253](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L253)
+[renderer/src/systems/Renderer.ts:254](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L254)
 
 ___
 
@@ -503,7 +503,7 @@ ___
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:231](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L231)
+[renderer/src/systems/Renderer.ts:232](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L232)
 
 ___
 
@@ -567,7 +567,7 @@ ___
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:349](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L349)
+[renderer/src/systems/Renderer.ts:350](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L350)
 
 ___
 
@@ -581,7 +581,7 @@ ___
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:332](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L332)
+[renderer/src/systems/Renderer.ts:333](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L333)
 
 ___
 
@@ -601,7 +601,7 @@ ___
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:235](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L235)
+[renderer/src/systems/Renderer.ts:236](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L236)
 
 ___
 
@@ -621,7 +621,7 @@ ___
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:206](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L206)
+[renderer/src/systems/Renderer.ts:206](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L206)
 
 ___
 
@@ -645,7 +645,7 @@ System.onEntityCreation
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:185](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L185)
+[renderer/src/systems/Renderer.ts:185](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L185)
 
 ___
 
@@ -695,7 +695,7 @@ System.onEntityUpdate
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:144](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L144)
+[renderer/src/systems/Renderer.ts:144](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L144)
 
 ___
 
@@ -713,7 +713,7 @@ System.onSystemInit
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:171](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L171)
+[renderer/src/systems/Renderer.ts:171](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L171)
 
 ___
 
@@ -757,7 +757,7 @@ ___
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:139](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L139)
+[renderer/src/systems/Renderer.ts:139](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L139)
 
 ___
 
@@ -803,7 +803,7 @@ ___
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:300](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L300)
+[renderer/src/systems/Renderer.ts:301](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L301)
 
 ___
 
@@ -825,7 +825,7 @@ ___
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:362](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L362)
+[renderer/src/systems/Renderer.ts:363](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L363)
 
 ___
 
@@ -847,7 +847,7 @@ ___
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:266](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L266)
+[renderer/src/systems/Renderer.ts:267](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L267)
 
 ___
 
@@ -871,7 +871,7 @@ ___
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:336](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L336)
+[renderer/src/systems/Renderer.ts:337](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L337)
 
 ___
 
@@ -896,7 +896,7 @@ System.update
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:98](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L98)
+[renderer/src/systems/Renderer.ts:98](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L98)
 
 ___
 
@@ -910,4 +910,4 @@ ___
 
 #### Defined in
 
-[renderer/src/systems/Renderer.ts:210](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/systems/Renderer.ts#L210)
+[renderer/src/systems/Renderer.ts:211](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/systems/Renderer.ts#L211)

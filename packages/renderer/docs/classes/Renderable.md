@@ -42,7 +42,7 @@ Component.constructor
 
 #### Defined in
 
-[renderer/src/components/Renderable.ts:17](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/components/Renderable.ts#L17)
+[renderer/src/components/Renderable.ts:17](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/components/Renderable.ts#L17)
 
 ## Properties
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Renderable.ts:13](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/components/Renderable.ts#L13)
+[renderer/src/components/Renderable.ts:13](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/components/Renderable.ts#L13)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Renderable.ts:15](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/components/Renderable.ts#L15)
+[renderer/src/components/Renderable.ts:15](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/components/Renderable.ts#L15)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Renderable.ts:14](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/components/Renderable.ts#L14)
+[renderer/src/components/Renderable.ts:14](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/components/Renderable.ts#L14)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Renderable.ts:12](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/components/Renderable.ts#L12)
+[renderer/src/components/Renderable.ts:12](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/components/Renderable.ts#L12)
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Renderable.ts:11](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/components/Renderable.ts#L11)
+[renderer/src/components/Renderable.ts:11](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/components/Renderable.ts#L11)
 
 ___
 

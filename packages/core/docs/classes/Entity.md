@@ -19,6 +19,7 @@
 
 ### Accessors
 
+- [children](Entity.md#children)
 - [components](Entity.md#components)
 - [parent](Entity.md#parent)
 
@@ -51,7 +52,7 @@
 
 #### Defined in
 
-[ecs/Entity.ts:20](https://github.com/desaintvincent/mythor/blob/52410ce/packages/core/src/ecs/Entity.ts#L20)
+[ecs/Entity.ts:20](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/ecs/Entity.ts#L20)
 
 ## Properties
 
@@ -61,7 +62,7 @@
 
 #### Defined in
 
-[ecs/Entity.ts:14](https://github.com/desaintvincent/mythor/blob/52410ce/packages/core/src/ecs/Entity.ts#L14)
+[ecs/Entity.ts:14](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/ecs/Entity.ts#L14)
 
 ___
 
@@ -71,7 +72,7 @@ ___
 
 #### Defined in
 
-[ecs/Entity.ts:17](https://github.com/desaintvincent/mythor/blob/52410ce/packages/core/src/ecs/Entity.ts#L17)
+[ecs/Entity.ts:17](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/ecs/Entity.ts#L17)
 
 ___
 
@@ -81,7 +82,7 @@ ___
 
 #### Defined in
 
-[ecs/Entity.ts:15](https://github.com/desaintvincent/mythor/blob/52410ce/packages/core/src/ecs/Entity.ts#L15)
+[ecs/Entity.ts:15](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/ecs/Entity.ts#L15)
 
 ___
 
@@ -91,7 +92,7 @@ ___
 
 #### Defined in
 
-[ecs/Entity.ts:13](https://github.com/desaintvincent/mythor/blob/52410ce/packages/core/src/ecs/Entity.ts#L13)
+[ecs/Entity.ts:13](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/ecs/Entity.ts#L13)
 
 ___
 
@@ -101,7 +102,7 @@ ___
 
 #### Defined in
 
-[ecs/Entity.ts:18](https://github.com/desaintvincent/mythor/blob/52410ce/packages/core/src/ecs/Entity.ts#L18)
+[ecs/Entity.ts:18](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/ecs/Entity.ts#L18)
 
 ___
 
@@ -111,9 +112,23 @@ ___
 
 #### Defined in
 
-[ecs/Entity.ts:16](https://github.com/desaintvincent/mythor/blob/52410ce/packages/core/src/ecs/Entity.ts#L16)
+[ecs/Entity.ts:16](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/ecs/Entity.ts#L16)
 
 ## Accessors
+
+### children
+
+• `get` **children**(): [`Entity`](Entity.md)[]
+
+#### Returns
+
+[`Entity`](Entity.md)[]
+
+#### Defined in
+
+[ecs/Entity.ts:29](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/ecs/Entity.ts#L29)
+
+___
 
 ### components
 
@@ -125,7 +140,7 @@ ___
 
 #### Defined in
 
-[ecs/Entity.ts:29](https://github.com/desaintvincent/mythor/blob/52410ce/packages/core/src/ecs/Entity.ts#L29)
+[ecs/Entity.ts:33](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/ecs/Entity.ts#L33)
 
 ___
 
@@ -139,7 +154,7 @@ ___
 
 #### Defined in
 
-[ecs/Entity.ts:25](https://github.com/desaintvincent/mythor/blob/52410ce/packages/core/src/ecs/Entity.ts#L25)
+[ecs/Entity.ts:25](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/ecs/Entity.ts#L25)
 
 ## Methods
 
@@ -159,7 +174,7 @@ ___
 
 #### Defined in
 
-[ecs/Entity.ts:56](https://github.com/desaintvincent/mythor/blob/52410ce/packages/core/src/ecs/Entity.ts#L56)
+[ecs/Entity.ts:60](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/ecs/Entity.ts#L60)
 
 ___
 
@@ -179,7 +194,7 @@ ___
 
 #### Defined in
 
-[ecs/Entity.ts:37](https://github.com/desaintvincent/mythor/blob/52410ce/packages/core/src/ecs/Entity.ts#L37)
+[ecs/Entity.ts:41](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/ecs/Entity.ts#L41)
 
 ___
 
@@ -205,7 +220,7 @@ ___
 
 #### Defined in
 
-[ecs/Entity.ts:44](https://github.com/desaintvincent/mythor/blob/52410ce/packages/core/src/ecs/Entity.ts#L44)
+[ecs/Entity.ts:48](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/ecs/Entity.ts#L48)
 
 ___
 
@@ -225,7 +240,7 @@ ___
 
 #### Defined in
 
-[ecs/Entity.ts:124](https://github.com/desaintvincent/mythor/blob/52410ce/packages/core/src/ecs/Entity.ts#L124)
+[ecs/Entity.ts:128](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/ecs/Entity.ts#L128)
 
 ___
 
@@ -246,7 +261,7 @@ ___
 
 #### Defined in
 
-[ecs/Entity.ts:86](https://github.com/desaintvincent/mythor/blob/52410ce/packages/core/src/ecs/Entity.ts#L86)
+[ecs/Entity.ts:90](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/ecs/Entity.ts#L90)
 
 ___
 
@@ -272,7 +287,7 @@ ___
 
 #### Defined in
 
-[ecs/Entity.ts:67](https://github.com/desaintvincent/mythor/blob/52410ce/packages/core/src/ecs/Entity.ts#L67)
+[ecs/Entity.ts:71](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/ecs/Entity.ts#L71)
 
 ___
 
@@ -298,7 +313,7 @@ ___
 
 #### Defined in
 
-[ecs/Entity.ts:72](https://github.com/desaintvincent/mythor/blob/52410ce/packages/core/src/ecs/Entity.ts#L72)
+[ecs/Entity.ts:76](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/ecs/Entity.ts#L76)
 
 ___
 
@@ -318,7 +333,7 @@ ___
 
 #### Defined in
 
-[ecs/Entity.ts:95](https://github.com/desaintvincent/mythor/blob/52410ce/packages/core/src/ecs/Entity.ts#L95)
+[ecs/Entity.ts:99](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/ecs/Entity.ts#L99)
 
 ___
 
@@ -338,7 +353,7 @@ ___
 
 #### Defined in
 
-[ecs/Entity.ts:109](https://github.com/desaintvincent/mythor/blob/52410ce/packages/core/src/ecs/Entity.ts#L109)
+[ecs/Entity.ts:113](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/ecs/Entity.ts#L113)
 
 ___
 
@@ -358,7 +373,7 @@ ___
 
 #### Defined in
 
-[ecs/Entity.ts:113](https://github.com/desaintvincent/mythor/blob/52410ce/packages/core/src/ecs/Entity.ts#L113)
+[ecs/Entity.ts:117](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/ecs/Entity.ts#L117)
 
 ___
 
@@ -378,7 +393,7 @@ ___
 
 #### Defined in
 
-[ecs/Entity.ts:33](https://github.com/desaintvincent/mythor/blob/52410ce/packages/core/src/ecs/Entity.ts#L33)
+[ecs/Entity.ts:37](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/ecs/Entity.ts#L37)
 
 ___
 
@@ -398,4 +413,4 @@ ___
 
 #### Defined in
 
-[ecs/Entity.ts:103](https://github.com/desaintvincent/mythor/blob/52410ce/packages/core/src/ecs/Entity.ts#L103)
+[ecs/Entity.ts:107](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/ecs/Entity.ts#L107)

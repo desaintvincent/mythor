@@ -57,7 +57,7 @@ Manager.constructor
 
 #### Defined in
 
-[renderer/src/managers/TextureManager.ts:37](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/managers/TextureManager.ts#L37)
+[renderer/src/managers/TextureManager.ts:37](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/managers/TextureManager.ts#L37)
 
 ## Properties
 
@@ -81,7 +81,7 @@ ___
 
 #### Defined in
 
-[renderer/src/managers/TextureManager.ts:33](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/managers/TextureManager.ts#L33)
+[renderer/src/managers/TextureManager.ts:33](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/managers/TextureManager.ts#L33)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 #### Defined in
 
-[renderer/src/managers/TextureManager.ts:35](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/managers/TextureManager.ts#L35)
+[renderer/src/managers/TextureManager.ts:35](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/managers/TextureManager.ts#L35)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-[renderer/src/managers/TextureManager.ts:34](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/managers/TextureManager.ts#L34)
+[renderer/src/managers/TextureManager.ts:34](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/managers/TextureManager.ts#L34)
 
 ___
 
@@ -154,7 +154,7 @@ core/lib/ecs/Manager.d.ts:7
 
 #### Defined in
 
-[renderer/src/managers/TextureManager.ts:106](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/managers/TextureManager.ts#L106)
+[renderer/src/managers/TextureManager.ts:106](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/managers/TextureManager.ts#L106)
 
 ___
 
@@ -192,7 +192,7 @@ ___
 
 #### Defined in
 
-[renderer/src/managers/TextureManager.ts:57](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/managers/TextureManager.ts#L57)
+[renderer/src/managers/TextureManager.ts:57](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/managers/TextureManager.ts#L57)
 
 ___
 
@@ -212,7 +212,7 @@ ___
 
 #### Defined in
 
-[renderer/src/managers/TextureManager.ts:114](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/managers/TextureManager.ts#L114)
+[renderer/src/managers/TextureManager.ts:114](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/managers/TextureManager.ts#L114)
 
 ___
 
@@ -232,7 +232,7 @@ ___
 
 #### Defined in
 
-[renderer/src/managers/TextureManager.ts:110](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/managers/TextureManager.ts#L110)
+[renderer/src/managers/TextureManager.ts:110](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/managers/TextureManager.ts#L110)
 
 ___
 
@@ -250,7 +250,7 @@ Manager.init
 
 #### Defined in
 
-[renderer/src/managers/TextureManager.ts:84](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/managers/TextureManager.ts#L84)
+[renderer/src/managers/TextureManager.ts:84](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/managers/TextureManager.ts#L84)
 
 ___
 
@@ -272,7 +272,7 @@ ___
 
 #### Defined in
 
-[renderer/src/managers/TextureManager.ts:44](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/managers/TextureManager.ts#L44)
+[renderer/src/managers/TextureManager.ts:44](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/managers/TextureManager.ts#L44)
 
 ___
 
@@ -316,7 +316,7 @@ ___
 
 #### Defined in
 
-[renderer/src/managers/TextureManager.ts:69](https://github.com/desaintvincent/mythor/blob/52410ce/packages/renderer/src/managers/TextureManager.ts#L69)
+[renderer/src/managers/TextureManager.ts:69](https://github.com/desaintvincent/mythor/blob/38f422f/packages/renderer/src/managers/TextureManager.ts#L69)
 
 ___
 

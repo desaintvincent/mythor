@@ -47,7 +47,7 @@
 
 #### Defined in
 
-[collections/ConstructorMap.ts:5](https://github.com/desaintvincent/mythor/blob/52410ce/packages/core/src/collections/ConstructorMap.ts#L5)
+[collections/ConstructorMap.ts:5](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/collections/ConstructorMap.ts#L5)
 
 ## Properties
 
@@ -57,7 +57,7 @@
 
 #### Defined in
 
-[collections/ConstructorMap.ts:4](https://github.com/desaintvincent/mythor/blob/52410ce/packages/core/src/collections/ConstructorMap.ts#L4)
+[collections/ConstructorMap.ts:4](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/collections/ConstructorMap.ts#L4)
 
 ## Accessors
 
@@ -71,7 +71,7 @@
 
 #### Defined in
 
-[collections/ConstructorMap.ts:61](https://github.com/desaintvincent/mythor/blob/52410ce/packages/core/src/collections/ConstructorMap.ts#L61)
+[collections/ConstructorMap.ts:61](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/collections/ConstructorMap.ts#L61)
 
 ## Methods
 
@@ -85,7 +85,7 @@
 
 #### Defined in
 
-[collections/ConstructorMap.ts:9](https://github.com/desaintvincent/mythor/blob/52410ce/packages/core/src/collections/ConstructorMap.ts#L9)
+[collections/ConstructorMap.ts:9](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/collections/ConstructorMap.ts#L9)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-[collections/ConstructorMap.ts:13](https://github.com/desaintvincent/mythor/blob/52410ce/packages/core/src/collections/ConstructorMap.ts#L13)
+[collections/ConstructorMap.ts:13](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/collections/ConstructorMap.ts#L13)
 
 ___
 
@@ -125,7 +125,7 @@ ___
 
 #### Defined in
 
-[collections/ConstructorMap.ts:23](https://github.com/desaintvincent/mythor/blob/52410ce/packages/core/src/collections/ConstructorMap.ts#L23)
+[collections/ConstructorMap.ts:23](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/collections/ConstructorMap.ts#L23)
 
 ___
 
@@ -145,7 +145,7 @@ ___
 
 #### Defined in
 
-[collections/ConstructorMap.ts:33](https://github.com/desaintvincent/mythor/blob/52410ce/packages/core/src/collections/ConstructorMap.ts#L33)
+[collections/ConstructorMap.ts:33](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/collections/ConstructorMap.ts#L33)
 
 ___
 
@@ -171,7 +171,7 @@ ___
 
 #### Defined in
 
-[collections/ConstructorMap.ts:47](https://github.com/desaintvincent/mythor/blob/52410ce/packages/core/src/collections/ConstructorMap.ts#L47)
+[collections/ConstructorMap.ts:47](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/collections/ConstructorMap.ts#L47)
 
 ___
 
@@ -191,7 +191,7 @@ ___
 
 #### Defined in
 
-[collections/ConstructorMap.ts:51](https://github.com/desaintvincent/mythor/blob/52410ce/packages/core/src/collections/ConstructorMap.ts#L51)
+[collections/ConstructorMap.ts:51](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/collections/ConstructorMap.ts#L51)
 
 ___
 
@@ -217,7 +217,7 @@ ___
 
 #### Defined in
 
-[collections/ConstructorMap.ts:17](https://github.com/desaintvincent/mythor/blob/52410ce/packages/core/src/collections/ConstructorMap.ts#L17)
+[collections/ConstructorMap.ts:17](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/collections/ConstructorMap.ts#L17)
 
 ___
 
@@ -237,4 +237,4 @@ ___
 
 #### Defined in
 
-[collections/ConstructorMap.ts:55](https://github.com/desaintvincent/mythor/blob/52410ce/packages/core/src/collections/ConstructorMap.ts#L55)
+[collections/ConstructorMap.ts:55](https://github.com/desaintvincent/mythor/blob/38f422f/packages/core/src/collections/ConstructorMap.ts#L55)
