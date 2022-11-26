@@ -9,13 +9,13 @@ type QuadTreeListOptions = ArrayListOptions<Entity> & {
 }
 
 class QuadTreeList extends List<Entity> implements IList<Entity> {
-  private _data: Map<string, Entity>
+  private _data: Array<Map<string, Entity>>
   private rendered = 0
   public quadTree: QuadTree
 
   public constructor(signature: number, options: QuadTreeListOptions) {
     super(signature, options)
-    this._data = new Map<string, Entity>()
+    this._data = []
     this.resize({
       position: options?.position ?? Vec2.zero(),
       size: options?.size ?? Vec2.create(5000, 5000),
@@ -25,18 +25,23 @@ class QuadTreeList extends List<Entity> implements IList<Entity> {
   public resize(rect: Rect): void {
     this.quadTree = new QuadTree(rect)
 
-    this._data.forEach((entity) => {
-      this.quadTree.insert(entity)
-    })
+    this._data.forEach((layerData) =>
+      layerData.forEach((entity) => this.quadTree.insert(entity))
+    )
   }
 
   public __add(entity: Entity): void {
-    this._data.set(entity._id, entity)
+    const { layer } = entity.get(Renderable)
+    if (!this._data[layer]) {
+      this._data[layer] = new Map<string, Entity>()
+    }
+    this._data[layer].set(entity._id, entity)
     entity.get(Renderable).quadTree = this.quadTree.insert(entity)
   }
 
   public __remove(entity: Entity): void {
-    this._data.delete(entity._id)
+    const { layer } = entity.get(Renderable)
+    this._data[layer].delete(entity._id)
 
     const renderable = entity.get(Renderable)
     if (!renderable.quadTree) {
@@ -50,7 +55,7 @@ class QuadTreeList extends List<Entity> implements IList<Entity> {
   }
 
   public clear(): void {
-    this._data = new Map()
+    this._data = []
   }
 
   public update(entity: Entity): void {
@@ -59,7 +64,7 @@ class QuadTreeList extends List<Entity> implements IList<Entity> {
   }
 
   public forEach(callback: (e: Entity) => void): void {
-    this._data.forEach(callback)
+    this._data.forEach((layer) => layer.forEach(callback))
   }
 
   public naiveSearchForeach(rect: Rect, callback: (e: Entity) => void): void {
@@ -68,7 +73,8 @@ class QuadTreeList extends List<Entity> implements IList<Entity> {
         callback(entity)
       }
     }
-    this._data.forEach(cb)
+
+    this.forEach(cb)
   }
 
   public searchForEach(rect: Rect, callback: (e: Entity) => void): void {
@@ -87,7 +93,7 @@ class QuadTreeList extends List<Entity> implements IList<Entity> {
   }
 
   public get length(): number {
-    return this._data.size
+    return this._data.reduce((acc, curr) => acc + curr.size, 0)
   }
 }
 
