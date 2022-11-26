@@ -55,7 +55,7 @@
 
 #### Defined in
 
-[renderer/src/objects/Camera.ts:44](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/renderer/src/objects/Camera.ts#L44)
+[renderer/src/objects/Camera.ts:44](https://github.com/desaintvincent/mythor/blob/94ee943/packages/renderer/src/objects/Camera.ts#L44)
 
 ## Properties
 
@@ -65,7 +65,7 @@
 
 #### Defined in
 
-[renderer/src/objects/Camera.ts:39](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/renderer/src/objects/Camera.ts#L39)
+[renderer/src/objects/Camera.ts:39](https://github.com/desaintvincent/mythor/blob/94ee943/packages/renderer/src/objects/Camera.ts#L39)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[renderer/src/objects/Camera.ts:40](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/renderer/src/objects/Camera.ts#L40)
+[renderer/src/objects/Camera.ts:40](https://github.com/desaintvincent/mythor/blob/94ee943/packages/renderer/src/objects/Camera.ts#L40)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[renderer/src/objects/Camera.ts:37](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/renderer/src/objects/Camera.ts#L37)
+[renderer/src/objects/Camera.ts:37](https://github.com/desaintvincent/mythor/blob/94ee943/packages/renderer/src/objects/Camera.ts#L37)
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 #### Defined in
 
-[renderer/src/objects/Camera.ts:35](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/renderer/src/objects/Camera.ts#L35)
+[renderer/src/objects/Camera.ts:35](https://github.com/desaintvincent/mythor/blob/94ee943/packages/renderer/src/objects/Camera.ts#L35)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-[renderer/src/objects/Camera.ts:41](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/renderer/src/objects/Camera.ts#L41)
+[renderer/src/objects/Camera.ts:41](https://github.com/desaintvincent/mythor/blob/94ee943/packages/renderer/src/objects/Camera.ts#L41)
 
 ___
 
@@ -115,7 +115,7 @@ ___
 
 #### Defined in
 
-[renderer/src/objects/Camera.ts:36](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/renderer/src/objects/Camera.ts#L36)
+[renderer/src/objects/Camera.ts:36](https://github.com/desaintvincent/mythor/blob/94ee943/packages/renderer/src/objects/Camera.ts#L36)
 
 ___
 
@@ -125,7 +125,7 @@ ___
 
 #### Defined in
 
-[renderer/src/objects/Camera.ts:33](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/renderer/src/objects/Camera.ts#L33)
+[renderer/src/objects/Camera.ts:33](https://github.com/desaintvincent/mythor/blob/94ee943/packages/renderer/src/objects/Camera.ts#L33)
 
 ___
 
@@ -135,7 +135,7 @@ ___
 
 #### Defined in
 
-[renderer/src/objects/Camera.ts:38](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/renderer/src/objects/Camera.ts#L38)
+[renderer/src/objects/Camera.ts:38](https://github.com/desaintvincent/mythor/blob/94ee943/packages/renderer/src/objects/Camera.ts#L38)
 
 ___
 
@@ -145,7 +145,7 @@ ___
 
 #### Defined in
 
-[renderer/src/objects/Camera.ts:42](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/renderer/src/objects/Camera.ts#L42)
+[renderer/src/objects/Camera.ts:42](https://github.com/desaintvincent/mythor/blob/94ee943/packages/renderer/src/objects/Camera.ts#L42)
 
 ___
 
@@ -155,7 +155,7 @@ ___
 
 #### Defined in
 
-[renderer/src/objects/Camera.ts:34](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/renderer/src/objects/Camera.ts#L34)
+[renderer/src/objects/Camera.ts:34](https://github.com/desaintvincent/mythor/blob/94ee943/packages/renderer/src/objects/Camera.ts#L34)
 
 ## Accessors
 
@@ -169,7 +169,7 @@ ___
 
 #### Defined in
 
-[renderer/src/objects/Camera.ts:138](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/renderer/src/objects/Camera.ts#L138)
+[renderer/src/objects/Camera.ts:138](https://github.com/desaintvincent/mythor/blob/94ee943/packages/renderer/src/objects/Camera.ts#L138)
 
 ___
 
@@ -183,7 +183,7 @@ ___
 
 #### Defined in
 
-[renderer/src/objects/Camera.ts:107](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/renderer/src/objects/Camera.ts#L107)
+[renderer/src/objects/Camera.ts:107](https://github.com/desaintvincent/mythor/blob/94ee943/packages/renderer/src/objects/Camera.ts#L107)
 
 • `set` **scale**(`value`): `void`
 
@@ -199,7 +199,7 @@ ___
 
 #### Defined in
 
-[renderer/src/objects/Camera.ts:111](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/renderer/src/objects/Camera.ts#L111)
+[renderer/src/objects/Camera.ts:111](https://github.com/desaintvincent/mythor/blob/94ee943/packages/renderer/src/objects/Camera.ts#L111)
 
 ## Methods
 
@@ -213,7 +213,7 @@ ___
 
 #### Defined in
 
-[renderer/src/objects/Camera.ts:66](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/renderer/src/objects/Camera.ts#L66)
+[renderer/src/objects/Camera.ts:66](https://github.com/desaintvincent/mythor/blob/94ee943/packages/renderer/src/objects/Camera.ts#L66)
 
 ___
 
@@ -227,7 +227,7 @@ ___
 
 #### Defined in
 
-[renderer/src/objects/Camera.ts:62](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/renderer/src/objects/Camera.ts#L62)
+[renderer/src/objects/Camera.ts:62](https://github.com/desaintvincent/mythor/blob/94ee943/packages/renderer/src/objects/Camera.ts#L62)
 
 ___
 
@@ -241,7 +241,7 @@ ___
 
 #### Defined in
 
-[renderer/src/objects/Camera.ts:82](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/renderer/src/objects/Camera.ts#L82)
+[renderer/src/objects/Camera.ts:82](https://github.com/desaintvincent/mythor/blob/94ee943/packages/renderer/src/objects/Camera.ts#L82)
 
 ___
 
@@ -261,7 +261,7 @@ ___
 
 #### Defined in
 
-[renderer/src/objects/Camera.ts:93](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/renderer/src/objects/Camera.ts#L93)
+[renderer/src/objects/Camera.ts:93](https://github.com/desaintvincent/mythor/blob/94ee943/packages/renderer/src/objects/Camera.ts#L93)
 
 ___
 
@@ -282,7 +282,7 @@ ___
 
 #### Defined in
 
-[renderer/src/objects/Camera.ts:86](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/renderer/src/objects/Camera.ts#L86)
+[renderer/src/objects/Camera.ts:86](https://github.com/desaintvincent/mythor/blob/94ee943/packages/renderer/src/objects/Camera.ts#L86)
 
 ___
 
@@ -302,7 +302,7 @@ ___
 
 #### Defined in
 
-[renderer/src/objects/Camera.ts:116](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/renderer/src/objects/Camera.ts#L116)
+[renderer/src/objects/Camera.ts:116](https://github.com/desaintvincent/mythor/blob/94ee943/packages/renderer/src/objects/Camera.ts#L116)
 
 ___
 
@@ -322,7 +322,7 @@ ___
 
 #### Defined in
 
-[renderer/src/objects/Camera.ts:70](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/renderer/src/objects/Camera.ts#L70)
+[renderer/src/objects/Camera.ts:70](https://github.com/desaintvincent/mythor/blob/94ee943/packages/renderer/src/objects/Camera.ts#L70)
 
 ___
 
@@ -342,7 +342,7 @@ ___
 
 #### Defined in
 
-[renderer/src/objects/Camera.ts:99](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/renderer/src/objects/Camera.ts#L99)
+[renderer/src/objects/Camera.ts:99](https://github.com/desaintvincent/mythor/blob/94ee943/packages/renderer/src/objects/Camera.ts#L99)
 
 ___
 
@@ -362,7 +362,7 @@ ___
 
 #### Defined in
 
-[renderer/src/objects/Camera.ts:76](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/renderer/src/objects/Camera.ts#L76)
+[renderer/src/objects/Camera.ts:76](https://github.com/desaintvincent/mythor/blob/94ee943/packages/renderer/src/objects/Camera.ts#L76)
 
 ___
 
@@ -382,7 +382,7 @@ ___
 
 #### Defined in
 
-[renderer/src/objects/Camera.ts:48](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/renderer/src/objects/Camera.ts#L48)
+[renderer/src/objects/Camera.ts:48](https://github.com/desaintvincent/mythor/blob/94ee943/packages/renderer/src/objects/Camera.ts#L48)
 
 ___
 
@@ -402,7 +402,7 @@ ___
 
 #### Defined in
 
-[renderer/src/objects/Camera.ts:128](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/renderer/src/objects/Camera.ts#L128)
+[renderer/src/objects/Camera.ts:128](https://github.com/desaintvincent/mythor/blob/94ee943/packages/renderer/src/objects/Camera.ts#L128)
 
 ___
 
@@ -422,4 +422,4 @@ ___
 
 #### Defined in
 
-[renderer/src/objects/Camera.ts:103](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/renderer/src/objects/Camera.ts#L103)
+[renderer/src/objects/Camera.ts:103](https://github.com/desaintvincent/mythor/blob/94ee943/packages/renderer/src/objects/Camera.ts#L103)

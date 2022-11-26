@@ -47,7 +47,7 @@
 
 #### Defined in
 
-[managers/LoadingStateManager.ts:14](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/core/src/managers/LoadingStateManager.ts#L14)
+[managers/LoadingStateManager.ts:14](https://github.com/desaintvincent/mythor/blob/94ee943/packages/core/src/managers/LoadingStateManager.ts#L14)
 
 ## Properties
 
@@ -61,7 +61,7 @@
 
 #### Defined in
 
-[ecs/Manager.ts:6](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/core/src/ecs/Manager.ts#L6)
+[ecs/Manager.ts:6](https://github.com/desaintvincent/mythor/blob/94ee943/packages/core/src/ecs/Manager.ts#L6)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[managers/LoadingStateManager.ts:12](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/core/src/managers/LoadingStateManager.ts#L12)
+[managers/LoadingStateManager.ts:12](https://github.com/desaintvincent/mythor/blob/94ee943/packages/core/src/managers/LoadingStateManager.ts#L12)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[collections/Signable.ts:2](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/core/src/collections/Signable.ts#L2)
+[collections/Signable.ts:2](https://github.com/desaintvincent/mythor/blob/94ee943/packages/core/src/collections/Signable.ts#L2)
 
 ## Accessors
 
@@ -103,7 +103,7 @@ Manager.name
 
 #### Defined in
 
-[ecs/Manager.ts:13](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/core/src/ecs/Manager.ts#L13)
+[ecs/Manager.ts:13](https://github.com/desaintvincent/mythor/blob/94ee943/packages/core/src/ecs/Manager.ts#L13)
 
 ## Methods
 
@@ -121,7 +121,7 @@ Manager.name
 
 #### Defined in
 
-[ecs/Manager.ts:35](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/core/src/ecs/Manager.ts#L35)
+[ecs/Manager.ts:35](https://github.com/desaintvincent/mythor/blob/94ee943/packages/core/src/ecs/Manager.ts#L35)
 
 ___
 
@@ -141,7 +141,7 @@ ___
 
 #### Defined in
 
-[managers/LoadingStateManager.ts:19](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/core/src/managers/LoadingStateManager.ts#L19)
+[managers/LoadingStateManager.ts:19](https://github.com/desaintvincent/mythor/blob/94ee943/packages/core/src/managers/LoadingStateManager.ts#L19)
 
 ___
 
@@ -155,7 +155,7 @@ ___
 
 #### Defined in
 
-[managers/LoadingStateManager.ts:60](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/core/src/managers/LoadingStateManager.ts#L60)
+[managers/LoadingStateManager.ts:60](https://github.com/desaintvincent/mythor/blob/94ee943/packages/core/src/managers/LoadingStateManager.ts#L60)
 
 ___
 
@@ -169,7 +169,7 @@ ___
 
 #### Defined in
 
-[managers/LoadingStateManager.ts:39](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/core/src/managers/LoadingStateManager.ts#L39)
+[managers/LoadingStateManager.ts:39](https://github.com/desaintvincent/mythor/blob/94ee943/packages/core/src/managers/LoadingStateManager.ts#L39)
 
 ___
 
@@ -189,7 +189,7 @@ ___
 
 #### Defined in
 
-[managers/LoadingStateManager.ts:35](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/core/src/managers/LoadingStateManager.ts#L35)
+[managers/LoadingStateManager.ts:35](https://github.com/desaintvincent/mythor/blob/94ee943/packages/core/src/managers/LoadingStateManager.ts#L35)
 
 ___
 
@@ -213,7 +213,7 @@ ___
 
 #### Defined in
 
-[ecs/Manager.ts:18](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/core/src/ecs/Manager.ts#L18)
+[ecs/Manager.ts:18](https://github.com/desaintvincent/mythor/blob/94ee943/packages/core/src/ecs/Manager.ts#L18)
 
 ___
 
@@ -237,7 +237,7 @@ ___
 
 #### Defined in
 
-[ecs/Manager.ts:22](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/core/src/ecs/Manager.ts#L22)
+[ecs/Manager.ts:22](https://github.com/desaintvincent/mythor/blob/94ee943/packages/core/src/ecs/Manager.ts#L22)
 
 ___
 
@@ -263,4 +263,4 @@ ___
 
 #### Defined in
 
-[ecs/Manager.ts:25](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/core/src/ecs/Manager.ts#L25)
+[ecs/Manager.ts:25](https://github.com/desaintvincent/mythor/blob/94ee943/packages/core/src/ecs/Manager.ts#L25)

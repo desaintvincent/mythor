@@ -67,7 +67,7 @@
 
 #### Defined in
 
-[Vec2.ts:40](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L40)
+[Vec2.ts:40](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L40)
 
 ## Properties
 
@@ -77,7 +77,7 @@
 
 #### Defined in
 
-[Vec2.ts:8](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L8)
+[Vec2.ts:8](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L8)
 
 ___
 
@@ -87,7 +87,7 @@ ___
 
 #### Defined in
 
-[Vec2.ts:6](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L6)
+[Vec2.ts:6](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L6)
 
 ___
 
@@ -97,7 +97,7 @@ ___
 
 #### Defined in
 
-[Vec2.ts:7](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L7)
+[Vec2.ts:7](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L7)
 
 ## Accessors
 
@@ -111,7 +111,7 @@ ___
 
 #### Defined in
 
-[Vec2.ts:10](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L10)
+[Vec2.ts:10](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L10)
 
 • `set` **x**(`value`): `void`
 
@@ -127,7 +127,7 @@ ___
 
 #### Defined in
 
-[Vec2.ts:14](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L14)
+[Vec2.ts:14](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L14)
 
 ___
 
@@ -141,7 +141,7 @@ ___
 
 #### Defined in
 
-[Vec2.ts:19](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L19)
+[Vec2.ts:19](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L19)
 
 • `set` **y**(`value`): `void`
 
@@ -157,7 +157,7 @@ ___
 
 #### Defined in
 
-[Vec2.ts:23](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L23)
+[Vec2.ts:23](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L23)
 
 ## Methods
 
@@ -177,7 +177,7 @@ ___
 
 #### Defined in
 
-[Vec2.ts:98](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L98)
+[Vec2.ts:102](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L102)
 
 ___
 
@@ -191,7 +191,7 @@ ___
 
 #### Defined in
 
-[Vec2.ts:161](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L161)
+[Vec2.ts:165](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L165)
 
 ___
 
@@ -211,7 +211,7 @@ ___
 
 #### Defined in
 
-[Vec2.ts:139](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L139)
+[Vec2.ts:143](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L143)
 
 ___
 
@@ -231,7 +231,7 @@ ___
 
 #### Defined in
 
-[Vec2.ts:82](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L82)
+[Vec2.ts:86](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L86)
 
 ___
 
@@ -251,7 +251,7 @@ ___
 
 #### Defined in
 
-[Vec2.ts:36](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L36)
+[Vec2.ts:36](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L36)
 
 ___
 
@@ -271,7 +271,7 @@ ___
 
 #### Defined in
 
-[Vec2.ts:126](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L126)
+[Vec2.ts:130](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L130)
 
 ___
 
@@ -291,20 +291,21 @@ ___
 
 #### Defined in
 
-[Vec2.ts:147](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L147)
+[Vec2.ts:151](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L151)
 
 ___
 
 ### set
 
-▸ **set**(`x`, `y?`): [`Vec2`](Vec2.md)
+▸ **set**(`x`, `y?`, `triggerObservers?`): [`Vec2`](Vec2.md)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `x` | `number` |
-| `y?` | `number` |
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `x` | `number` | `undefined` |
+| `y?` | `number` | `undefined` |
+| `triggerObservers` | `boolean` | `true` |
 
 #### Returns
 
@@ -312,7 +313,7 @@ ___
 
 #### Defined in
 
-[Vec2.ts:52](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L52)
+[Vec2.ts:52](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L52)
 
 ___
 
@@ -332,7 +333,7 @@ ___
 
 #### Defined in
 
-[Vec2.ts:106](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L106)
+[Vec2.ts:110](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L110)
 
 ___
 
@@ -352,7 +353,7 @@ ___
 
 #### Defined in
 
-[Vec2.ts:66](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L66)
+[Vec2.ts:70](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L70)
 
 ___
 
@@ -366,7 +367,7 @@ ___
 
 #### Defined in
 
-[Vec2.ts:114](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L114)
+[Vec2.ts:118](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L118)
 
 ___
 
@@ -380,7 +381,7 @@ ___
 
 #### Defined in
 
-[Vec2.ts:165](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L165)
+[Vec2.ts:169](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L169)
 
 ___
 
@@ -394,7 +395,7 @@ ___
 
 #### Defined in
 
-[Vec2.ts:28](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L28)
+[Vec2.ts:28](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L28)
 
 ___
 
@@ -414,7 +415,7 @@ ___
 
 #### Defined in
 
-[Vec2.ts:90](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L90)
+[Vec2.ts:94](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L94)
 
 ___
 
@@ -434,7 +435,7 @@ ___
 
 #### Defined in
 
-[Vec2.ts:59](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L59)
+[Vec2.ts:63](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L63)
 
 ___
 
@@ -454,7 +455,7 @@ ___
 
 #### Defined in
 
-[Vec2.ts:74](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L74)
+[Vec2.ts:78](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L78)
 
 ___
 
@@ -475,7 +476,7 @@ ___
 
 #### Defined in
 
-[Vec2.ts:102](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L102)
+[Vec2.ts:106](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L106)
 
 ___
 
@@ -496,7 +497,7 @@ ___
 
 #### Defined in
 
-[Vec2.ts:44](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L44)
+[Vec2.ts:44](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L44)
 
 ___
 
@@ -517,7 +518,7 @@ ___
 
 #### Defined in
 
-[Vec2.ts:143](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L143)
+[Vec2.ts:147](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L147)
 
 ___
 
@@ -538,7 +539,7 @@ ___
 
 #### Defined in
 
-[Vec2.ts:86](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L86)
+[Vec2.ts:90](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L90)
 
 ___
 
@@ -558,7 +559,7 @@ ___
 
 #### Defined in
 
-[Vec2.ts:122](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L122)
+[Vec2.ts:126](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L126)
 
 ___
 
@@ -578,7 +579,7 @@ ___
 
 #### Defined in
 
-[Vec2.ts:155](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L155)
+[Vec2.ts:159](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L159)
 
 ___
 
@@ -599,7 +600,7 @@ ___
 
 #### Defined in
 
-[Vec2.ts:135](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L135)
+[Vec2.ts:139](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L139)
 
 ___
 
@@ -620,7 +621,7 @@ ___
 
 #### Defined in
 
-[Vec2.ts:151](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L151)
+[Vec2.ts:155](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L155)
 
 ___
 
@@ -641,7 +642,7 @@ ___
 
 #### Defined in
 
-[Vec2.ts:110](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L110)
+[Vec2.ts:114](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L114)
 
 ___
 
@@ -662,7 +663,7 @@ ___
 
 #### Defined in
 
-[Vec2.ts:70](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L70)
+[Vec2.ts:74](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L74)
 
 ___
 
@@ -682,7 +683,7 @@ ___
 
 #### Defined in
 
-[Vec2.ts:118](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L118)
+[Vec2.ts:122](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L122)
 
 ___
 
@@ -703,7 +704,7 @@ ___
 
 #### Defined in
 
-[Vec2.ts:94](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L94)
+[Vec2.ts:98](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L98)
 
 ___
 
@@ -724,7 +725,7 @@ ___
 
 #### Defined in
 
-[Vec2.ts:78](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L78)
+[Vec2.ts:82](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L82)
 
 ___
 
@@ -738,4 +739,4 @@ ___
 
 #### Defined in
 
-[Vec2.ts:48](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/math/src/Vec2.ts#L48)
+[Vec2.ts:48](https://github.com/desaintvincent/mythor/blob/94ee943/packages/math/src/Vec2.ts#L48)

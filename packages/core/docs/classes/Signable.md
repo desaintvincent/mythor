@@ -36,4 +36,4 @@
 
 #### Defined in
 
-[collections/Signable.ts:2](https://github.com/desaintvincent/mythor/blob/5512a1d/packages/core/src/collections/Signable.ts#L2)
+[collections/Signable.ts:2](https://github.com/desaintvincent/mythor/blob/94ee943/packages/core/src/collections/Signable.ts#L2)
