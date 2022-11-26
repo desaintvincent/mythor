@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/desaintvincent/mythor/compare/@mythor/game@0.4.0...@mythor/game@0.4.1) (2022-11-26)
+
+**Note:** Version bump only for package @mythor/game
+
 # 0.4.0 (2022-11-26)
 
 ### Features

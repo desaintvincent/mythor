@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.4.9 (2022-11-26)
+
+### Bug Fixes
+
+- **renderer:** update children in quadtree ([412298d](https://github.com/desaintvincent/mythor/commit/412298d994ddb16e9bba874b16c518961d55352b))
+
 ## [0.4.8](https://github.com/desaintvincent/mythor/compare/@mythor/core@0.4.7...@mythor/core@0.4.8) (2022-11-26)
 
 **Note:** Version bump only for package @mythor/core
