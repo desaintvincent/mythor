@@ -28,7 +28,6 @@ class PhysicManipulator {
 
   public static applyImpulse({ body }: Physic, impulse: Vec2): void {
     const point = body.getWorldCenter()
-    console.log('====> impulse.x', impulse.x)
     body.applyLinearImpulse(toPlank(impulse.x, impulse.y), point)
   }
 }
