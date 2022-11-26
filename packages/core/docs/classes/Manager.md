@@ -51,7 +51,7 @@
 
 #### Defined in
 
-[ecs/Manager.ts:8](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/core/src/ecs/Manager.ts#L8)
+[ecs/Manager.ts:8](https://github.com/desaintvincent/mythor/blob/5baab6f/packages/core/src/ecs/Manager.ts#L8)
 
 ## Properties
 
@@ -61,7 +61,7 @@
 
 #### Defined in
 
-[ecs/Manager.ts:5](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/core/src/ecs/Manager.ts#L5)
+[ecs/Manager.ts:5](https://github.com/desaintvincent/mythor/blob/5baab6f/packages/core/src/ecs/Manager.ts#L5)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[ecs/Manager.ts:6](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/core/src/ecs/Manager.ts#L6)
+[ecs/Manager.ts:6](https://github.com/desaintvincent/mythor/blob/5baab6f/packages/core/src/ecs/Manager.ts#L6)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[collections/Signable.ts:2](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/core/src/collections/Signable.ts#L2)
+[collections/Signable.ts:2](https://github.com/desaintvincent/mythor/blob/5baab6f/packages/core/src/collections/Signable.ts#L2)
 
 ## Accessors
 
@@ -99,7 +99,7 @@ ___
 
 #### Defined in
 
-[ecs/Manager.ts:13](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/core/src/ecs/Manager.ts#L13)
+[ecs/Manager.ts:13](https://github.com/desaintvincent/mythor/blob/5baab6f/packages/core/src/ecs/Manager.ts#L13)
 
 ## Methods
 
@@ -113,7 +113,7 @@ ___
 
 #### Defined in
 
-[ecs/Manager.ts:35](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/core/src/ecs/Manager.ts#L35)
+[ecs/Manager.ts:35](https://github.com/desaintvincent/mythor/blob/5baab6f/packages/core/src/ecs/Manager.ts#L35)
 
 ___
 
@@ -133,7 +133,7 @@ ___
 
 #### Defined in
 
-[ecs/Manager.ts:18](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/core/src/ecs/Manager.ts#L18)
+[ecs/Manager.ts:18](https://github.com/desaintvincent/mythor/blob/5baab6f/packages/core/src/ecs/Manager.ts#L18)
 
 ___
 
@@ -153,7 +153,7 @@ ___
 
 #### Defined in
 
-[ecs/Manager.ts:22](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/core/src/ecs/Manager.ts#L22)
+[ecs/Manager.ts:22](https://github.com/desaintvincent/mythor/blob/5baab6f/packages/core/src/ecs/Manager.ts#L22)
 
 ___
 
@@ -175,4 +175,4 @@ ___
 
 #### Defined in
 
-[ecs/Manager.ts:25](https://github.com/desaintvincent/mythor/blob/d4665fb/packages/core/src/ecs/Manager.ts#L25)
+[ecs/Manager.ts:25](https://github.com/desaintvincent/mythor/blob/5baab6f/packages/core/src/ecs/Manager.ts#L25)
