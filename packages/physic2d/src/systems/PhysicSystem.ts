@@ -36,7 +36,7 @@ export default class PhysicSystem extends System {
 
   public constructor(options?: PhysicSystemOptions) {
     super('PhysicSystem', [Transform, Physic])
-    this.worldScale = options?.worldScale ?? 30
+    this.worldScale = options?.worldScale ?? 100
     this.world = World({
       gravity: PlankVec2(
         options?.gravity?.x ?? 0.0,
@@ -260,8 +260,7 @@ export default class PhysicSystem extends System {
 
       transform.position.set(
         bodyPosition.x * this.worldScale - physic.offset.x,
-        bodyPosition.y * this.worldScale - physic.offset.y,
-        false
+        bodyPosition.y * this.worldScale - physic.offset.y
       )
       transform.rotation = bodyAngle
     }
