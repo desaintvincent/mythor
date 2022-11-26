@@ -12,6 +12,7 @@
 
 - [ColliderCallback](classes/ColliderCallback.md)
 - [Physic](classes/Physic.md)
+- [PhysicManipulator](classes/PhysicManipulator.md)
 - [PhysicSystem](classes/PhysicSystem.md)
 
 ### Interfaces
@@ -22,10 +23,6 @@
 
 - [IGNORED\_BY\_WORLD](modules.md#ignored_by_world)
 
-### Functions
-
-- [toPlank](modules.md#toplank)
-
 ## Variables
 
 ### IGNORED\_BY\_WORLD
@@ -34,25 +31,4 @@
 
 #### Defined in
 
-[physic2d/src/systems/PhysicSystem.ts:30](https://github.com/desaintvincent/mythor/blob/94ee943/packages/physic2d/src/systems/PhysicSystem.ts#L30)
-
-## Functions
-
-### toPlank
-
-▸ **toPlank**(`x`, `y`): `Vec2`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `x` | `number` |
-| `y` | `number` |
-
-#### Returns
-
-`Vec2`
-
-#### Defined in
-
-[physic2d/src/utils/toPlank.ts:3](https://github.com/desaintvincent/mythor/blob/94ee943/packages/physic2d/src/utils/toPlank.ts#L3)
+[physic2d/src/systems/PhysicSystem.ts:30](https://github.com/desaintvincent/mythor/blob/c0bd7c9/packages/physic2d/src/systems/PhysicSystem.ts#L30)
