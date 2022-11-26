@@ -205,6 +205,7 @@ class Renderer extends System {
 
   private onEntityChange(entity: Entity): void {
     this.movedEntities.set(entity._id, entity)
+    entity.children.forEach((child) => this.onEntityChange(child))
   }
 
   private updateMovedEntities(): void {

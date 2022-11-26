@@ -26,6 +26,10 @@ export default class Entity {
     return this._parent
   }
 
+  public get children(): Entity[] {
+    return this._children
+  }
+
   public get components(): Component[] {
     return Array.from(this._components.values())
   }
