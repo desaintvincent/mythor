@@ -20045,6 +20045,13 @@ var Entity = (function () {
         enumerable: false,
         configurable: true
     });
+    Object.defineProperty(Entity.prototype, "children", {
+        get: function () {
+            return this._children;
+        },
+        enumerable: false,
+        configurable: true
+    });
     Object.defineProperty(Entity.prototype, "components", {
         get: function () {
             return Array.from(this._components.values());
@@ -24782,7 +24789,9 @@ var Renderer = (function (_super) {
         }
     };
     Renderer.prototype.onEntityChange = function (entity) {
+        var _this = this;
         this.movedEntities.set(entity._id, entity);
+        entity.children.forEach(function (child) { return _this.onEntityChange(child); });
     };
     Renderer.prototype.updateMovedEntities = function () {
         var entities = this.entities;
