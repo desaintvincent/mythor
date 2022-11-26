@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.9](https://github.com/desaintvincent/mythor/compare/@mythor/math@0.3.8...@mythor/math@0.3.9) (2022-11-26)
+
+### Bug Fixes
+
+- **renderer:** update canvas size from camera ([84ea260](https://github.com/desaintvincent/mythor/commit/84ea2604a7ac94abfd4deba240ffc0596275fb88))
+
 ## 0.3.8 (2022-11-17)
 
 ### Bug Fixes

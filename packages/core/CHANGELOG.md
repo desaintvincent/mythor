@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.8](https://github.com/desaintvincent/mythor/compare/@mythor/core@0.4.7...@mythor/core@0.4.8) (2022-11-26)
+
+**Note:** Version bump only for package @mythor/core
+
 ## [0.4.7](https://github.com/desaintvincent/mythor/compare/@mythor/core@0.4.6...@mythor/core@0.4.7) (2022-11-17)
 
 ### Bug Fixes
