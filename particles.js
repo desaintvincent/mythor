@@ -21605,7 +21605,7 @@ var SelectDebugManager = (function (_super) {
         var _this = this;
         var _a;
         _this = _super.call(this, 'SelectDebugManager') || this;
-        _this.show = true;
+        _this.show = false;
         _this.onSelect = params === null || params === void 0 ? void 0 : params.onSelect;
         _this.debugSize = (_a = params === null || params === void 0 ? void 0 : params.debugSize) !== null && _a !== void 0 ? _a : 0.7;
         return _this;
