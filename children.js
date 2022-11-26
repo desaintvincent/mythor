@@ -22766,7 +22766,7 @@ exports["default"] = Physic;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.toPlank = exports.IGNORED_BY_WORLD = exports.PhysicSystem = exports.PhysicType = exports.Physic = exports.ColliderCallback = void 0;
+exports.PhysicManipulator = exports.IGNORED_BY_WORLD = exports.PhysicSystem = exports.PhysicType = exports.Physic = exports.ColliderCallback = void 0;
 var ColliderCallback_1 = __webpack_require__(/*! ./components/ColliderCallback */ "../physic2d/lib/components/ColliderCallback.js");
 Object.defineProperty(exports, "ColliderCallback", ({ enumerable: true, get: function () { return ColliderCallback_1.default; } }));
 var Physic_1 = __webpack_require__(/*! ./components/Physic */ "../physic2d/lib/components/Physic.js");
@@ -22775,8 +22775,8 @@ Object.defineProperty(exports, "PhysicType", ({ enumerable: true, get: function 
 var PhysicSystem_1 = __webpack_require__(/*! ./systems/PhysicSystem */ "../physic2d/lib/systems/PhysicSystem.js");
 Object.defineProperty(exports, "PhysicSystem", ({ enumerable: true, get: function () { return PhysicSystem_1.default; } }));
 Object.defineProperty(exports, "IGNORED_BY_WORLD", ({ enumerable: true, get: function () { return PhysicSystem_1.IGNORED_BY_WORLD; } }));
-var toPlank_1 = __webpack_require__(/*! ./utils/toPlank */ "../physic2d/lib/utils/toPlank.js");
-Object.defineProperty(exports, "toPlank", ({ enumerable: true, get: function () { return toPlank_1.default; } }));
+var PhysicManipulator_1 = __webpack_require__(/*! ./utils/PhysicManipulator */ "../physic2d/lib/utils/PhysicManipulator.js");
+Object.defineProperty(exports, "PhysicManipulator", ({ enumerable: true, get: function () { return PhysicManipulator_1.default; } }));
 //# sourceMappingURL=physic2d.js.map
 
 /***/ }),
@@ -22865,7 +22865,7 @@ var PhysicSystem = (function (_super) {
         var _a, _b, _c, _d, _e;
         _this = _super.call(this, 'PhysicSystem', [core_1.Transform, Physic_1.default]) || this;
         _this.collisionsToMakeSticky = [];
-        _this.worldScale = (_a = options === null || options === void 0 ? void 0 : options.worldScale) !== null && _a !== void 0 ? _a : 30;
+        _this.worldScale = (_a = options === null || options === void 0 ? void 0 : options.worldScale) !== null && _a !== void 0 ? _a : 100;
         _this.world = (0, planck_js_1.World)({
             gravity: (0, planck_js_1.Vec2)((_c = (_b = options === null || options === void 0 ? void 0 : options.gravity) === null || _b === void 0 ? void 0 : _b.x) !== null && _c !== void 0 ? _c : 0.0, (_e = (_d = options === null || options === void 0 ? void 0 : options.gravity) === null || _d === void 0 ? void 0 : _d.y) !== null && _e !== void 0 ? _e : 100),
         });
@@ -23005,7 +23005,7 @@ var PhysicSystem = (function (_super) {
             }
             transform = entity.get(core_1.Transform);
             physic = entity.get(Physic_1.default);
-            transform.position.set(bodyPosition.x * this.worldScale - physic.offset.x, bodyPosition.y * this.worldScale - physic.offset.y, false);
+            transform.position.set(bodyPosition.x * this.worldScale - physic.offset.x, bodyPosition.y * this.worldScale - physic.offset.y);
             transform.rotation = bodyAngle;
         }
         while (this.collisionsToMakeSticky.length > 0) {
@@ -23048,6 +23048,53 @@ var PhysicSystem = (function (_super) {
 }(core_1.System));
 exports["default"] = PhysicSystem;
 //# sourceMappingURL=PhysicSystem.js.map
+
+/***/ }),
+
+/***/ "../physic2d/lib/utils/PhysicManipulator.js":
+/*!**************************************************!*\
+  !*** ../physic2d/lib/utils/PhysicManipulator.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var math_1 = __webpack_require__(/*! @mythor/math */ "../math/lib/math.js");
+var toPlank_1 = __webpack_require__(/*! ./toPlank */ "../physic2d/lib/utils/toPlank.js");
+var PhysicManipulator = (function () {
+    function PhysicManipulator() {
+    }
+    PhysicManipulator.setVelocity = function (_a, velocity) {
+        var body = _a.body;
+        body.setLinearVelocity((0, toPlank_1.default)(velocity.x, velocity.y));
+    };
+    PhysicManipulator.getVelocity = function (_a) {
+        var body = _a.body;
+        var v = body.getLinearVelocity();
+        return math_1.Vec2.create(v.x, v.y);
+    };
+    PhysicManipulator.addVelocity = function (_a, velocityToAdd) {
+        var body = _a.body;
+        var v = body.getLinearVelocity();
+        v.x = velocityToAdd.x;
+        v.y = velocityToAdd.y;
+        body.setLinearVelocity(v);
+    };
+    PhysicManipulator.applyForce = function (_a, force) {
+        var body = _a.body;
+        var point = body.getWorldCenter();
+        body.applyForce((0, toPlank_1.default)(force.x, force.y), point);
+    };
+    PhysicManipulator.applyImpulse = function (_a, impulse) {
+        var body = _a.body;
+        var point = body.getWorldCenter();
+        body.applyLinearImpulse((0, toPlank_1.default)(impulse.x, impulse.y), point);
+    };
+    return PhysicManipulator;
+}());
+exports["default"] = PhysicManipulator;
+//# sourceMappingURL=PhysicManipulator.js.map
 
 /***/ }),
 
