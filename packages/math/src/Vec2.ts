@@ -1,6 +1,6 @@
 import { root, round } from './util'
 
-type ObserveCbFunction = () => void
+type ObserveCbFunction = (newPos: Vec2) => void
 
 export default class Vec2 {
   private _x = 0
@@ -12,8 +12,8 @@ export default class Vec2 {
   }
 
   public set x(value: number) {
-    this.triggerObservers()
     this._x = value
+    this.triggerObservers()
   }
 
   public get y(): number {
@@ -21,8 +21,8 @@ export default class Vec2 {
   }
 
   public set y(value: number) {
-    this.triggerObservers()
     this._y = value
+    this.triggerObservers()
   }
 
   private triggerObservers(): void {
@@ -30,7 +30,7 @@ export default class Vec2 {
       return
     }
 
-    this._observers.forEach((observer) => observer())
+    this._observers.forEach((observer) => observer(this))
   }
 
   public observe(cb: ObserveCbFunction): void {
@@ -49,9 +49,13 @@ export default class Vec2 {
     return new Vec2(0, 0)
   }
 
-  public set(x: number, y?: number): Vec2 {
-    this.x = x
-    this.y = y ?? x
+  public set(x: number, y?: number, triggerObservers = true): Vec2 {
+    this._x = x
+    this._y = y ?? x
+
+    if (triggerObservers) {
+      this.triggerObservers()
+    }
 
     return this
   }

@@ -87,6 +87,8 @@ class Renderer extends System {
     this.gl = gl as WebGL2RenderingContext
 
     this.camera = params?.camera ?? new Camera()
+    this.canvas.width = this.camera.getSize().x
+    this.canvas.height = this.camera.getSize().y
     this._shaders = new ConstructorMap()
   }
 
