@@ -1,11 +1,15 @@
 import Scene, { SceneOptions } from './Scene'
 import { LoadingStateManager, Manager } from '@mythor/core'
 import Game from './Game'
-import { EventsManager } from '@mythor/events'
+import { EventsManager, EventManagerOptions } from '@mythor/events'
 import CameraMovementManager from '../managers/CameraMovementManager'
-import StatisticsManager from '../managers/StatisticsManager'
+import StatisticsManager, {
+  StatisticsManagerOptions,
+} from '../managers/StatisticsManager'
 import PhysicDebugManager from '../managers/PhysicDebugManager'
-import SelectDebugManager from '../managers/SelectDebugManager'
+import SelectDebugManager, {
+  SelectDebugManagerParams,
+} from '../managers/SelectDebugManager'
 import RendererDebugManager from '../managers/RendererDebugManager'
 import createLoadingScene from '../util/createLoadingScene'
 import { Camera } from '@mythor/renderer'
@@ -18,6 +22,11 @@ interface GameMakerOptions extends SceneOptions {
   addPhysicDebugManager?: boolean
   addSelectDebugManager?: boolean
   addRendererDebugManager?: boolean
+  params?: {
+    eventsManager?: EventManagerOptions
+    statisticsManager?: StatisticsManagerOptions
+    selectDebugManager?: SelectDebugManagerParams
+  }
   camera?: Camera
 }
 
@@ -33,7 +42,7 @@ const defaultManagers: Array<ConditionalAdd<Manager>> = [
   },
   {
     condition: (options) => options?.addEventsManager ?? true,
-    getItem: () => new EventsManager(),
+    getItem: (options) => new EventsManager(options?.params?.eventsManager),
   },
   {
     condition: (options) => options?.addCameraMovementManager ?? true,
@@ -41,7 +50,8 @@ const defaultManagers: Array<ConditionalAdd<Manager>> = [
   },
   {
     condition: (options) => options?.addStatisticsManager ?? true,
-    getItem: () => new StatisticsManager(),
+    getItem: (options) =>
+      new StatisticsManager(options?.params?.statisticsManager),
   },
   {
     condition: (options) => options?.addPhysicDebugManager ?? true,
@@ -49,7 +59,8 @@ const defaultManagers: Array<ConditionalAdd<Manager>> = [
   },
   {
     condition: (options) => options?.addSelectDebugManager ?? true,
-    getItem: () => new SelectDebugManager(),
+    getItem: (options) =>
+      new SelectDebugManager(options?.params?.selectDebugManager),
   },
   {
     condition: (options) => options?.addRendererDebugManager ?? true,

@@ -35,6 +35,7 @@ interface RendererOptions {
 type RendererParams = Partial<RendererOptions> & {
   camera?: Camera
   canvasName?: string
+  initDefaultShaders?: boolean
   useTree?: boolean
 }
 
@@ -61,6 +62,7 @@ class Renderer extends System {
   public useTree: boolean
   private readonly canvas: HTMLCanvasElement
   public readonly gl: WebGL2RenderingContext
+  private readonly initDefaultShaders: boolean
 
   public constructor(params?: RendererParams) {
     super('Renderer', [Renderable, Transform], {
@@ -76,6 +78,7 @@ class Renderer extends System {
     if (!canvas) {
       throw new Error('Could not find canvas')
     }
+    this.initDefaultShaders = params?.initDefaultShaders ?? true
     this.canvas = canvas as HTMLCanvasElement
     this.canvas.tabIndex = 1
     this.useTree = params?.useTree ?? defaultParams.useTree
@@ -166,6 +169,9 @@ class Renderer extends System {
   }
 
   protected async onSystemInit(): Promise<void> {
+    if (!this.initDefaultShaders) {
+      return
+    }
     await this.addShader(new Sprite(this.gl))
     await this.addShader(new FillTriangle(this.gl))
     await this.addShader(new Lines(this.gl))

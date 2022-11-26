@@ -62,6 +62,10 @@ interface ComponentStats extends Record<string, string | number> {
   name: string
 }
 
+export type StatisticsManagerOptions = {
+  debugElementId: string
+}
+
 class StatisticsManager extends Manager {
   private count = 0
   private readonly stats: Stats
@@ -69,7 +73,7 @@ class StatisticsManager extends Manager {
   private readonly elem?: HTMLElement
   private display = false
 
-  public constructor(debugElementId = 'statistics') {
+  public constructor(params?: StatisticsManagerOptions) {
     super('StatisticsManager')
     this.count = 0
 
@@ -86,7 +90,7 @@ class StatisticsManager extends Manager {
     )
     this.stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
     document.body.appendChild(this.stats.dom)
-    const elem = document.getElementById(debugElementId)
+    const elem = document.getElementById(params?.debugElementId ?? 'statistics')
     if (elem) {
       this.elem = elem
     }

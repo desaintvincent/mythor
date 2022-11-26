@@ -4,7 +4,7 @@ import Key from '../definitions/Key'
 import MouseButton from '../definitions/MouseButton'
 import { Renderer } from '@mythor/renderer'
 
-interface EventManagerOptions {
+export interface EventManagerOptions {
   canvas?: HTMLCanvasElement
   canvasId?: string
   minDragDelta?: number
