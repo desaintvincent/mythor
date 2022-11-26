@@ -22417,8 +22417,8 @@ var Vec2 = (function () {
             return this._x;
         },
         set: function (value) {
-            this.triggerObservers();
             this._x = value;
+            this.triggerObservers();
         },
         enumerable: false,
         configurable: true
@@ -22428,17 +22428,18 @@ var Vec2 = (function () {
             return this._y;
         },
         set: function (value) {
-            this.triggerObservers();
             this._y = value;
+            this.triggerObservers();
         },
         enumerable: false,
         configurable: true
     });
     Vec2.prototype.triggerObservers = function () {
+        var _this = this;
         if (this._observers.length === 0) {
             return;
         }
-        this._observers.forEach(function (observer) { return observer(); });
+        this._observers.forEach(function (observer) { return observer(_this); });
     };
     Vec2.prototype.observe = function (cb) {
         this._observers.push(cb);
@@ -22449,9 +22450,13 @@ var Vec2 = (function () {
     Vec2.zero = function () {
         return new Vec2(0, 0);
     };
-    Vec2.prototype.set = function (x, y) {
-        this.x = x;
-        this.y = y !== null && y !== void 0 ? y : x;
+    Vec2.prototype.set = function (x, y, triggerObservers) {
+        if (triggerObservers === void 0) { triggerObservers = true; }
+        this._x = x;
+        this._y = y !== null && y !== void 0 ? y : x;
+        if (triggerObservers) {
+            this.triggerObservers();
+        }
         return this;
     };
     Vec2.prototype.vSet = function (v) {
@@ -22795,7 +22800,7 @@ exports["default"] = Physic;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.IGNORED_BY_WORLD = exports.PhysicSystem = exports.PhysicType = exports.Physic = exports.ColliderCallback = void 0;
+exports.toPlank = exports.IGNORED_BY_WORLD = exports.PhysicSystem = exports.PhysicType = exports.Physic = exports.ColliderCallback = void 0;
 var ColliderCallback_1 = __webpack_require__(/*! ./components/ColliderCallback */ "../physic2d/lib/components/ColliderCallback.js");
 Object.defineProperty(exports, "ColliderCallback", ({ enumerable: true, get: function () { return ColliderCallback_1.default; } }));
 var Physic_1 = __webpack_require__(/*! ./components/Physic */ "../physic2d/lib/components/Physic.js");
@@ -22804,6 +22809,8 @@ Object.defineProperty(exports, "PhysicType", ({ enumerable: true, get: function 
 var PhysicSystem_1 = __webpack_require__(/*! ./systems/PhysicSystem */ "../physic2d/lib/systems/PhysicSystem.js");
 Object.defineProperty(exports, "PhysicSystem", ({ enumerable: true, get: function () { return PhysicSystem_1.default; } }));
 Object.defineProperty(exports, "IGNORED_BY_WORLD", ({ enumerable: true, get: function () { return PhysicSystem_1.IGNORED_BY_WORLD; } }));
+var toPlank_1 = __webpack_require__(/*! ./utils/toPlank */ "../physic2d/lib/utils/toPlank.js");
+Object.defineProperty(exports, "toPlank", ({ enumerable: true, get: function () { return toPlank_1.default; } }));
 //# sourceMappingURL=physic2d.js.map
 
 /***/ }),
@@ -23003,6 +23010,11 @@ var PhysicSystem = (function (_super) {
         });
         body.setLinearVelocity((0, planck_js_1.Vec2)(initialLinearVelocity.x, initialLinearVelocity.y));
         body.setUserData({ entityId: entity._id });
+        if (type !== Physic_1.PhysicType.STATIC) {
+            position.observe(function (newPos) {
+                body.setPosition((0, planck_js_1.Vec2)((newPos.x + physic.offset.x) / _this.worldScale, (newPos.y + physic.offset.y) / _this.worldScale));
+            });
+        }
         physic.body = body;
     };
     PhysicSystem.prototype.onEntityDestruction = function (entity) {
@@ -23027,8 +23039,7 @@ var PhysicSystem = (function (_super) {
             }
             transform = entity.get(core_1.Transform);
             physic = entity.get(Physic_1.default);
-            transform.position.x = bodyPosition.x * this.worldScale - physic.offset.x;
-            transform.position.y = bodyPosition.y * this.worldScale - physic.offset.y;
+            transform.position.set(bodyPosition.x * this.worldScale - physic.offset.x, bodyPosition.y * this.worldScale - physic.offset.y, false);
             transform.rotation = bodyAngle;
         }
         while (this.collisionsToMakeSticky.length > 0) {
@@ -23071,6 +23082,22 @@ var PhysicSystem = (function (_super) {
 }(core_1.System));
 exports["default"] = PhysicSystem;
 //# sourceMappingURL=PhysicSystem.js.map
+
+/***/ }),
+
+/***/ "../physic2d/lib/utils/toPlank.js":
+/*!****************************************!*\
+  !*** ../physic2d/lib/utils/toPlank.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var planck_js_1 = __webpack_require__(/*! planck-js */ "../../node_modules/planck-js/lib/index.js");
+var toPlank = function (x, y) { return (0, planck_js_1.Vec2)(x, y); };
+exports["default"] = toPlank;
+//# sourceMappingURL=toPlank.js.map
 
 /***/ }),
 
@@ -24455,6 +24482,8 @@ var Renderer = (function (_super) {
         }
         _this.gl = gl;
         _this.camera = (_e = params === null || params === void 0 ? void 0 : params.camera) !== null && _e !== void 0 ? _e : new Camera_1.default();
+        _this.canvas.width = _this.camera.getSize().x;
+        _this.canvas.height = _this.camera.getSize().y;
         _this._shaders = new core_1.ConstructorMap();
         return _this;
     }
