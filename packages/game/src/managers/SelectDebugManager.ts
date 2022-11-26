@@ -5,12 +5,21 @@ import { PhysicSystem } from '@mythor/physic2d'
 import { getTopLeft, Vec2 } from '@mythor/math'
 import getEntityStats from '../util/getEntityStats'
 
-class SelectDebugManager extends Manager {
-  private show = false
-  private selectedEntity: Entity | null
+export type SelectDebugManagerParams = {
+  onSelect?: (entity: Entity) => void
+  debugSize?: number
+}
 
-  public constructor() {
+class SelectDebugManager extends Manager {
+  private show = true
+  private selectedEntity: Entity | null
+  private readonly onSelect?: (entity: Entity) => void
+  private readonly debugSize: number
+
+  public constructor(params?: SelectDebugManagerParams) {
     super('SelectDebugManager')
+    this.onSelect = params?.onSelect
+    this.debugSize = params?.debugSize ?? 0.7
   }
 
   public update(): void {
@@ -37,6 +46,7 @@ class SelectDebugManager extends Manager {
       this.ecs.system(PhysicSystem).query(events.mousePosition(), (entity) => {
         if (entity.has(Renderable) && entity.has(Transform)) {
           this.selectedEntity = entity
+          this.onSelect?.(entity)
           found = true
 
           return false
@@ -74,7 +84,7 @@ class SelectDebugManager extends Manager {
         renderer.strokeRect(position, size, {
           color: colorRed,
           rotation,
-          width: 2 / renderer.getCamera().scale,
+          width: (this.debugSize * 3) / renderer.getCamera().scale,
         })
       }
 
@@ -85,15 +95,15 @@ class SelectDebugManager extends Manager {
         : 'No selected entity'
       const linesNumber = entityStats.split('\n').length + 1
       const maskSize = Vec2.create(
-        380,
-        linesNumber * renderer.lineHeight() * 0.7
+        550 * this.debugSize,
+        linesNumber * renderer.lineHeight() * this.debugSize
       ).divide(renderer.getCamera().scale)
       renderer.fillRect(getTopLeft(fov).add(maskSize.divide(2)), maskSize, {
         color: [0, 0, 0, 0.75],
       })
       renderer.text(topLeft, entityStats, {
         color: colorWhite,
-        size: 0.7 / renderer.getCamera().scale,
+        size: this.debugSize / renderer.getCamera().scale,
       })
     })
   }
