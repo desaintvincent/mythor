@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.2](https://github.com/desaintvincent/mythor/compare/@mythor/renderer@0.5.1...@mythor/renderer@0.5.2) (2022-11-26)
+
+### Bug Fixes
+
+- **renderer:** fix layer when not using quadtree ([d122bdb](https://github.com/desaintvincent/mythor/commit/d122bdb2fdb7e5f8168c9547e04c35b358deb359))
+
 ## [0.5.1](https://github.com/desaintvincent/mythor/compare/@mythor/renderer@0.5.0...@mythor/renderer@0.5.1) (2022-11-26)
 
 ### Bug Fixes
