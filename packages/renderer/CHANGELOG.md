@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.5.0 (2022-11-26)
+
+### Features
+
+- **game:** add possibility to set params to managers ([caff3a8](https://github.com/desaintvincent/mythor/commit/caff3a87584547b288a8799aac713904a6837e03))
+
 ## [0.4.8](https://github.com/desaintvincent/mythor/compare/@mythor/renderer@0.4.7...@mythor/renderer@0.4.8) (2022-11-26)
 
 ### Bug Fixes
