@@ -24633,7 +24633,9 @@ var Renderer = (function (_super) {
     };
     Renderer.prototype.onEntityChange = function (entity) {
         var _this = this;
-        this.movedEntities.set(entity._id, entity);
+        if (entity.has(Renderable_1.default)) {
+            this.movedEntities.set(entity._id, entity);
+        }
         entity.children.forEach(function (child) { return _this.onEntityChange(child); });
     };
     Renderer.prototype.updateMovedEntities = function () {
