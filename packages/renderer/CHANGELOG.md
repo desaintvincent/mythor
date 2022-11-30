@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.5.3 (2022-11-30)
+
+### Bug Fixes
+
+- **renderer:** update only renderable children ([797f29f](https://github.com/desaintvincent/mythor/commit/797f29f61e3bdab881915e345344724b1015c38e))
+
 ## [0.5.2](https://github.com/desaintvincent/mythor/compare/@mythor/renderer@0.5.1...@mythor/renderer@0.5.2) (2022-11-26)
 
 ### Bug Fixes
