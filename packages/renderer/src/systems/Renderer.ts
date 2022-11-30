@@ -204,7 +204,9 @@ class Renderer extends System {
   }
 
   private onEntityChange(entity: Entity): void {
-    this.movedEntities.set(entity._id, entity)
+    if (entity.has(Renderable)) {
+      this.movedEntities.set(entity._id, entity)
+    }
     entity.children.forEach((child) => this.onEntityChange(child))
   }
 
