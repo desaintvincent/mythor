@@ -141,6 +141,8 @@ export default class PhysicSystem extends System {
       initialLinearVelocity,
       gravityScale,
       interactWithWorld,
+      filterCategoryBits,
+      filterMaskBits,
       type,
     } = physic
     const {
@@ -179,8 +181,9 @@ export default class PhysicSystem extends System {
     shapes.forEach((shape) => {
       body.createFixture({
         density,
-        filterCategoryBits: parseInt('010', 2),
-        filterMaskBits: interactWithWorld ? undefined : IGNORED_BY_WORLD,
+        filterCategoryBits: filterCategoryBits ?? parseInt('010', 2),
+        filterMaskBits:
+          filterMaskBits ?? (interactWithWorld ? undefined : IGNORED_BY_WORLD),
         friction,
         restitution,
         shape,
