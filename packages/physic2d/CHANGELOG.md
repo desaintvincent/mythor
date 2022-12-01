@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.5.0 (2022-12-01)
+
+### Features
+
+- **physic2d:** add masks ([06aba46](https://github.com/desaintvincent/mythor/commit/06aba463c73f53743f0aba3e33f7146480d90197))
+
 ## 0.4.1 (2022-11-26)
 
 **Note:** Version bump only for package @mythor/physic2d
