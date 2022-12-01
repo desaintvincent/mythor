@@ -22777,6 +22777,8 @@ var Physic = (function (_super) {
         _this.initialLinearVelocity = (_o = options === null || options === void 0 ? void 0 : options.initialLinearVelocity) !== null && _o !== void 0 ? _o : math_1.Vec2.zero();
         _this.gravityScale = (_p = options === null || options === void 0 ? void 0 : options.gravityScale) !== null && _p !== void 0 ? _p : 1;
         _this.ellipses = (_q = options === null || options === void 0 ? void 0 : options.ellipses) !== null && _q !== void 0 ? _q : [];
+        _this.filterCategoryBits = options === null || options === void 0 ? void 0 : options.filterCategoryBits;
+        _this.filterMaskBits = options === null || options === void 0 ? void 0 : options.filterMaskBits;
         return _this;
     }
     return Physic;
@@ -22968,7 +22970,7 @@ var PhysicSystem = (function (_super) {
         var _this = this;
         var _a, _b, _c, _d;
         var physic = entity.get(Physic_1.default);
-        var fixedRotation = physic.fixedRotation, friction = physic.friction, mass = physic.mass, restitution = physic.restitution, density = physic.density, linearDamping = physic.linearDamping, bullet = physic.bullet, initialLinearVelocity = physic.initialLinearVelocity, gravityScale = physic.gravityScale, interactWithWorld = physic.interactWithWorld, type = physic.type;
+        var fixedRotation = physic.fixedRotation, friction = physic.friction, mass = physic.mass, restitution = physic.restitution, density = physic.density, linearDamping = physic.linearDamping, bullet = physic.bullet, initialLinearVelocity = physic.initialLinearVelocity, gravityScale = physic.gravityScale, interactWithWorld = physic.interactWithWorld, filterCategoryBits = physic.filterCategoryBits, filterMaskBits = physic.filterMaskBits, type = physic.type;
         var _e = entity.get(core_1.Transform), _f = _e.size, width = _f.x, height = _f.y, position = _e.position, rotation = _e.rotation;
         var body = this.world.createBody({
             bullet: bullet,
@@ -22989,8 +22991,8 @@ var PhysicSystem = (function (_super) {
         shapes.forEach(function (shape) {
             body.createFixture({
                 density: density,
-                filterCategoryBits: parseInt('010', 2),
-                filterMaskBits: interactWithWorld ? undefined : exports.IGNORED_BY_WORLD,
+                filterCategoryBits: filterCategoryBits !== null && filterCategoryBits !== void 0 ? filterCategoryBits : parseInt('010', 2),
+                filterMaskBits: filterMaskBits !== null && filterMaskBits !== void 0 ? filterMaskBits : (interactWithWorld ? undefined : exports.IGNORED_BY_WORLD),
                 friction: friction,
                 restitution: restitution,
                 shape: shape,
