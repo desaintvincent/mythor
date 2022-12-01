@@ -24,6 +24,8 @@ export interface PhysicParams {
   initialLinearVelocity?: Vec2
   gravityScale?: number
   ellipses?: number[]
+  filterCategoryBits?: number
+  filterMaskBits?: number
 }
 
 export default class Physic extends Component {
@@ -43,6 +45,8 @@ export default class Physic extends Component {
   public gravityScale: number
   public readonly interactWithWorld: boolean
   public type: PhysicType
+  public filterCategoryBits?: number
+  public filterMaskBits?: number
 
   public constructor(options?: PhysicParams) {
     super()
@@ -61,5 +65,7 @@ export default class Physic extends Component {
     this.initialLinearVelocity = options?.initialLinearVelocity ?? Vec2.zero()
     this.gravityScale = options?.gravityScale ?? 1
     this.ellipses = options?.ellipses ?? []
+    this.filterCategoryBits = options?.filterCategoryBits
+    this.filterMaskBits = options?.filterMaskBits
   }
 }
