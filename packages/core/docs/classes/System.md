@@ -65,7 +65,7 @@
 
 #### Defined in
 
-[ecs/System.ts:23](https://github.com/desaintvincent/mythor/blob/1dfc6b8/packages/core/src/ecs/System.ts#L23)
+[ecs/System.ts:23](https://github.com/desaintvincent/mythor/blob/945b4e7/packages/core/src/ecs/System.ts#L23)
 
 ## Properties
 
@@ -75,7 +75,7 @@
 
 #### Defined in
 
-[ecs/System.ts:17](https://github.com/desaintvincent/mythor/blob/1dfc6b8/packages/core/src/ecs/System.ts#L17)
+[ecs/System.ts:17](https://github.com/desaintvincent/mythor/blob/945b4e7/packages/core/src/ecs/System.ts#L17)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[ecs/System.ts:18](https://github.com/desaintvincent/mythor/blob/1dfc6b8/packages/core/src/ecs/System.ts#L18)
+[ecs/System.ts:18](https://github.com/desaintvincent/mythor/blob/945b4e7/packages/core/src/ecs/System.ts#L18)
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 #### Defined in
 
-[ecs/System.ts:16](https://github.com/desaintvincent/mythor/blob/1dfc6b8/packages/core/src/ecs/System.ts#L16)
+[ecs/System.ts:16](https://github.com/desaintvincent/mythor/blob/945b4e7/packages/core/src/ecs/System.ts#L16)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-[ecs/System.ts:20](https://github.com/desaintvincent/mythor/blob/1dfc6b8/packages/core/src/ecs/System.ts#L20)
+[ecs/System.ts:20](https://github.com/desaintvincent/mythor/blob/945b4e7/packages/core/src/ecs/System.ts#L20)
 
 ___
 
@@ -115,7 +115,7 @@ ___
 
 #### Defined in
 
-[ecs/System.ts:21](https://github.com/desaintvincent/mythor/blob/1dfc6b8/packages/core/src/ecs/System.ts#L21)
+[ecs/System.ts:21](https://github.com/desaintvincent/mythor/blob/945b4e7/packages/core/src/ecs/System.ts#L21)
 
 ___
 
@@ -125,7 +125,7 @@ ___
 
 #### Defined in
 
-[ecs/System.ts:15](https://github.com/desaintvincent/mythor/blob/1dfc6b8/packages/core/src/ecs/System.ts#L15)
+[ecs/System.ts:15](https://github.com/desaintvincent/mythor/blob/945b4e7/packages/core/src/ecs/System.ts#L15)
 
 ___
 
@@ -135,7 +135,7 @@ ___
 
 #### Defined in
 
-[ecs/System.ts:19](https://github.com/desaintvincent/mythor/blob/1dfc6b8/packages/core/src/ecs/System.ts#L19)
+[ecs/System.ts:19](https://github.com/desaintvincent/mythor/blob/945b4e7/packages/core/src/ecs/System.ts#L19)
 
 ___
 
@@ -149,7 +149,7 @@ ___
 
 #### Defined in
 
-[collections/Signable.ts:2](https://github.com/desaintvincent/mythor/blob/1dfc6b8/packages/core/src/collections/Signable.ts#L2)
+[collections/Signable.ts:2](https://github.com/desaintvincent/mythor/blob/945b4e7/packages/core/src/collections/Signable.ts#L2)
 
 ## Accessors
 
@@ -163,7 +163,7 @@ ___
 
 #### Defined in
 
-[ecs/System.ts:55](https://github.com/desaintvincent/mythor/blob/1dfc6b8/packages/core/src/ecs/System.ts#L55)
+[ecs/System.ts:55](https://github.com/desaintvincent/mythor/blob/945b4e7/packages/core/src/ecs/System.ts#L55)
 
 ___
 
@@ -177,7 +177,7 @@ ___
 
 #### Defined in
 
-[ecs/System.ts:47](https://github.com/desaintvincent/mythor/blob/1dfc6b8/packages/core/src/ecs/System.ts#L47)
+[ecs/System.ts:47](https://github.com/desaintvincent/mythor/blob/945b4e7/packages/core/src/ecs/System.ts#L47)
 
 ## Methods
 
@@ -191,7 +191,7 @@ ___
 
 #### Defined in
 
-[ecs/System.ts:99](https://github.com/desaintvincent/mythor/blob/1dfc6b8/packages/core/src/ecs/System.ts#L99)
+[ecs/System.ts:99](https://github.com/desaintvincent/mythor/blob/945b4e7/packages/core/src/ecs/System.ts#L99)
 
 ___
 
@@ -205,7 +205,7 @@ ___
 
 #### Defined in
 
-[ecs/System.ts:95](https://github.com/desaintvincent/mythor/blob/1dfc6b8/packages/core/src/ecs/System.ts#L95)
+[ecs/System.ts:95](https://github.com/desaintvincent/mythor/blob/945b4e7/packages/core/src/ecs/System.ts#L95)
 
 ___
 
@@ -225,7 +225,7 @@ ___
 
 #### Defined in
 
-[ecs/System.ts:39](https://github.com/desaintvincent/mythor/blob/1dfc6b8/packages/core/src/ecs/System.ts#L39)
+[ecs/System.ts:39](https://github.com/desaintvincent/mythor/blob/945b4e7/packages/core/src/ecs/System.ts#L39)
 
 ___
 
@@ -239,7 +239,7 @@ ___
 
 #### Defined in
 
-[ecs/System.ts:82](https://github.com/desaintvincent/mythor/blob/1dfc6b8/packages/core/src/ecs/System.ts#L82)
+[ecs/System.ts:82](https://github.com/desaintvincent/mythor/blob/945b4e7/packages/core/src/ecs/System.ts#L82)
 
 ___
 
@@ -259,7 +259,7 @@ ___
 
 #### Defined in
 
-[ecs/System.ts:59](https://github.com/desaintvincent/mythor/blob/1dfc6b8/packages/core/src/ecs/System.ts#L59)
+[ecs/System.ts:59](https://github.com/desaintvincent/mythor/blob/945b4e7/packages/core/src/ecs/System.ts#L59)
 
 ___
 
@@ -279,7 +279,7 @@ ___
 
 #### Defined in
 
-[ecs/System.ts:131](https://github.com/desaintvincent/mythor/blob/1dfc6b8/packages/core/src/ecs/System.ts#L131)
+[ecs/System.ts:131](https://github.com/desaintvincent/mythor/blob/945b4e7/packages/core/src/ecs/System.ts#L131)
 
 ___
 
@@ -299,7 +299,7 @@ ___
 
 #### Defined in
 
-[ecs/System.ts:127](https://github.com/desaintvincent/mythor/blob/1dfc6b8/packages/core/src/ecs/System.ts#L127)
+[ecs/System.ts:127](https://github.com/desaintvincent/mythor/blob/945b4e7/packages/core/src/ecs/System.ts#L127)
 
 ___
 
@@ -321,7 +321,7 @@ ___
 
 #### Defined in
 
-[ecs/System.ts:112](https://github.com/desaintvincent/mythor/blob/1dfc6b8/packages/core/src/ecs/System.ts#L112)
+[ecs/System.ts:112](https://github.com/desaintvincent/mythor/blob/945b4e7/packages/core/src/ecs/System.ts#L112)
 
 ___
 
@@ -341,7 +341,7 @@ ___
 
 #### Defined in
 
-[ecs/System.ts:123](https://github.com/desaintvincent/mythor/blob/1dfc6b8/packages/core/src/ecs/System.ts#L123)
+[ecs/System.ts:123](https://github.com/desaintvincent/mythor/blob/945b4e7/packages/core/src/ecs/System.ts#L123)
 
 ___
 
@@ -361,7 +361,7 @@ ___
 
 #### Defined in
 
-[ecs/System.ts:51](https://github.com/desaintvincent/mythor/blob/1dfc6b8/packages/core/src/ecs/System.ts#L51)
+[ecs/System.ts:51](https://github.com/desaintvincent/mythor/blob/945b4e7/packages/core/src/ecs/System.ts#L51)
 
 ___
 
@@ -381,7 +381,7 @@ ___
 
 #### Defined in
 
-[ecs/System.ts:135](https://github.com/desaintvincent/mythor/blob/1dfc6b8/packages/core/src/ecs/System.ts#L135)
+[ecs/System.ts:135](https://github.com/desaintvincent/mythor/blob/945b4e7/packages/core/src/ecs/System.ts#L135)
 
 ___
 
@@ -402,4 +402,4 @@ ___
 
 #### Defined in
 
-[ecs/System.ts:86](https://github.com/desaintvincent/mythor/blob/1dfc6b8/packages/core/src/ecs/System.ts#L86)
+[ecs/System.ts:86](https://github.com/desaintvincent/mythor/blob/945b4e7/packages/core/src/ecs/System.ts#L86)

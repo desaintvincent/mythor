@@ -17,7 +17,7 @@
 
 #### Defined in
 
-[Rect.ts:4](https://github.com/desaintvincent/mythor/blob/1dfc6b8/packages/math/src/Rect.ts#L4)
+[Rect.ts:4](https://github.com/desaintvincent/mythor/blob/945b4e7/packages/math/src/Rect.ts#L4)
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 #### Defined in
 
-[Rect.ts:5](https://github.com/desaintvincent/mythor/blob/1dfc6b8/packages/math/src/Rect.ts#L5)
+[Rect.ts:5](https://github.com/desaintvincent/mythor/blob/945b4e7/packages/math/src/Rect.ts#L5)
