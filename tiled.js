@@ -37091,6 +37091,7 @@ function generateEntitiesFromTiled(ecs, tiledMap, options) {
                         entitiesToReturn[name] = entity;
                     };
                     onCreateObject = function (object) {
+                        var _a;
                         var x = object.x, y = object.y, rotation = object.rotation, width = object.width, height = object.height, name = object.name;
                         var entity = ecs.create().add(new core_1.Transform({
                             position: new math_1.Vec2(x + width / 2, y - height / 2),
@@ -37100,24 +37101,29 @@ function generateEntitiesFromTiled(ecs, tiledMap, options) {
                         if (name) {
                             namedObject(name, entity, object);
                         }
+                        (_a = options === null || options === void 0 ? void 0 : options.onCreateObject) === null || _a === void 0 ? void 0 : _a.call(options, entity);
                     };
                     onCreateTile = function (tile) {
+                        var _a;
                         var imageName = tile.image.replace(/\.[^/.]+$/, '');
                         var textureName = textures.has(imageName) ? imageName : tile.name;
                         var entity = ecs
                             .create()
                             .add(new core_1.Transform(tile.transform), new renderer_1.Renderable(), new renderer_1.Sprite(textures.get(textureName), tile.sprite));
                         addPhysic(tile, entity, aggreateColliders, generatePassiveColliders);
+                        (_a = options === null || options === void 0 ? void 0 : options.onCreateTile) === null || _a === void 0 ? void 0 : _a.call(options, entity);
                     };
                     onCreateCollider = function (polygon) {
-                        var _a = (0, math_1.getPolygonCentroid)(polygon), position = _a.centroid, size = _a.size;
+                        var _a;
+                        var _b = (0, math_1.getPolygonCentroid)(polygon), position = _b.centroid, size = _b.size;
                         var relativePolygon = polygon.map(function (point) { return point.sub(position).round(2); });
-                        ecs.create().add(new core_1.Transform({
+                        var entity = ecs.create().add(new core_1.Transform({
                             position: position.round(2),
                             size: size,
                         }), new physic2d_1.Physic({
                             polygons: [relativePolygon],
                         }));
+                        (_a = options === null || options === void 0 ? void 0 : options.onCreateCollider) === null || _a === void 0 ? void 0 : _a.call(options, entity);
                     };
                     onLoad = function (map) {
                         if (state) {
