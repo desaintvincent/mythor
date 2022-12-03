@@ -21,6 +21,9 @@ interface GenerateEntitiesFromTiledOptions {
   generatePassiveColliders?: boolean
   maxBacth?: number
   setTree?: boolean
+  onCreateObject?: (entity: Entity) => void
+  onCreateTile?: (entity: Entity) => void
+  onCreateCollider?: (entity: Entity) => void
 }
 
 function addPhysic(
@@ -105,6 +108,7 @@ async function generateEntitiesFromTiled(
     if (name) {
       namedObject(name, entity, object)
     }
+    options?.onCreateObject?.(entity)
   }
 
   const onCreateTile = (tile: ParsedObject): void => {
@@ -118,12 +122,13 @@ async function generateEntitiesFromTiled(
         new Sprite(textures.get(textureName), tile.sprite)
       )
     addPhysic(tile, entity, aggreateColliders, generatePassiveColliders)
+    options?.onCreateTile?.(entity)
   }
 
   const onCreateCollider = (polygon: AggregateCollider): void => {
     const { centroid: position, size } = getPolygonCentroid(polygon)
     const relativePolygon = polygon.map((point) => point.sub(position).round(2))
-    ecs.create().add(
+    const entity = ecs.create().add(
       new Transform({
         position: position.round(2),
         size,
@@ -132,6 +137,7 @@ async function generateEntitiesFromTiled(
         polygons: [relativePolygon],
       })
     )
+    options?.onCreateCollider?.(entity)
   }
 
   const onLoad = (map: LoadState): void => {
