@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/desaintvincent/mythor/compare/@mythor/tiled@0.5.5...@mythor/tiled@0.6.0) (2022-12-03)
+
+### Features
+
+- **tiled:** add callbacks ([752e1e1](https://github.com/desaintvincent/mythor/commit/752e1e1a3d9fd46d495cdfe10be4d2e8339a8562))
+
 ## [0.5.5](https://github.com/desaintvincent/mythor/compare/@mythor/tiled@0.5.4...@mythor/tiled@0.5.5) (2022-12-01)
 
 **Note:** Version bump only for package @mythor/tiled
