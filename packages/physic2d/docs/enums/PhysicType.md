@@ -18,7 +18,7 @@
 
 #### Defined in
 
-[physic2d/src/components/Physic.ts:8](https://github.com/desaintvincent/mythor/blob/945b4e7/packages/physic2d/src/components/Physic.ts#L8)
+[physic2d/src/components/Physic.ts:8](https://github.com/desaintvincent/mythor/blob/8675b4d/packages/physic2d/src/components/Physic.ts#L8)
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-[physic2d/src/components/Physic.ts:7](https://github.com/desaintvincent/mythor/blob/945b4e7/packages/physic2d/src/components/Physic.ts#L7)
+[physic2d/src/components/Physic.ts:7](https://github.com/desaintvincent/mythor/blob/8675b4d/packages/physic2d/src/components/Physic.ts#L7)
 
 ___
 
@@ -38,4 +38,4 @@ ___
 
 #### Defined in
 
-[physic2d/src/components/Physic.ts:6](https://github.com/desaintvincent/mythor/blob/945b4e7/packages/physic2d/src/components/Physic.ts#L6)
+[physic2d/src/components/Physic.ts:6](https://github.com/desaintvincent/mythor/blob/8675b4d/packages/physic2d/src/components/Physic.ts#L6)

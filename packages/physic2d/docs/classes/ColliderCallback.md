@@ -45,7 +45,7 @@ Component.constructor
 
 #### Defined in
 
-[physic2d/src/components/ColliderCallback.ts:25](https://github.com/desaintvincent/mythor/blob/945b4e7/packages/physic2d/src/components/ColliderCallback.ts#L25)
+[physic2d/src/components/ColliderCallback.ts:25](https://github.com/desaintvincent/mythor/blob/8675b4d/packages/physic2d/src/components/ColliderCallback.ts#L25)
 
 ## Properties
 
@@ -69,7 +69,7 @@ ___
 
 #### Defined in
 
-[physic2d/src/components/ColliderCallback.ts:20](https://github.com/desaintvincent/mythor/blob/945b4e7/packages/physic2d/src/components/ColliderCallback.ts#L20)
+[physic2d/src/components/ColliderCallback.ts:20](https://github.com/desaintvincent/mythor/blob/8675b4d/packages/physic2d/src/components/ColliderCallback.ts#L20)
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 #### Defined in
 
-[physic2d/src/components/ColliderCallback.ts:23](https://github.com/desaintvincent/mythor/blob/945b4e7/packages/physic2d/src/components/ColliderCallback.ts#L23)
+[physic2d/src/components/ColliderCallback.ts:23](https://github.com/desaintvincent/mythor/blob/8675b4d/packages/physic2d/src/components/ColliderCallback.ts#L23)
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 #### Defined in
 
-[physic2d/src/components/ColliderCallback.ts:21](https://github.com/desaintvincent/mythor/blob/945b4e7/packages/physic2d/src/components/ColliderCallback.ts#L21)
+[physic2d/src/components/ColliderCallback.ts:21](https://github.com/desaintvincent/mythor/blob/8675b4d/packages/physic2d/src/components/ColliderCallback.ts#L21)
 
 ___
 
@@ -99,7 +99,7 @@ ___
 
 #### Defined in
 
-[physic2d/src/components/ColliderCallback.ts:22](https://github.com/desaintvincent/mythor/blob/945b4e7/packages/physic2d/src/components/ColliderCallback.ts#L22)
+[physic2d/src/components/ColliderCallback.ts:22](https://github.com/desaintvincent/mythor/blob/8675b4d/packages/physic2d/src/components/ColliderCallback.ts#L22)
 
 ___
 
@@ -135,4 +135,4 @@ core/lib/collections/Signable.d.ts:2
 
 #### Defined in
 
-[physic2d/src/components/ColliderCallback.ts:33](https://github.com/desaintvincent/mythor/blob/945b4e7/packages/physic2d/src/components/ColliderCallback.ts#L33)
+[physic2d/src/components/ColliderCallback.ts:33](https://github.com/desaintvincent/mythor/blob/8675b4d/packages/physic2d/src/components/ColliderCallback.ts#L33)
