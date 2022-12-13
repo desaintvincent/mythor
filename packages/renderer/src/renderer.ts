@@ -12,6 +12,7 @@ export { default as Sprite } from './components/Sprite'
 export { default as Animation } from './components/Animation'
 export { default as lerpCamera } from './lerpCamera'
 export { default as Camera } from './objects/Camera'
+export { default as Shader } from './webgl/shaders/Shader'
 export {
   default as ParticleEmitter,
   TimingFunction,
