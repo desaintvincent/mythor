@@ -24293,7 +24293,7 @@ exports["default"] = QuadTreeList;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.colorBlue = exports.colorGreen = exports.colorRed = exports.colorBlack = exports.colorWhite = exports.TimingFunction = exports.ParticleEmitter = exports.Camera = exports.lerpCamera = exports.Animation = exports.Sprite = exports.RenderedText = exports.FillRect = exports.Renderable = exports.QuadTreeList = exports.QuadTree = exports.Texture = exports.TextureManager = exports.Animator = exports.Renderer = void 0;
+exports.colorBlue = exports.colorGreen = exports.colorRed = exports.colorBlack = exports.colorWhite = exports.TimingFunction = exports.ParticleEmitter = exports.Shader = exports.Camera = exports.lerpCamera = exports.Animation = exports.Sprite = exports.RenderedText = exports.FillRect = exports.Renderable = exports.QuadTreeList = exports.QuadTree = exports.Texture = exports.TextureManager = exports.Animator = exports.Renderer = void 0;
 var Renderer_1 = __webpack_require__(/*! ./systems/Renderer */ "../renderer/lib/systems/Renderer.js");
 Object.defineProperty(exports, "Renderer", ({ enumerable: true, get: function () { return Renderer_1.default; } }));
 var Animator_1 = __webpack_require__(/*! ./systems/Animator */ "../renderer/lib/systems/Animator.js");
@@ -24320,6 +24320,8 @@ var lerpCamera_1 = __webpack_require__(/*! ./lerpCamera */ "../renderer/lib/lerp
 Object.defineProperty(exports, "lerpCamera", ({ enumerable: true, get: function () { return lerpCamera_1.default; } }));
 var Camera_1 = __webpack_require__(/*! ./objects/Camera */ "../renderer/lib/objects/Camera.js");
 Object.defineProperty(exports, "Camera", ({ enumerable: true, get: function () { return Camera_1.default; } }));
+var Shader_1 = __webpack_require__(/*! ./webgl/shaders/Shader */ "../renderer/lib/webgl/shaders/Shader.js");
+Object.defineProperty(exports, "Shader", ({ enumerable: true, get: function () { return Shader_1.default; } }));
 var ParticleEmitter_1 = __webpack_require__(/*! ./components/ParticleEmitter */ "../renderer/lib/components/ParticleEmitter.js");
 Object.defineProperty(exports, "ParticleEmitter", ({ enumerable: true, get: function () { return ParticleEmitter_1.default; } }));
 Object.defineProperty(exports, "TimingFunction", ({ enumerable: true, get: function () { return ParticleEmitter_1.TimingFunction; } }));
