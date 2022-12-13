@@ -18,7 +18,7 @@
 
 #### Defined in
 
-[events/src/definitions/MouseButton.ts:2](https://github.com/desaintvincent/mythor/blob/8675b4d/packages/events/src/definitions/MouseButton.ts#L2)
+[events/src/definitions/MouseButton.ts:2](https://github.com/desaintvincent/mythor/blob/f93928f/packages/events/src/definitions/MouseButton.ts#L2)
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-[events/src/definitions/MouseButton.ts:3](https://github.com/desaintvincent/mythor/blob/8675b4d/packages/events/src/definitions/MouseButton.ts#L3)
+[events/src/definitions/MouseButton.ts:3](https://github.com/desaintvincent/mythor/blob/f93928f/packages/events/src/definitions/MouseButton.ts#L3)
 
 ___
 
@@ -38,4 +38,4 @@ ___
 
 #### Defined in
 
-[events/src/definitions/MouseButton.ts:4](https://github.com/desaintvincent/mythor/blob/8675b4d/packages/events/src/definitions/MouseButton.ts#L4)
+[events/src/definitions/MouseButton.ts:4](https://github.com/desaintvincent/mythor/blob/f93928f/packages/events/src/definitions/MouseButton.ts#L4)

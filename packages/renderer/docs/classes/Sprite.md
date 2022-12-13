@@ -48,7 +48,7 @@ Component.constructor
 
 #### Defined in
 
-[renderer/src/components/Sprite.ts:28](https://github.com/desaintvincent/mythor/blob/8675b4d/packages/renderer/src/components/Sprite.ts#L28)
+[renderer/src/components/Sprite.ts:28](https://github.com/desaintvincent/mythor/blob/f93928f/packages/renderer/src/components/Sprite.ts#L28)
 
 ## Properties
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Sprite.ts:21](https://github.com/desaintvincent/mythor/blob/8675b4d/packages/renderer/src/components/Sprite.ts#L21)
+[renderer/src/components/Sprite.ts:21](https://github.com/desaintvincent/mythor/blob/f93928f/packages/renderer/src/components/Sprite.ts#L21)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Sprite.ts:19](https://github.com/desaintvincent/mythor/blob/8675b4d/packages/renderer/src/components/Sprite.ts#L19)
+[renderer/src/components/Sprite.ts:19](https://github.com/desaintvincent/mythor/blob/f93928f/packages/renderer/src/components/Sprite.ts#L19)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Sprite.ts:24](https://github.com/desaintvincent/mythor/blob/8675b4d/packages/renderer/src/components/Sprite.ts#L24)
+[renderer/src/components/Sprite.ts:24](https://github.com/desaintvincent/mythor/blob/f93928f/packages/renderer/src/components/Sprite.ts#L24)
 
 ___
 
@@ -102,7 +102,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Sprite.ts:22](https://github.com/desaintvincent/mythor/blob/8675b4d/packages/renderer/src/components/Sprite.ts#L22)
+[renderer/src/components/Sprite.ts:22](https://github.com/desaintvincent/mythor/blob/f93928f/packages/renderer/src/components/Sprite.ts#L22)
 
 ___
 
@@ -112,7 +112,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Sprite.ts:23](https://github.com/desaintvincent/mythor/blob/8675b4d/packages/renderer/src/components/Sprite.ts#L23)
+[renderer/src/components/Sprite.ts:23](https://github.com/desaintvincent/mythor/blob/f93928f/packages/renderer/src/components/Sprite.ts#L23)
 
 ___
 
@@ -122,7 +122,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Sprite.ts:26](https://github.com/desaintvincent/mythor/blob/8675b4d/packages/renderer/src/components/Sprite.ts#L26)
+[renderer/src/components/Sprite.ts:26](https://github.com/desaintvincent/mythor/blob/f93928f/packages/renderer/src/components/Sprite.ts#L26)
 
 ___
 
@@ -132,7 +132,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Sprite.ts:25](https://github.com/desaintvincent/mythor/blob/8675b4d/packages/renderer/src/components/Sprite.ts#L25)
+[renderer/src/components/Sprite.ts:25](https://github.com/desaintvincent/mythor/blob/f93928f/packages/renderer/src/components/Sprite.ts#L25)
 
 ___
 
@@ -142,7 +142,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Sprite.ts:17](https://github.com/desaintvincent/mythor/blob/8675b4d/packages/renderer/src/components/Sprite.ts#L17)
+[renderer/src/components/Sprite.ts:17](https://github.com/desaintvincent/mythor/blob/f93928f/packages/renderer/src/components/Sprite.ts#L17)
 
 ___
 
@@ -152,7 +152,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Sprite.ts:20](https://github.com/desaintvincent/mythor/blob/8675b4d/packages/renderer/src/components/Sprite.ts#L20)
+[renderer/src/components/Sprite.ts:20](https://github.com/desaintvincent/mythor/blob/f93928f/packages/renderer/src/components/Sprite.ts#L20)
 
 ___
 
@@ -162,7 +162,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Sprite.ts:18](https://github.com/desaintvincent/mythor/blob/8675b4d/packages/renderer/src/components/Sprite.ts#L18)
+[renderer/src/components/Sprite.ts:18](https://github.com/desaintvincent/mythor/blob/f93928f/packages/renderer/src/components/Sprite.ts#L18)
 
 ___
 

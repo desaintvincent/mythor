@@ -25,7 +25,7 @@
 
 #### Defined in
 
-[lists/List.ts:5](https://github.com/desaintvincent/mythor/blob/8675b4d/packages/core/src/lists/List.ts#L5)
+[lists/List.ts:5](https://github.com/desaintvincent/mythor/blob/f93928f/packages/core/src/lists/List.ts#L5)
 
 ___
 
@@ -49,7 +49,7 @@ ___
 
 #### Defined in
 
-[lists/List.ts:6](https://github.com/desaintvincent/mythor/blob/8675b4d/packages/core/src/lists/List.ts#L6)
+[lists/List.ts:6](https://github.com/desaintvincent/mythor/blob/f93928f/packages/core/src/lists/List.ts#L6)
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-[lists/List.ts:7](https://github.com/desaintvincent/mythor/blob/8675b4d/packages/core/src/lists/List.ts#L7)
+[lists/List.ts:7](https://github.com/desaintvincent/mythor/blob/f93928f/packages/core/src/lists/List.ts#L7)
 
 ___
 
@@ -97,4 +97,4 @@ ___
 
 #### Defined in
 
-[lists/List.ts:8](https://github.com/desaintvincent/mythor/blob/8675b4d/packages/core/src/lists/List.ts#L8)
+[lists/List.ts:8](https://github.com/desaintvincent/mythor/blob/f93928f/packages/core/src/lists/List.ts#L8)
