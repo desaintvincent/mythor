@@ -12,7 +12,14 @@ export { default as Sprite } from './components/Sprite'
 export { default as Animation } from './components/Animation'
 export { default as lerpCamera } from './lerpCamera'
 export { default as Camera } from './objects/Camera'
+
 export { default as Shader } from './webgl/shaders/Shader'
+export { default as LineShader } from './webgl/shaders/Lines'
+export { default as CircleShader } from './webgl/shaders/Circle'
+export { default as FillRectShader } from './webgl/shaders/FillRect'
+export { default as FillTriangleShader } from './webgl/shaders/FillTriangle'
+export { default as SpriteShader } from './webgl/shaders/Sprite'
+export { default as TextShader } from './webgl/shaders/Text'
 export {
   default as ParticleEmitter,
   TimingFunction,

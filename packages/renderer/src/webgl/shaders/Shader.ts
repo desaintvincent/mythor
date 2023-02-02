@@ -55,7 +55,7 @@ export default class Shader {
   protected readonly maxElements: number
   protected elemNumber = 0
   protected readonly drawFunction: DrawFunctionType
-  public readonly component?: Constructor<Component>
+  public component?: Constructor<Component>
 
   public constructor(
     gl: WebGL2RenderingContext,
