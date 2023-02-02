@@ -1,82 +1,82 @@
-[@mythor/renderer](../README.md) / [Exports](../modules.md) / Shader
+[@mythor/renderer](../README.md) / [Exports](../modules.md) / LineShader
 
-# Class: Shader
+# Class: LineShader
 
 ## Hierarchy
 
-- **`Shader`**
+- [`Shader`](Shader.md)
 
-  ↳ [`LineShader`](LineShader.md)
-
-  ↳ [`CircleShader`](CircleShader.md)
-
-  ↳ [`FillRectShader`](FillRectShader.md)
-
-  ↳ [`FillTriangleShader`](FillTriangleShader.md)
-
-  ↳ [`SpriteShader`](SpriteShader.md)
+  ↳ **`LineShader`**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](Shader.md#constructor)
+- [constructor](LineShader.md#constructor)
 
 ### Properties
 
-- [attributes](Shader.md#attributes)
-- [camera](Shader.md#camera)
-- [component](Shader.md#component)
-- [drawFunction](Shader.md#drawfunction)
-- [elemNumber](Shader.md#elemnumber)
-- [gl](Shader.md#gl)
-- [maxElements](Shader.md#maxelements)
-- [program](Shader.md#program)
-- [uniforms](Shader.md#uniforms)
-- [vao](Shader.md#vao)
+- [attributes](LineShader.md#attributes)
+- [camera](LineShader.md#camera)
+- [component](LineShader.md#component)
+- [drawFunction](LineShader.md#drawfunction)
+- [elemNumber](LineShader.md#elemnumber)
+- [gl](LineShader.md#gl)
+- [maxElements](LineShader.md#maxelements)
+- [program](LineShader.md#program)
+- [uniforms](LineShader.md#uniforms)
+- [vao](LineShader.md#vao)
 
 ### Methods
 
-- [beforeDraw](Shader.md#beforedraw)
-- [clear](Shader.md#clear)
-- [flush](Shader.md#flush)
-- [getUniformLocation](Shader.md#getuniformlocation)
-- [init](Shader.md#init)
-- [onEntityCreation](Shader.md#onentitycreation)
-- [postRender](Shader.md#postrender)
-- [preRender](Shader.md#prerender)
-- [pushMultiVertex](Shader.md#pushmultivertex)
-- [pushVertex](Shader.md#pushvertex)
-- [render](Shader.md#render)
-- [setBufferToAttribute](Shader.md#setbuffertoattribute)
-- [setUniform](Shader.md#setuniform)
-- [shouldDraw](Shader.md#shoulddraw)
-- [use](Shader.md#use)
+- [beforeDraw](LineShader.md#beforedraw)
+- [clear](LineShader.md#clear)
+- [flush](LineShader.md#flush)
+- [getUniformLocation](LineShader.md#getuniformlocation)
+- [init](LineShader.md#init)
+- [line](LineShader.md#line)
+- [onEntityCreation](LineShader.md#onentitycreation)
+- [poly](LineShader.md#poly)
+- [postRender](LineShader.md#postrender)
+- [preRender](LineShader.md#prerender)
+- [pushMultiVertex](LineShader.md#pushmultivertex)
+- [pushVertex](LineShader.md#pushvertex)
+- [rect](LineShader.md#rect)
+- [render](LineShader.md#render)
+- [setBufferToAttribute](LineShader.md#setbuffertoattribute)
+- [setUniform](LineShader.md#setuniform)
+- [shouldDraw](LineShader.md#shoulddraw)
+- [use](LineShader.md#use)
 
 ## Constructors
 
 ### constructor
 
-• **new Shader**(`gl`, `vertexShader`, `fragmentShader`, `options?`)
+• **new LineShader**(`gl`)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `gl` | `WebGL2RenderingContext` |
-| `vertexShader` | `string` |
-| `fragmentShader` | `string` |
-| `options?` | `ShaderOptions` |
+
+#### Overrides
+
+[Shader](Shader.md).[constructor](Shader.md#constructor)
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Shader.ts:60](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L60)
+[renderer/src/webgl/shaders/Lines.ts:8](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Lines.ts#L8)
 
 ## Properties
 
 ### attributes
 
 • `Protected` `Readonly` **attributes**: `Map`<`string`, `Attribute`\>
+
+#### Inherited from
+
+[Shader](Shader.md).[attributes](Shader.md#attributes)
 
 #### Defined in
 
@@ -88,6 +88,10 @@ ___
 
 • `Protected` **camera**: [`Camera`](Camera.md)
 
+#### Inherited from
+
+[Shader](Shader.md).[camera](Shader.md#camera)
+
 #### Defined in
 
 [renderer/src/webgl/shaders/Shader.ts:47](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L47)
@@ -97,6 +101,10 @@ ___
 ### component
 
 • `Optional` **component**: `Constructor`<`Component`\>
+
+#### Inherited from
+
+[Shader](Shader.md).[component](Shader.md#component)
 
 #### Defined in
 
@@ -108,6 +116,10 @@ ___
 
 • `Protected` `Readonly` **drawFunction**: `DrawFunctionType`
 
+#### Inherited from
+
+[Shader](Shader.md).[drawFunction](Shader.md#drawfunction)
+
 #### Defined in
 
 [renderer/src/webgl/shaders/Shader.ts:57](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L57)
@@ -117,6 +129,10 @@ ___
 ### elemNumber
 
 • `Protected` **elemNumber**: `number` = `0`
+
+#### Inherited from
+
+[Shader](Shader.md).[elemNumber](Shader.md#elemnumber)
 
 #### Defined in
 
@@ -128,6 +144,10 @@ ___
 
 • `Protected` `Readonly` **gl**: `WebGL2RenderingContext`
 
+#### Inherited from
+
+[Shader](Shader.md).[gl](Shader.md#gl)
+
 #### Defined in
 
 [renderer/src/webgl/shaders/Shader.ts:46](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L46)
@@ -137,6 +157,10 @@ ___
 ### maxElements
 
 • `Protected` `Readonly` **maxElements**: `number`
+
+#### Inherited from
+
+[Shader](Shader.md).[maxElements](Shader.md#maxelements)
 
 #### Defined in
 
@@ -148,6 +172,10 @@ ___
 
 • `Protected` `Readonly` **program**: `WebGLProgram`
 
+#### Inherited from
+
+[Shader](Shader.md).[program](Shader.md#program)
+
 #### Defined in
 
 [renderer/src/webgl/shaders/Shader.ts:48](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L48)
@@ -158,6 +186,10 @@ ___
 
 • `Protected` `Readonly` **uniforms**: `Map`<`string`, `WebGLUniformLocation`\>
 
+#### Inherited from
+
+[Shader](Shader.md).[uniforms](Shader.md#uniforms)
+
 #### Defined in
 
 [renderer/src/webgl/shaders/Shader.ts:54](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L54)
@@ -167,6 +199,10 @@ ___
 ### vao
 
 • `Protected` `Readonly` **vao**: `WebGLVertexArrayObject`
+
+#### Inherited from
+
+[Shader](Shader.md).[vao](Shader.md#vao)
 
 #### Defined in
 
@@ -182,6 +218,10 @@ ___
 
 `void`
 
+#### Inherited from
+
+[Shader](Shader.md).[beforeDraw](Shader.md#beforedraw)
+
 #### Defined in
 
 [renderer/src/webgl/shaders/Shader.ts:214](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L214)
@@ -196,6 +236,10 @@ ___
 
 `void`
 
+#### Inherited from
+
+[Shader](Shader.md).[clear](Shader.md#clear)
+
 #### Defined in
 
 [renderer/src/webgl/shaders/Shader.ts:116](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L116)
@@ -209,6 +253,10 @@ ___
 #### Returns
 
 `void`
+
+#### Inherited from
+
+[Shader](Shader.md).[flush](Shader.md#flush)
 
 #### Defined in
 
@@ -230,6 +278,10 @@ ___
 
 `WebGLUniformLocation`
 
+#### Inherited from
+
+[Shader](Shader.md).[getUniformLocation](Shader.md#getuniformlocation)
+
 #### Defined in
 
 [renderer/src/webgl/shaders/Shader.ts:149](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L149)
@@ -250,9 +302,35 @@ ___
 
 `Promise`<`void`\>
 
+#### Inherited from
+
+[Shader](Shader.md).[init](Shader.md#init)
+
 #### Defined in
 
 [renderer/src/webgl/shaders/Shader.ts:112](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L112)
+
+___
+
+### line
+
+▸ **line**(`start`, `end`, `options`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `start` | `default` |
+| `end` | `default` |
+| `options` | `LineOptions` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[renderer/src/webgl/shaders/Lines.ts:95](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Lines.ts#L95)
 
 ___
 
@@ -270,9 +348,35 @@ ___
 
 `void`
 
+#### Inherited from
+
+[Shader](Shader.md).[onEntityCreation](Shader.md#onentitycreation)
+
 #### Defined in
 
 [renderer/src/webgl/shaders/Shader.ts:107](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L107)
+
+___
+
+### poly
+
+▸ **poly**(`position`, `points`, `options`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `position` | `default` |
+| `points` | `default`[] |
+| `options` | `StrokePolyOptions` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[renderer/src/webgl/shaders/Lines.ts:62](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Lines.ts#L62)
 
 ___
 
@@ -291,6 +395,10 @@ ___
 #### Returns
 
 `void`
+
+#### Inherited from
+
+[Shader](Shader.md).[postRender](Shader.md#postrender)
 
 #### Defined in
 
@@ -312,6 +420,10 @@ ___
 
 `void`
 
+#### Inherited from
+
+[Shader](Shader.md).[preRender](Shader.md#prerender)
+
 #### Defined in
 
 [renderer/src/webgl/shaders/Shader.ts:120](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L120)
@@ -331,6 +443,10 @@ ___
 #### Returns
 
 `void`
+
+#### Inherited from
+
+[Shader](Shader.md).[pushMultiVertex](Shader.md#pushmultivertex)
 
 #### Defined in
 
@@ -352,9 +468,35 @@ ___
 
 `void`
 
+#### Inherited from
+
+[Shader](Shader.md).[pushVertex](Shader.md#pushvertex)
+
 #### Defined in
 
 [renderer/src/webgl/shaders/Shader.ts:159](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L159)
+
+___
+
+### rect
+
+▸ **rect**(`position`, `size`, `options`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `position` | `default` |
+| `size` | `default` |
+| `options` | `StrokePolyOptions` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[renderer/src/webgl/shaders/Lines.ts:46](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Lines.ts#L46)
 
 ___
 
@@ -374,6 +516,10 @@ ___
 #### Returns
 
 `void`
+
+#### Inherited from
+
+[Shader](Shader.md).[render](Shader.md#render)
 
 #### Defined in
 
@@ -395,6 +541,10 @@ ___
 #### Returns
 
 `void`
+
+#### Inherited from
+
+[Shader](Shader.md).[setBufferToAttribute](Shader.md#setbuffertoattribute)
 
 #### Defined in
 
@@ -418,6 +568,10 @@ ___
 
 `void`
 
+#### Inherited from
+
+[Shader](Shader.md).[setUniform](Shader.md#setuniform)
+
 #### Defined in
 
 [renderer/src/webgl/shaders/Shader.ts:230](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L230)
@@ -435,6 +589,10 @@ ___
 #### Returns
 
 `void`
+
+#### Inherited from
+
+[Shader](Shader.md).[setUniform](Shader.md#setuniform)
 
 #### Defined in
 
@@ -454,6 +612,10 @@ ___
 
 `void`
 
+#### Inherited from
+
+[Shader](Shader.md).[setUniform](Shader.md#setuniform)
+
 #### Defined in
 
 [renderer/src/webgl/shaders/Shader.ts:236](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L236)
@@ -471,6 +633,10 @@ ___
 #### Returns
 
 `void`
+
+#### Inherited from
+
+[Shader](Shader.md).[setUniform](Shader.md#setuniform)
 
 #### Defined in
 
@@ -490,6 +656,10 @@ ___
 
 `void`
 
+#### Inherited from
+
+[Shader](Shader.md).[setUniform](Shader.md#setuniform)
+
 #### Defined in
 
 [renderer/src/webgl/shaders/Shader.ts:238](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L238)
@@ -504,6 +674,10 @@ ___
 
 `boolean`
 
+#### Inherited from
+
+[Shader](Shader.md).[shouldDraw](Shader.md#shoulddraw)
+
 #### Defined in
 
 [renderer/src/webgl/shaders/Shader.ts:276](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L276)
@@ -517,6 +691,10 @@ ___
 #### Returns
 
 `void`
+
+#### Inherited from
+
+[Shader](Shader.md).[use](Shader.md#use)
 
 #### Defined in
 
