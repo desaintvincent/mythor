@@ -24457,7 +24457,7 @@ exports["default"] = QuadTreeList;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.colorBlue = exports.colorGreen = exports.colorRed = exports.colorBlack = exports.colorWhite = exports.TimingFunction = exports.ParticleEmitter = exports.Shader = exports.Camera = exports.lerpCamera = exports.Animation = exports.Sprite = exports.RenderedText = exports.FillRect = exports.Renderable = exports.QuadTreeList = exports.QuadTree = exports.Texture = exports.TextureManager = exports.Animator = exports.Renderer = void 0;
+exports.colorBlue = exports.colorGreen = exports.colorRed = exports.colorBlack = exports.colorWhite = exports.TimingFunction = exports.ParticleEmitter = exports.TextShader = exports.SpriteShader = exports.FillTriangleShader = exports.FillRectShader = exports.CircleShader = exports.LineShader = exports.Shader = exports.Camera = exports.lerpCamera = exports.Animation = exports.Sprite = exports.RenderedText = exports.FillRect = exports.Renderable = exports.QuadTreeList = exports.QuadTree = exports.Texture = exports.TextureManager = exports.Animator = exports.Renderer = void 0;
 var Renderer_1 = __webpack_require__(/*! ./systems/Renderer */ "../renderer/lib/systems/Renderer.js");
 Object.defineProperty(exports, "Renderer", ({ enumerable: true, get: function () { return Renderer_1.default; } }));
 var Animator_1 = __webpack_require__(/*! ./systems/Animator */ "../renderer/lib/systems/Animator.js");
@@ -24486,6 +24486,18 @@ var Camera_1 = __webpack_require__(/*! ./objects/Camera */ "../renderer/lib/obje
 Object.defineProperty(exports, "Camera", ({ enumerable: true, get: function () { return Camera_1.default; } }));
 var Shader_1 = __webpack_require__(/*! ./webgl/shaders/Shader */ "../renderer/lib/webgl/shaders/Shader.js");
 Object.defineProperty(exports, "Shader", ({ enumerable: true, get: function () { return Shader_1.default; } }));
+var Lines_1 = __webpack_require__(/*! ./webgl/shaders/Lines */ "../renderer/lib/webgl/shaders/Lines.js");
+Object.defineProperty(exports, "LineShader", ({ enumerable: true, get: function () { return Lines_1.default; } }));
+var Circle_1 = __webpack_require__(/*! ./webgl/shaders/Circle */ "../renderer/lib/webgl/shaders/Circle.js");
+Object.defineProperty(exports, "CircleShader", ({ enumerable: true, get: function () { return Circle_1.default; } }));
+var FillRect_2 = __webpack_require__(/*! ./webgl/shaders/FillRect */ "../renderer/lib/webgl/shaders/FillRect.js");
+Object.defineProperty(exports, "FillRectShader", ({ enumerable: true, get: function () { return FillRect_2.default; } }));
+var FillTriangle_1 = __webpack_require__(/*! ./webgl/shaders/FillTriangle */ "../renderer/lib/webgl/shaders/FillTriangle.js");
+Object.defineProperty(exports, "FillTriangleShader", ({ enumerable: true, get: function () { return FillTriangle_1.default; } }));
+var Sprite_2 = __webpack_require__(/*! ./webgl/shaders/Sprite */ "../renderer/lib/webgl/shaders/Sprite.js");
+Object.defineProperty(exports, "SpriteShader", ({ enumerable: true, get: function () { return Sprite_2.default; } }));
+var Text_1 = __webpack_require__(/*! ./webgl/shaders/Text */ "../renderer/lib/webgl/shaders/Text.js");
+Object.defineProperty(exports, "TextShader", ({ enumerable: true, get: function () { return Text_1.default; } }));
 var ParticleEmitter_1 = __webpack_require__(/*! ./components/ParticleEmitter */ "../renderer/lib/components/ParticleEmitter.js");
 Object.defineProperty(exports, "ParticleEmitter", ({ enumerable: true, get: function () { return ParticleEmitter_1.default; } }));
 Object.defineProperty(exports, "TimingFunction", ({ enumerable: true, get: function () { return ParticleEmitter_1.TimingFunction; } }));
