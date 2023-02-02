@@ -1,6 +1,6 @@
 {
   "name": "@mythor/renderer",
-  "version": "0.5.4",
+  "version": "0.6.0",
   "description": "Mythor renderer",
   "author": "Thomas Robert de Saint Vincent <thomas.rdsv@viaco.fr>",
   "homepage": "https://github.com/desaintvincent/mythor/blob/main/packages/renderer#readme",

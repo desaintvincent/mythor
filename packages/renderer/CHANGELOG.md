@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/desaintvincent/mythor/compare/@mythor/renderer@0.5.4...@mythor/renderer@0.6.0) (2023-02-02)
+
+### Features
+
+- **renderer:** export shaders ([0a10af6](https://github.com/desaintvincent/mythor/commit/0a10af6de4c754e2757b309b384aa8c2b722c993))
+
 ## 0.5.4 (2022-12-13)
 
 ### Bug Fixes
