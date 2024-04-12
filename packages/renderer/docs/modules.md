@@ -55,7 +55,7 @@
 
 #### Defined in
 
-[renderer/src/color/Color.ts:1](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/color/Color.ts#L1)
+[renderer/src/color/Color.ts:1](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/color/Color.ts#L1)
 
 ## Variables
 
@@ -65,7 +65,7 @@
 
 #### Defined in
 
-[renderer/src/color/Color.ts:4](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/color/Color.ts#L4)
+[renderer/src/color/Color.ts:4](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/color/Color.ts#L4)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[renderer/src/color/Color.ts:7](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/color/Color.ts#L7)
+[renderer/src/color/Color.ts:7](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/color/Color.ts#L7)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[renderer/src/color/Color.ts:6](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/color/Color.ts#L6)
+[renderer/src/color/Color.ts:6](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/color/Color.ts#L6)
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 #### Defined in
 
-[renderer/src/color/Color.ts:5](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/color/Color.ts#L5)
+[renderer/src/color/Color.ts:5](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/color/Color.ts#L5)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-[renderer/src/color/Color.ts:3](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/color/Color.ts#L3)
+[renderer/src/color/Color.ts:3](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/color/Color.ts#L3)
 
 ## Functions
 
@@ -140,4 +140,4 @@ ___
 
 #### Defined in
 
-[renderer/src/lerpCamera.ts:5](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/lerpCamera.ts#L5)
+[renderer/src/lerpCamera.ts:5](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/lerpCamera.ts#L5)

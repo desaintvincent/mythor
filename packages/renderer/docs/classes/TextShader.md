@@ -68,7 +68,7 @@
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Text.ts:13](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Text.ts#L13)
+[renderer/src/webgl/shaders/Text.ts:13](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Text.ts#L13)
 
 ## Properties
 
@@ -82,7 +82,7 @@
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Shader.ts:50](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L50)
+[renderer/src/webgl/shaders/Shader.ts:50](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Shader.ts#L50)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Shader.ts:47](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L47)
+[renderer/src/webgl/shaders/Shader.ts:47](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Shader.ts#L47)
 
 ___
 
@@ -110,7 +110,7 @@ ___
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Shader.ts:58](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L58)
+[renderer/src/webgl/shaders/Shader.ts:58](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Shader.ts#L58)
 
 ___
 
@@ -120,7 +120,7 @@ ___
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Text.ts:11](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Text.ts#L11)
+[renderer/src/webgl/shaders/Text.ts:11](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Text.ts#L11)
 
 ___
 
@@ -134,7 +134,7 @@ ___
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Sprite.ts:15](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Sprite.ts#L15)
+[renderer/src/webgl/shaders/Sprite.ts:15](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Sprite.ts#L15)
 
 ___
 
@@ -148,7 +148,7 @@ ___
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Shader.ts:57](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L57)
+[renderer/src/webgl/shaders/Shader.ts:57](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Shader.ts#L57)
 
 ___
 
@@ -162,7 +162,7 @@ ___
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Shader.ts:56](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L56)
+[renderer/src/webgl/shaders/Shader.ts:56](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Shader.ts#L56)
 
 ___
 
@@ -176,7 +176,7 @@ ___
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Shader.ts:46](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L46)
+[renderer/src/webgl/shaders/Shader.ts:46](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Shader.ts#L46)
 
 ___
 
@@ -190,7 +190,7 @@ ___
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Shader.ts:55](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L55)
+[renderer/src/webgl/shaders/Shader.ts:55](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Shader.ts#L55)
 
 ___
 
@@ -204,7 +204,7 @@ ___
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Shader.ts:48](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L48)
+[renderer/src/webgl/shaders/Shader.ts:48](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Shader.ts#L48)
 
 ___
 
@@ -218,7 +218,7 @@ ___
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Shader.ts:54](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L54)
+[renderer/src/webgl/shaders/Shader.ts:54](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Shader.ts#L54)
 
 ___
 
@@ -232,7 +232,7 @@ ___
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Shader.ts:49](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L49)
+[renderer/src/webgl/shaders/Shader.ts:49](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Shader.ts#L49)
 
 ## Methods
 
@@ -250,7 +250,7 @@ ___
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Text.ts:111](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Text.ts#L111)
+[renderer/src/webgl/shaders/Text.ts:111](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Text.ts#L111)
 
 ___
 
@@ -268,7 +268,7 @@ ___
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Shader.ts:116](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L116)
+[renderer/src/webgl/shaders/Shader.ts:116](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Shader.ts#L116)
 
 ___
 
@@ -293,7 +293,7 @@ ___
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Text.ts:81](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Text.ts#L81)
+[renderer/src/webgl/shaders/Text.ts:81](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Text.ts#L81)
 
 ___
 
@@ -311,7 +311,7 @@ ___
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Shader.ts:194](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L194)
+[renderer/src/webgl/shaders/Shader.ts:194](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Shader.ts#L194)
 
 ___
 
@@ -335,7 +335,7 @@ ___
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Shader.ts:149](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L149)
+[renderer/src/webgl/shaders/Shader.ts:149](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Shader.ts#L149)
 
 ___
 
@@ -353,7 +353,7 @@ ___
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Text.ts:17](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Text.ts#L17)
+[renderer/src/webgl/shaders/Text.ts:17](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Text.ts#L17)
 
 ___
 
@@ -367,7 +367,7 @@ ___
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Text.ts:73](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Text.ts#L73)
+[renderer/src/webgl/shaders/Text.ts:73](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Text.ts#L73)
 
 ___
 
@@ -391,7 +391,7 @@ ___
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Shader.ts:107](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L107)
+[renderer/src/webgl/shaders/Shader.ts:107](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Shader.ts#L107)
 
 ___
 
@@ -417,7 +417,7 @@ ___
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Shader.ts:137](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L137)
+[renderer/src/webgl/shaders/Shader.ts:137](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Shader.ts#L137)
 
 ___
 
@@ -441,7 +441,7 @@ ___
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Shader.ts:120](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L120)
+[renderer/src/webgl/shaders/Shader.ts:120](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Shader.ts#L120)
 
 ___
 
@@ -465,7 +465,7 @@ ___
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Shader.ts:178](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L178)
+[renderer/src/webgl/shaders/Shader.ts:178](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Shader.ts#L178)
 
 ___
 
@@ -489,7 +489,7 @@ ___
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Shader.ts:159](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L159)
+[renderer/src/webgl/shaders/Shader.ts:159](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Shader.ts#L159)
 
 ___
 
@@ -513,7 +513,7 @@ ___
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Text.ts:25](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Text.ts#L25)
+[renderer/src/webgl/shaders/Text.ts:25](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Text.ts#L25)
 
 ___
 
@@ -538,7 +538,7 @@ ___
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Shader.ts:218](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L218)
+[renderer/src/webgl/shaders/Shader.ts:218](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Shader.ts#L218)
 
 ___
 
@@ -564,7 +564,7 @@ ___
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Shader.ts:230](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L230)
+[renderer/src/webgl/shaders/Shader.ts:230](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Shader.ts#L230)
 
 ▸ `Protected` **setUniform**(`name`, `type`, `value?`): `void`
 
@@ -586,7 +586,7 @@ ___
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Shader.ts:235](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L235)
+[renderer/src/webgl/shaders/Shader.ts:235](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Shader.ts#L235)
 
 ▸ `Protected` **setUniform**(`name`, `type`, `value?`): `void`
 
@@ -608,7 +608,7 @@ ___
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Shader.ts:236](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L236)
+[renderer/src/webgl/shaders/Shader.ts:236](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Shader.ts#L236)
 
 ▸ `Protected` **setUniform**(`name`, `type`, `value?`): `void`
 
@@ -630,7 +630,7 @@ ___
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Shader.ts:237](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L237)
+[renderer/src/webgl/shaders/Shader.ts:237](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Shader.ts#L237)
 
 ▸ `Protected` **setUniform**(`name`, `type`, `value?`): `void`
 
@@ -652,7 +652,7 @@ ___
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Shader.ts:238](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L238)
+[renderer/src/webgl/shaders/Shader.ts:238](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Shader.ts#L238)
 
 ___
 
@@ -670,7 +670,7 @@ ___
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Text.ts:119](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Text.ts#L119)
+[renderer/src/webgl/shaders/Text.ts:119](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Text.ts#L119)
 
 ___
 
@@ -695,7 +695,7 @@ ___
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Text.ts:39](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Text.ts#L39)
+[renderer/src/webgl/shaders/Text.ts:39](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Text.ts#L39)
 
 ___
 
@@ -713,4 +713,4 @@ ___
 
 #### Defined in
 
-[renderer/src/webgl/shaders/Shader.ts:280](https://github.com/desaintvincent/mythor/blob/c881de0/packages/renderer/src/webgl/shaders/Shader.ts#L280)
+[renderer/src/webgl/shaders/Shader.ts:280](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/webgl/shaders/Shader.ts#L280)
