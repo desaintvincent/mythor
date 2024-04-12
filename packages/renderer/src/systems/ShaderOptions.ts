@@ -1,6 +1,6 @@
 import Color from '../color/Color'
 
-export interface ColorableOptions {
+interface ColorableOptions {
   color: Color
 }
 

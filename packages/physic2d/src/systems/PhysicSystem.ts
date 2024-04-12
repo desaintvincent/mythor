@@ -5,12 +5,14 @@ import {
   Vec2 as PlankVec2,
   WeldJoint,
   World,
+  // eslint-disable-next-line import/no-duplicates
 } from 'planck-js'
+// eslint-disable-next-line import/no-duplicates
+import { Box, Circle, Polygon } from 'planck-js/lib'
 import { Vec2 } from '@mythor/math'
 import { Entity, Owner, System, Transform } from '@mythor/core'
 import Physic, { PhysicType } from '../components/Physic'
 import ColliderCallback from '../components/ColliderCallback'
-import { Box, Circle, Polygon } from 'planck-js/lib'
 
 interface PhysicSystemOptions {
   gravity?: Vec2

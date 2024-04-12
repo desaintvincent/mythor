@@ -34,7 +34,7 @@
     "start": "lerna run start --stream --parallel",
     "test": "jest",
     "clean": "lerna run clean && lerna clean",
-    "lint": "lerna run lint --stream",
+    "lint": "lerna run lint --stream --parallel",
     "commitlint": "commitlint"
   }
 }

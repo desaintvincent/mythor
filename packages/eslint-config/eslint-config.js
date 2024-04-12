@@ -11,11 +11,17 @@ module.exports = {
   },
   parser: '@typescript-eslint/parser',
   root: true,
-  plugins: ['@typescript-eslint', 'filenames'],
+  plugins: [
+    '@typescript-eslint',
+    'filenames',
+    'import'
+  ],
   extends: [
     'eslint:recommended',
     'plugin:prettier/recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:import/recommended',
+    'plugin:import/typescript'
   ],
   ignorePatterns: ['**/lib/**/*'],
   rules: {
@@ -57,7 +63,7 @@ module.exports = {
       },
       {
         selector: 'variableLike',
-        format: ['camelCase', 'UPPER_CASE'],
+        format: ['camelCase', 'UPPER_CASE', 'PascalCase'],
       },
     ],
     'filenames/match-exported': ERROR,
@@ -65,7 +71,18 @@ module.exports = {
     'no-console': WARN,
     'no-else-return': ['error'],
     '@typescript-eslint/no-explicit-any': ERROR,
+    '@typescript-eslint/no-unused-vars': ERROR,
     '@typescript-eslint/strict-boolean-expressions': DISABLED,
-    '@typescript-eslint/no-var-requires': DISABLED,
+    '@typescript-eslint/no-var-requires': DISABLED
   },
+  overrides: [
+    {
+      files: ['**/*.ts', '**/*.tsx'],
+      rules: {
+        "import/no-unused-modules": ["error", {"unusedExports": true}],
+        "import/no-unresolved": 0,
+        "import/no-named-as-default-member": "error"
+      }
+    }
+  ]
 }
