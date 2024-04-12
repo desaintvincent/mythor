@@ -22818,11 +22818,11 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.IGNORED_BY_WORLD = void 0;
 var planck_js_1 = __webpack_require__(/*! planck-js */ "../../node_modules/planck-js/lib/index.js");
+var lib_1 = __webpack_require__(/*! planck-js/lib */ "../../node_modules/planck-js/lib/index.js");
 var math_1 = __webpack_require__(/*! @mythor/math */ "../math/lib/math.js");
 var core_1 = __webpack_require__(/*! @mythor/core */ "../core/lib/core.js");
 var Physic_1 = __webpack_require__(/*! ../components/Physic */ "../physic2d/lib/components/Physic.js");
 var ColliderCallback_1 = __webpack_require__(/*! ../components/ColliderCallback */ "../physic2d/lib/components/ColliderCallback.js");
-var lib_1 = __webpack_require__(/*! planck-js/lib */ "../../node_modules/planck-js/lib/index.js");
 exports.IGNORED_BY_WORLD = parseInt('100', 2);
 var PhysicSystem = (function (_super) {
     __extends(PhysicSystem, _super);
