@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.4.10 (2024-04-12)
+
+### Bug Fixes
+
+- **core:** noexport ([eac97b4](https://github.com/desaintvincent/mythor/commit/eac97b4744e205adccb2c11a09a848b17a9b047a))
+
 ## 0.4.9 (2022-11-26)
 
 ### Bug Fixes
