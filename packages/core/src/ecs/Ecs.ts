@@ -12,7 +12,7 @@ import { ArrayListOptions } from '../lists/List'
 import IList from '../lists/IList'
 import SignableMap from '../collections/SignableMap'
 
-export interface EcsOptions {
+interface EcsOptions {
   queueEntities?: boolean
 }
 
