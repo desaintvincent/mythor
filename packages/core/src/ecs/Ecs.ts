@@ -158,7 +158,7 @@ export default class Ecs {
     return this._entities.get(entityId)
   }
 
-  public create(id = undefined): Entity {
+  public create(id?: string): Entity {
     const entity = new Entity(id)
     entity.setEcs(this)
     if (this._queueEntities) {
