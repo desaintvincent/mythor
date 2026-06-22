@@ -1,5 +1,6 @@
 import Vec2 from '../src/Vec2'
-import { round, lerp, root, moveTowards, getPolygonCentroid } from '../src/util'
+import { round, lerp, root, moveTowards } from '../src/util'
+import { getPolygonCentroid } from '../src/polygonUtils'
 
 describe('util', () => {
   describe('round', () => {

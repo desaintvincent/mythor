@@ -3,7 +3,7 @@ import Signable from '../collections/Signable'
 
 class Manager extends Signable {
   private readonly _name: string
-  protected readonly ecs: Ecs
+  protected ecs!: Ecs
 
   public constructor(name: string) {
     super()
@@ -16,7 +16,7 @@ class Manager extends Signable {
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public async init(ecs: Ecs): Promise<void> {
-    // do nothing
+    this.ecs = ecs
   }
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public postUpdate(ecs: Ecs): void {

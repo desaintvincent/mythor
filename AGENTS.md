@@ -92,6 +92,91 @@ PR titles follow the same format (checked in CI).
 - Merge to `main`: lerna bumps versions (independent, conventional-commits), publishes to npm, deploys examples to gh-pages, regenerates and commits docs
 - No manual publish step needed; the deploy workflow handles everything
 
+## Circular imports — known patterns
+
+**10 cycles détectés** dans le repo (voir ANALYSIS.md §2 pour le détail complet et les fixes).
+
+### Règle fondamentale : `import type` pour les annotations pures
+
+Si un module A est importé dans B **uniquement** pour typer un paramètre de méthode, un champ ou un retour de fonction (aucun accès runtime : pas de `new A()`, pas d'appel de méthode, pas d'accès à une propriété statique), utiliser **`import type A`**. TypeScript efface ces imports à la compilation — aucun edge dans le graphe de modules runtime.
+
+```ts
+// ❌ crée un edge runtime même si A n'est jamais instancié
+import Renderer from '../../systems/Renderer'
+public async init(renderer: Renderer): Promise<void> {}
+
+// ✅ effacé à la compilation, zéro cycle
+import type Renderer from '../../systems/Renderer'
+public async init(renderer: Renderer): Promise<void> {}
+```
+
+---
+
+### Les 3 familles de cycles — état actuel
+
+#### A. Core — `Component ↔ Entity ↔ ComponentRegistry` (cycle 1)
+
+**Fichiers :**
+- `packages/core/src/ecs/Component.ts` → importe `Entity` pour le champ `_entity: Entity`
+- `packages/core/src/ecs/Entity.ts` → importe `Component` + `ComponentRegistry`
+- `packages/core/src/registries/ComponentRegistry.ts` → importe `Component` comme générique
+
+**Fixes appliqués (tous résolus) :**
+- `Component.ts` : `import type Entity from './Entity'` ✅
+- `ComponentRegistry.ts` : `extends ConstructorRegistry<Signable>` ✅
+
+**Règle à maintenir :** ne jamais ajouter d'import runtime de `Entity` dans `Component.ts`. Le composant ne fait qu'*être porté* par une entité — il ne lui parle pas.
+
+---
+
+#### B. Renderer — `Shader.ts → Renderer.ts` (cycles 2–8 + 10, soit 9 cycles)
+
+**Fichier coupable :** `packages/renderer/src/webgl/shaders/Shader.ts`
+
+**Pattern à ne pas reproduire :**
+```ts
+// Shader.ts — NE PAS FAIRE (import runtime dans le sens contraire du flux)
+import Renderer from '../../systems/Renderer'
+public async init(renderer: Renderer): Promise<void> {}
+```
+
+**Pattern correct (fix appliqué ✅) :**
+```ts
+import type Renderer from '../../systems/Renderer'
+public async init(renderer: Renderer): Promise<void> {}
+```
+
+**Pourquoi c'est fragile :** `Renderer.ts` instancie tous les shaders → chaque shader hérite de `Shader` → `Shader` importe `Renderer` → cycle. Avec `import type`, le cycle disparaît au runtime.
+
+**Cas particulier `ParticlesRender.ts` :** ce shader importe aussi `Renderer` directement dans son propre fichier (pour accéder à `renderer.shapes` dans son `init()` overridé). Cet import runtime est **intentionnel et justifié** — ne pas le supprimer. Si le couplage devient gênant, extraire une interface `IRenderer` avec seulement `{ gl, shapes }`.
+
+**Règle à maintenir :** si tu ajoutes un nouveau shader qui hérite de `Shader`, ne jamais importer `Renderer` en runtime depuis ce shader (sauf si tu as besoin de propriétés concrètes comme `ParticlesRender`). Si tu as besoin du type uniquement, `import type`.
+
+---
+
+#### C. Renderer — `TextureManager ↔ generateFontTexture` (cycle 9)
+
+**Chaîne :** `TextureManager → Renderer → Text → generateFontTexture → TextureManager`
+
+**Cause :** `loadTexture` est une fonction libre colocalisée avec la classe `TextureManager` dans le même fichier. `generateFontTexture` n'a besoin que de `loadTexture`, mais importer depuis `TextureManager.ts` charge tout le module (qui lui-même dépend de `Renderer`).
+
+**Fix appliqué ✅ :** `loadTexture` extrait dans `packages/renderer/src/util/loadTexture.ts`. `TextureManager.ts` et `generateFontTexture.ts` importent depuis ce module. `TextureManager` ré-exporte `loadTexture` pour compatibilité API.
+
+**Règle à maintenir :** ne jamais mettre une fonction utilitaire standalone dans le même fichier qu'une classe qui crée des dépendances lourdes. Si une fonction peut être importée isolément, elle mérite son propre module.
+
+---
+
+### Résumé des fixes appliqués ✅
+
+| Fix | Fichier | Cycles tués |
+|---|---|---|
+| `import type Renderer` | `Shader.ts` | 2–8, 10 (×9) |
+| Extraire `loadTexture` | `TextureManager.ts` + `generateFontTexture.ts` | 9 |
+| `ConstructorRegistry<Signable>` | `ComponentRegistry.ts` | 1 (partiel) |
+| `import type Entity` | `Component.ts` | 1 (complet) |
+
+---
+
 ## Linting
 
 Each package runs `eslint . --max-warnings 0` using `@mythor/eslint-config` (extends prettier). Zero warnings allowed — CI will fail.

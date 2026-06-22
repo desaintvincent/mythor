@@ -11,12 +11,13 @@ import now from '../util/now'
 import { ArrayListOptions } from '../lists/List'
 import IList from '../lists/IList'
 import SignableMap from '../collections/SignableMap'
+import type { IEcs } from './IEcs'
 
 interface EcsOptions {
   queueEntities?: boolean
 }
 
-export default class Ecs {
+export default class Ecs implements IEcs {
   private readonly _systems: SignableMap<System>
   private readonly _managers: SignableMap<Manager>
   private readonly _entityCollections: EntityCollection
@@ -139,9 +140,6 @@ export default class Ecs {
 
       if (!this.managers.has(constructor)) {
         this.managers.set(managerInstance)
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-expect-error
-        managerInstance.ecs = this
       }
     })
   }

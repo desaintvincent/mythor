@@ -3,7 +3,7 @@ import Attribute, { AttributeOptions } from '../Attribute'
 import Camera, { Projection } from '../../objects/Camera'
 import createGLProgram from './helpers/createGLProgram'
 import makeVertexArray from './helpers/makeVertexArray'
-import Renderer from '../../systems/Renderer'
+import type Renderer from '../../systems/Renderer'
 
 export type DrawFunctionType = (
   gl: WebGL2RenderingContext,

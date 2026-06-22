@@ -5,14 +5,14 @@ import {
   getSignature,
   isRegistered,
 } from '../collections/Signable'
-import Ecs from './Ecs'
+import type { IEcs } from './IEcs'
 import ComponentRegistry from '../registries/ComponentRegistry'
 import uuidv4 from '../util/uuidv4'
 
 export default class Entity {
   public readonly _id: string
   private readonly _children: Entity[] = []
-  private _ecs?: Ecs
+  private _ecs?: IEcs
   private readonly _tags: string[] = []
   private readonly _components: Map<number, Component>
   private _parent?: Entity
@@ -34,7 +34,7 @@ export default class Entity {
     return Array.from(this._components.values())
   }
 
-  public setEcs(ecs: Ecs): void {
+  public setEcs(ecs: IEcs): void {
     this._ecs = ecs
   }
 

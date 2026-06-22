@@ -38,29 +38,101 @@ Pour un framework publié, c'est la principale menace : chaque refactor casse si
 
 #### 2. Cycles d'import circulaires (10 détectés)
 
-- [ ] À traiter
+- [x] Fix A — `import type Renderer` dans `Shader.ts` (tue cycles 2–8 + 10, soit 9 cycles d'un coup)
+- [x] Fix B — Extraire `loadTexture` → `util/loadTexture.ts` (tue cycle 9)
+- [x] Fix C — `ComponentRegistry extends ConstructorRegistry<Signable>` (moitié du cycle 1)
+- [x] Fix D — `import type Entity` dans `Component.ts` (autre moitié du cycle 1)
 
-**Core :**
+Les cycles renderer sont silencieux au runtime aujourd'hui, mais empêchent le tree-shaking et peuvent causer des `undefined` à l'init si l'ordre de résolution du bundler change.
+
+---
+
+**Groupe 1 — Core (3 nœuds)**
+
 ```
 Component → Entity → ComponentRegistry → Component
 ```
 
-**Renderer (× 7) :**
+- `Component.ts` importe `Entity` uniquement pour typer le champ `public _entity: Entity` — pas d'appel runtime.
+- `ComponentRegistry.ts` importe `Component` uniquement comme argument générique `ConstructorRegistry<Component>` — `Signable` suffirait.
+
+**Fix C :** dans `ComponentRegistry.ts`, remplacer `extends ConstructorRegistry<Component>` par `extends ConstructorRegistry<Signable>` et supprimer l'import de `Component`.
+
+**Fix D :** dans `Component.ts`, remplacer `import Entity from './Entity'` par `import type Entity from './Entity'` — TypeScript efface les `import type` à la compilation, aucun edge runtime.
+
+---
+
+**Groupe 2 — Renderer ×8 (`Shader → Renderer`)**
+
 ```
-Renderer.ts → [Circle|FillRect|Lines|Sprite|Text|…].ts → Shader.ts → Renderer.ts
+Renderer.ts → [Circle|FillRect|Lines|FillTriangle|Sprite|Text|ParticlesUpdate|ParticlesRender].ts → Shader.ts → Renderer.ts
 ```
 
-**Renderer (× 2) à 4 nœuds :**
+La cause unique : `Shader.ts` line 6 importe `Renderer` pour typer le paramètre `init(renderer: Renderer): Promise<void>`. Tous les shaders héritent de `Shader`, donc tous héritent du cycle.
+
+Note : `Text.ts` hérite via `Text → Sprite → Shader` (cycle 10 dans la liste initiale) — même cause, même fix.
+
+**Fix A :** dans `Shader.ts`, changer la ligne 6 :
+```ts
+// avant
+import Renderer from '../../systems/Renderer'
+// après
+import type Renderer from '../../systems/Renderer'
 ```
-TextureManager → Renderer → Text shader → generateFontTexture → TextureManager
-Renderer → Text → Sprite → Shader → Renderer
+`import type` est effacé à la compilation → zéro edge runtime → 9 cycles supprimés d'une ligne.
+
+Cas particulier `ParticlesRender.ts` : ce shader importe aussi `Renderer` **dans son propre fichier** (pour lire `renderer.shapes` dans son `init()` overridé). Cet import doit rester runtime, mais peut être restreint à une interface minimale si besoin de découplage futur.
+
+---
+
+**Groupe 3 — Renderer 4 nœuds (`TextureManager`)**
+
+```
+TextureManager → Renderer → Text → generateFontTexture → TextureManager
 ```
 
-Les cycles dans le renderer sont silencieux au runtime mais empêchent le tree-shaking et peuvent causer des `undefined` à l'init si l'ordre de résolution change.
+- `TextureManager.ts` exporte deux choses : la classe `TextureManager` ET la fonction libre `loadTexture`.
+- `generateFontTexture.ts` n'a besoin que de `loadTexture` (la fonction libre), pas de la classe.
+- Importer `loadTexture` depuis `TextureManager.ts` force quand même le chargement du module entier → cycle complet.
 
-**Fix renderer :** introduire une interface `IShader` dans un module séparé ; `Renderer` dépend de l'interface, les shaders l'implémentent sans importer `Renderer`.
+**Fix B :** extraire `loadTexture` dans `packages/renderer/src/util/loadTexture.ts`. Mettre à jour les imports dans `TextureManager.ts` et `generateFontTexture.ts`. Cycle rompu proprement.
 
-**Fix core :** `ComponentRegistry` ne devrait pas importer `Component` directement — travailler avec `Constructor<Component>` comme type générique.
+---
+
+**Tableau récapitulatif**
+
+| Fix | Fichier(s) | Cycles éliminés |
+|---|---|---|
+| A — `import type Renderer` | `Shader.ts` | 2, 3, 4, 5, 6, 7, 8, 10 (×9) |
+| B — Extraire `loadTexture` | `TextureManager.ts` + `generateFontTexture.ts` | 9 |
+| C — `ConstructorRegistry<Signable>` | `ComponentRegistry.ts` | 1 (partiel) |
+| D — `import type Entity` | `Component.ts` | 1 (complet) |
+
+---
+
+#### 2b. Cycles architecturaux ECS (3 restants — intentionnels)
+
+- [ ] Étape 1 — Supprimer `@ts-expect-error` dans `Ecs.registerManagers` (extraire assignation `ecs` dans `Manager.init()`)
+- [ ] Étape 2 — Extraire `IEcs` interface pour briser les 3 cycles runtime
+- [ ] Étape 3 — Tests unitaires Entity/System/Manager isolés (dépend de IEcs)
+
+**Analyse détaillée :** [docs/ecs-architectural-cycles.md](./docs/ecs-architectural-cycles.md)
+
+Trois cycles subsistent dans `@mythor/core` après les 10 fixes précédents :
+
+```
+Entity  ↔  Ecs   (Entity appelle destroyEntity + addEntityToCollections sur Ecs)
+System  ↔  Ecs   (System stocke ecs, appelle ecs.createList + ecs.systems.has)
+Manager ↔  Ecs   (Manager stocke ecs, params dans init/update/postUpdate)
+                  + @ts-expect-error dans Ecs.registerManagers pour assigner ecs
+```
+
+Ces cycles sont **architecturaux**, pas accidentels — ils reflètent une bidirectionnalité intentionnelle dans le design ECS. Ils ne causent pas de bugs aujourd'hui mais :
+- Empêchent le tree-shaking
+- Rendent Entity/System/Manager non-testables sans instancier `Ecs`
+- Le cas `Manager` contient un `@ts-expect-error` (contournement TypeScript actif)
+
+**Fix unifié :** créer `packages/core/src/ecs/IEcs.ts` (interface minimale). `Entity`, `System`, `Manager` importent `IEcs` au lieu de `Ecs`. Cycles disparaissent. Coût : refacto chirurgicale, zéro breaking change public.
 
 ---
 
@@ -229,7 +301,8 @@ public stop(): void {
 |---|---|
 | Lignes TS | ~9 700 |
 | Tests | 65 (4 fichiers : Vec2, Entity, Ecs, System, Manager) |
-| Cycles d'import | 10 |
+| Cycles résolus | 10 (accidentels) |
+| Cycles architecturaux ECS | 3 (intentionnels, non résolus) |
 | God nodes (>15 edges) | 10 |
 | Betweenness #1 | `log()` — 0.191 |
 | Cohésion max (fonctionnel) | 0.12 |
@@ -243,14 +316,16 @@ public stop(): void {
 ### Court terme (sans breaking changes)
 1. Activer `strictNullChecks` + `noImplicitAny` sur `@mythor/math` d'abord
 2. Tests unitaires ECS core minimaux ✅
-3. Casser le cycle `Component → Entity → ComponentRegistry`
+3. Casser les cycles core (`import type Entity` dans `Component.ts` + `ConstructorRegistry<Signable>` dans `ComponentRegistry.ts`) ✅
 4. Passer target à `ES2017`
+5. Supprimer `@ts-expect-error` dans `Ecs.registerManagers` — assigner `ecs` dans `Manager.init()` (basse friction)
 
 ### Moyen terme
 5. `log()` injectable via options
 6. Découper `Renderer.ts` → `ShaderRegistry` + `DrawAPI`
-7. Corriger les 7 cycles renderer via interface `IShader`
+7. Casser les 9 cycles renderer : `import type Renderer` dans `Shader.ts` + extraire `loadTexture` → `util/loadTexture.ts` ✅
 8. Migrer planck-js vers 1.x
+9. Extraire `IEcs` — briser les 3 cycles architecturaux ECS + débloquer tests isolés
 
 ### Long terme
 9. `"strict": true` complet sur tous les packages

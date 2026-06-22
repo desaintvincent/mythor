@@ -1,8 +1,8 @@
-import Component from '../ecs/Component'
+import Signable from '../collections/Signable'
 import log from '../util/log'
 import ConstructorRegistry from './ConstructorRegistry'
 
-class ComponentRegistry extends ConstructorRegistry<Component> {
+class ComponentRegistry extends ConstructorRegistry<Signable> {
   private static instance?: ComponentRegistry
 
   public constructor(name = 'component') {

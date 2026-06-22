@@ -1,4 +1,4 @@
-import { loadTexture } from '../../../managers/TextureManager'
+import { loadTexture } from '../../../util/loadTexture'
 import Font, { Glyph } from '../../../objects/Font'
 
 const generateChars = (): string => {

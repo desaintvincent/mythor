@@ -1,33 +1,9 @@
-import { LoadingStateManager, log, Manager } from '@mythor/core'
+import { LoadingStateManager, Manager } from '@mythor/core'
 import Texture from '../objects/Texture'
 import Renderer from '../systems/Renderer'
+import { loadTexture } from '../util/loadTexture'
 
-interface LoadTextureOptions {
-  log?: boolean
-}
-
-export async function loadTexture(
-  name: string,
-  path: string,
-  gl: WebGL2RenderingContext,
-  options?: LoadTextureOptions
-): Promise<Texture> {
-  return await new Promise((resolve, reject) => {
-    const img = new Image()
-
-    img.onload = () => {
-      const texture = new Texture(img, gl)
-      if (options?.log ?? true) {
-        log(`Loaded %ctexture%c "${name}"`, 'tomato')
-      }
-      resolve(texture)
-    }
-
-    img.onerror = (err) => reject(err)
-
-    img.src = path
-  })
-}
+export { loadTexture }
 
 class TextureManager extends Manager {
   private readonly imagesToLoad: Map<string, string>
@@ -41,7 +17,7 @@ class TextureManager extends Manager {
     images.forEach(([name, path]) => this.add(name, path))
   }
 
-  private async loadTexture(
+  private async _loadAndTrack(
     name: string,
     path: string,
     gl: WebGL2RenderingContext
@@ -94,7 +70,7 @@ class TextureManager extends Manager {
     return await Promise.all(
       toLoad.map(
         async ([name, path]) =>
-          await this.loadTexture(name, path, gl).then(() => {
+          await this._loadAndTrack(name, path, gl).then(() => {
             this.setLoadingState(++i)
           })
       )
