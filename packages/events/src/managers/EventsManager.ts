@@ -1,4 +1,4 @@
-import { Manager } from '@mythor/core'
+import { Ecs, Manager } from '@mythor/core'
 import { Vec2 } from '@mythor/math'
 import Key from '../definitions/Key'
 import MouseButton from '../definitions/MouseButton'
@@ -102,7 +102,8 @@ class EventsManager extends Manager {
     this._mousesDown.set(getMouse(event), value)
   }
 
-  public async init(): Promise<void> {
+  public async init(ecs: Ecs): Promise<void> {
+    await super.init(ecs)
     if (this.initialized) {
       return
     }

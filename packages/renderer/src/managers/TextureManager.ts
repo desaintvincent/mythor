@@ -1,4 +1,4 @@
-import { LoadingStateManager, Manager } from '@mythor/core'
+import { Ecs, LoadingStateManager, Manager } from '@mythor/core'
 import Texture from '../objects/Texture'
 import Renderer from '../systems/Renderer'
 import { loadTexture } from '../util/loadTexture'
@@ -57,7 +57,8 @@ class TextureManager extends Manager {
     state.current = current
   }
 
-  public async init(): Promise<void> {
+  public async init(ecs: Ecs): Promise<void> {
+    await super.init(ecs)
     let i = 0
     const toLoad = Array.from(this.imagesToLoad)
     const renderer = this.ecs.system(Renderer)

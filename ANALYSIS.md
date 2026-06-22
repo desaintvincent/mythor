@@ -4,6 +4,20 @@
 
 ---
 
+## Objectif et usage de ce fichier
+
+Ce fichier est un **journal de travail évolutif**, pas un rapport figé.
+
+**Objectif long terme :** faire de Mythor un framework de jeu 2D TypeScript robuste, maintenable et publiable — code propre, bien testé, sans dette technique cachée, avec une architecture cohérente qui tient à l'échelle.
+
+**Comment ce fichier évolue :**
+- Chaque nouvelle découverte (bug structurel, opportunité d'amélioration, dette technique) est ajoutée.
+- Chaque étape réalisée est marquée ✅ avec les détails du fix.
+- Le travail se fait **une étape à la fois**, en se concentrant sur un problème précis avant de passer au suivant.
+- De nouvelles étapes peuvent apparaître au fil des investigations — le fichier grandit avec la compréhension du code.
+
+---
+
 ## Ce que c'est
 
 Framework de jeu 2D TypeScript en monorepo (Yarn + Lerna), construit autour d'une architecture **ECS** (Entity-Component-System). Stack : WebGL natif, physique via planck-js, support maps Tiled. Destiné à être publié comme set de bibliothèques npm indépendantes.
@@ -112,8 +126,8 @@ TextureManager → Renderer → Text → generateFontTexture → TextureManager
 
 #### 2b. Cycles architecturaux ECS (3 restants — intentionnels)
 
-- [ ] Étape 1 — Supprimer `@ts-expect-error` dans `Ecs.registerManagers` (extraire assignation `ecs` dans `Manager.init()`)
-- [ ] Étape 2 — Extraire `IEcs` interface pour briser les 3 cycles runtime
+- [x] Étape 1 — Supprimer `@ts-expect-error` dans `Ecs.registerManagers` (extraire assignation `ecs` dans `Manager.init()`)
+- [x] Étape 2 — Extraire `IEcs` interface — briser le cycle `Entity ↔ Ecs` (`Entity` importe `IEcs` au lieu de `Ecs`)
 - [ ] Étape 3 — Tests unitaires Entity/System/Manager isolés (dépend de IEcs)
 
 **Analyse détaillée :** [docs/ecs-architectural-cycles.md](./docs/ecs-architectural-cycles.md)
@@ -132,7 +146,12 @@ Ces cycles sont **architecturaux**, pas accidentels — ils reflètent une bidir
 - Rendent Entity/System/Manager non-testables sans instancier `Ecs`
 - Le cas `Manager` contient un `@ts-expect-error` (contournement TypeScript actif)
 
-**Fix unifié :** créer `packages/core/src/ecs/IEcs.ts` (interface minimale). `Entity`, `System`, `Manager` importent `IEcs` au lieu de `Ecs`. Cycles disparaissent. Coût : refacto chirurgicale, zéro breaking change public.
+**Cycles résolus :**
+- **Entity ↔ Ecs** ✅ — `IEcs.ts` créé (`addEntityToCollections` + `destroyEntity`), `Entity` importe `IEcs` au lieu de `Ecs`. `@ts-expect-error` dans `Ecs.registerManagers` supprimé (assignation via `Manager.init(this)`).
+
+**Cycles restants (2) :**
+- **System ↔ Ecs** — `System` stocke `ecs: Ecs`, appelle `ecs.createList()`, `ecs.systems.has()`, `ecs.managers.has()`. Edge runtime inévitable sans DI complète.
+- **Manager ↔ Ecs** — `Manager` stocke `ecs: Ecs`, params `init/update/postUpdate(ecs: Ecs)`. Même problème.
 
 ---
 
@@ -301,8 +320,8 @@ public stop(): void {
 |---|---|
 | Lignes TS | ~9 700 |
 | Tests | 65 (4 fichiers : Vec2, Entity, Ecs, System, Manager) |
-| Cycles résolus | 10 (accidentels) |
-| Cycles architecturaux ECS | 3 (intentionnels, non résolus) |
+| Cycles résolus | 11 (10 accidentels + cycle Entity↔Ecs) |
+| Cycles architecturaux ECS | 2 (System↔Ecs, Manager↔Ecs — intentionnels) |
 | God nodes (>15 edges) | 10 |
 | Betweenness #1 | `log()` — 0.191 |
 | Cohésion max (fonctionnel) | 0.12 |
@@ -318,14 +337,14 @@ public stop(): void {
 2. Tests unitaires ECS core minimaux ✅
 3. Casser les cycles core (`import type Entity` dans `Component.ts` + `ConstructorRegistry<Signable>` dans `ComponentRegistry.ts`) ✅
 4. Passer target à `ES2017`
-5. Supprimer `@ts-expect-error` dans `Ecs.registerManagers` — assigner `ecs` dans `Manager.init()` (basse friction)
+5. Supprimer `@ts-expect-error` dans `Ecs.registerManagers` — assigner `ecs` dans `Manager.init()` (basse friction) ✅
 
 ### Moyen terme
 5. `log()` injectable via options
 6. Découper `Renderer.ts` → `ShaderRegistry` + `DrawAPI`
 7. Casser les 9 cycles renderer : `import type Renderer` dans `Shader.ts` + extraire `loadTexture` → `util/loadTexture.ts` ✅
 8. Migrer planck-js vers 1.x
-9. Extraire `IEcs` — briser les 3 cycles architecturaux ECS + débloquer tests isolés
+9. Extraire `IEcs` — briser le cycle `Entity ↔ Ecs` + supprimer `@ts-expect-error` ✅ (2 cycles architecturaux restants : System↔Ecs, Manager↔Ecs)
 
 ### Long terme
 9. `"strict": true` complet sur tous les packages
