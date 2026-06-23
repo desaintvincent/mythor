@@ -12,8 +12,8 @@ class Beta extends Signable {}
 class Unsigned extends Signable {}
 
 // Manually stamp signatures so these stay isolated from ComponentRegistry
-;(Alpha as any).signature = 1
-;(Beta as any).signature = 2
+;(Alpha as unknown as { signature: number }).signature = 1
+;(Beta as unknown as { signature: number }).signature = 2
 // Unsigned has no signature
 
 describe('Signable helpers', () => {
