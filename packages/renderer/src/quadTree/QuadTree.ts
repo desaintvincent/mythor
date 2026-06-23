@@ -11,7 +11,7 @@ enum QuadPlace {
 const MAX_DEPTH = 8
 
 class QuadTree {
-  public rect: Rect
+  public rect!: Rect
   private readonly items: Map<string, Entity> = new Map<string, Entity>()
   public readonly depth: number
   public readonly parent?: QuadTree

@@ -29,8 +29,8 @@ interface GenerateEntitiesFromTiledOptions {
 function addPhysic(
   tile: ParsedObject,
   entity: Entity,
-  aggreateColliders,
-  generatePassiveColliders
+  aggreateColliders: boolean,
+  generatePassiveColliders: boolean
 ): void {
   if (!isRegistered(Physic)) {
     return

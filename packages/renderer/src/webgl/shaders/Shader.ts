@@ -1,4 +1,11 @@
-import { Component, Constructor, Entity, log, throwError } from '@mythor/core'
+import {
+  Component,
+  Constructor,
+  Entity,
+  log,
+  Logger,
+  throwError,
+} from '@mythor/core'
 import Attribute, { AttributeOptions } from '../Attribute'
 import Camera, { Projection } from '../../objects/Camera'
 import createGLProgram from './helpers/createGLProgram'
@@ -18,6 +25,7 @@ interface ShaderOptions {
   uniforms?: string[]
   transformFeedbackVaryings?: string[]
   drawFunction?: DrawFunctionType
+  logger?: Logger
 }
 
 type Uniform = WebGLUniformLocation
@@ -44,9 +52,9 @@ export const DEFAULT_MATRIX_CAMERA_LOCATION = 'matrix_camera'
 
 export default class Shader {
   protected readonly gl: WebGL2RenderingContext
-  protected camera: Camera
-  protected readonly program: WebGLProgram
-  protected readonly vao: WebGLVertexArrayObject
+  protected camera!: Camera
+  protected readonly program!: WebGLProgram
+  protected readonly vao!: WebGLVertexArrayObject
   protected readonly attributes: Map<string, Attribute> = new Map<
     string,
     Attribute
@@ -55,6 +63,7 @@ export default class Shader {
   protected readonly maxElements: number
   protected elemNumber = 0
   protected readonly drawFunction: DrawFunctionType
+  protected readonly logger: Logger
   public component?: Constructor<Component>
 
   public constructor(
@@ -67,6 +76,7 @@ export default class Shader {
     this.component = options?.component
     this.maxElements = options?.maxElements ?? 10000
     this.drawFunction = options?.drawFunction ?? defaultDrawFunction
+    this.logger = options?.logger ?? log
     if (!vertexShader && !fragmentShader) {
       return
     }
@@ -219,7 +229,7 @@ export default class Shader {
     const attribute = this.attributes.get(name)
 
     if (!attribute) {
-      log(`Attribute not found: ${name}`, 'red')
+      this.logger(`Attribute not found: ${name}`, 'red')
 
       return
     }
@@ -251,7 +261,7 @@ export default class Shader {
     const location = this.uniforms.get(name)
 
     if (!location) {
-      log(`Location not found: ${name}`, 'red')
+      this.logger(`Location not found: ${name}`, 'red')
 
       return
     }

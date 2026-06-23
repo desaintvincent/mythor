@@ -9,12 +9,13 @@ import {
   TiledObject,
 } from './tiledTypes'
 import { Vec2 } from '@mythor/math'
-import { log } from '@mythor/core'
+import { log, Logger } from '@mythor/core'
 
 export interface TileMapParserOptions {
   onCreateTile?: (tile: ParsedObject) => void
   onCreateObject?: (object: TiledObject) => void
   onParsed?: (map: TiledMap) => void
+  logger?: Logger
 }
 
 interface ParsedEllipseCollider {
@@ -51,11 +52,13 @@ class TiledMapParser {
   private readonly map: TiledMap
   private readonly onCreateTile?: (tile: ParsedObject) => void
   private readonly onCreateObject?: (object: TiledObject) => void
+  private readonly logger: Logger
 
   private countTileQueries: Record<number, number> = {}
 
   public constructor(map: unknown, options?: TileMapParserOptions) {
-    validateMap(map)
+    this.logger = options?.logger ?? log
+    validateMap(map, this.logger)
     this.map = map
     options?.onParsed?.(map)
     this.onCreateTile = options?.onCreateTile
@@ -73,7 +76,7 @@ class TiledMapParser {
         case LayerType.ObjectGroup:
           return this.parseObjectGroup(layer, index)
         default:
-          log(`layer type ${layer.type} not supported yet`)
+          this.logger(`layer type ${layer.type} not supported yet`)
       }
     })
   }

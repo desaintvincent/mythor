@@ -2,7 +2,7 @@ import Component from '../ecs/Component'
 import Entity from '../ecs/Entity'
 
 export default class Owner implements Component {
-  public _entity: Entity
+  public _entity: Entity | undefined
   public readonly id: string
 
   public constructor(entity: Entity) {

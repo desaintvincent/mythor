@@ -1,18 +1,18 @@
 import Signable from '../collections/Signable'
-import log from '../util/log'
+import { Logger } from '../util/log'
 import ConstructorRegistry from './ConstructorRegistry'
 
 class ComponentRegistry extends ConstructorRegistry<Signable> {
   private static instance?: ComponentRegistry
 
-  public constructor(name = 'component') {
+  public constructor(name = 'component', logger?: Logger) {
     const color = 'SeaGreen'
-    super(name, color)
+    super(name, color, logger)
     if (ComponentRegistry.instance) {
       return ComponentRegistry.instance
     }
     ComponentRegistry.instance = this
-    log('Creating %cComponentRegistry%c', color)
+    this.logger('Creating %cComponentRegistry%c', color)
   }
 }
 

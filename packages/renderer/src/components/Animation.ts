@@ -19,8 +19,8 @@ export default class Animation<
 > extends Component {
   public currentFrame = 0
   public time = 0
-  public currentAnimation: AnimationId
-  public previousAnimation: AnimationId
+  public currentAnimation: AnimationId | null
+  public previousAnimation: AnimationId | null
   public animations: Map<AnimationId, AnimationDefinition>
   public animationSpeed: number
   public finished: boolean
@@ -51,7 +51,7 @@ export default class Animation<
       loop: params?.loop ?? true,
       speed: params?.speed ?? 0,
       start,
-      fallBack: params?.fallBack ?? null,
+      fallBack: params?.fallBack,
     })
     if (!this.currentAnimation) {
       this.run(name)
@@ -75,7 +75,7 @@ export default class Animation<
       this.previousAnimation = this.currentAnimation
     }
     this.currentAnimation = name
-    this.currentFrame = this.animations.get(name)?.start
+    this.currentFrame = this.animations.get(name)!.start
 
     return this
   }

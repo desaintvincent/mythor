@@ -12,10 +12,14 @@ import { ArrayListOptions } from '../lists/List'
 import IList from '../lists/IList'
 import SignableMap from '../collections/SignableMap'
 import type { IEcs } from './IEcs'
+import type { Logger } from '../util/log'
 
 interface EcsOptions {
   queueEntities?: boolean
+  logger?: Logger
 }
+
+export type { EcsOptions }
 
 export default class Ecs implements IEcs {
   private readonly _systems: SignableMap<System>
@@ -34,9 +38,13 @@ export default class Ecs implements IEcs {
     this._entities = new Map()
     this._duration = 0
 
-    this._systems = new SignableMap<System>('system', 'lightblue')
-    this._managers = new SignableMap<Manager>('manager', 'red')
-    this._entityCollections = new EntityCollection()
+    this._systems = new SignableMap<System>(
+      'system',
+      'lightblue',
+      options?.logger
+    )
+    this._managers = new SignableMap<Manager>('manager', 'red', options?.logger)
+    this._entityCollections = new EntityCollection(options?.logger)
 
     this._entityCollections.onNewList = (list) => {
       this._entities.forEach((entity) =>

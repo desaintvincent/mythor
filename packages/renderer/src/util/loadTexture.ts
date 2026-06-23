@@ -1,8 +1,9 @@
-import { log } from '@mythor/core'
+import { log, Logger } from '@mythor/core'
 import Texture from '../objects/Texture'
 
 interface LoadTextureOptions {
-  log?: boolean
+  /** Custom logger. Pass `null` to suppress logging. */
+  logger?: Logger | null
 }
 
 export async function loadTexture(
@@ -16,8 +17,8 @@ export async function loadTexture(
 
     img.onload = () => {
       const texture = new Texture(img, gl)
-      if (options?.log ?? true) {
-        log(`Loaded %ctexture%c "${name}"`, 'tomato')
+      if (options?.logger !== null) {
+        ;(options?.logger ?? log)(`Loaded %ctexture%c "${name}"`, 'tomato')
       }
       resolve(texture)
     }

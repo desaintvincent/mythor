@@ -5,23 +5,25 @@ import Signable, {
   isRegistered,
 } from './Signable'
 import ConstructorRegistry from '../registries/ConstructorRegistry'
+import { Logger } from '../util/log'
 
 class SignableMap<T extends Signable> {
   private readonly _map: Map<number, T>
+  private readonly registry: ConstructorRegistry<Signable>
   private static constructorRegistries: Map<
     string,
     ConstructorRegistry<Signable>
   > = new Map<string, ConstructorRegistry<Signable>>()
   private name: string
-  public constructor(name: string, color: string) {
+  public constructor(name: string, color: string, logger?: Logger) {
     this.name = name
     this._map = new Map<number, T>()
-    if (!SignableMap.constructorRegistries.has(name)) {
-      SignableMap.constructorRegistries.set(
-        name,
-        new ConstructorRegistry<Signable>(name, color)
-      )
+    let registry = SignableMap.constructorRegistries.get(name)
+    if (!registry) {
+      registry = new ConstructorRegistry<Signable>(name, color, logger)
+      SignableMap.constructorRegistries.set(name, registry)
     }
+    this.registry = registry
   }
 
   public clear(): void {
@@ -70,9 +72,7 @@ class SignableMap<T extends Signable> {
     const constructor = getConstructor(value)
     const signature = isRegistered(constructor)
       ? getSignature(constructor)
-      : SignableMap.constructorRegistries
-          .get(this.name)
-          .registerConstructor(constructor)
+      : this.registry.registerConstructor(constructor)
     this._map.set(signature, value)
 
     return this

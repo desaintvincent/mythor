@@ -9,7 +9,10 @@ export default class Animator extends System {
 
   protected onEntityUpdate(entity: Entity, elapsedTimeInSeconds: number): void {
     const animation = entity.get(Animation)
-    if (!animation.animations.has(animation.currentAnimation)) {
+    if (
+      !animation.currentAnimation ||
+      !animation.animations.has(animation.currentAnimation)
+    ) {
       return
     }
     const currentAnimation = animation.animations.get(
@@ -29,7 +32,7 @@ export default class Animator extends System {
       if (animation.currentFrame > end) {
         if (loop) {
           animation.currentFrame = start
-        } else if (currentAnimation.fallBack !== null) {
+        } else if (currentAnimation.fallBack != null) {
           animation.run(currentAnimation.fallBack)
         } else {
           animation.finished = true

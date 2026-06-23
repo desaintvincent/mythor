@@ -56,7 +56,7 @@ async function generateFontTexture(
 
   const url = canvas.toDataURL('image/png')
 
-  return await loadTexture('defaultFont', url, gl, { log: false }).then(
+  return await loadTexture('defaultFont', url, gl, { logger: null }).then(
     (texture) =>
       new Font(texture, {
         glyphs,

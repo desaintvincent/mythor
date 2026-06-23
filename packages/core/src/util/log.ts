@@ -1,4 +1,6 @@
-const log = (text: unknown, color = 'none'): void => {
+export type Logger = (text: unknown, color?: string) => void
+
+const log: Logger = (text, color = 'none'): void => {
   if (typeof text === 'string' && text.includes('%c')) {
     // eslint-disable-next-line no-console
     console.log(text, `color: ${color};`, 'color: none;')

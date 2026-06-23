@@ -2,12 +2,9 @@
   "compilerOptions": {
     "module": "commonjs",
     "declaration": true,
-    "noImplicitAny": false,
     "removeComments": true,
     "noLib": false,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "target": "ES5",
+    "target": "ES2017",
     "sourceMap": true,
     "allowJs": false,
     "lib": [

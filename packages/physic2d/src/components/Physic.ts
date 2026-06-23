@@ -29,7 +29,7 @@ export interface PhysicParams {
 }
 
 export default class Physic extends Component {
-  public body: Body
+  public body!: Body
   public fixedRotation: boolean
   public readonly mass: number
   public readonly polygons: Array<Array<{ x: number; y: number }>>

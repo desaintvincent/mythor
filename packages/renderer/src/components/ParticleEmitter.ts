@@ -133,8 +133,8 @@ function generateOriginFunction(
 }
 
 class ParticleEmitter extends Component {
-  public textureOriginBuffer: WebGLBuffer
-  public textureSizeBuffer: WebGLBuffer
+  public textureOriginBuffer!: WebGLBuffer
+  public textureSizeBuffer!: WebGLBuffer
   public buffers: Map<string, BufferContent>
 
   public readonly maxParticleNumber

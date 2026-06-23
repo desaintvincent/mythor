@@ -10,18 +10,20 @@ import Entity from '../ecs/Entity'
 import ComponentRegistry from '../registries/ComponentRegistry'
 import { ArrayListOptions } from '../lists/List'
 import IList from '../lists/IList'
-import log from '../util/log'
+import log, { Logger } from '../util/log'
 
 class EntityCollection {
   private _collectionLists: Record<string, IList<Entity>> = {}
+  private readonly logger: Logger
   public onNewList: (l: IList<Entity>) => void = () => {
     // do nothing
   }
 
   public readonly componentRegistry: ComponentRegistry
 
-  public constructor() {
-    this.componentRegistry = new ComponentRegistry()
+  public constructor(logger?: Logger) {
+    this.logger = logger ?? log
+    this.componentRegistry = new ComponentRegistry('component', this.logger)
   }
 
   public get lists(): Record<string, IList<Entity>> {
@@ -33,7 +35,7 @@ class EntityCollection {
 
     if (!(signature in this._collectionLists)) {
       this.createListFromSignature(signature, { constructors })
-      log(
+      this.logger(
         `Registering %clist%c "${constructors
           .map((constructor) => constructor.name)
           .join()}" as ${signature}`,
@@ -50,7 +52,7 @@ class EntityCollection {
   ): IList<Entity> {
     const { constructors } = options
     const signature = this.buildListSignature(...constructors)
-    log(
+    this.logger(
       `Registering %clist%c "${constructors
         .map((constructor) => constructor.name)
         .join()}" as ${signature}`,

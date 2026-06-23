@@ -12,7 +12,7 @@ export type SelectDebugManagerParams = {
 
 class SelectDebugManager extends Manager {
   private show = false
-  private selectedEntity: Entity | null
+  private selectedEntity: Entity | null = null
   private readonly onSelect?: (entity: Entity) => void
   private readonly debugSize: number
 

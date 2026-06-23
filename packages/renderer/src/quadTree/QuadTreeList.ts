@@ -11,7 +11,7 @@ type QuadTreeListOptions = ArrayListOptions<Entity> & {
 class QuadTreeList extends List<Entity> implements IList<Entity> {
   private _data: Array<Map<string, Entity>>
   private rendered = 0
-  public quadTree: QuadTree
+  public quadTree!: QuadTree
 
   public constructor(signature: number, options: QuadTreeListOptions) {
     super(signature, options)

@@ -3,17 +3,19 @@ import Signable, {
   getSignature,
   isRegistered,
 } from '../collections/Signable'
-import log from '../util/log'
+import log, { Logger } from '../util/log'
 
 class ConstructorRegistry<T extends Signable> {
   private bits = 0
   private readonly name: string
   private readonly color: string
+  protected readonly logger: Logger
   public readonly constructors: Array<Constructor<T>> = []
 
-  public constructor(name: string, color: string) {
+  public constructor(name: string, color: string, logger?: Logger) {
     this.name = name
     this.color = color
+    this.logger = logger ?? log
   }
 
   public registerConstructor(constructor: Constructor<T>): number {
@@ -25,7 +27,7 @@ class ConstructorRegistry<T extends Signable> {
     this.bits++
     constructor.signature = newBit
 
-    log(
+    this.logger(
       `Registering %c${this.name}%c "${constructor.name}" as ${newBit}`,
       this.color
     )

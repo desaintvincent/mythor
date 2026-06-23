@@ -12,11 +12,11 @@ interface SystemDependencies {
 }
 
 abstract class System extends Signable {
-  public ecs: Ecs
+  public ecs!: Ecs
   private readonly _name: string
   private _disabled = false
   public _duration: number
-  protected entities: IList<Entity>
+  protected entities!: IList<Entity>
   protected readonly components: Array<Constructor<Component>>
   protected readonly dependencies: SystemDependencies
 

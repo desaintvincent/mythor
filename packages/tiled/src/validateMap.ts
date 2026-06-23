@@ -12,7 +12,7 @@ import {
   TiledObject,
   TileObject,
 } from './tiledTypes'
-import { log } from '@mythor/core'
+import { log, Logger } from '@mythor/core'
 
 const propertySchema: JSONSchemaType<Property> = {
   properties: {
@@ -205,7 +205,7 @@ const mapSchema: JSONSchemaType<TiledMap> = {
   type: 'object',
 }
 
-function validateMap(map: unknown): asserts map is TiledMap {
+function validateMap(map: unknown, logger?: Logger): asserts map is TiledMap {
   const ajv = new Ajv({
     allErrors: true,
     coerceTypes: true,
@@ -214,7 +214,7 @@ function validateMap(map: unknown): asserts map is TiledMap {
   const validate = ajv.compile(mapSchema)
 
   if (!validate(map)) {
-    log(validate.errors, 'red')
+    ;(logger ?? log)(validate.errors, 'red')
     throw new Error('Could not validate map')
   }
 }

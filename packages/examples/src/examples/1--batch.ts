@@ -19,7 +19,7 @@ import { createGame } from '@mythor/game'
 import cat from '../assets/cat'
 
 class Velocity extends Vec2 implements Component {
-  public _entity: Entity
+  public _entity!: Entity
 }
 
 function spawnKitten(

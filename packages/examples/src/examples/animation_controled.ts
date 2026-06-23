@@ -56,7 +56,7 @@ class ControlAnimations extends System {
     const animation = entity.get(Animation)
 
     Object.values(ANIMATION).forEach((animationValue) => {
-      if (events.keyPressed(Key[`Digit${animationValue}`])) {
+      if (events.keyPressed(Key[`Digit${animationValue}` as keyof typeof Key])) {
         animation.run(animationValue, true)
       }
     })

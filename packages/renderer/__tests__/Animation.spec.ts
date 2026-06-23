@@ -40,14 +40,14 @@ describe('Animation', () => {
       expect(anim.currentAnimation).toBe('walk')
     })
 
-    it('default params: loop=true, speed=0, fallBack=null', () => {
+    it('default params: loop=true, speed=0, fallBack=undefined', () => {
       const anim = new Animation()
       anim.add('idle', 0, 3)
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       const def = anim.animations.get('idle')!
       expect(def.loop).toBe(true)
       expect(def.speed).toBe(0)
-      expect(def.fallBack).toBeNull()
+      expect(def.fallBack).toBeUndefined()
     })
 
     it('custom params are stored', () => {

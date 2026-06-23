@@ -2,14 +2,12 @@ abstract class Signable {
   public static signature?: number
 }
 
-export type Constructor<T> = (new (...args: unknown[]) => T) & {
+export type Constructor<T> = (new (...args: any[]) => T) & {
   signature?: number
 }
 
 export function getConstructor<T = Signable>(instance: T): Constructor<T> {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-expect-error
-  return instance.constructor
+  return (instance as unknown as { constructor: Constructor<T> }).constructor
 }
 
 export function getSignature<T = Signable>(

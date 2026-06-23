@@ -35,6 +35,8 @@ export default class ColliderCallback extends Component {
     contact: Contact,
     contactPosition?: Vec2
   ): void {
-    this.cb?.(this._entity, otherEntity, contact, contactPosition)
+    if (this._entity) {
+      this.cb?.(this._entity, otherEntity, contact, contactPosition)
+    }
   }
 }

@@ -1,5 +1,4 @@
 import Scene from '../objects/Scene'
-import { log } from '@mythor/core'
 
 class SceneManager {
   private static instance?: SceneManager
@@ -38,13 +37,15 @@ class SceneManager {
 
   public swap(first = 0, second = 1): SceneManager {
     if (first >= second) {
-      log('Cannot swap with itself')
+      // eslint-disable-next-line no-console
+      console.warn('SceneManager.swap: cannot swap with itself')
 
       return this
     }
 
     if (!this._stack[second] || !this._stack[first]) {
-      log('Cannot swap with non existing scenes')
+      // eslint-disable-next-line no-console
+      console.warn('SceneManager.swap: cannot swap with non existing scenes')
 
       return this
     }

@@ -12,7 +12,7 @@ const drawFunction: DrawFunctionType = (gl, elemNumber) => {
 }
 
 export default class Sprite extends Shader {
-  protected currentTexture: Texture
+  protected currentTexture!: Texture
 
   public constructor(
     gl: WebGL2RenderingContext,

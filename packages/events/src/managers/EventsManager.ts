@@ -16,16 +16,16 @@ const getMouse = (event: MouseEvent): MouseButton => event.button as MouseButton
 
 class EventsManager extends Manager {
   private static instance?: EventsManager
-  private readonly canvas: HTMLCanvasElement
-  private canvasRect: DOMRect
-  private readonly _keysDown: Map<Key, boolean>
-  private readonly _previousKeysDown: Map<Key, boolean>
-  private readonly _mousesDown: Map<MouseButton, boolean>
-  private readonly _previousMousesDown: Map<MouseButton, boolean>
-  private readonly _mousePosition: Vec2
-  private readonly _previousMousePosition: Vec2
-  private _wheelDelta: number
-  private readonly _minDragDelta: number
+  private readonly canvas!: HTMLCanvasElement
+  private canvasRect!: DOMRect
+  private readonly _keysDown!: Map<Key, boolean>
+  private readonly _previousKeysDown!: Map<Key, boolean>
+  private readonly _mousesDown!: Map<MouseButton, boolean>
+  private readonly _previousMousesDown!: Map<MouseButton, boolean>
+  private readonly _mousePosition!: Vec2
+  private readonly _previousMousePosition!: Vec2
+  private _wheelDelta!: number
+  private readonly _minDragDelta!: number
   private initialized = false
 
   private readonly events = {
@@ -110,7 +110,7 @@ class EventsManager extends Manager {
     this.initialized = true
 
     Object.entries(this.events).forEach(([eventName, fn]) => {
-      this.canvas.addEventListener(eventName, fn, false)
+      this.canvas.addEventListener(eventName, fn as EventListener, false)
     })
 
     window.addEventListener('resize', () => {
@@ -120,7 +120,7 @@ class EventsManager extends Manager {
 
   public clear(): void {
     Object.entries(this.events).forEach(([eventName, fn]) => {
-      this.canvas.removeEventListener(eventName, fn, false)
+      this.canvas.removeEventListener(eventName, fn as EventListener, false)
     })
   }
 
