@@ -1,0 +1,31 @@
+{
+  "name": "@mythor/fsm",
+  "version": "0.1.0",
+  "description": "Mythor finite state machine",
+  "author": "thomas <destvincent@hotmail.fr>",
+  "homepage": "https://github.com/desaintvincent/mythor/blob/main/packages/fsm#readme",
+  "license": "MIT",
+  "main": "lib/fsm.js",
+  "typings": "lib/fsm.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc --watch",
+    "doc": "typedoc --plugin typedoc-plugin-markdown --out docs ./src/fsm.ts",
+    "clean": "rm -rf lib docs",
+    "lint": "eslint . --max-warnings 0"
+  },
+  "devDependencies": {
+    "@mythor/eslint-config": "^1.3.9"
+  }
+}

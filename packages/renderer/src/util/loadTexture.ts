@@ -1,3 +1,4 @@
+import { loadImage } from '@mythor/assets'
 import { log, Logger } from '@mythor/core'
 import Texture from '../objects/Texture'
 
@@ -12,20 +13,13 @@ export async function loadTexture(
   gl: WebGL2RenderingContext,
   options?: LoadTextureOptions
 ): Promise<Texture> {
-  return await new Promise((resolve, reject) => {
-    const img = new Image()
+  const img = await loadImage(path)
+  const texture = new Texture(img, gl)
 
-    img.onload = () => {
-      const texture = new Texture(img, gl)
-      if (options?.logger !== null) {
-        const logger = options?.logger ?? log
-        logger(`Loaded %ctexture%c "${name}"`, 'tomato')
-      }
-      resolve(texture)
-    }
+  if (options?.logger !== null) {
+    const logger = options?.logger ?? log
+    logger(`Loaded %ctexture%c "${name}"`, 'tomato')
+  }
 
-    img.onerror = (err) => reject(err)
-
-    img.src = path
-  })
+  return texture
 }

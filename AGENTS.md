@@ -16,15 +16,17 @@ All code comments and human-facing text (UI strings, example descriptions, commi
 |---------|------|
 | `@mythor/math` | Vec2, Rect — no deps, leaf package |
 | `@mythor/core` | ECS kernel (Entity, Component, System, Ecs, Manager) — depends on math |
+| `@mythor/assets` | Shared asset loading/preloading — depends on core |
 | `@mythor/renderer` | WebGL renderer, shaders, sprites, camera — depends on core+math |
 | `@mythor/events` | Input (keyboard, mouse) — depends on core+math+renderer |
 | `@mythor/physic2d` | 2D physics via planck-js — depends on core+math |
 | `@mythor/tiled` | Tiled map loader — depends on core+math+physic2d+renderer |
 | `@mythor/game` | Game loop, Scene management — depends on core+events+math+renderer |
+| `@mythor/ui` | UI primitives (Button + Panel/Label/Button factories) — depends on core+renderer+events+math |
 | `@mythor/examples` | Webpack dev app, private, not published |
 | `@mythor/eslint-config` | Shared ESLint + Prettier rules |
 
-Dependency order matters for build: `math → core → renderer/physic2d → events/tiled → game`.
+Dependency order matters for build: `math → core → assets → renderer/physic2d → events/tiled → game`.
 
 ## Commands (from repo root)
 

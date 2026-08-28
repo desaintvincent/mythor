@@ -1,12 +1,12 @@
 {
-  "name": "@mythor/renderer",
-  "version": "0.6.1",
-  "description": "Mythor renderer",
+  "name": "@mythor/ui",
+  "version": "0.1.0",
+  "description": "Mythor UI primitives",
   "author": "Thomas Robert de Saint Vincent <thomas.rdsv@viaco.fr>",
-  "homepage": "https://github.com/desaintvincent/mythor/blob/main/packages/renderer#readme",
+  "homepage": "https://github.com/desaintvincent/mythor/blob/main/packages/ui#readme",
   "license": "MIT",
-  "main": "lib/renderer.js",
-  "typings": "lib/renderer.d.ts",
+  "main": "lib/ui.js",
+  "typings": "lib/ui.d.ts",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -25,7 +25,7 @@
   "scripts": {
     "build": "tsc",
     "start": "tsc --watch",
-    "doc": "typedoc --plugin typedoc-plugin-markdown --out docs ./src/renderer.ts",
+    "doc": "typedoc --plugin typedoc-plugin-markdown --out docs ./src/ui.ts",
     "clean": "rm -rf dist docs",
     "lint": "eslint . --max-warnings 0"
   },
@@ -33,9 +33,9 @@
     "url": "https://github.com/desaintvincent/mythor/issues"
   },
   "dependencies": {
-    "@mythor/assets": "^0.1.0",
     "@mythor/core": "^0.4.10",
-    "@mythor/math": "^0.3.10"
-  },
-  "gitHead": "4773ef4d50c9a9e9bb4d84dcca5d24310f13433f"
+    "@mythor/events": "^0.4.6",
+    "@mythor/math": "^0.3.10",
+    "@mythor/renderer": "^0.6.1"
+  }
 }

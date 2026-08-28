@@ -99,6 +99,12 @@ class Renderer extends System {
     this.canvas.width = this.camera.getSize().x
     this.canvas.height = this.camera.getSize().y
     this.guiCamera = new Camera(this.camera.getSize())
+    // Make the GUI camera use top-left screen-pixel coordinates instead of
+    // the world camera's center-relative convention, so a screen-space
+    // entity's `Transform.position` directly matches both what's drawn on
+    // screen and the raw (non-world-converted) `EventsManager.mousePosition`
+    // used for UI hit-testing (see `@mythor/ui`).
+    this.guiCamera.lookat(Vec2.times(this.camera.getSize(), 0.5))
     this._shaders = new ConstructorMap()
 
     if (params?.postProcessing && params.postProcessing.length > 0) {
@@ -145,23 +151,38 @@ class Renderer extends System {
       this.postProcessPipeline.render(this.camera.getSize())
     }
 
-    if (this.toDrawGui.length > 0) {
-      const size = this.camera.getSize()
-      this.gl.bindFramebuffer(this.gl.FRAMEBUFFER, null)
-      this.gl.viewport(0, 0, size.x, size.y)
+    const size = this.camera.getSize()
+    this.gl.bindFramebuffer(this.gl.FRAMEBUFFER, null)
+    this.gl.viewport(0, 0, size.x, size.y)
 
-      this._shaders.forEach((shader) => shader.preRender(this.guiCamera))
-      this.applyGuiDrawingFunctions()
-      this._shaders.forEach((shader) =>
-        shader.postRender(
+    this._shaders.forEach((shader) => shader.preRender(this.guiCamera))
+    this.renderScreenSpaceEntities(elapsedTimeInSeconds, totalTimeInSeconds)
+    this.applyGuiDrawingFunctions()
+    this._shaders.forEach((shader) =>
+      shader.postRender(
+        this.guiCamera,
+        elapsedTimeInSeconds,
+        totalTimeInSeconds
+      )
+    )
+
+    this.isInFrame = false
+  }
+
+  private renderScreenSpaceEntities(
+    elapsedTimeInSeconds: number,
+    totalTimeInSeconds: number
+  ): void {
+    this.entities.forEach((entity) => {
+      if (entity.get(Renderable).screenSpace) {
+        this.renderEntity(
+          entity,
           this.guiCamera,
           elapsedTimeInSeconds,
           totalTimeInSeconds
         )
-      )
-    }
-
-    this.isInFrame = false
+      }
+    })
   }
 
   public get fov(): Rect {
@@ -184,6 +205,25 @@ class Renderer extends System {
     elapsedTimeInSeconds: number,
     totalTimeInSeconds: number
   ): void {
+    if (entity.get(Renderable).screenSpace) {
+      // Rendered separately, in screen space, in renderScreenSpaceEntities()
+      return
+    }
+
+    this.renderEntity(
+      entity,
+      this.camera,
+      elapsedTimeInSeconds,
+      totalTimeInSeconds
+    )
+  }
+
+  private renderEntity(
+    entity: Entity,
+    camera: Camera,
+    elapsedTimeInSeconds: number,
+    totalTimeInSeconds: number
+  ): void {
     const { shapes, visible } = entity.get(Renderable)
 
     if (!visible) {
@@ -196,12 +236,7 @@ class Renderer extends System {
         continue
       }
       shaders.forEach((shader) =>
-        shader.render(
-          entity,
-          this.camera,
-          elapsedTimeInSeconds,
-          totalTimeInSeconds
-        )
+        shader.render(entity, camera, elapsedTimeInSeconds, totalTimeInSeconds)
       )
     }
   }
@@ -315,12 +350,13 @@ class Renderer extends System {
   public fillRect(
     position: Vec2,
     size: Vec2,
-    options?: Partial<FillPolyOptions>
+    options?: Partial<FillPolyOptions> & { radius?: number }
   ): void {
     this.assertIsInFrame()
     const shader = this._shaders.get(FillRect)
     shader?.rect(position, size, {
       color: options?.color ?? colorWhite,
+      radius: options?.radius ?? 0,
       rotation: options?.rotation ?? 0,
     })
   }

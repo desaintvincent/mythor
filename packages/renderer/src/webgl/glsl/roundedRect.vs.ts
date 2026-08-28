@@ -6,10 +6,14 @@ in float a_rotation;
 in vec2 a_position;
 in vec2 a_size;
 in vec4 a_color;
+in float a_radius;
 
 uniform mat4 matrix_camera;
 
 out vec4 v_color;
+out vec2 v_localPosition;
+out vec2 v_halfSize;
+out float v_radius;
 
 void main() {
     float phi = a_rotation;
@@ -35,5 +39,8 @@ void main() {
     gl_Position = matrix_camera * vec4(translate * rotate *  scale * vec3(a_vertex.xy, 1), 1.0);
 
     v_color = a_color;
+    v_localPosition = a_vertex.xy * a_size;
+    v_halfSize = a_size * 0.5;
+    v_radius = min(a_radius, min(a_size.x, a_size.y) * 0.5);
 }
 `

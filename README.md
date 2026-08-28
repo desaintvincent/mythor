@@ -23,6 +23,7 @@ yarn install
 | Package               | Role                                                    |
 |------------------------|---------------------------------------------------------|
 | `@mythor/math`         | Vec2, Rect                                              |
+| `@mythor/fsm`          | Generic finite state machine, ECS-independent            |
 | `@mythor/core`         | ECS kernel (Entity, Component, System, Ecs, Manager)     |
 | `@mythor/renderer`     | WebGL renderer, shaders, sprites, camera, postprocessing pipeline (blur, vignette, grayscale, chromatic aberration) and particle systems |
 | `@mythor/events`       | Input (keyboard, mouse)                                 |
