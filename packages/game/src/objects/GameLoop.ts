@@ -3,6 +3,14 @@ type UpdateFunction = (
   totalTimeInSeconds: number
 ) => void
 
+// Caps the delta time passed to update() so a slow first frame or a lag
+// spike (tab switch, GC pause, entity spawn hitch, ...) can never inject a
+// huge dt into systems such as physics. An unclamped dt can make a
+// physics world integrate a large velocity/penetration in a single step,
+// which the contact solver then corrects violently, causing bodies to
+// jitter, slide, or sink into each other for a long time afterwards.
+const MAX_ELAPSED_TIME_IN_SECONDS = 1 / 30
+
 export default class GameLoop {
   private _previousTime = 0
   private _started = false
@@ -42,9 +50,12 @@ export default class GameLoop {
     if (!this._started) {
       throw new Error('Please call start()')
     }
-    const elapsedTime = time - this._previousTime
+    const elapsedTimeInSeconds = Math.min(
+      (time - this._previousTime) / 1000,
+      MAX_ELAPSED_TIME_IN_SECONDS
+    )
     this._previousTime = time
-    this.update(this._paused ? 0 : elapsedTime / 1000, time / 1000)
+    this.update(this._paused ? 0 : elapsedTimeInSeconds, time / 1000)
     this._requestId = requestAnimationFrame(this.loop.bind(this))
   }
 

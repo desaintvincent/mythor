@@ -4,7 +4,7 @@ import { createGame } from '@mythor/game'
 import { Vec2 } from '@mythor/math'
 import { Renderable, Renderer } from '@mythor/renderer'
 import ParticleEmitter from '@mythor/renderer/lib/components/ParticleEmitter'
-import showDescription from '../util/showDescription'
+import showDescription from '../../util/showDescription'
 
 showDescription('A particle trail following the mouse cursor.', [
   'Move the mouse to leave a trail',

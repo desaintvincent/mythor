@@ -31,7 +31,7 @@ export interface PhysicParams {
 export default class Physic extends Component {
   public body!: Body
   public fixedRotation: boolean
-  public readonly mass: number
+  public readonly mass?: number
   public readonly polygons: Array<Array<{ x: number; y: number }>>
   public readonly ellipses: number[]
   public readonly size?: Vec2
@@ -51,14 +51,14 @@ export default class Physic extends Component {
   public constructor(options?: PhysicParams) {
     super()
     this.type = options?.type ?? PhysicType.STATIC
-    this.mass = options?.mass ?? 1
+    this.mass = options?.mass
     this.fixedRotation = options?.fixedRotation ?? false
     this.polygons = options?.polygons ?? []
     this.size = options?.size ?? undefined
     this.offset = options?.offset ?? Vec2.zero()
     this.friction = options?.friction ?? 0.2
     this.restitution = options?.restitution ?? 0
-    this.density = options?.density ?? 0
+    this.density = options?.density ?? 1
     this.linearDamping = options?.linearDamping ?? 0
     this.bullet = options?.bullet ?? false
     this.interactWithWorld = options?.interactWithWorld ?? true

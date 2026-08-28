@@ -12,7 +12,7 @@ import type { Ecs } from '@mythor/core'
 import { EventsManager, MouseButton } from '@mythor/events'
 import { Scene } from '@mythor/game'
 import { Renderable, Renderer, Sprite, TextureManager } from '@mythor/renderer'
-import cat from '../../assets/cat'
+import cat from '../../../assets/cat'
 import { Vec2 } from '@mythor/math'
 
 class Click extends Manager {

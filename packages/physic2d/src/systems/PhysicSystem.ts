@@ -202,18 +202,29 @@ export default class PhysicSystem extends System {
 
     body.setAngle(rotation)
 
-    // time to set mass information
-    body.setMassData({
-      I: 1,
-      center: PlankVec2(),
-      mass,
-    })
-
     body.setLinearVelocity(
       PlankVec2(initialLinearVelocity.x, initialLinearVelocity.y)
     )
 
     body.setUserData({ entityId: entity._id })
+
+    if (mass !== undefined) {
+      const massData = {
+        I: 0,
+        center: PlankVec2(),
+        mass: 0,
+      }
+      body.getMassData(massData)
+
+      if (massData.mass > 0) {
+        const ratio = mass / massData.mass
+        body.setMassData({
+          I: massData.I * ratio,
+          center: massData.center,
+          mass,
+        })
+      }
+    }
 
     if (type !== PhysicType.STATIC) {
       position.observe((newPos: Vec2) => {

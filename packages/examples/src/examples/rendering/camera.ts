@@ -1,4 +1,4 @@
-import f from '../assets/f.png'
+import f from '../../assets/f.png'
 import { Component, Entity, Manager, System, Transform } from '@mythor/core'
 import { EventsManager, Key, MouseButton } from '@mythor/events'
 import {
@@ -10,7 +10,7 @@ import {
   TextureManager,
 } from '@mythor/renderer'
 import { createGame } from '@mythor/game'
-import showDescription from '../util/showDescription'
+import showDescription from '../../util/showDescription'
 
 showDescription('A camera smoothly following a moving player.', [
   'Z/Q/S/D: move the player',

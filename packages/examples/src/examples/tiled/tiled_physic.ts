@@ -10,9 +10,9 @@ import {
 } from '@mythor/renderer'
 import { Physic, PhysicSystem, PhysicType } from '@mythor/physic2d'
 import { Vec2 } from '@mythor/math'
-import training from '../maps/training.json'
-import castle from '../assets/sheet.png'
-import showDescription from '../util/showDescription'
+import training from '../../maps/training.json'
+import castle from '../../assets/sheet.png'
+import showDescription from '../../util/showDescription'
 
 showDescription('A Tiled map with a falling box spawned by left click.', [
   'Left click: spawn a box',

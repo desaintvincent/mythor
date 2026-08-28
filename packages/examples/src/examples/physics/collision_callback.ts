@@ -14,7 +14,7 @@ import {
   PhysicType,
 } from '@mythor/physic2d'
 import { createGame } from '@mythor/game'
-import showDescription from '../util/showDescription'
+import showDescription from '../../util/showDescription'
 
 showDescription('A box turns green on the first physics contact.', [])
 

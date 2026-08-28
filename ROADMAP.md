@@ -70,25 +70,6 @@ project's custom `System`s.
 - **Testing approach:** pure unit tests (no ECS, no DOM) — transition tables,
   hook invocation order, rejection of invalid transitions.
 
-## `@mythor/persistence`
-
-**Goal:** save/load ECS state to browser storage (localStorage/IndexedDB), so
-consumers can implement save games without hand-rolling serialization.
-
-- **Dependencies:** `@mythor/core` only.
-- **Proposed API:**
-  - `SaveManager` (a `Manager` subclass): `save(slot)`, `load(slot)`,
-    `listSlots()`, `deleteSlot(slot)`.
-  - Serialization strategy: components opt in via a marker (e.g. a `Serializable`
-    interface/decorator) so not every component is dumped — avoids leaking
-    transient/derived state (e.g. `Renderable` GPU handles) into save data.
-  - Storage backend abstraction (`localStorage` by default, `IndexedDB` for
-    larger saves) — pluggable so consumers can swap in their own backend.
-- **Open question:** versioning/migration story for save data when component
-  shapes change between game versions.
-- **Testing approach:** unit-test serialize/deserialize round-trips and slot
-  management in a `node` environment with a mocked storage backend.
-
 ## `@mythor/net`
 
 **Goal:** basic multiplayer networking primitives (state sync over WebSocket),

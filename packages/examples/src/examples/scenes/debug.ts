@@ -7,7 +7,7 @@ import StatisticsManager from '@mythor/game/lib/managers/StatisticsManager'
 import { Vec2 } from '@mythor/math'
 import { FillRect, Renderable, Renderer, colorGreen } from '@mythor/renderer'
 import { Physic, PhysicSystem, PhysicType } from '@mythor/physic2d'
-import showDescription from '../util/showDescription'
+import showDescription from '../../util/showDescription'
 
 showDescription('Debug overlays for physics, renderer, selection, and stats.', [
   'F3: stats',

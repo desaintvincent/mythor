@@ -10,7 +10,7 @@ import {
 import { Physic, PhysicSystem, PhysicType } from '@mythor/physic2d'
 import { Vec2 } from '@mythor/math'
 import { createGame } from '@mythor/game'
-import showDescription from '../util/showDescription'
+import showDescription from '../../util/showDescription'
 
 showDescription('2D physics simulation using planck-js.', [
   'Left click: spawn a falling box',

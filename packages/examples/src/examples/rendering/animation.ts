@@ -10,8 +10,8 @@ import {
 } from '@mythor/renderer'
 import { Transform } from '@mythor/core'
 import { Vec2 } from '@mythor/math'
-import animation from '../assets/animation.png'
-import showDescription from '../util/showDescription'
+import animation from '../../assets/animation.png'
+import showDescription from '../../util/showDescription'
 
 showDescription('A sprite sheet played as a looping animation.', [])
 

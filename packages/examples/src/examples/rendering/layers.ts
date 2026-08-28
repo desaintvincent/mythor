@@ -1,4 +1,4 @@
-import cat from '../assets/cat'
+import cat from '../../assets/cat'
 import { Ecs, Manager, Transform } from '@mythor/core'
 import {
   Renderable,
@@ -10,7 +10,7 @@ import {
 import { Vec2 } from '@mythor/math'
 import { EventsManager, Key, MouseButton } from '@mythor/events'
 import { createGame } from '@mythor/game'
-import showDescription from '../util/showDescription'
+import showDescription from '../../util/showDescription'
 
 showDescription('Render layers control drawing order.', [
   'Space: cycle the selected layer',

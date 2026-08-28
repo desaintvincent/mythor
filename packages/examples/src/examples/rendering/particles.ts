@@ -9,9 +9,9 @@ import {
   TimingFunction,
 } from '@mythor/renderer'
 import ParticleEmitter from '@mythor/renderer/lib/components/ParticleEmitter'
-import cat from '../assets/cat'
-import star from '../assets/star_07.png'
-import showDescription from '../util/showDescription'
+import cat from '../../assets/cat'
+import star from '../../assets/star_07.png'
+import showDescription from '../../util/showDescription'
 
 showDescription('Particle emitters following the mouse with inertia.', [
   'Left click: trigger a star particle burst at the cursor',

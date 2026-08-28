@@ -18,16 +18,21 @@
 <body>
 
 <nav>
-    <ul class="list">
-        <li class="item"><a class="link" href="./">Home</a></li>
-        <% for (var entry of htmlWebpackPlugin.options.examples) { %>
-        <% if (htmlWebpackPlugin.options.title === entry.name) { %>
-            <li class="item"><a class="link active" href="./<%= [entry.path]%>.html"><%= [entry.name]%></a></li>
-        <% } else { %>
-            <li class="item"><a class="link" href="./<%= [entry.path]%>.html"><%= [entry.name]%></a></li>
-        <% } %>
-        <% } %>
-    </ul>
+    <div class="item"><a class="link" href="/">Home</a></div>
+    <% for (var group of htmlWebpackPlugin.options.exampleGroups) { %>
+    <details class="group" <%= htmlWebpackPlugin.options.category === group.category ? 'open' : '' %> >
+        <summary class="summary"><%= [group.category]%></summary>
+        <ul class="list">
+            <% for (var entry of group.examples) { %>
+            <% if (htmlWebpackPlugin.options.path === entry.path) { %>
+                <li class="item"><a class="link active" href="/<%= [entry.path]%>.html"><%= [entry.name]%></a></li>
+            <% } else { %>
+                <li class="item"><a class="link" href="/<%= [entry.path]%>.html"><%= [entry.name]%></a></li>
+            <% } %>
+            <% } %>
+        </ul>
+    </details>
+    <% } %>
 </nav>
 <div id="root">
     <div id="statistics"></div>

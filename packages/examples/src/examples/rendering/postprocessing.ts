@@ -11,7 +11,7 @@ import {
 } from '@mythor/renderer'
 import { Vec2 } from '@mythor/math'
 import { EventsManager, Key } from '@mythor/events'
-import showDescription from '../util/showDescription'
+import showDescription from '../../util/showDescription'
 
 showDescription(
   'Post-processing effects toggled with number keys (see on-screen legend).',

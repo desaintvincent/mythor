@@ -3,8 +3,8 @@ import { EventsManager, MouseButton } from '@mythor/events'
 import { createGame } from '@mythor/game'
 import { Renderable, Renderer, Sprite, TextureManager } from '@mythor/renderer'
 import { Vec2 } from '@mythor/math'
-import f from '../assets/f.png'
-import showDescription from '../util/showDescription'
+import f from '../../assets/f.png'
+import showDescription from '../../util/showDescription'
 
 showDescription('Entity hierarchy: children follow their parent.', [
   'Mouse move: move the parent and its children',

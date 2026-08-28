@@ -1,7 +1,7 @@
 import { Transform } from '@mythor/core'
 import { Renderable, Renderer, RenderedText } from '@mythor/renderer'
 import { createGame } from '@mythor/game'
-import showDescription from '../util/showDescription'
+import showDescription from '../../util/showDescription'
 
 showDescription('Text rendering with the default generated font.', [])
 

@@ -18,6 +18,36 @@ body {
     position: relative;
 }
 
+.group {
+    background-color: rgb(18, 18, 18);
+    margin: 0 0 12px;
+    max-width: 360px;
+    width: 100%;
+}
+
+.summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 12px 16px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.summary::-webkit-details-marker {
+    display: none;
+}
+
+.summary::before {
+    content: '▸';
+    display: inline-block;
+    margin-right: 8px;
+    transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+details[open] > .summary::before {
+    transform: rotate(90deg);
+}
+
 .list {
     background-color: rgb(18, 18, 18);
     list-style: none;
@@ -25,7 +55,6 @@ body {
     padding: 8px 0px;
     position: relative;
     width: 100%;
-    max-width: 360px;
 }
 
 .item {
@@ -76,4 +105,8 @@ body {
 .link:hover {
     text-decoration: none;
     background-color: rgba(255, 255, 255, 0.08);
+}
+
+.group > .list {
+    padding-top: 0;
 }

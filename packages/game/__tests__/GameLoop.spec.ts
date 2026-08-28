@@ -47,19 +47,33 @@ describe('GameLoop', () => {
     )
   })
 
-  it('calls onUpdate with elapsed and total time derived from successive frames', () => {
+  it('calls onUpdate with elapsed and total time derived from successive frames, capped to avoid large dt spikes', () => {
     const loop = new GameLoop()
     const updates: Array<[number, number]> = []
     loop.onUpdate((elapsed, total) => updates.push([elapsed, total]))
 
     loop.start()
     tick(1000)
-    tick(1500)
+    tick(1010)
 
     expect(updates).toEqual([
       [0, 0],
-      [1, 1],
-      [0.5, 1.5],
+      [1 / 30, 1],
+      [0.01, 1.01],
+    ])
+  })
+
+  it('caps a large elapsed time so a slow first frame or a lag spike cannot inject a huge dt', () => {
+    const loop = new GameLoop()
+    const updates: Array<[number, number]> = []
+    loop.onUpdate((elapsed, total) => updates.push([elapsed, total]))
+
+    loop.start()
+    tick(2000)
+
+    expect(updates).toEqual([
+      [0, 0],
+      [1 / 30, 2],
     ])
   })
 

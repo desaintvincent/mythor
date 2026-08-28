@@ -10,8 +10,8 @@ import {
 } from '@mythor/renderer'
 import { Entity, Manager, System, Transform } from '@mythor/core'
 import { Vec2 } from '@mythor/math'
-import character from '../assets/character_malePerson_sheet.png'
-import showDescription from '../util/showDescription'
+import character from '../../assets/character_malePerson_sheet.png'
+import showDescription from '../../util/showDescription'
 
 showDescription(
   'Character animations switched by keyboard input (see on-screen legend for the keys).',

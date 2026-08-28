@@ -43,6 +43,7 @@
     "@mythor/events": "^0.4.6",
     "@mythor/game": "^0.4.7",
     "@mythor/math": "^0.3.10",
+    "@mythor/persistence": "^0.1.0",
     "@mythor/physic2d": "^0.5.1",
     "@mythor/renderer": "^0.6.1"
   }
