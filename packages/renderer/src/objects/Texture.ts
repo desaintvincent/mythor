@@ -61,4 +61,8 @@ export default class Texture {
   public get webGLTexture(): WebGLTexture {
     return this.glTexture
   }
+
+  public delete(gl: WebGL2RenderingContext): void {
+    gl.deleteTexture(this.glTexture)
+  }
 }

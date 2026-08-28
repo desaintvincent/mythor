@@ -203,6 +203,15 @@ class Renderer extends System {
     }
   }
 
+  protected onEntityDestruction(entity: Entity): void {
+    const renderable = entity.get(Renderable)
+
+    renderable.shapes.forEach((key) => {
+      const shaders = this.shapes.get(key)
+      shaders?.forEach((shape) => shape.onEntityDestruction(entity))
+    })
+  }
+
   private onEntityChange(entity: Entity): void {
     if (entity.has(Renderable)) {
       this.movedEntities.set(entity._id, entity)

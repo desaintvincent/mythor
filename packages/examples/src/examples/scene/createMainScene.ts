@@ -8,6 +8,7 @@ import {
   System,
   Transform,
 } from '@mythor/core'
+import type { Ecs } from '@mythor/core'
 import { EventsManager, MouseButton } from '@mythor/events'
 import { Scene } from '@mythor/game'
 import { Renderable, Renderer, Sprite, TextureManager } from '@mythor/renderer'
@@ -49,7 +50,8 @@ class FakeLoadingManager extends Manager {
     super('FakeLoadingManager')
   }
 
-  public async init(): Promise<void> {
+  public async init(ecs: Ecs): Promise<void> {
+    await super.init(ecs)
     const startedTime = now()
     const state = this.ecs.manager(LoadingStateManager).createState({
       detail: 'fakeLoadingManager',

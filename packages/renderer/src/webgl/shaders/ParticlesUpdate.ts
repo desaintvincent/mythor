@@ -31,6 +31,7 @@ const initialData: Partial<
 export default class ParticlesUpdate extends Shader {
   private readonly transformFeedback: WebGLTransformFeedback
   private readonly randomTexture: WebGLTexture
+  private readonly defaultTextureEmitters = new WeakSet<ParticleEmitter>()
 
   public constructor(gl: WebGL2RenderingContext) {
     super(gl, particleUpdateVert, particleUpdateFrag, {
@@ -168,6 +169,24 @@ export default class ParticlesUpdate extends Shader {
 
     if (!particleEmitter.texture) {
       particleEmitter.texture = makeDefaultTexture(this.gl)
+      this.defaultTextureEmitters.add(particleEmitter)
+    }
+  }
+
+  public onEntityDestruction(entity: Entity): void {
+    const particleEmitter = entity.get(ParticleEmitter)
+
+    this.gl.deleteBuffer(particleEmitter.textureOriginBuffer)
+    this.gl.deleteBuffer(particleEmitter.textureSizeBuffer)
+    particleEmitter.buffers.forEach(({ buffer1, buffer2 }) => {
+      this.gl.deleteBuffer(buffer1)
+      this.gl.deleteBuffer(buffer2)
+    })
+    particleEmitter.buffers.clear()
+
+    if (this.defaultTextureEmitters.has(particleEmitter)) {
+      particleEmitter.texture?.delete(this.gl)
+      this.defaultTextureEmitters.delete(particleEmitter)
     }
   }
 

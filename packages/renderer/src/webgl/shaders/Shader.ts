@@ -119,6 +119,11 @@ export default class Shader {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  public onEntityDestruction(entity: Entity): void {
+    // do nothing
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public async init(renderer: Renderer): Promise<void> {
     // do nothing
   }
