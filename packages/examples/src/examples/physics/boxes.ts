@@ -12,13 +12,22 @@ import { Vec2 } from '@mythor/math'
 import { createGame } from '@mythor/game'
 import showDescription from '../../util/showDescription'
 
-showDescription('2D physics simulation using planck-js.', [
+// Port of the planck.js "Boxes" testbed example
+// (https://piqnt.com/planck.js/Boxes): a 5x5 grid of boxes falls onto a
+// static bar. Note: unlike the original example, we don't call
+// body.setMassData({ mass: 1, center: Vec2(), I: 1 }) on the boxes. Planck
+// already computes a physically correct mass and rotational inertia from
+// each box's own geometry and density (see Physic's `density` option), so
+// forcing an arbitrary inertia unrelated to box size is what causes
+// unstable stacks (jitter, sliding, interpenetration).
+showDescription('Port of the planck.js "Boxes" testbed example.', [
   'Left click: spawn a falling box',
 ])
 
-const groundSize = new Vec2(600, 40)
-const groundPosition = new Vec2(0, 150)
-const boxSize = new Vec2(40, 40)
+const barSize = new Vec2(600, 20)
+const barPosition = new Vec2(0, 200)
+const boxSize = new Vec2(60, 60)
+const gridSize = 5
 
 function createBox(position: Vec2): [Transform, FillRect, Renderable, Physic] {
   return [
@@ -50,24 +59,25 @@ createGame({
     ecs
       .create()
       .add(
-        new Transform({ position: groundPosition, size: groundSize }),
+        new Transform({ position: barPosition, size: barSize }),
         new FillRect({ color: colorGreen }),
         new Renderable(),
         new Physic({ type: PhysicType.STATIC })
       )
 
-    // spawn a stack of falling boxes so the scene is alive as soon as it loads
-    for (let i = 0; i < 5; i += 1) {
-      ecs
-        .create()
-        .add(
-          ...createBox(
-            new Vec2(
-              groundPosition.x - 100 + i * 40,
-              groundPosition.y - groundSize.y / 2 - 150 - i * 50
+    const gridTop = barPosition.y - barSize.y / 2 - boxSize.y * gridSize - 100
+    const gridLeft = -((gridSize - 1) * boxSize.x) / 2
+
+    for (let row = 0; row < gridSize; row += 1) {
+      for (let col = 0; col < gridSize; col += 1) {
+        ecs
+          .create()
+          .add(
+            ...createBox(
+              new Vec2(gridLeft + col * boxSize.x, gridTop + row * boxSize.y)
             )
           )
-        )
+      }
     }
   },
   systems: [new PhysicSystem(), new Renderer()],

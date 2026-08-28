@@ -41,7 +41,7 @@ createGame({
       }),
       new FillRect({ color: colorRed }),
       new Renderable(),
-      new Physic({ type: PhysicType.DYNAMIC, restitution: 0.3 }),
+      new Physic({ type: PhysicType.DYNAMIC }),
       new ColliderCallback({
         callback: (entity) => {
           entity.get(FillRect).color = colorGreen

@@ -52,7 +52,7 @@ createGame({
         }),
         new FillRect({ color: [1, 0, 0, 1] }),
         new Renderable(),
-        new Physic({ type: PhysicType.DYNAMIC, restitution: 0.2 })
+        new Physic({ type: PhysicType.DYNAMIC })
       )
     }
   },

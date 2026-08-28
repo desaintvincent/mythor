@@ -25,7 +25,7 @@ function createBox(position: Vec2): [Transform, FillRect, Renderable, Physic] {
     new Transform({ position, size: boxSize }),
     new FillRect({ color: [1, 0, 0, 1] }),
     new Renderable(),
-    new Physic({ type: PhysicType.DYNAMIC, restitution: 0.3 }),
+    new Physic({ type: PhysicType.DYNAMIC }),
   ]
 }
 
