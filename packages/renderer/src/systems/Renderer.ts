@@ -56,6 +56,8 @@ class Renderer extends System {
   private readonly camera: Camera
   private readonly _shaders: ConstructorMap<Shader>
   private readonly toDraw: FnToDraw[] = []
+  private readonly toDrawGui: FnToDraw[] = []
+  private readonly guiCamera: Camera
   private isInFrame = false
   public readonly shapes: Map<Constructor<Component>, Shader[]> = new Map()
   private readonly movedEntities: Map<string, Entity> = new Map<
@@ -96,6 +98,7 @@ class Renderer extends System {
     this.camera = params?.camera ?? new Camera()
     this.canvas.width = this.camera.getSize().x
     this.canvas.height = this.camera.getSize().y
+    this.guiCamera = new Camera(this.camera.getSize())
     this._shaders = new ConstructorMap()
 
     if (params?.postProcessing && params.postProcessing.length > 0) {
@@ -140,6 +143,22 @@ class Renderer extends System {
       this.postProcessPipeline.hasEnabledEffects()
     ) {
       this.postProcessPipeline.render(this.camera.getSize())
+    }
+
+    if (this.toDrawGui.length > 0) {
+      const size = this.camera.getSize()
+      this.gl.bindFramebuffer(this.gl.FRAMEBUFFER, null)
+      this.gl.viewport(0, 0, size.x, size.y)
+
+      this._shaders.forEach((shader) => shader.preRender(this.guiCamera))
+      this.applyGuiDrawingFunctions()
+      this._shaders.forEach((shader) =>
+        shader.postRender(
+          this.guiCamera,
+          elapsedTimeInSeconds,
+          totalTimeInSeconds
+        )
+      )
     }
 
     this.isInFrame = false
@@ -265,6 +284,10 @@ class Renderer extends System {
 
   public onDraw(fn: FnToDraw): void {
     this.toDraw.push(fn)
+  }
+
+  public onDrawGui(fn: FnToDraw): void {
+    this.toDrawGui.push(fn)
   }
 
   public clear(): void {
@@ -433,6 +456,16 @@ class Renderer extends System {
   private applyDrawingFunctions(): void {
     while (this.toDraw.length > 0) {
       const functionToDraw = this.toDraw.shift()
+      if (!functionToDraw) {
+        return
+      }
+      functionToDraw(this)
+    }
+  }
+
+  private applyGuiDrawingFunctions(): void {
+    while (this.toDrawGui.length > 0) {
+      const functionToDraw = this.toDrawGui.shift()
       if (!functionToDraw) {
         return
       }

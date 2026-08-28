@@ -54,7 +54,11 @@ class PixelateEffect extends PostProcessEffect {
 }
 
 const grayscale = new GrayscaleEffect({ intensity: 1 })
-const vignette = new VignetteEffect({ radius: 0.4, softness: 0.6 })
+const vignette = new VignetteEffect({
+  radius: 0.3,
+  softness: 0.4,
+  color: [1, 0, 0, 0.5],
+})
 const chromaticAberration = new ChromaticAberrationEffect({ strength: 0.015 })
 const blur = new BlurEffect({ strength: 1.5 })
 const pixelate = new PixelateEffect({ pixelSize: 6 })
@@ -137,7 +141,7 @@ class PostProcessingControls extends Manager {
       pixelate.enabled = !pixelate.enabled
     }
 
-    this.ecs.system(Renderer).onDraw((renderer) => {
+    this.ecs.system(Renderer).onDrawGui((renderer) => {
       const line = (
         index: number,
         key: string,

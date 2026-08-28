@@ -63,7 +63,7 @@ module.exports = {
   },
   devtool: 'source-map',
   devServer: {
-    port: 9000,
+    port: 9999,
     static: './dist',
     hot: true,
     historyApiFallback: {
