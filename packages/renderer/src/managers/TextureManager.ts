@@ -3,8 +3,6 @@ import Texture from '../objects/Texture'
 import Renderer from '../systems/Renderer'
 import { loadTexture } from '../util/loadTexture'
 
-export { loadTexture }
-
 class TextureManager extends Manager {
   private readonly imagesToLoad: Map<string, string>
   private readonly textures: Map<string, Texture>

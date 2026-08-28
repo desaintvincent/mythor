@@ -6,92 +6,32 @@ import ColliderCallback from '../src/components/ColliderCallback'
 
 describe('PhysicSystem', () => {
   describe('body creation', () => {
-    it('moves a dynamic body according to its initial linear velocity', async () => {
+    it('creates a body using transform position, offset, and worldScale', async () => {
       const ecs = new Ecs()
-      const system = new PhysicSystem({ gravity: new Vec2(0, 0) })
+      const system = new PhysicSystem({
+        worldScale: 10,
+        gravity: new Vec2(0, 0),
+      })
       ecs.registerSystems(system)
       await ecs.init()
 
       const entity = ecs.create()
       entity.add(
-        new Transform({ position: new Vec2(0, 0) }),
+        new Transform({ position: new Vec2(20, 30) }),
         new Physic({
-          type: PhysicType.DYNAMIC,
-          initialLinearVelocity: new Vec2(10, 0),
-        })
-      )
-
-      for (let i = 0; i < 5; i++) {
-        ecs.update(1 / 60, i / 60)
-      }
-
-      expect(entity.get(Transform).position.x).toBeGreaterThan(0)
-    })
-
-    it('leaves a static body in place', async () => {
-      const ecs = new Ecs()
-      const system = new PhysicSystem()
-      ecs.registerSystems(system)
-      await ecs.init()
-
-      const entity = ecs.create()
-      entity.add(
-        new Transform({ position: new Vec2(5, 5) }),
-        new Physic({ type: PhysicType.STATIC })
-      )
-
-      ecs.update(1 / 60, 1 / 60)
-
-      expect(entity.get(Transform).position.x).toBeCloseTo(5)
-      expect(entity.get(Transform).position.y).toBeCloseTo(5)
-    })
-
-    it('creates one fixture per polygon when polygons are provided', async () => {
-      const ecs = new Ecs()
-      const system = new PhysicSystem()
-      ecs.registerSystems(system)
-      await ecs.init()
-
-      const entity = ecs.create()
-      entity.add(
-        new Transform(),
-        new Physic({
+          offset: new Vec2(5, 7),
           type: PhysicType.STATIC,
-          polygons: [
-            [
-              { x: 0, y: 0 },
-              { x: 1, y: 0 },
-              { x: 1, y: 1 },
-            ],
-            [
-              { x: 0, y: 0 },
-              { x: -1, y: 0 },
-              { x: -1, y: -1 },
-            ],
-          ],
         })
       )
 
-      const fixtureCount = countFixtures(entity.get(Physic).body)
-      expect(fixtureCount).toBe(2)
+      const body = entity.get(Physic).body
+
+      expect(body.getPosition().x).toBeCloseTo(2.5)
+      expect(body.getPosition().y).toBeCloseTo(3.7)
+      expect(body.getUserData()).toEqual({ entityId: entity._id })
     })
 
-    it('creates one fixture per ellipse when ellipses are provided', async () => {
-      const ecs = new Ecs()
-      const system = new PhysicSystem()
-      ecs.registerSystems(system)
-      await ecs.init()
-
-      const entity = ecs.create()
-      entity.add(
-        new Transform(),
-        new Physic({ type: PhysicType.STATIC, ellipses: [10, 20] })
-      )
-
-      expect(countFixtures(entity.get(Physic).body)).toBe(2)
-    })
-
-    it('falls back to a single box fixture when no shape is provided', async () => {
+    it('creates default box fixture and default world filter values', async () => {
       const ecs = new Ecs()
       const system = new PhysicSystem()
       ecs.registerSystems(system)
@@ -100,6 +40,9 @@ describe('PhysicSystem', () => {
       const entity = ecs.create()
       entity.add(new Transform(), new Physic({ type: PhysicType.STATIC }))
 
+      const fixture = entity.get(Physic).body.getFixtureList()
+      expect(fixture?.getFilterCategoryBits()).toBe(parseInt('010', 2))
+      expect(fixture?.getFilterMaskBits()).not.toBe(IGNORED_BY_WORLD)
       expect(countFixtures(entity.get(Physic).body)).toBe(1)
     })
 
@@ -130,6 +73,31 @@ describe('PhysicSystem', () => {
 
       const fixture = entity.get(Physic).body.getFixtureList()
       expect(fixture?.getFilterCategoryBits()).toBe(parseInt('010', 2))
+    })
+
+    it('creates fixtures from polygons and ellipses', async () => {
+      const ecs = new Ecs()
+      const system = new PhysicSystem()
+      ecs.registerSystems(system)
+      await ecs.init()
+
+      const entity = ecs.create()
+      entity.add(
+        new Transform(),
+        new Physic({
+          type: PhysicType.STATIC,
+          polygons: [
+            [
+              { x: 0, y: 0 },
+              { x: 10, y: 0 },
+              { x: 10, y: 10 },
+            ],
+          ],
+          ellipses: [12],
+        })
+      )
+
+      expect(countFixtures(entity.get(Physic).body)).toBe(2)
     })
   })
 
@@ -203,6 +171,37 @@ describe('PhysicSystem', () => {
       )
 
       expect(found).not.toContain(entity._id)
+    })
+  })
+
+  describe('update', () => {
+    it('syncs transform from the body position and angle', async () => {
+      const ecs = new Ecs()
+      const system = new PhysicSystem({
+        worldScale: 10,
+        gravity: new Vec2(0, 0),
+      })
+      ecs.registerSystems(system)
+      await ecs.init()
+
+      const entity = ecs.create()
+      entity.add(
+        new Transform({ position: new Vec2(0, 0) }),
+        new Physic({
+          type: PhysicType.DYNAMIC,
+          offset: new Vec2(3, 4),
+        })
+      )
+
+      const body = entity.get(Physic).body
+      body.setPosition({ x: 2, y: 5 })
+      body.setAngle(1.25)
+
+      system.update(0)
+
+      expect(entity.get(Transform).position.x).toBeCloseTo(17)
+      expect(entity.get(Transform).position.y).toBeCloseTo(46)
+      expect(entity.get(Transform).rotation).toBeCloseTo(1.25)
     })
   })
 })

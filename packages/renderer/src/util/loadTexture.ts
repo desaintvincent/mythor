@@ -18,7 +18,8 @@ export async function loadTexture(
     img.onload = () => {
       const texture = new Texture(img, gl)
       if (options?.logger !== null) {
-        ;(options?.logger ?? log)(`Loaded %ctexture%c "${name}"`, 'tomato')
+        const logger = options?.logger ?? log
+        logger(`Loaded %ctexture%c "${name}"`, 'tomato')
       }
       resolve(texture)
     }

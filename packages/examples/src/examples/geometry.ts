@@ -2,6 +2,12 @@ import { createGame } from '@mythor/game'
 import { Manager } from '@mythor/core'
 import { Renderer } from '@mythor/renderer'
 import { Vec2 } from '@mythor/math'
+import showDescription from '../util/showDescription'
+
+showDescription(
+  'Showcase of the geometry primitives provided by the renderer.',
+  []
+)
 
 class DrawGeometry extends Manager {
   public constructor() {

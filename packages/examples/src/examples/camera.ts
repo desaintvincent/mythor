@@ -10,6 +10,12 @@ import {
   TextureManager,
 } from '@mythor/renderer'
 import { createGame } from '@mythor/game'
+import showDescription from '../util/showDescription'
+
+showDescription('A camera smoothly following a moving player.', [
+  'Z/Q/S/D: move the player',
+  'Left click: spawn a sprite at the cursor',
+])
 
 class Player extends Component {}
 

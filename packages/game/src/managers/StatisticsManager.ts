@@ -1,5 +1,5 @@
 import { Ecs, getConstructor, getSignature, Manager } from '@mythor/core'
-import STATS from 'stats.js'
+import Stats = require('stats.js')
 import { EventsManager, Key } from '@mythor/events'
 
 const objectToTable = (
@@ -62,14 +62,33 @@ interface ComponentStats extends Record<string, string | number> {
   name: string
 }
 
+type StatsPanel = {
+  update(value: number, maxValue: number): void
+}
+
+type StatsInstance = {
+  dom: HTMLDivElement
+  addPanel(panel: StatsPanel): StatsPanel
+  showPanel(value: number): void
+  begin(): void
+  end(): number
+}
+
+type StatsConstructor = {
+  new (): StatsInstance
+  Panel: new (name: string, fg: string, bg: string) => StatsPanel
+}
+
+const StatsImpl = Stats as unknown as StatsConstructor
+
 export type StatisticsManagerOptions = {
   debugElementId: string
 }
 
 class StatisticsManager extends Manager {
   private count = 0
-  private readonly stats: Stats
-  private readonly entityPanel
+  private readonly stats: StatsInstance
+  private readonly entityPanel: StatsPanel
   private readonly elem?: HTMLElement
   private display = false
 
@@ -77,16 +96,12 @@ class StatisticsManager extends Manager {
     super('StatisticsManager')
     this.count = 0
 
-    this.stats = new STATS()
+    this.stats = new StatsImpl()
     this.stats.dom.style.left = 'auto'
     this.stats.dom.style.right = '0'
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
     this.entityPanel = this.stats.addPanel(
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error
-      new STATS.Panel('Entities', '#0ff', '#002')
+      new StatsImpl.Panel('Entities', '#0ff', '#002')
     )
     this.stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
     document.body.appendChild(this.stats.dom)

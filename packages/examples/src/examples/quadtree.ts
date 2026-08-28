@@ -10,6 +10,11 @@ import {
 import { Vec2 } from '@mythor/math'
 import { createGame } from '@mythor/game'
 import cat from '../assets/cat'
+import showDescription from '../util/showDescription'
+
+showDescription('Quadtree-accelerated rendering.', [
+  'Right click: spawn a cat sprite at the cursor',
+])
 
 class KittenSpawner extends Manager {
   public constructor() {

@@ -11,6 +11,12 @@ import {
 } from '@mythor/renderer'
 import { Vec2 } from '@mythor/math'
 import { EventsManager, Key } from '@mythor/events'
+import showDescription from '../util/showDescription'
+
+showDescription(
+  'Post-processing effects toggled with number keys (see on-screen legend).',
+  []
+)
 
 // A custom postprocessing effect can be built outside the library by
 // extending `PostProcessEffect`: pass a fragment shader to `super()`,

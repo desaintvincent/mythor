@@ -10,6 +10,12 @@ import {
 import { Vec2 } from '@mythor/math'
 import { EventsManager, Key, MouseButton } from '@mythor/events'
 import { createGame } from '@mythor/game'
+import showDescription from '../util/showDescription'
+
+showDescription('Render layers control drawing order.', [
+  'Space: cycle the selected layer',
+  'Left click: spawn a cat sprite on the selected layer',
+])
 
 function spawnKitten(
   ecs: Ecs,

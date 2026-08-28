@@ -2,6 +2,10 @@
 
 TypeScript 2D game framework. Yarn workspaces + Lerna monorepo.
 
+## Language
+
+All code comments and human-facing text (UI strings, example descriptions, commit messages, docs) must always be written in English, regardless of the language used in the conversation.
+
 ## Package manager
 
 **Yarn 1 (classic).** Do not use `npm` or `pnpm`. `yarn install` also runs `lerna bootstrap` via `postinstall`.

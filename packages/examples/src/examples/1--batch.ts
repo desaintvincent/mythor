@@ -17,6 +17,14 @@ import {
 import { EventsManager, MouseButton, Key } from '@mythor/events'
 import { createGame } from '@mythor/game'
 import cat from '../assets/cat'
+import showDescription from '../util/showDescription'
+
+showDescription('Batch rendering of many sprites at once.', [
+  'Left click (hold): spawn cats at the cursor',
+  'Left click (release): cycle the cat variant',
+  'Right click (hold): remove cats',
+  'W: toggle automatic spawning',
+])
 
 class Velocity extends Vec2 implements Component {
   public _entity!: Entity

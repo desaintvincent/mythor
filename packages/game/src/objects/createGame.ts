@@ -3,14 +3,9 @@ import { LoadingStateManager, Manager } from '@mythor/core'
 import Game from './Game'
 import { EventsManager, EventManagerOptions } from '@mythor/events'
 import CameraMovementManager from '../managers/CameraMovementManager'
-import StatisticsManager, {
-  StatisticsManagerOptions,
-} from '../managers/StatisticsManager'
-import PhysicDebugManager from '../managers/PhysicDebugManager'
-import SelectDebugManager, {
-  SelectDebugManagerParams,
-} from '../managers/SelectDebugManager'
-import RendererDebugManager from '../managers/RendererDebugManager'
+import DevToolsManager, {
+  DevToolsManagerOptions,
+} from '../managers/DevToolsManager'
 import createLoadingScene from '../util/createLoadingScene'
 import { Camera } from '@mythor/renderer'
 
@@ -24,9 +19,7 @@ interface GameMakerOptions extends SceneOptions {
   addRendererDebugManager?: boolean
   params?: {
     eventsManager?: EventManagerOptions
-    statisticsManager?: StatisticsManagerOptions
-    selectDebugManager?: SelectDebugManagerParams
-  }
+  } & DevToolsManagerOptions['params']
   camera?: Camera
 }
 
@@ -49,22 +42,24 @@ const defaultManagers: Array<ConditionalAdd<Manager>> = [
     getItem: () => new CameraMovementManager(),
   },
   {
-    condition: (options) => options?.addStatisticsManager ?? true,
+    condition: (options) =>
+      !(
+        options?.addStatisticsManager === false &&
+        options?.addPhysicDebugManager === false &&
+        options?.addSelectDebugManager === false &&
+        options?.addRendererDebugManager === false
+      ),
     getItem: (options) =>
-      new StatisticsManager(options?.params?.statisticsManager),
-  },
-  {
-    condition: (options) => options?.addPhysicDebugManager ?? true,
-    getItem: () => new PhysicDebugManager(),
-  },
-  {
-    condition: (options) => options?.addSelectDebugManager ?? true,
-    getItem: (options) =>
-      new SelectDebugManager(options?.params?.selectDebugManager),
-  },
-  {
-    condition: (options) => options?.addRendererDebugManager ?? true,
-    getItem: () => new RendererDebugManager(),
+      new DevToolsManager({
+        addStatisticsManager: options?.addStatisticsManager,
+        addPhysicDebugManager: options?.addPhysicDebugManager,
+        addSelectDebugManager: options?.addSelectDebugManager,
+        addRendererDebugManager: options?.addRendererDebugManager,
+        params: {
+          statisticsManager: options?.params?.statisticsManager,
+          selectDebugManager: options?.params?.selectDebugManager,
+        },
+      }),
   },
 ]
 

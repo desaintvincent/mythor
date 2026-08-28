@@ -11,6 +11,12 @@ import {
 import { Entity, Manager, System, Transform } from '@mythor/core'
 import { Vec2 } from '@mythor/math'
 import character from '../assets/character_malePerson_sheet.png'
+import showDescription from '../util/showDescription'
+
+showDescription(
+  'Character animations switched by keyboard input (see on-screen legend for the keys).',
+  []
+)
 
 const imageSprites = Vec2.create(9, 5)
 const spriteSize = Vec2.create(96, 128)
@@ -56,7 +62,9 @@ class ControlAnimations extends System {
     const animation = entity.get(Animation)
 
     Object.values(ANIMATION).forEach((animationValue) => {
-      if (events.keyPressed(Key[`Digit${animationValue}` as keyof typeof Key])) {
+      if (
+        events.keyPressed(Key[`Digit${animationValue}` as keyof typeof Key])
+      ) {
         animation.run(animationValue, true)
       }
     })

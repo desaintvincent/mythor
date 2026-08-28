@@ -4,6 +4,11 @@ import { createGame } from '@mythor/game'
 import { Vec2 } from '@mythor/math'
 import { Renderable, Renderer } from '@mythor/renderer'
 import ParticleEmitter from '@mythor/renderer/lib/components/ParticleEmitter'
+import showDescription from '../util/showDescription'
+
+showDescription('A particle trail following the mouse cursor.', [
+  'Move the mouse to leave a trail',
+])
 
 // The particle system's spawn shader only accepts a single spawn position
 // per frame (see `u_spawnPosition` in `@mythor/renderer`'s

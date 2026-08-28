@@ -75,7 +75,12 @@ export default class Animation<
       this.previousAnimation = this.currentAnimation
     }
     this.currentAnimation = name
-    this.currentFrame = this.animations.get(name)!.start
+    const animation = this.animations.get(name)
+    if (!animation) {
+      return this
+    }
+
+    this.currentFrame = animation.start
 
     return this
   }
