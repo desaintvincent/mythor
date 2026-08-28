@@ -24,7 +24,7 @@ yarn install
 |------------------------|---------------------------------------------------------|
 | `@mythor/math`         | Vec2, Rect                                              |
 | `@mythor/core`         | ECS kernel (Entity, Component, System, Ecs, Manager)     |
-| `@mythor/renderer`     | WebGL renderer, shaders, sprites, camera                |
+| `@mythor/renderer`     | WebGL renderer, shaders, sprites, camera, postprocessing pipeline (blur, vignette, grayscale, chromatic aberration) and particle systems |
 | `@mythor/events`       | Input (keyboard, mouse)                                 |
 | `@mythor/physic2d`     | 2D physics (via [planck](https://github.com/shakiba/planck.js)) |
 | `@mythor/tiled`        | Tiled map loader                                        |

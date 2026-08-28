@@ -53,12 +53,12 @@ class PixelateEffect extends PostProcessEffect {
   }
 }
 
-const grayscale = new GrayscaleEffect({ intensity: 1 })
 const vignette = new VignetteEffect({
   radius: 0.3,
   softness: 0.4,
   color: [1, 0, 0, 0.5],
 })
+const grayscale = new GrayscaleEffect({ intensity: 1 })
 const chromaticAberration = new ChromaticAberrationEffect({ strength: 0.015 })
 const blur = new BlurEffect({ strength: 1.5 })
 const pixelate = new PixelateEffect({ pixelSize: 6 })
@@ -126,10 +126,10 @@ class PostProcessingControls extends Manager {
     const events = this.ecs.manager(EventsManager)
 
     if (events.keyPressed(Key.Digit1)) {
-      grayscale.enabled = !grayscale.enabled
+      vignette.enabled = !vignette.enabled
     }
     if (events.keyPressed(Key.Digit2)) {
-      vignette.enabled = !vignette.enabled
+      grayscale.enabled = !grayscale.enabled
     }
     if (events.keyPressed(Key.Digit3)) {
       chromaticAberration.enabled = !chromaticAberration.enabled
@@ -155,8 +155,8 @@ class PostProcessingControls extends Manager {
         )
       }
 
-      line(1, '1', 'grayscale', grayscale)
-      line(2, '2', 'vignette', vignette)
+      line(1, '1', 'vignette', vignette)
+      line(2, '2', 'grayscale', grayscale)
       line(3, '3', 'chromatic aberration', chromaticAberration)
       line(4, '4', 'blur', blur)
       line(5, '5', 'pixelate (custom)', pixelate)
@@ -173,8 +173,8 @@ createGame({
   systems: [
     new Renderer({
       postProcessing: [
-        grayscale,
         vignette,
+        grayscale,
         chromaticAberration,
         blur,
         pixelate,
