@@ -88,6 +88,8 @@ export default class Ecs implements IEcs {
   }
 
   public stop(): void {
+    this._systems.forEach((system) => system.clear())
+    this._managers.forEach((manager) => manager.clear())
     this._systems.clear()
     this._managers.clear()
     this._entities.clear()

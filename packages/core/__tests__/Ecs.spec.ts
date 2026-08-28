@@ -109,6 +109,20 @@ describe('Ecs', () => {
       ecs.stop()
       expect(ecs.getEntityNumber()).toBe(0)
     })
+
+    it('stop calls clear() on registered systems and managers', async () => {
+      const ecs = new Ecs()
+      const system = new SimpleSystem()
+      const manager = new SimpleManager()
+      const systemClearSpy = jest.spyOn(system, 'clear')
+      const managerClearSpy = jest.spyOn(manager, 'clear')
+      ecs.registerSystems(system)
+      ecs.registerManagers(manager)
+      await ecs.init()
+      ecs.stop()
+      expect(systemClearSpy).toHaveBeenCalledTimes(1)
+      expect(managerClearSpy).toHaveBeenCalledTimes(1)
+    })
   })
 
   describe('systems', () => {

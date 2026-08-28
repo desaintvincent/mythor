@@ -1,5 +1,5 @@
 import { Vec2 } from '@mythor/math'
-import { Body } from 'planck-js'
+import { Body } from 'planck'
 import { Component } from '@mythor/core'
 
 export enum PhysicType {

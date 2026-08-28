@@ -1,6 +1,5 @@
 import { Renderer, colorGreen, colorRed } from '@mythor/renderer'
-import { Body, Fixture } from 'planck-js'
-import { PolygonShape } from 'planck-js/lib/shape'
+import { Body, Fixture, PolygonShape } from 'planck'
 import { Vec2 } from '@mythor/math'
 import { IGNORED_BY_WORLD } from '@mythor/physic2d'
 

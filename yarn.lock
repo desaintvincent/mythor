@@ -7243,12 +7243,10 @@ pkg-dir@^4.2.0:
   dependencies:
     find-up "^4.0.0"
 
-planck-js@^0.3.31:
-  version "0.3.31"
-  resolved "https://registry.yarnpkg.com/planck-js/-/planck-js-0.3.31.tgz#dc87a999f6d425633d7abd8c77078fcb5a9babd2"
-  integrity sha512-fwKYnL92pF2nXdMPeBq/Aipu+m8LztcEcNjdcrQm/sWKDR01Ej0g121KS1oO7NW23WnRzxw24a7V4KI2JlFpSg==
-  dependencies:
-    stage-js "^0.9.4"
+planck@1.4.2:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/planck/-/planck-1.4.2.tgz#707c390c889f58d1f2942768b0cd2c2ffc6fc8a8"
+  integrity sha512-mNbhnV3g8X2rwGxzcesjmN8BDA6qfXgQxXVMkWau9MCRlQY0RLNEkyHlVp6yFy/X6qrzAXyNONCnZ1cGDLrNew==
 
 poly-decomp@^0.3.0:
   version "0.3.0"
@@ -8127,11 +8125,6 @@ stack-utils@^2.0.3:
   integrity sha512-xrQcmYhOsn/1kX+Vraq+7j4oE2j/6BFscZ0etmYg81xuM8Gq0022Pxb8+IqgOFUIaxHs0KaSb7T1+OegiNrNFA==
   dependencies:
     escape-string-regexp "^2.0.0"
-
-stage-js@^0.9.4:
-  version "0.9.4"
-  resolved "https://registry.yarnpkg.com/stage-js/-/stage-js-0.9.4.tgz#5d31eb8f33f1ca8d21c2043c6d21e47794b715f5"
-  integrity sha512-fNN6rkYD55T4NUxJE71hixXYS9DoyHVX5S8sQcq5yiozX1kqHP/wnByZwFfdAGNZjb5rROJ90zwb0EbM9U2Jqg==
 
 stats.js@^0.17.0:
   version "0.17.0"

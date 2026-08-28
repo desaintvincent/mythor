@@ -31,6 +31,7 @@
     "@mythor/math": "^0.3.10",
     "@mythor/renderer": "^0.6.1",
     "@types/stats": "^0.16.30",
+    "planck": "1.4.2",
     "stats.js": "^0.17.0"
   },
   "gitHead": "4773ef4d50c9a9e9bb4d84dcca5d24310f13433f"

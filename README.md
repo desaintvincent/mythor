@@ -19,11 +19,56 @@ This is a wip project, provided as is, mainly for myself (for now)
 yarn install
 ```
 
+## Packages
+| Package               | Role                                                    |
+|------------------------|---------------------------------------------------------|
+| `@mythor/math`         | Vec2, Rect                                              |
+| `@mythor/core`         | ECS kernel (Entity, Component, System, Ecs, Manager)     |
+| `@mythor/renderer`     | WebGL renderer, shaders, sprites, camera                |
+| `@mythor/events`       | Input (keyboard, mouse)                                 |
+| `@mythor/physic2d`     | 2D physics (via [planck](https://github.com/shakiba/planck.js)) |
+| `@mythor/tiled`        | Tiled map loader                                        |
+| `@mythor/game`         | Game loop, Scene management                             |
+
+## Getting started
+A minimal scene wiring an entity with rendering, input and physics:
+
+```ts
+import { Entity, System, Transform } from '@mythor/core'
+import { EventsManager, Key } from '@mythor/events'
+import { PhysicSystem, Physic } from '@mythor/physic2d'
+import { Renderer, Renderable } from '@mythor/renderer'
+import { Game, Scene } from '@mythor/game'
+
+class Move extends System {
+  public constructor() {
+    super('Move', [Transform, Physic])
+  }
+
+  protected onEntityUpdate(entity: Entity): void {
+    const events = this.ecs.manager(EventsManager)
+    if (events.keyIsDown(Key.ArrowRight)) {
+      entity.get(Physic).body?.applyForceToCenter({ x: 10, y: 0 })
+    }
+  }
+}
+
+const scene = new Scene('main', {
+  managers: [new EventsManager()],
+  systems: [new Renderer(), new PhysicSystem(), new Move()],
+  onLoaded: async (ecs) => {
+    ecs.create().add(new Transform(), new Physic(), new Renderable())
+  },
+})
+
+const game = new Game(scene)
+game.start()
+```
+
+Each package's own README links to its typedoc-generated API reference.
+
 ## Examples
 [Examples](https://desaintvincent.github.io/mythor/)
-
-## Documentation
-Each Mythor library provides it's own documentation
 
 ## Run
 | command    | description                 |

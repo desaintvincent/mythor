@@ -1,4 +1,4 @@
-import { Contact } from 'planck-js'
+import { Contact } from 'planck'
 import { Component, Entity } from '@mythor/core'
 import { Vec2 } from '@mythor/math'
 

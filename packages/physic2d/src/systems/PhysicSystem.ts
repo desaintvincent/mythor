@@ -1,14 +1,14 @@
 import {
   AABB,
   Body,
+  Box,
+  Circle,
   Contact,
+  Polygon,
   Vec2 as PlankVec2,
   WeldJoint,
   World,
-  // eslint-disable-next-line import/no-duplicates
-} from 'planck-js'
-// eslint-disable-next-line import/no-duplicates
-import { Box, Circle, Polygon } from 'planck-js/lib'
+} from 'planck'
 import { Vec2 } from '@mythor/math'
 import { Entity, Owner, System, Transform } from '@mythor/core'
 import Physic, { PhysicType } from '../components/Physic'
@@ -312,7 +312,6 @@ export default class PhysicSystem extends System {
         bodyB: si.arrowBody,
         localAnchorA: si.targetBody.getLocalPoint(worldCoordsAnchorPoint),
         localAnchorB: si.arrowBody.getLocalPoint(worldCoordsAnchorPoint),
-        localAxisA: PlankVec2(0, 0),
         referenceAngle: si.arrowBody.getAngle() - si.targetBody.getAngle(),
       })
     )
