@@ -26,6 +26,8 @@ import Sprite from '../webgl/shaders/Sprite'
 import FillRect from '../webgl/shaders/FillRect'
 import Circle from '../webgl/shaders/Circle'
 import Text from '../webgl/shaders/Text'
+import PostProcessPipeline from '../postprocessing/PostProcessPipeline'
+import type PostProcessEffect from '../postprocessing/PostProcessEffect'
 
 interface RendererOptions {
   antialias: boolean
@@ -37,6 +39,7 @@ type RendererParams = Partial<RendererOptions> & {
   canvasName?: string
   initDefaultShaders?: boolean
   useTree?: boolean
+  postProcessing?: PostProcessEffect[]
 }
 
 type FnToDraw = (renderer: Renderer) => void
@@ -63,6 +66,7 @@ class Renderer extends System {
   private readonly canvas: HTMLCanvasElement
   public readonly gl: WebGL2RenderingContext
   private readonly initDefaultShaders: boolean
+  private readonly postProcessPipeline: PostProcessPipeline | null = null
 
   public constructor(params?: RendererParams) {
     super('Renderer', [Renderable, Transform], {
@@ -93,6 +97,13 @@ class Renderer extends System {
     this.canvas.width = this.camera.getSize().x
     this.canvas.height = this.camera.getSize().y
     this._shaders = new ConstructorMap()
+
+    if (params?.postProcessing && params.postProcessing.length > 0) {
+      this.postProcessPipeline = new PostProcessPipeline(
+        this.gl,
+        params.postProcessing
+      )
+    }
   }
 
   public update(
@@ -123,6 +134,14 @@ class Renderer extends System {
     this._shaders.forEach((shader) =>
       shader.postRender(this.camera, elapsedTimeInSeconds, totalTimeInSeconds)
     )
+
+    if (
+      this.postProcessPipeline &&
+      this.postProcessPipeline.hasEnabledEffects()
+    ) {
+      this.postProcessPipeline.render(this.camera.getSize())
+    }
+
     this.isInFrame = false
   }
 
@@ -249,8 +268,16 @@ class Renderer extends System {
   }
 
   public clear(): void {
+    if (
+      this.postProcessPipeline &&
+      this.postProcessPipeline.hasEnabledEffects()
+    ) {
+      this.postProcessPipeline.getEntryTarget(this.camera.getSize()).bind()
+    } else {
+      this.gl.bindFramebuffer(this.gl.FRAMEBUFFER, null)
+      this.gl.viewport(0, 0, this.camera.getSize().x, this.camera.getSize().y)
+    }
     this.gl.enable(this.gl.BLEND)
-    this.gl.viewport(0, 0, this.camera.getSize().x, this.camera.getSize().y)
     this.gl.clear(this.gl.COLOR_BUFFER_BIT)
   }
 

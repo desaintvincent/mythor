@@ -34,3 +34,10 @@ export {
   colorGreen,
   colorBlue,
 } from './color/Color'
+
+export { default as PostProcessPipeline } from './postprocessing/PostProcessPipeline'
+export { default as PostProcessEffect } from './postprocessing/PostProcessEffect'
+export { default as GrayscaleEffect } from './postprocessing/effects/GrayscaleEffect'
+export { default as VignetteEffect } from './postprocessing/effects/VignetteEffect'
+export { default as ChromaticAberrationEffect } from './postprocessing/effects/ChromaticAberrationEffect'
+export { default as BlurEffect } from './postprocessing/effects/BlurEffect'
