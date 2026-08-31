@@ -45,10 +45,12 @@
     "@mythor/events": "^0.4.6",
     "@mythor/fsm": "^0.1.0",
     "@mythor/game": "^0.4.7",
+    "@mythor/gl-utils": "^0.1.0",
     "@mythor/math": "^0.3.10",
     "@mythor/persistence": "^0.1.0",
     "@mythor/physic2d": "^0.5.1",
     "@mythor/renderer": "^0.6.1",
+    "@mythor/renderer3d": "^0.1.0",
     "@mythor/ui": "^0.1.0"
   }
 }

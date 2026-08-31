@@ -13,6 +13,7 @@ export { default as Manager } from './ecs/Manager'
 export type { IEcs } from './ecs/IEcs'
 export { default as Owner } from './components/Owner'
 export { default as Transform } from './components/Transform'
+export { default as Transform3D } from './components/Transform3D'
 export {
   default as LoadingStateManager,
   LoadingState,
