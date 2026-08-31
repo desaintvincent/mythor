@@ -2,6 +2,7 @@ import Ecs from '../src/ecs/Ecs'
 import Component from '../src/ecs/Component'
 import System from '../src/ecs/System'
 import Entity from '../src/ecs/Entity'
+import type { IEcs } from '../src/ecs/IEcs'
 
 // Define at module scope — stable signatures within this test file
 class SysComp extends Component {}
@@ -245,5 +246,96 @@ describe('System', () => {
       ecs.registerSystems(new TrackingSystem(), new DepSystem())
       await expect(ecs.init()).resolves.toBeUndefined()
     })
+  })
+})
+
+function createMockEcs(overrides: Partial<IEcs> = {}): IEcs {
+  return {
+    createList: jest.fn(() => ({
+      signature: 0,
+      constructors: [],
+      add: jest.fn(),
+      remove: jest.fn(),
+      clear: jest.fn(),
+      forEach: jest.fn(),
+      length: 0,
+    })),
+    systems: { has: jest.fn(() => true) },
+    managers: { has: jest.fn(() => true) },
+    addEntityToCollections: jest.fn(),
+    destroyEntity: jest.fn(),
+    ...overrides,
+  } as unknown as IEcs
+}
+
+describe('System (isolated, mock IEcs)', () => {
+  it('throws when 0 components, even without a real Ecs', async () => {
+    const system = new NoCompSystem()
+    const mockEcs = createMockEcs()
+
+    await expect(system.init(mockEcs)).rejects.toThrow(/should be a manager/)
+  })
+
+  it('throws when a required system dependency is missing', async () => {
+    class DepSystem extends System {
+      public constructor() {
+        super('DepSystem', [SysComp], { systems: [TrackingSystem] })
+      }
+    }
+    const mockEcs = createMockEcs({
+      systems: { has: jest.fn(() => false) },
+    })
+
+    await expect(new DepSystem().init(mockEcs)).rejects.toThrow(
+      /missing system dependencies/
+    )
+  })
+
+  it('throws when a required manager dependency is missing', async () => {
+    class DepSystem extends System {
+      public constructor() {
+        super('DepSystem', [SysComp], { managers: [] as never[] })
+      }
+    }
+    const mockEcs = createMockEcs({
+      managers: { has: jest.fn(() => false) },
+    })
+
+    await expect(new DepSystem().init(mockEcs)).resolves.toBeUndefined()
+  })
+
+  it('calls ecs.createList with expected shape on init', async () => {
+    const system = new TrackingSystem()
+    const mockEcs = createMockEcs()
+
+    await system.init(mockEcs)
+
+    expect(mockEcs.createList).toHaveBeenCalledWith(
+      expect.objectContaining({
+        constructors: [SysComp],
+        onCreate: expect.any(Function),
+        onDelete: expect.any(Function),
+        shouldBeAdded: expect.any(Function),
+      }),
+      undefined
+    )
+  })
+
+  it('passes the mock ecs to onSystemInit hook', async () => {
+    let receivedEcs: IEcs | undefined
+    class HookSystem extends System {
+      public constructor() {
+        super('HookSystem', [SysComp])
+      }
+
+      protected async onSystemInit(ecs: IEcs): Promise<void> {
+        receivedEcs = ecs
+      }
+    }
+    const mockEcs = createMockEcs()
+
+    await new HookSystem().init(mockEcs)
+
+    expect(receivedEcs).toBe(mockEcs)
   })
 })

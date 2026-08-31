@@ -10,6 +10,7 @@ export { default as System } from './ecs/System'
 export { default as Ecs } from './ecs/Ecs'
 export type { EcsOptions } from './ecs/Ecs'
 export { default as Manager } from './ecs/Manager'
+export type { IEcs } from './ecs/IEcs'
 export { default as Owner } from './components/Owner'
 export { default as Transform } from './components/Transform'
 export {

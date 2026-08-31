@@ -38,25 +38,6 @@ independent of any new package feature.
   in the root `tsconfig.json`), which prevents tree-shaking for consumers using
   modern bundlers — meaningful for a game framework where bundle size matters.
 
-## Codebase health / technical debt
-
-### ECS testability
-
-**Goal:** make `Entity`, `System`, and `Manager` unit-testable without spinning
-up a full `Ecs`.
-**Current state:** the `IEcs` extraction removed the biggest cycle, but these
-types still have the remaining direct coupling that makes isolated tests
-awkward. `ANALYSIS.md` step 3 was left open.
-**Proposed approach:** introduce the smallest possible seams for the remaining
-`Ecs` interactions, then add focused unit tests for lifecycle behavior and
-`init` / `clear` flows.
-**Open question:** how much dependency injection is acceptable before the ECS
-API starts to feel heavier than the current direct wiring.
-**Sequencing:** after the renderer and Tiled cleanup work, because this is
-mostly test and maintenance work rather than feature work.
-**Testing approach:** add isolated unit tests for `Entity`, `System`, and
-`Manager`, plus one integration test for the full ECS lifecycle.
-
 ## Notes
 
 - `@mythor/ui` has been implemented (see `packages/ui`); its section was
@@ -84,3 +65,10 @@ mostly test and maintenance work rather than feature work.
   `typedoc-plugin-markdown` compatibility gaps — TS 5.7+ also needs WebGL
   typed-array type fixes in `@mythor/renderer`), so a further TS bump is left
   as a distinct follow-up if needed.
+- ECS testability has been implemented: `System` and `Manager` now depend on
+  the `IEcs` interface instead of the concrete `Ecs` class (mirroring
+  `Entity`'s existing pattern), removing the last runtime coupling described
+  in `docs/ecs-architectural-cycles.md`. Isolated unit tests using a minimal
+  mock `IEcs` were added for `System` and `Manager` in
+  `packages/core/__tests__/`, alongside the existing full-`Ecs` lifecycle
+  tests; its section was removed from this document accordingly.

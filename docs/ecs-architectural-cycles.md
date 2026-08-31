@@ -406,6 +406,12 @@ const mockEcs: IEcs = {
 
 Tests `Entity`, `System`, `Manager` sans instancier `Ecs` — isolés, rapides, robustes.
 
+**Statut : ✅ terminé.** `System.ts` et `Manager.ts` dépendent désormais de
+`IEcs` (Étape 2), et des tests unitaires isolés avec un mock `IEcs` minimal
+ont été ajoutés dans `packages/core/__tests__/System.spec.ts` et
+`Manager.spec.ts` (Étape 3), en complément des tests d'intégration existants
+utilisant un `Ecs` réel.
+
 ---
 
 ## Conclusion

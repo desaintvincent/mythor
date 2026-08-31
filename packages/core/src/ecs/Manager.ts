@@ -1,9 +1,9 @@
-import Ecs from './Ecs'
+import type { IEcs } from './IEcs'
 import Signable from '../collections/Signable'
 
 class Manager extends Signable {
   private readonly _name: string
-  protected ecs!: Ecs
+  protected ecs!: IEcs
 
   public constructor(name: string) {
     super()
@@ -15,16 +15,16 @@ class Manager extends Signable {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  public async init(ecs: Ecs): Promise<void> {
+  public async init(ecs: IEcs): Promise<void> {
     this.ecs = ecs
   }
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  public postUpdate(ecs: Ecs): void {
+  public postUpdate(ecs: IEcs): void {
     // do nothing
   }
   public update(
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    ecs: Ecs,
+    ecs: IEcs,
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     elapsedTimeInSeconds: number,
     // eslint-disable-next-line @typescript-eslint/no-unused-vars

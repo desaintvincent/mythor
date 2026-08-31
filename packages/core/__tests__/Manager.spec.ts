@@ -1,5 +1,6 @@
 import Ecs from '../src/ecs/Ecs'
 import Manager from '../src/ecs/Manager'
+import type { IEcs } from '../src/ecs/IEcs'
 
 class TrackingManager extends Manager {
   public initCalled = false
@@ -131,5 +132,25 @@ describe('Manager', () => {
       expect(() => ecs.update(0, 0)).not.toThrow()
       expect(() => ecs.stop()).not.toThrow()
     })
+  })
+})
+
+describe('Manager (isolated, mock IEcs)', () => {
+  it('stores the mock ecs passed to init(), without a real Ecs', async () => {
+    class AccessorManager extends Manager {
+      public constructor() {
+        super('AccessorManager')
+      }
+
+      public getEcs(): IEcs {
+        return this.ecs
+      }
+    }
+    const mockEcs = {} as unknown as IEcs
+    const manager = new AccessorManager()
+
+    await manager.init(mockEcs)
+
+    expect(manager.getEcs()).toBe(mockEcs)
   })
 })

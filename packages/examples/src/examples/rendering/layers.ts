@@ -1,5 +1,6 @@
 import cat from '../../assets/cat'
-import { Ecs, Manager, Transform } from '@mythor/core'
+import { Manager, Transform } from '@mythor/core'
+import type { IEcs } from '@mythor/core'
 import {
   Renderable,
   Renderer,
@@ -18,7 +19,7 @@ showDescription('Render layers control drawing order.', [
 ])
 
 function spawnKitten(
-  ecs: Ecs,
+  ecs: IEcs,
   texture: Texture,
   position = Vec2.zero(),
   layer = 0

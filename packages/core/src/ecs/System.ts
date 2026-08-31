@@ -1,4 +1,4 @@
-import Ecs from './Ecs'
+import type { IEcs } from './IEcs'
 import Signable, { Constructor } from '../collections/Signable'
 import Entity from './Entity'
 import Component from './Component'
@@ -12,7 +12,7 @@ interface SystemDependencies {
 }
 
 abstract class System extends Signable {
-  public ecs!: Ecs
+  public ecs!: IEcs
   private readonly _name: string
   private _disabled = false
   public _duration: number
@@ -56,7 +56,7 @@ abstract class System extends Signable {
     return this._duration
   }
 
-  public async init(ecs: Ecs): Promise<void> {
+  public async init(ecs: IEcs): Promise<void> {
     this.ecs = ecs
     this.checkDependencies()
 
@@ -120,7 +120,7 @@ abstract class System extends Signable {
     // do nothing
   }
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  protected async onSystemInit(ecs: Ecs): Promise<void> {
+  protected async onSystemInit(ecs: IEcs): Promise<void> {
     // do nothing
   }
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
