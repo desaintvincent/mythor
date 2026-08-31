@@ -41,13 +41,24 @@ showDescription('A rotating 3D triangle rendered with depth testing.', [
 const camera = new Camera3D({ position: new Vec3(0, 0, 3) })
 const renderer = new Renderer3D({ camera })
 
+// Classic WebGL demo: one distinct color per corner, interpolated by the GPU.
+// prettier-ignore
+const rainbowTriangleColors = new Float32Array([
+  1, 0, 0,
+  0, 1, 0,
+  0, 0, 1,
+])
+
 const scene = new Scene('render3d-basic', {
   managers: [new EventsManager(), new CameraMovementManager3D()],
   systems: [renderer, new RotatingSystem()],
   onLoaded: async (ecs) => {
     ecs
       .create()
-      .add(new Transform3D(), new Renderable3D({ color: [0.2, 0.7, 1] }))
+      .add(
+        new Transform3D(),
+        new Renderable3D({ colors: rainbowTriangleColors })
+      )
   },
 })
 

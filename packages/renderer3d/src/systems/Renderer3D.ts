@@ -25,7 +25,6 @@ export default class Renderer3D extends System {
   private program!: WebGLProgram
   private modelMatrixLocation!: WebGLUniformLocation
   private viewProjectionMatrixLocation!: WebGLUniformLocation
-  private colorLocation!: WebGLUniformLocation
   private readonly vaoByEntity = new Map<Entity, WebGLVertexArrayObject>()
 
   public constructor(params?: Renderer3DParams) {
@@ -68,32 +67,44 @@ export default class Renderer3D extends System {
       this.program,
       'viewProjectionMatrix'
     )
-    const colorLocation = this.gl.getUniformLocation(this.program, 'color')
 
-    if (
-      !modelMatrixLocation ||
-      !viewProjectionMatrixLocation ||
-      !colorLocation
-    ) {
+    if (!modelMatrixLocation || !viewProjectionMatrixLocation) {
       throw new Error('Could not find uniform locations')
     }
 
     this.modelMatrixLocation = modelMatrixLocation
     this.viewProjectionMatrixLocation = viewProjectionMatrixLocation
-    this.colorLocation = colorLocation
   }
 
   protected onEntityCreation(entity: Entity): void {
     const renderable = entity.get(Renderable3D)
-    const buffer = makeBuffer(this.gl, renderable.vertices, this.gl.STATIC_DRAW)
+    const positionBuffer = makeBuffer(
+      this.gl,
+      renderable.vertices,
+      this.gl.STATIC_DRAW
+    )
+    const colorBuffer = makeBuffer(
+      this.gl,
+      renderable.colors,
+      this.gl.STATIC_DRAW
+    )
     const positionLocation = this.gl.getAttribLocation(this.program, 'position')
-    const attribute: VertexAttribute = {
-      buffer,
+    const colorLocation = this.gl.getAttribLocation(this.program, 'vertexColor')
+    const positionAttribute: VertexAttribute = {
+      buffer: positionBuffer,
       location: positionLocation,
       numComponents: 3,
     }
+    const colorAttribute: VertexAttribute = {
+      buffer: colorBuffer,
+      location: colorLocation,
+      numComponents: 3,
+    }
 
-    this.vaoByEntity.set(entity, makeVertexArray(this.gl, [attribute]))
+    this.vaoByEntity.set(
+      entity,
+      makeVertexArray(this.gl, [positionAttribute, colorAttribute])
+    )
   }
 
   protected onEntityDestruction(entity: Entity): void {
@@ -129,7 +140,6 @@ export default class Renderer3D extends System {
     const modelMatrix = this.buildModelMatrix(transform)
 
     this.gl.uniformMatrix4fv(this.modelMatrixLocation, false, modelMatrix)
-    this.gl.uniform3fv(this.colorLocation, renderable.color)
 
     this.gl.bindVertexArray(vao)
     this.gl.drawArrays(this.gl.TRIANGLES, 0, renderable.vertexCount)

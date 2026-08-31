@@ -3,6 +3,7 @@ import { Quaternion, Vec3 } from '@mythor/math'
 import {
   Camera3D,
   CameraMovementManager3D,
+  createCube,
   Renderable3D,
   Renderer3D,
 } from '@mythor/renderer3d'
@@ -32,33 +33,25 @@ class RotatingSystem extends System {
   }
 }
 
-showDescription('A 3D cube rendered with depth testing.', [
-  'W/A/S/D: move the camera',
-  'Q/E: move the camera down/up',
-  'Right click + drag: look around',
-])
+showDescription(
+  'A 3D cube with a distinct color per face, so edges are easy to see.',
+  [
+    'W/A/S/D: move the camera',
+    'Q/E: move the camera down/up',
+    'Right click + drag: look around',
+  ]
+)
 
 // prettier-ignore
-const cubeVertices = new Float32Array([
-  // front
-  -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5,
-  -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5,
-  // back
-  0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5,
-  0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5,
-  // left
-  -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5,
-  -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5,
-  // right
-  0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5,
-  0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5,
-  // top
-  -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5,
-  -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5,
-  // bottom
-  -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5,
-  -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5,
-])
+const faceColors: [number, number, number][] = [
+  [0.9, 0.2, 0.2], // front
+  [0.7, 0.1, 0.1], // back
+  [0.2, 0.7, 0.2], // left
+  [0.1, 0.5, 0.1], // right
+  [0.2, 0.4, 0.9], // top
+  [0.1, 0.3, 0.7], // bottom
+]
+const cube = createCube(faceColors)
 
 const camera = new Camera3D({ position: new Vec3(0, 0, 3) })
 const renderer = new Renderer3D({ camera })
@@ -71,7 +64,7 @@ const scene = new Scene('render3d-cube', {
       .create()
       .add(
         new Transform3D(),
-        new Renderable3D({ vertices: cubeVertices, color: [1, 0.5, 0.2] })
+        new Renderable3D({ vertices: cube.vertices, colors: cube.colors })
       )
   },
 })
