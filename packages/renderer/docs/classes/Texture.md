@@ -20,6 +20,10 @@
 
 - [webGLTexture](Texture.md#webgltexture)
 
+### Methods
+
+- [delete](Texture.md#delete)
+
 ## Constructors
 
 ### constructor
@@ -37,7 +41,7 @@
 
 #### Defined in
 
-[renderer/src/objects/Texture.ts:10](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/objects/Texture.ts#L10)
+[renderer/src/objects/Texture.ts:10](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/objects/Texture.ts#L10)
 
 ## Properties
 
@@ -47,7 +51,7 @@
 
 #### Defined in
 
-[renderer/src/objects/Texture.ts:5](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/objects/Texture.ts#L5)
+[renderer/src/objects/Texture.ts:5](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/objects/Texture.ts#L5)
 
 ___
 
@@ -57,7 +61,7 @@ ___
 
 #### Defined in
 
-[renderer/src/objects/Texture.ts:8](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/objects/Texture.ts#L8)
+[renderer/src/objects/Texture.ts:8](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/objects/Texture.ts#L8)
 
 ___
 
@@ -67,7 +71,7 @@ ___
 
 #### Defined in
 
-[renderer/src/objects/Texture.ts:7](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/objects/Texture.ts#L7)
+[renderer/src/objects/Texture.ts:7](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/objects/Texture.ts#L7)
 
 ___
 
@@ -77,7 +81,7 @@ ___
 
 #### Defined in
 
-[renderer/src/objects/Texture.ts:6](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/objects/Texture.ts#L6)
+[renderer/src/objects/Texture.ts:6](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/objects/Texture.ts#L6)
 
 ___
 
@@ -87,7 +91,7 @@ ___
 
 #### Defined in
 
-[renderer/src/objects/Texture.ts:4](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/objects/Texture.ts#L4)
+[renderer/src/objects/Texture.ts:4](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/objects/Texture.ts#L4)
 
 ## Accessors
 
@@ -101,4 +105,24 @@ ___
 
 #### Defined in
 
-[renderer/src/objects/Texture.ts:61](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/objects/Texture.ts#L61)
+[renderer/src/objects/Texture.ts:61](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/objects/Texture.ts#L61)
+
+## Methods
+
+### delete
+
+▸ **delete**(`gl`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `gl` | `WebGL2RenderingContext` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[renderer/src/objects/Texture.ts:65](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/objects/Texture.ts#L65)

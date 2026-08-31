@@ -79,7 +79,7 @@ Manager.constructor
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:45](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L45)
+[events/src/managers/EventsManager.ts:45](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L45)
 
 ## Properties
 
@@ -89,7 +89,7 @@ Manager.constructor
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:21](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L21)
+[events/src/managers/EventsManager.ts:21](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L21)
 
 ___
 
@@ -99,7 +99,7 @@ ___
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:28](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L28)
+[events/src/managers/EventsManager.ts:28](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L28)
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:25](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L25)
+[events/src/managers/EventsManager.ts:25](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L25)
 
 ___
 
@@ -119,7 +119,7 @@ ___
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:23](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L23)
+[events/src/managers/EventsManager.ts:23](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L23)
 
 ___
 
@@ -129,7 +129,7 @@ ___
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:22](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L22)
+[events/src/managers/EventsManager.ts:22](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L22)
 
 ___
 
@@ -139,7 +139,7 @@ ___
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:26](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L26)
+[events/src/managers/EventsManager.ts:26](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L26)
 
 ___
 
@@ -149,7 +149,7 @@ ___
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:24](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L24)
+[events/src/managers/EventsManager.ts:24](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L24)
 
 ___
 
@@ -159,7 +159,7 @@ ___
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:27](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L27)
+[events/src/managers/EventsManager.ts:27](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L27)
 
 ___
 
@@ -169,7 +169,7 @@ ___
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:19](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L19)
+[events/src/managers/EventsManager.ts:19](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L19)
 
 ___
 
@@ -179,13 +179,13 @@ ___
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:20](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L20)
+[events/src/managers/EventsManager.ts:20](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L20)
 
 ___
 
 ### ecs
 
-• `Protected` `Readonly` **ecs**: `default`
+• `Protected` **ecs**: `default`
 
 #### Inherited from
 
@@ -216,7 +216,7 @@ ___
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:31](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L31)
+[events/src/managers/EventsManager.ts:31](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L31)
 
 ___
 
@@ -226,7 +226,7 @@ ___
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:29](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L29)
+[events/src/managers/EventsManager.ts:29](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L29)
 
 ___
 
@@ -236,7 +236,7 @@ ___
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:18](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L18)
+[events/src/managers/EventsManager.ts:18](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L18)
 
 ___
 
@@ -286,7 +286,7 @@ Manager.clear
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:120](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L120)
+[events/src/managers/EventsManager.ts:121](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L121)
 
 ___
 
@@ -300,13 +300,19 @@ ___
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:202](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L202)
+[events/src/managers/EventsManager.ts:203](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L203)
 
 ___
 
 ### init
 
-▸ **init**(): `Promise`<`void`\>
+▸ **init**(`ecs`): `Promise`<`void`\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `ecs` | `default` |
 
 #### Returns
 
@@ -318,7 +324,7 @@ Manager.init
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:105](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L105)
+[events/src/managers/EventsManager.ts:105](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L105)
 
 ___
 
@@ -345,7 +351,7 @@ ___
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:144](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L144)
+[events/src/managers/EventsManager.ts:145](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L145)
 
 ___
 
@@ -365,7 +371,7 @@ ___
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:192](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L192)
+[events/src/managers/EventsManager.ts:193](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L193)
 
 ___
 
@@ -379,7 +385,7 @@ ___
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:184](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L184)
+[events/src/managers/EventsManager.ts:185](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L185)
 
 ___
 
@@ -399,7 +405,7 @@ ___
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:164](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L164)
+[events/src/managers/EventsManager.ts:165](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L165)
 
 ___
 
@@ -419,7 +425,7 @@ ___
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:168](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L168)
+[events/src/managers/EventsManager.ts:169](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L169)
 
 ___
 
@@ -439,7 +445,7 @@ ___
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:172](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L172)
+[events/src/managers/EventsManager.ts:173](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L173)
 
 ___
 
@@ -459,7 +465,7 @@ ___
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:176](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L176)
+[events/src/managers/EventsManager.ts:177](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L177)
 
 ___
 
@@ -479,7 +485,7 @@ ___
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:210](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L210)
+[events/src/managers/EventsManager.ts:211](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L211)
 
 ___
 
@@ -499,7 +505,7 @@ ___
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:180](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L180)
+[events/src/managers/EventsManager.ts:181](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L181)
 
 ___
 
@@ -519,7 +525,7 @@ ___
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:206](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L206)
+[events/src/managers/EventsManager.ts:207](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L207)
 
 ___
 
@@ -537,7 +543,7 @@ Manager.postUpdate
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:126](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L126)
+[events/src/managers/EventsManager.ts:127](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L127)
 
 ___
 
@@ -565,7 +571,7 @@ ___
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:148](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L148)
+[events/src/managers/EventsManager.ts:149](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L149)
 
 ___
 
@@ -593,7 +599,7 @@ ___
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:156](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L156)
+[events/src/managers/EventsManager.ts:157](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L157)
 
 ___
 
@@ -614,7 +620,7 @@ ___
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:95](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L95)
+[events/src/managers/EventsManager.ts:95](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L95)
 
 ___
 
@@ -634,7 +640,7 @@ ___
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:74](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L74)
+[events/src/managers/EventsManager.ts:74](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L74)
 
 ___
 
@@ -655,7 +661,7 @@ ___
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:100](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L100)
+[events/src/managers/EventsManager.ts:100](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L100)
 
 ___
 
@@ -675,7 +681,7 @@ ___
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:90](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L90)
+[events/src/managers/EventsManager.ts:90](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L90)
 
 ___
 
@@ -721,4 +727,4 @@ ___
 
 #### Defined in
 
-[events/src/managers/EventsManager.ts:188](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/events/src/managers/EventsManager.ts#L188)
+[events/src/managers/EventsManager.ts:189](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/events/src/managers/EventsManager.ts#L189)

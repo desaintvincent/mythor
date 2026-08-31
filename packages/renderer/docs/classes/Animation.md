@@ -62,13 +62,13 @@ Component.constructor
 
 #### Defined in
 
-[renderer/src/components/Animation.ts:28](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/components/Animation.ts#L28)
+[renderer/src/components/Animation.ts:28](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/components/Animation.ts#L28)
 
 ## Properties
 
 ### \_entity
 
-• **\_entity**: `default`
+• **\_entity**: `undefined` \| `default`
 
 #### Inherited from
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Animation.ts:25](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/components/Animation.ts#L25)
+[renderer/src/components/Animation.ts:25](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/components/Animation.ts#L25)
 
 ___
 
@@ -96,17 +96,17 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Animation.ts:24](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/components/Animation.ts#L24)
+[renderer/src/components/Animation.ts:24](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/components/Animation.ts#L24)
 
 ___
 
 ### currentAnimation
 
-• **currentAnimation**: `AnimationId`
+• **currentAnimation**: ``null`` \| `AnimationId`
 
 #### Defined in
 
-[renderer/src/components/Animation.ts:22](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/components/Animation.ts#L22)
+[renderer/src/components/Animation.ts:22](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/components/Animation.ts#L22)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Animation.ts:20](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/components/Animation.ts#L20)
+[renderer/src/components/Animation.ts:20](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/components/Animation.ts#L20)
 
 ___
 
@@ -126,17 +126,17 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Animation.ts:26](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/components/Animation.ts#L26)
+[renderer/src/components/Animation.ts:26](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/components/Animation.ts#L26)
 
 ___
 
 ### previousAnimation
 
-• **previousAnimation**: `AnimationId`
+• **previousAnimation**: ``null`` \| `AnimationId`
 
 #### Defined in
 
-[renderer/src/components/Animation.ts:23](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/components/Animation.ts#L23)
+[renderer/src/components/Animation.ts:23](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/components/Animation.ts#L23)
 
 ___
 
@@ -146,7 +146,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Animation.ts:21](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/components/Animation.ts#L21)
+[renderer/src/components/Animation.ts:21](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/components/Animation.ts#L21)
 
 ___
 
@@ -183,7 +183,7 @@ core/lib/collections/Signable.d.ts:2
 
 #### Defined in
 
-[renderer/src/components/Animation.ts:43](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/components/Animation.ts#L43)
+[renderer/src/components/Animation.ts:43](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/components/Animation.ts#L43)
 
 ___
 
@@ -204,7 +204,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Animation.ts:63](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/components/Animation.ts#L63)
+[renderer/src/components/Animation.ts:63](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/components/Animation.ts#L63)
 
 ___
 
@@ -224,4 +224,4 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Animation.ts:39](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/components/Animation.ts#L39)
+[renderer/src/components/Animation.ts:39](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/components/Animation.ts#L39)

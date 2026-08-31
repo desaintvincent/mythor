@@ -28,13 +28,13 @@
 
 ### Methods
 
+- [\_loadAndTrack](TextureManager.md#_loadandtrack)
 - [add](TextureManager.md#add)
 - [clear](TextureManager.md#clear)
 - [createLoadingState](TextureManager.md#createloadingstate)
 - [get](TextureManager.md#get)
 - [has](TextureManager.md#has)
 - [init](TextureManager.md#init)
-- [loadTexture](TextureManager.md#loadtexture)
 - [postUpdate](TextureManager.md#postupdate)
 - [setLoadingState](TextureManager.md#setloadingstate)
 - [update](TextureManager.md#update)
@@ -57,13 +57,13 @@ Manager.constructor
 
 #### Defined in
 
-[renderer/src/managers/TextureManager.ts:37](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/managers/TextureManager.ts#L37)
+[renderer/src/managers/TextureManager.ts:11](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/managers/TextureManager.ts#L11)
 
 ## Properties
 
 ### ecs
 
-• `Protected` `Readonly` **ecs**: `default`
+• `Protected` **ecs**: `default`
 
 #### Inherited from
 
@@ -81,7 +81,7 @@ ___
 
 #### Defined in
 
-[renderer/src/managers/TextureManager.ts:33](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/managers/TextureManager.ts#L33)
+[renderer/src/managers/TextureManager.ts:7](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/managers/TextureManager.ts#L7)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 #### Defined in
 
-[renderer/src/managers/TextureManager.ts:35](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/managers/TextureManager.ts#L35)
+[renderer/src/managers/TextureManager.ts:9](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/managers/TextureManager.ts#L9)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-[renderer/src/managers/TextureManager.ts:34](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/managers/TextureManager.ts#L34)
+[renderer/src/managers/TextureManager.ts:8](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/managers/TextureManager.ts#L8)
 
 ___
 
@@ -137,6 +137,28 @@ core/lib/ecs/Manager.d.ts:7
 
 ## Methods
 
+### \_loadAndTrack
+
+▸ `Private` **_loadAndTrack**(`name`, `path`, `gl`): `Promise`<[`Texture`](Texture.md)\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `name` | `string` |
+| `path` | `string` |
+| `gl` | `WebGL2RenderingContext` |
+
+#### Returns
+
+`Promise`<[`Texture`](Texture.md)\>
+
+#### Defined in
+
+[renderer/src/managers/TextureManager.ts:18](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/managers/TextureManager.ts#L18)
+
+___
+
 ### add
 
 ▸ **add**(`name`, `path`): `void`
@@ -154,7 +176,7 @@ core/lib/ecs/Manager.d.ts:7
 
 #### Defined in
 
-[renderer/src/managers/TextureManager.ts:106](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/managers/TextureManager.ts#L106)
+[renderer/src/managers/TextureManager.ts:81](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/managers/TextureManager.ts#L81)
 
 ___
 
@@ -192,7 +214,7 @@ ___
 
 #### Defined in
 
-[renderer/src/managers/TextureManager.ts:57](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/managers/TextureManager.ts#L57)
+[renderer/src/managers/TextureManager.ts:31](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/managers/TextureManager.ts#L31)
 
 ___
 
@@ -212,7 +234,7 @@ ___
 
 #### Defined in
 
-[renderer/src/managers/TextureManager.ts:114](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/managers/TextureManager.ts#L114)
+[renderer/src/managers/TextureManager.ts:89](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/managers/TextureManager.ts#L89)
 
 ___
 
@@ -232,13 +254,19 @@ ___
 
 #### Defined in
 
-[renderer/src/managers/TextureManager.ts:110](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/managers/TextureManager.ts#L110)
+[renderer/src/managers/TextureManager.ts:85](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/managers/TextureManager.ts#L85)
 
 ___
 
 ### init
 
-▸ **init**(): `Promise`<`void`\>
+▸ **init**(`ecs`): `Promise`<`void`\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `ecs` | `default` |
 
 #### Returns
 
@@ -250,29 +278,7 @@ Manager.init
 
 #### Defined in
 
-[renderer/src/managers/TextureManager.ts:84](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/managers/TextureManager.ts#L84)
-
-___
-
-### loadTexture
-
-▸ `Private` **loadTexture**(`name`, `path`, `gl`): `Promise`<[`Texture`](Texture.md)\>
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `name` | `string` |
-| `path` | `string` |
-| `gl` | `WebGL2RenderingContext` |
-
-#### Returns
-
-`Promise`<[`Texture`](Texture.md)\>
-
-#### Defined in
-
-[renderer/src/managers/TextureManager.ts:44](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/managers/TextureManager.ts#L44)
+[renderer/src/managers/TextureManager.ts:58](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/managers/TextureManager.ts#L58)
 
 ___
 
@@ -316,7 +322,7 @@ ___
 
 #### Defined in
 
-[renderer/src/managers/TextureManager.ts:69](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/managers/TextureManager.ts#L69)
+[renderer/src/managers/TextureManager.ts:43](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/managers/TextureManager.ts#L43)
 
 ___
 

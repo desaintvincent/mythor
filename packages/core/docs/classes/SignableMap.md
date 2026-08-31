@@ -18,6 +18,7 @@
 
 - [\_map](SignableMap.md#_map)
 - [name](SignableMap.md#name)
+- [registry](SignableMap.md#registry)
 - [constructorRegistries](SignableMap.md#constructorregistries)
 
 ### Accessors
@@ -39,7 +40,7 @@
 
 ### constructor
 
-• **new SignableMap**<`T`\>(`name`, `color`)
+• **new SignableMap**<`T`\>(`name`, `color`, `logger?`)
 
 #### Type parameters
 
@@ -53,10 +54,11 @@
 | :------ | :------ |
 | `name` | `string` |
 | `color` | `string` |
+| `logger?` | [`Logger`](../modules.md#logger) |
 
 #### Defined in
 
-[collections/SignableMap.ts:16](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/core/src/collections/SignableMap.ts#L16)
+[collections/SignableMap.ts:18](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/core/src/collections/SignableMap.ts#L18)
 
 ## Properties
 
@@ -66,7 +68,7 @@
 
 #### Defined in
 
-[collections/SignableMap.ts:10](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/core/src/collections/SignableMap.ts#L10)
+[collections/SignableMap.ts:11](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/core/src/collections/SignableMap.ts#L11)
 
 ___
 
@@ -76,7 +78,17 @@ ___
 
 #### Defined in
 
-[collections/SignableMap.ts:15](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/core/src/collections/SignableMap.ts#L15)
+[collections/SignableMap.ts:17](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/core/src/collections/SignableMap.ts#L17)
+
+___
+
+### registry
+
+• `Private` `Readonly` **registry**: `ConstructorRegistry`<[`Signable`](Signable.md)\>
+
+#### Defined in
+
+[collections/SignableMap.ts:12](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/core/src/collections/SignableMap.ts#L12)
 
 ___
 
@@ -86,7 +98,7 @@ ___
 
 #### Defined in
 
-[collections/SignableMap.ts:11](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/core/src/collections/SignableMap.ts#L11)
+[collections/SignableMap.ts:13](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/core/src/collections/SignableMap.ts#L13)
 
 ## Accessors
 
@@ -100,7 +112,7 @@ ___
 
 #### Defined in
 
-[collections/SignableMap.ts:81](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/core/src/collections/SignableMap.ts#L81)
+[collections/SignableMap.ts:81](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/core/src/collections/SignableMap.ts#L81)
 
 ## Methods
 
@@ -114,7 +126,7 @@ ___
 
 #### Defined in
 
-[collections/SignableMap.ts:27](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/core/src/collections/SignableMap.ts#L27)
+[collections/SignableMap.ts:29](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/core/src/collections/SignableMap.ts#L29)
 
 ___
 
@@ -134,7 +146,7 @@ ___
 
 #### Defined in
 
-[collections/SignableMap.ts:31](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/core/src/collections/SignableMap.ts#L31)
+[collections/SignableMap.ts:33](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/core/src/collections/SignableMap.ts#L33)
 
 ___
 
@@ -154,7 +166,7 @@ ___
 
 #### Defined in
 
-[collections/SignableMap.ts:41](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/core/src/collections/SignableMap.ts#L41)
+[collections/SignableMap.ts:43](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/core/src/collections/SignableMap.ts#L43)
 
 ___
 
@@ -174,7 +186,7 @@ ___
 
 #### Defined in
 
-[collections/SignableMap.ts:47](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/core/src/collections/SignableMap.ts#L47)
+[collections/SignableMap.ts:49](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/core/src/collections/SignableMap.ts#L49)
 
 ___
 
@@ -200,7 +212,7 @@ ___
 
 #### Defined in
 
-[collections/SignableMap.ts:57](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/core/src/collections/SignableMap.ts#L57)
+[collections/SignableMap.ts:59](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/core/src/collections/SignableMap.ts#L59)
 
 ___
 
@@ -220,7 +232,7 @@ ___
 
 #### Defined in
 
-[collections/SignableMap.ts:61](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/core/src/collections/SignableMap.ts#L61)
+[collections/SignableMap.ts:63](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/core/src/collections/SignableMap.ts#L63)
 
 ___
 
@@ -246,7 +258,7 @@ ___
 
 #### Defined in
 
-[collections/SignableMap.ts:35](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/core/src/collections/SignableMap.ts#L35)
+[collections/SignableMap.ts:37](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/core/src/collections/SignableMap.ts#L37)
 
 ___
 
@@ -266,4 +278,4 @@ ___
 
 #### Defined in
 
-[collections/SignableMap.ts:69](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/core/src/collections/SignableMap.ts#L69)
+[collections/SignableMap.ts:71](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/core/src/collections/SignableMap.ts#L71)

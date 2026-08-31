@@ -22,12 +22,14 @@
 ### Interfaces
 
 - [ArrayListOptions](interfaces/ArrayListOptions.md)
+- [EcsOptions](interfaces/EcsOptions.md)
 - [IList](interfaces/IList.md)
 - [LoadingState](interfaces/LoadingState.md)
 
 ### Type Aliases
 
 - [Constructor](modules.md#constructor)
+- [Logger](modules.md#logger)
 
 ### Functions
 
@@ -41,7 +43,7 @@
 
 ### Constructor
 
-Ƭ **Constructor**<`T`\>: (...`args`: `unknown`[]) => `T` & { `signature?`: `number`  }
+Ƭ **Constructor**<`T`\>: (...`args`: `any`[]) => `T` & { `signature?`: `number`  }
 
 #### Type parameters
 
@@ -51,7 +53,32 @@
 
 #### Defined in
 
-[collections/Signable.ts:5](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/core/src/collections/Signable.ts#L5)
+[collections/Signable.ts:5](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/core/src/collections/Signable.ts#L5)
+
+___
+
+### Logger
+
+Ƭ **Logger**: (`text`: `unknown`, `color?`: `string`) => `void`
+
+#### Type declaration
+
+▸ (`text`, `color?`): `void`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `text` | `unknown` |
+| `color?` | `string` |
+
+##### Returns
+
+`void`
+
+#### Defined in
+
+[util/log.ts:1](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/core/src/util/log.ts#L1)
 
 ## Functions
 
@@ -77,7 +104,7 @@
 
 #### Defined in
 
-[collections/Signable.ts:9](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/core/src/collections/Signable.ts#L9)
+[collections/Signable.ts:9](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/core/src/collections/Signable.ts#L9)
 
 ___
 
@@ -103,7 +130,7 @@ ___
 
 #### Defined in
 
-[collections/Signable.ts:15](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/core/src/collections/Signable.ts#L15)
+[collections/Signable.ts:13](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/core/src/collections/Signable.ts#L13)
 
 ___
 
@@ -123,7 +150,7 @@ ___
 
 #### Defined in
 
-[collections/Signable.ts:25](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/core/src/collections/Signable.ts#L25)
+[collections/Signable.ts:23](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/core/src/collections/Signable.ts#L23)
 
 ___
 
@@ -133,10 +160,10 @@ ___
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `text` | `unknown` | `undefined` |
-| `color` | `string` | `'none'` |
+| Name | Type |
+| :------ | :------ |
+| `text` | `unknown` |
+| `color?` | `string` |
 
 #### Returns
 
@@ -144,7 +171,7 @@ ___
 
 #### Defined in
 
-[util/log.ts:1](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/core/src/util/log.ts#L1)
+[util/log.ts:1](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/core/src/util/log.ts#L1)
 
 ___
 
@@ -164,4 +191,4 @@ ___
 
 #### Defined in
 
-[util/throwError.ts:1](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/core/src/util/throwError.ts#L1)
+[util/throwError.ts:1](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/core/src/util/throwError.ts#L1)

@@ -19,6 +19,7 @@
 - [\_entity](Renderable.md#_entity)
 - [layer](Renderable.md#layer)
 - [quadTree](Renderable.md#quadtree)
+- [screenSpace](Renderable.md#screenspace)
 - [shapes](Renderable.md#shapes)
 - [static](Renderable.md#static)
 - [visible](Renderable.md#visible)
@@ -42,13 +43,13 @@ Component.constructor
 
 #### Defined in
 
-[renderer/src/components/Renderable.ts:17](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/components/Renderable.ts#L17)
+[renderer/src/components/Renderable.ts:26](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/components/Renderable.ts#L26)
 
 ## Properties
 
 ### \_entity
 
-• **\_entity**: `default`
+• **\_entity**: `undefined` \| `default`
 
 #### Inherited from
 
@@ -66,17 +67,33 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Renderable.ts:13](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/components/Renderable.ts#L13)
+[renderer/src/components/Renderable.ts:14](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/components/Renderable.ts#L14)
 
 ___
 
 ### quadTree
 
-• **quadTree**: [`QuadTree`](QuadTree.md) = `null`
+• **quadTree**: ``null`` \| [`QuadTree`](QuadTree.md) = `null`
 
 #### Defined in
 
-[renderer/src/components/Renderable.ts:15](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/components/Renderable.ts#L15)
+[renderer/src/components/Renderable.ts:16](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/components/Renderable.ts#L16)
+
+___
+
+### screenSpace
+
+• `Readonly` **screenSpace**: `boolean` = `false`
+
+When true, this entity is rendered with the renderer's fixed GUI camera
+instead of the world camera: its `Transform.position` is expressed in
+screen pixels and stays fixed on screen regardless of camera pan/zoom/
+rotation. It is also excluded from world-space frustum culling. Intended
+for HUD/UI entities (see `@mythor/ui`).
+
+#### Defined in
+
+[renderer/src/components/Renderable.ts:24](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/components/Renderable.ts#L24)
 
 ___
 
@@ -86,7 +103,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Renderable.ts:14](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/components/Renderable.ts#L14)
+[renderer/src/components/Renderable.ts:15](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/components/Renderable.ts#L15)
 
 ___
 
@@ -96,7 +113,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Renderable.ts:12](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/components/Renderable.ts#L12)
+[renderer/src/components/Renderable.ts:13](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/components/Renderable.ts#L13)
 
 ___
 
@@ -106,7 +123,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/Renderable.ts:11](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/components/Renderable.ts#L11)
+[renderer/src/components/Renderable.ts:12](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/components/Renderable.ts#L12)
 
 ___
 

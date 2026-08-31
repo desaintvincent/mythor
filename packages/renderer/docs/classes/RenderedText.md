@@ -42,13 +42,13 @@ Component.constructor
 
 #### Defined in
 
-[renderer/src/components/RenderedText.ts:17](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/components/RenderedText.ts#L17)
+[renderer/src/components/RenderedText.ts:17](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/components/RenderedText.ts#L17)
 
 ## Properties
 
 ### \_entity
 
-• **\_entity**: `default`
+• **\_entity**: `undefined` \| `default`
 
 #### Inherited from
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/RenderedText.ts:14](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/components/RenderedText.ts#L14)
+[renderer/src/components/RenderedText.ts:14](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/components/RenderedText.ts#L14)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/RenderedText.ts:15](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/components/RenderedText.ts#L15)
+[renderer/src/components/RenderedText.ts:15](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/components/RenderedText.ts#L15)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/RenderedText.ts:13](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/components/RenderedText.ts#L13)
+[renderer/src/components/RenderedText.ts:13](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/components/RenderedText.ts#L13)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/RenderedText.ts:17](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/components/RenderedText.ts#L17)
+[renderer/src/components/RenderedText.ts:17](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/components/RenderedText.ts#L17)
 
 ___
 

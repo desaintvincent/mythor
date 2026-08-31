@@ -19,6 +19,7 @@
 - [\_entity](FillRect.md#_entity)
 - [color](FillRect.md#color)
 - [offset](FillRect.md#offset)
+- [radius](FillRect.md#radius)
 - [size](FillRect.md#size)
 - [signature](FillRect.md#signature)
 
@@ -40,13 +41,13 @@ Component.constructor
 
 #### Defined in
 
-[renderer/src/components/FillRect.ts:16](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/components/FillRect.ts#L16)
+[renderer/src/components/FillRect.ts:19](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/components/FillRect.ts#L19)
 
 ## Properties
 
 ### \_entity
 
-• **\_entity**: `default`
+• **\_entity**: `undefined` \| `default`
 
 #### Inherited from
 
@@ -64,7 +65,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/FillRect.ts:14](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/components/FillRect.ts#L14)
+[renderer/src/components/FillRect.ts:16](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/components/FillRect.ts#L16)
 
 ___
 
@@ -74,7 +75,17 @@ ___
 
 #### Defined in
 
-[renderer/src/components/FillRect.ts:12](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/components/FillRect.ts#L12)
+[renderer/src/components/FillRect.ts:14](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/components/FillRect.ts#L14)
+
+___
+
+### radius
+
+• **radius**: `number`
+
+#### Defined in
+
+[renderer/src/components/FillRect.ts:17](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/components/FillRect.ts#L17)
 
 ___
 
@@ -84,7 +95,7 @@ ___
 
 #### Defined in
 
-[renderer/src/components/FillRect.ts:13](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/renderer/src/components/FillRect.ts#L13)
+[renderer/src/components/FillRect.ts:15](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/renderer/src/components/FillRect.ts#L15)
 
 ___
 

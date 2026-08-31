@@ -39,11 +39,11 @@
 
 ### \_entity
 
-• **\_entity**: [`Entity`](Entity.md)
+• **\_entity**: `undefined` \| [`Entity`](Entity.md)
 
 #### Defined in
 
-[ecs/Component.ts:6](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/core/src/ecs/Component.ts#L6)
+[ecs/Component.ts:6](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/core/src/ecs/Component.ts#L6)
 
 ___
 
@@ -57,4 +57,4 @@ ___
 
 #### Defined in
 
-[collections/Signable.ts:2](https://github.com/desaintvincent/mythor/blob/53eaf4e/packages/core/src/collections/Signable.ts#L2)
+[collections/Signable.ts:2](https://github.com/desaintvincent/mythor/blob/ebbac95/packages/core/src/collections/Signable.ts#L2)
