@@ -1,130 +1,73 @@
-import {
-  Component,
-  Constructor,
-  ConstructorMap,
-  Entity,
-  System,
-  Transform,
-} from '@mythor/core'
-import Camera from '../objects/Camera'
+import { Component, Constructor, Entity, System, Transform } from '@mythor/core'
 import { Rect, Vec2 } from '@mythor/math'
+import Camera from '../objects/Camera'
 import QuadTreeList from '../quadTree/QuadTreeList'
-import {
+import Renderable from '../components/Renderable'
+import RendererCore, { RendererParams } from './RendererCore'
+import ShaderRegistry from './ShaderRegistry'
+import DrawAPI from './DrawAPI'
+import Shader from '../webgl/shaders/Shader'
+import Color from '../color/Color'
+import type {
   CircleOptions,
   FillPolyOptions,
   LineOptions,
   StrokePolyOptions,
 } from './ShaderOptions'
-import Color, { colorWhite } from '../color/Color'
-import Shader from '../webgl/shaders/Shader'
-import FillTriangle from '../webgl/shaders/FillTriangle'
-import Renderable from '../components/Renderable'
-import ParticlesUpdate from '../webgl/shaders/ParticlesUpdate'
-import ParticlesRender from '../webgl/shaders/ParticlesRender'
-import Lines from '../webgl/shaders/Lines'
-import Sprite from '../webgl/shaders/Sprite'
-import FillRect from '../webgl/shaders/FillRect'
-import Circle from '../webgl/shaders/Circle'
-import Text from '../webgl/shaders/Text'
-import PostProcessPipeline from '../postprocessing/PostProcessPipeline'
-import type PostProcessEffect from '../postprocessing/PostProcessEffect'
-
-interface RendererOptions {
-  antialias: boolean
-  alpha: boolean
-}
-
-type RendererParams = Partial<RendererOptions> & {
-  camera?: Camera
-  canvasName?: string
-  initDefaultShaders?: boolean
-  useTree?: boolean
-  postProcessing?: PostProcessEffect[]
-}
 
 type FnToDraw = (renderer: Renderer) => void
 
-const defaultParams = {
-  alpha: false,
-  antialias: false,
-  canvasName: 'canvas',
-  useTree: false,
-}
-
 class Renderer extends System {
-  private readonly opts: RendererOptions
-  private readonly camera: Camera
-  private readonly _shaders: ConstructorMap<Shader>
-  private readonly toDraw: FnToDraw[] = []
-  private readonly toDrawGui: FnToDraw[] = []
-  private readonly guiCamera: Camera
-  private isInFrame = false
-  public readonly shapes: Map<Constructor<Component>, Shader[]> = new Map()
+  private readonly core: RendererCore
+  private readonly shaderRegistry: ShaderRegistry
+  private readonly drawApi: DrawAPI
+  private readonly initDefaultShaders: boolean
   private readonly movedEntities: Map<string, Entity> = new Map<
     string,
     Entity
   >()
-  public useTree: boolean
-  private readonly canvas: HTMLCanvasElement
-  public readonly gl: WebGL2RenderingContext
-  private readonly initDefaultShaders: boolean
-  private readonly postProcessPipeline: PostProcessPipeline | null = null
 
   public constructor(params?: RendererParams) {
     super('Renderer', [Renderable, Transform], {
       list: QuadTreeList,
     })
-    this.opts = {
-      alpha: params?.alpha ?? defaultParams.alpha,
-      antialias: params?.antialias ?? defaultParams.antialias,
-    }
-    const canvas = document.getElementById(
-      params?.canvasName ?? defaultParams.canvasName
-    )
-    if (!canvas) {
-      throw new Error('Could not find canvas')
-    }
+
     this.initDefaultShaders = params?.initDefaultShaders ?? true
-    this.canvas = canvas as HTMLCanvasElement
-    this.canvas.tabIndex = 1
-    this.useTree = params?.useTree ?? defaultParams.useTree
-    this.canvas.focus()
-    const gl = this.canvas.getContext('webgl2', this.opts)
-    if (!gl) {
-      throw new Error('Could not create GL context')
-    }
-    this.gl = gl as WebGL2RenderingContext
-
-    this.camera = params?.camera ?? new Camera()
-    this.canvas.width = this.camera.getSize().x
-    this.canvas.height = this.camera.getSize().y
-    this.guiCamera = new Camera(this.camera.getSize())
-    // Make the GUI camera use top-left screen-pixel coordinates instead of
-    // the world camera's center-relative convention, so a screen-space
-    // entity's `Transform.position` directly matches both what's drawn on
-    // screen and the raw (non-world-converted) `EventsManager.mousePosition`
-    // used for UI hit-testing (see `@mythor/ui`).
-    this.guiCamera.lookat(Vec2.times(this.camera.getSize(), 0.5))
-    this._shaders = new ConstructorMap()
-
-    if (params?.postProcessing && params.postProcessing.length > 0) {
-      this.postProcessPipeline = new PostProcessPipeline(
-        this.gl,
-        params.postProcessing
-      )
-    }
+    this.core = new RendererCore(params)
+    this.shaderRegistry = new ShaderRegistry()
+    this.drawApi = new DrawAPI(this, this.core, this.shaderRegistry)
   }
+
+  public get gl(): WebGL2RenderingContext {
+    return this.core.gl
+  }
+
+  public get shapes(): Map<Constructor<Component>, Shader[]> {
+    return this.shaderRegistry.shapes
+  }
+
+  public get useTree(): boolean {
+    return this._useTree
+  }
+
+  public set useTree(value: boolean) {
+    this._useTree = value
+  }
+
+  private _useTree = false
 
   public update(
     elapsedTimeInSeconds: number,
     totalTimeInSeconds: number
   ): void {
-    this.clear()
-    this.isInFrame = true
-    this.camera.update(elapsedTimeInSeconds)
+    this.core.clear()
+    this.core.beginFrame()
+    this.core.camera.update(elapsedTimeInSeconds)
     this.updateMovedEntities()
 
-    this._shaders.forEach((shader) => shader.preRender(this.camera))
+    this.shaderRegistry.forEachShader((shader) => {
+      shader.preRender(this.core.camera)
+    })
 
     const cb = (entity: Entity): void => {
       this.onEntityUpdate(entity, elapsedTimeInSeconds, totalTimeInSeconds)
@@ -138,61 +81,37 @@ class Renderer extends System {
       entities.naiveSearchForeach(this.fov, cb)
     }
 
-    this.applyDrawingFunctions()
+    this.drawApi.applyDrawingFunctions()
 
-    this._shaders.forEach((shader) =>
-      shader.postRender(this.camera, elapsedTimeInSeconds, totalTimeInSeconds)
-    )
-
-    if (
-      this.postProcessPipeline &&
-      this.postProcessPipeline.hasEnabledEffects()
-    ) {
-      this.postProcessPipeline.render(this.camera.getSize())
-    }
-
-    const size = this.camera.getSize()
-    this.gl.bindFramebuffer(this.gl.FRAMEBUFFER, null)
-    this.gl.viewport(0, 0, size.x, size.y)
-
-    this._shaders.forEach((shader) => shader.preRender(this.guiCamera))
-    this.renderScreenSpaceEntities(elapsedTimeInSeconds, totalTimeInSeconds)
-    this.applyGuiDrawingFunctions()
-    this._shaders.forEach((shader) =>
+    this.shaderRegistry.forEachShader((shader) => {
       shader.postRender(
-        this.guiCamera,
+        this.core.camera,
+        elapsedTimeInSeconds,
+        totalTimeInSeconds
+      )
+    })
+
+    this.core.renderPostProcessing()
+    this.core.prepareGuiPass()
+
+    this.shaderRegistry.forEachShader((shader) => {
+      shader.preRender(this.core.guiCamera)
+    })
+    this.renderScreenSpaceEntities(elapsedTimeInSeconds, totalTimeInSeconds)
+    this.drawApi.applyGuiDrawingFunctions()
+    this.shaderRegistry.forEachShader((shader) =>
+      shader.postRender(
+        this.core.guiCamera,
         elapsedTimeInSeconds,
         totalTimeInSeconds
       )
     )
 
-    this.isInFrame = false
-  }
-
-  private renderScreenSpaceEntities(
-    elapsedTimeInSeconds: number,
-    totalTimeInSeconds: number
-  ): void {
-    this.entities.forEach((entity) => {
-      if (entity.get(Renderable).screenSpace) {
-        this.renderEntity(
-          entity,
-          this.guiCamera,
-          elapsedTimeInSeconds,
-          totalTimeInSeconds
-        )
-      }
-    })
+    this.core.endFrame()
   }
 
   public get fov(): Rect {
-    const position = this.camera.getPosition()
-    const size = Vec2.times(this.camera.getSize(), 1 / this.camera.scale)
-
-    return {
-      position,
-      size,
-    }
+    return this.core.fov
   }
 
   public setTree(rect: Rect): void {
@@ -200,59 +119,12 @@ class Renderer extends System {
     ;(this.entities as QuadTreeList).resize(rect)
   }
 
-  protected onEntityUpdate(
-    entity: Entity,
-    elapsedTimeInSeconds: number,
-    totalTimeInSeconds: number
-  ): void {
-    if (entity.get(Renderable).screenSpace) {
-      // Rendered separately, in screen space, in renderScreenSpaceEntities()
-      return
-    }
-
-    this.renderEntity(
-      entity,
-      this.camera,
-      elapsedTimeInSeconds,
-      totalTimeInSeconds
-    )
-  }
-
-  private renderEntity(
-    entity: Entity,
-    camera: Camera,
-    elapsedTimeInSeconds: number,
-    totalTimeInSeconds: number
-  ): void {
-    const { shapes, visible } = entity.get(Renderable)
-
-    if (!visible) {
-      return
-    }
-
-    for (const shape of shapes) {
-      const shaders = this.shapes.get(shape)
-      if (!shaders) {
-        continue
-      }
-      shaders.forEach((shader) =>
-        shader.render(entity, camera, elapsedTimeInSeconds, totalTimeInSeconds)
-      )
-    }
-  }
-
   protected async onSystemInit(): Promise<void> {
     if (!this.initDefaultShaders) {
       return
     }
-    await this.addShader(new Sprite(this.gl))
-    await this.addShader(new FillTriangle(this.gl))
-    await this.addShader(new Lines(this.gl))
-    await this.addShader(new FillRect(this.gl))
-    await this.addShader(new Circle(this.gl))
-    await this.addShader(new Text(this.gl))
-    await this.addShader(new ParticlesUpdate(this.gl))
-    await this.addShader(new ParticlesRender(this.gl))
+
+    await this.shaderRegistry.initDefaultShaders(this.core.gl, this)
   }
 
   protected onEntityCreation(entity: Entity): void {
@@ -285,11 +157,152 @@ class Renderer extends System {
     })
   }
 
-  private onEntityChange(entity: Entity): void {
+  protected onEntityUpdate(
+    entity: Entity,
+    elapsedTimeInSeconds: number,
+    totalTimeInSeconds: number
+  ): void {
+    if (entity.get(Renderable).screenSpace) {
+      // Rendered separately, in screen space, in renderScreenSpaceEntities()
+      return
+    }
+
+    this.renderEntity(
+      entity,
+      this.core.camera,
+      elapsedTimeInSeconds,
+      totalTimeInSeconds
+    )
+  }
+
+  protected onEntityChange(entity: Entity): void {
     if (entity.has(Renderable)) {
       this.movedEntities.set(entity._id, entity)
     }
     entity.children.forEach((child) => this.onEntityChange(child))
+  }
+
+  public getCamera(): Camera {
+    return this.core.camera
+  }
+
+  public onDraw(fn: FnToDraw): void {
+    this.drawApi.onDraw(fn)
+  }
+
+  public onDrawGui(fn: FnToDraw): void {
+    this.drawApi.onDrawGui(fn)
+  }
+
+  public fillRect(
+    position: Vec2,
+    size: Vec2,
+    options?: Partial<FillPolyOptions> & { radius?: number }
+  ): void {
+    this.drawApi.fillRect(position, size, options)
+  }
+
+  public strokeRect(
+    position: Vec2,
+    size: Vec2,
+    options?: Partial<StrokePolyOptions>
+  ): void {
+    this.drawApi.strokeRect(position, size, options)
+  }
+
+  public fillCircle(
+    position: Vec2,
+    size: Vec2 | number,
+    options?: Omit<Partial<CircleOptions>, 'fill'>
+  ): void {
+    this.drawApi.fillCircle(position, size, options)
+  }
+
+  public strokeCircle(
+    position: Vec2,
+    size: Vec2 | number,
+    options?: Omit<Partial<CircleOptions>, 'fill'> & { diagonal?: boolean }
+  ): void {
+    this.drawApi.strokeCircle(position, size, options)
+  }
+
+  public lineHeight(): number {
+    return this.drawApi.lineHeight()
+  }
+
+  public text(
+    position: Vec2,
+    text: string,
+    params?: { color?: Color; size?: number }
+  ): void {
+    this.drawApi.text(position, text, params)
+  }
+
+  public line(
+    positionStart: Vec2,
+    positionEnd: Vec2,
+    options?: Partial<LineOptions>
+  ): void {
+    this.drawApi.line(positionStart, positionEnd, options)
+  }
+
+  public strokePoly(
+    position: Vec2,
+    points: Vec2[],
+    options?: Partial<StrokePolyOptions>
+  ): void {
+    this.drawApi.strokePoly(position, points, options)
+  }
+
+  public fillPoly(
+    position: Vec2,
+    points: Vec2[],
+    options?: Partial<FillPolyOptions>
+  ): void {
+    this.drawApi.fillPoly(position, points, options)
+  }
+
+  public async addShader(shader: Shader): Promise<void> {
+    await this.shaderRegistry.addShader(shader, this)
+  }
+
+  private renderScreenSpaceEntities(
+    elapsedTimeInSeconds: number,
+    totalTimeInSeconds: number
+  ): void {
+    this.entities.forEach((entity) => {
+      if (entity.get(Renderable).screenSpace) {
+        this.renderEntity(
+          entity,
+          this.core.guiCamera,
+          elapsedTimeInSeconds,
+          totalTimeInSeconds
+        )
+      }
+    })
+  }
+
+  private renderEntity(
+    entity: Entity,
+    camera: Camera,
+    elapsedTimeInSeconds: number,
+    totalTimeInSeconds: number
+  ): void {
+    const { shapes, visible } = entity.get(Renderable)
+
+    if (!visible) {
+      return
+    }
+
+    for (const shape of shapes) {
+      const shaders = this.shapes.get(shape)
+      if (!shaders) {
+        continue
+      }
+      shaders.forEach((shader) =>
+        shader.render(entity, camera, elapsedTimeInSeconds, totalTimeInSeconds)
+      )
+    }
   }
 
   private updateMovedEntities(): void {
@@ -298,215 +311,6 @@ class Renderer extends System {
       entities.update(entity)
     })
     this.movedEntities.clear()
-  }
-
-  public async addShader(shader: Shader): Promise<void> {
-    await shader.init(this)
-    if (shader.component) {
-      const shaders = this.shapes.get(shader.component)
-      if (shaders) {
-        shaders.push(shader)
-      } else {
-        this.shapes.set(shader.component, [shader])
-      }
-    }
-    this._shaders.set(shader)
-  }
-
-  public getCamera(): Camera {
-    return this.camera
-  }
-
-  public onDraw(fn: FnToDraw): void {
-    this.toDraw.push(fn)
-  }
-
-  public onDrawGui(fn: FnToDraw): void {
-    this.toDrawGui.push(fn)
-  }
-
-  public clear(): void {
-    if (
-      this.postProcessPipeline &&
-      this.postProcessPipeline.hasEnabledEffects()
-    ) {
-      this.postProcessPipeline.getEntryTarget(this.camera.getSize()).bind()
-    } else {
-      this.gl.bindFramebuffer(this.gl.FRAMEBUFFER, null)
-      this.gl.viewport(0, 0, this.camera.getSize().x, this.camera.getSize().y)
-    }
-    this.gl.enable(this.gl.BLEND)
-    this.gl.clear(this.gl.COLOR_BUFFER_BIT)
-  }
-
-  private assertIsInFrame(): void {
-    if (!this.isInFrame) {
-      throw new Error(
-        'Render call should be in a drawing frame. Maybe you should use onDraw ?'
-      )
-    }
-  }
-
-  public fillRect(
-    position: Vec2,
-    size: Vec2,
-    options?: Partial<FillPolyOptions> & { radius?: number }
-  ): void {
-    this.assertIsInFrame()
-    const shader = this._shaders.get(FillRect)
-    shader?.rect(position, size, {
-      color: options?.color ?? colorWhite,
-      radius: options?.radius ?? 0,
-      rotation: options?.rotation ?? 0,
-    })
-  }
-
-  public strokeRect(
-    position: Vec2,
-    size: Vec2,
-    options?: Partial<StrokePolyOptions>
-  ): void {
-    this.assertIsInFrame()
-    const shader = this._shaders.get(Lines)
-    shader?.rect(position, size, {
-      color: options?.color ?? colorWhite,
-      diagonal: options?.diagonal ?? false,
-      rotation: options?.rotation ?? 0,
-      width: options?.width ?? 1,
-    })
-  }
-
-  public fillCircle(
-    position: Vec2,
-    size: Vec2 | number,
-    options?: Omit<Partial<CircleOptions>, 'fill'>
-  ): void {
-    this.assertIsInFrame()
-    const shader = this._shaders.get(Circle)
-    shader?.circle(
-      position,
-      typeof size === 'number' ? Vec2.create(size, size) : size,
-      {
-        color: options?.color ?? colorWhite,
-        fill: true,
-        rotation: options?.rotation ?? 0,
-        width: options?.width ?? 1,
-      }
-    )
-  }
-
-  public strokeCircle(
-    position: Vec2,
-    size: Vec2 | number,
-    options?: Omit<Partial<CircleOptions>, 'fill'> & { diagonal?: boolean }
-  ): void {
-    this.assertIsInFrame()
-    const shader = this._shaders.get(Circle)
-    const vSize = typeof size === 'number' ? Vec2.create(size, size) : size
-    shader?.circle(position, vSize, {
-      color: options?.color ?? colorWhite,
-      fill: false,
-      rotation: options?.rotation ?? 0,
-      width: options?.width ?? 1,
-    })
-
-    if (options?.diagonal) {
-      this.line(
-        position,
-        position.add(
-          Vec2.create(
-            Math.cos(options.rotation ?? 0) * vSize.x * 0.5,
-            Math.sin(options.rotation ?? 0) * vSize.x * 0.5
-          )
-        ),
-        {
-          color: options?.color ?? colorWhite,
-          width: options?.width ?? 1,
-        }
-      )
-    }
-  }
-
-  public lineHeight(): number {
-    return this._shaders.get(Text)?.lineHeight() ?? 0
-  }
-
-  public text(
-    position: Vec2,
-    text: string,
-    params?: { color?: Color; size?: number }
-  ): void {
-    this.assertIsInFrame()
-    const shader = this._shaders.get(Text)
-    shader?.text(position, text, {
-      color: params?.color ?? colorWhite,
-      size: params?.size ?? 1,
-    })
-  }
-
-  public line(
-    positionStart: Vec2,
-    positionEnd: Vec2,
-    options?: Partial<LineOptions>
-  ): void {
-    this.assertIsInFrame()
-    const shader = this._shaders.get(Lines)
-    shader?.line(positionStart, positionEnd, {
-      color: options?.color ?? colorWhite,
-      width: options?.width ?? 1,
-    })
-  }
-
-  public strokePoly(
-    position: Vec2,
-    points: Vec2[],
-    options?: Partial<StrokePolyOptions>
-  ): void {
-    this.assertIsInFrame()
-    const shader = this._shaders.get(Lines)
-    shader?.poly(position, points, {
-      color: options?.color ?? colorWhite,
-      diagonal: options?.diagonal ?? false,
-      rotation: options?.rotation ?? 0,
-      width: options?.width ?? 1,
-    })
-  }
-
-  public fillPoly(
-    position: Vec2,
-    points: Vec2[],
-    options?: Partial<FillPolyOptions>
-  ): void {
-    this.assertIsInFrame()
-    const shader = this._shaders.get(FillTriangle)
-    if (!shader) {
-      return
-    }
-
-    shader.fillPoly(position, points, {
-      color: options?.color ?? colorWhite,
-      rotation: options?.rotation ?? 0,
-    })
-  }
-
-  private applyDrawingFunctions(): void {
-    while (this.toDraw.length > 0) {
-      const functionToDraw = this.toDraw.shift()
-      if (!functionToDraw) {
-        return
-      }
-      functionToDraw(this)
-    }
-  }
-
-  private applyGuiDrawingFunctions(): void {
-    while (this.toDrawGui.length > 0) {
-      const functionToDraw = this.toDrawGui.shift()
-      if (!functionToDraw) {
-        return
-      }
-      functionToDraw(this)
-    }
   }
 }
 

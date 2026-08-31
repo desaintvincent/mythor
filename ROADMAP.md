@@ -40,22 +40,6 @@ independent of any new package feature.
 
 ## Codebase health / technical debt
 
-### Renderer decomposition
-
-**Goal:** split `Renderer` into smaller pieces with clearer responsibilities.
-**Current state:** `packages/renderer/src/systems/Renderer.ts` is 513 lines and
-still owns WebGL init, shader registry, QuadTree/culling, camera management,
-imperative draw helpers, particles, and text rendering.
-**Proposed approach:** extract a `ShaderRegistry`, a `DrawAPI` facade, and a
-`RendererCore` for WebGL setup + render loop while keeping the public API
-stable.
-**Open question:** which layer should own camera state and the draw helpers
-after the split: the facade or the core?
-**Sequencing:** after logging injection, so the extracted pieces can share the
-same tracing/debug hooks.
-**Testing approach:** add headless renderer integration tests around the public
-drawing API once the split creates test seams.
-
 ### ECS testability
 
 **Goal:** make `Entity`, `System`, and `Manager` unit-testable without spinning
@@ -86,6 +70,9 @@ mostly test and maintenance work rather than feature work.
 - Injectable logging has been implemented (`EcsOptions.logger`, plus optional
   `logger` params on `TiledMapParser` and `loadTexture`); its section was
   removed from this document accordingly.
+- Renderer decomposition has been implemented via `RendererCore`,
+  `ShaderRegistry`, and `DrawAPI`; its section was removed from this document
+  accordingly.
 - The `Agregate` → `Aggregate` rename and its responsibility split
   (`packages/tiled/src/polygonDecomposition.ts` extracted from the class) have
   been done; the section was removed from this document accordingly.
