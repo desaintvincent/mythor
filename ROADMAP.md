@@ -4,36 +4,6 @@ This document tracks features that have been discussed but are **not yet started
 It exists to capture intent and rough design direction before implementation begins —
 nothing here is final, and no code has been written for these items.
 
-## `@mythor/fsm`
-
-**Goal:** generic, ECS-independent finite state machine primitive, usable both
-for entity-level behavior (character controller state: idle/walk/jump/attack)
-and simple AI (patrol/chase/attack/flee) — factoring out logic that would
-otherwise be duplicated as ad-hoc `if`/`switch` chains in every consuming
-project's custom `System`s.
-
-- **Dependencies:** none — a leaf package like `@mythor/math`, since a state
-  machine has no inherent need for `Entity`/`Component`/`Ecs`. Consumers wire
-  it into a `Component` or `System` themselves (see example below), the same
-  way `@mythor/math`'s `Vec2`/`Rect` are consumed without `@mythor/fsm` needing
-  to know about the ECS.
-- **Proposed API:**
-  - `StateMachine<TState extends string, TContext>`: constructed with a state
-    table (`{ [state]: { transitions: { [event]: TState }, onEnter?, onExit? } }`),
-    an initial state, and a context object passed to `onEnter`/`onExit` hooks.
-  - `fire(event)`: transitions if the current state declares that event,
-    no-ops (returns `false`) otherwise — invalid transitions are silently
-    rejected rather than throwing, so consumers can fire events speculatively
-    (e.g. "jump" pressed while already jumping) without guarding every call.
-  - `onEnter`/`onExit` hooks centralize side effects (play animation, toggle
-    hitbox) instead of scattering them across a `System`'s `update()`.
-- **Not covered / explicitly out of scope:** scene-level state (menu/playing/
-  paused) — already handled by `@mythor/game`'s `Scene`/`SceneManager`, which
-  operates one level above (switching entire `Ecs` instances, not per-entity
-  behavior). `@mythor/fsm` targets per-entity state only.
-- **Testing approach:** pure unit tests (no ECS, no DOM) — transition tables,
-  hook invocation order, rejection of invalid transitions.
-
 ## `@mythor/net`
 
 **Goal:** basic multiplayer networking primitives (state sync over WebSocket),
@@ -76,6 +46,106 @@ independent of any new package feature.
   overrides with its own `strict: true`. Either promote `strict: true` to the
   root and let packages inherit it, or document why the duplication exists.
 
+## Codebase health / technical debt
+
+### Injectable logging
+
+**Goal:** make `log()` replaceable through framework options so consumers can
+route output to their own logger or silence it entirely.
+**Current state:** `packages/core/src/util/log.ts` is a hardcoded
+`console.log` wrapper. It is imported directly from core, renderer, and tiled
+code paths, which makes the debug channel central but inflexible.
+**Proposed approach:** add a logger hook to the relevant top-level options
+(`EcsOptions`, `GameMakerOptions`, or the shared bootstrap path), defaulting to
+the current helper.
+**Open question:** should the injection surface be per-package or shared
+through a small common logging interface?
+**Sequencing:** do this before deeper ECS and renderer refactors so the new
+seams can reuse the same logger path.
+**Testing approach:** unit-test the default `%c` formatting and a custom logger
+adapter that records expected calls.
+
+### Renderer decomposition
+
+**Goal:** split `Renderer` into smaller pieces with clearer responsibilities.
+**Current state:** `packages/renderer/src/systems/Renderer.ts` is 513 lines and
+still owns WebGL init, shader registry, QuadTree/culling, camera management,
+imperative draw helpers, particles, and text rendering.
+**Proposed approach:** extract a `ShaderRegistry`, a `DrawAPI` facade, and a
+`RendererCore` for WebGL setup + render loop while keeping the public API
+stable.
+**Open question:** which layer should own camera state and the draw helpers
+after the split: the facade or the core?
+**Sequencing:** after logging injection, so the extracted pieces can share the
+same tracing/debug hooks.
+**Testing approach:** add headless renderer integration tests around the public
+drawing API once the split creates test seams.
+
+### `Agregate` rename
+
+**Goal:** rename `Agregate` to `Aggregate`.
+**Current state:** `packages/tiled/src/Agregate.ts` still uses the misspelled
+file and class name, while the exported collider type is already correctly
+spelled as `AggregateCollider`.
+**Proposed approach:** rename file, class, imports, and exports together; keep a
+compatibility path only if a transition release is needed.
+**Open question:** ship a temporary alias or make this a clean semver-major
+break.
+**Sequencing:** after the `Agregate.ts` split, so the rename lands once
+responsibilities are separated.
+**Testing approach:** update Tiled integration tests and import sites to cover
+the new name.
+
+### Private field naming
+
+**Goal:** remove the `_prefix` convention for private fields.
+**Current state:** core still uses fields like `_systems`, `_managers`, and
+`_entityCollections` in `Ecs.ts`.
+**Proposed approach:** switch to plain `private` names or `#private` fields
+where runtime privacy is useful.
+**Open question:** cosmetic cleanup only, or a full migration to `#private`
+syntax.
+**Sequencing:** low priority; do this only when touching the affected classes
+for another reason.
+**Testing approach:** rely on typecheck and existing unit coverage.
+
+### `Agregate.ts` responsibility split
+
+**Goal:** separate parsing, polygon decomposition, and loading-state management
+in the Tiled collider generator.
+**Current state:** `Agregate.ts` mixes `PolyBool` / `poly-decomp` geometry work
+with Tiled parsing and duplicated loading-state logic (`LoadState`, `onLoad`
+callback, constructor bookkeeping). Core already has a dedicated
+`LoadingStateManager`, so the file reimplements state handling that exists
+elsewhere.
+**Proposed approach:** extract a loading-state helper and the decomposition
+pipeline into separate modules, then wire `Agregate` / `Aggregate` as a thin
+orchestrator. Reuse `packages/core/src/managers/LoadingStateManager.ts` instead
+of duplicating state tracking.
+**Open question:** should the decomposition code live beside Tiled or in a
+shared geometry helper package.
+**Sequencing:** combine with the rename, since both changes touch the same file
+and imports.
+**Testing approach:** cover the loading callbacks and collider output
+separately, with fixtures for polygon-heavy maps.
+
+### ECS testability
+
+**Goal:** make `Entity`, `System`, and `Manager` unit-testable without spinning
+up a full `Ecs`.
+**Current state:** the `IEcs` extraction removed the biggest cycle, but these
+types still have the remaining direct coupling that makes isolated tests
+awkward. `ANALYSIS.md` step 3 was left open.
+**Proposed approach:** introduce the smallest possible seams for the remaining
+`Ecs` interactions, then add focused unit tests for lifecycle behavior and
+`init` / `clear` flows.
+**Open question:** how much dependency injection is acceptable before the ECS
+API starts to feel heavier than the current direct wiring.
+**Sequencing:** after the renderer and Tiled cleanup work, because this is
+mostly test and maintenance work rather than feature work.
+**Testing approach:** add isolated unit tests for `Entity`, `System`, and
+`Manager`, plus one integration test for the full ECS lifecycle.
+
 ## Notes
 
 - `@mythor/ui` has been implemented (see `packages/ui`); its section was
@@ -84,3 +154,5 @@ independent of any new package feature.
   was removed from this document accordingly.
 - `@mythor/audio` has been implemented (see `packages/audio`); its section
   was removed from this document accordingly.
+- `@mythor/fsm` has been implemented (see `packages/fsm`); its section was
+  removed from this document accordingly.
