@@ -38,7 +38,7 @@
     "planck": "1.4.2"
   },
   "devDependencies": {
-    "typedoc": "^0.23.20"
+    "typedoc": "^0.23.28"
   },
   "gitHead": "4773ef4d50c9a9e9bb4d84dcca5d24310f13433f"
 }

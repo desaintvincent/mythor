@@ -1,6 +1,6 @@
 import { ParsedObject } from './TiledMapParser'
 import { TiledMap, TiledObject } from './tiledTypes'
-import Agregate, { AggregateCollider, LoadState } from './Agregate'
+import Aggregate, { AggregateCollider, LoadState } from './Aggregate'
 import {
   Ecs,
   Entity,
@@ -164,7 +164,7 @@ async function generateEntitiesFromTiled(
     }
   }
 
-  const mapParser = new Agregate(tiledMap, {
+  const mapParser = new Aggregate(tiledMap, {
     onCreateCollider:
       aggreateColliders && isRegistered(Physic) ? onCreateCollider : undefined,
     onCreateObject,
