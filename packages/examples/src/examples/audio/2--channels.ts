@@ -15,6 +15,10 @@ import musicLoop from '../../assets/audio/music-loop.wav'
 import ping from '../../assets/audio/ping.wav'
 import showDescription from '../../util/showDescription'
 
+// Music: "Fluffing a Duck" by Kevin MacLeod (incompetech.com)
+// Licensed under Creative Commons: By Attribution 4.0 License
+// http://creativecommons.org/licenses/by/4.0/
+
 showDescription(
   'Two channels playing at once: a looping music track and a one-shot sfx, each with its own volume.',
   [

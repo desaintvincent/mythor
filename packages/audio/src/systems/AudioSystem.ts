@@ -71,11 +71,25 @@ class AudioSystem extends System {
       const distance = Math.sqrt(
         transform.position.distanceSquared(listenerPosition)
       )
-      // True stereo pan: normalized lateral (x) component of the direction
-      // from the listener to the source, independent of distance/falloff.
-      // -1 = fully left, 0 = straight ahead, 1 = fully right.
+      // Stereo pan: sound coming from the listener's left should be
+      // emphasized on the left channel, and vice versa. `delta` points
+      // from the listener to the source, so a source to the listener's
+      // left has a negative x, but the StereoPannerNode's pan convention
+      // used here is inverted relative to that axis, hence the minus
+      // sign below. `panRange` keeps the far side always audible instead
+      // of hard panning to a single ear, and its magnitude grows with
+      // distance (a source right next to the listener is heard evenly
+      // on both ears, a distant one is heard more clearly on one side).
+      const panRange = 0.85
+      const proximity =
+        distance === 0 ? 0 : Math.min(1, distance / source.maxDistance)
       const pan =
-        distance === 0 ? 0 : Math.max(-1, Math.min(1, delta.x / distance))
+        distance === 0
+          ? 0
+          : Math.max(
+              -panRange,
+              Math.min(panRange, (-delta.x / distance) * panRange * proximity)
+            )
 
       audioManager.updateSpatial(source.handle, distance, pan, {
         refDistance: source.refDistance,
