@@ -25,29 +25,54 @@ class RotatingSystem extends System {
     totalTimeInSeconds: number
   ): void {
     entity.get(Transform3D).rotation = Quaternion.fromEuler(
-      0,
+      totalTimeInSeconds * 0.6,
       totalTimeInSeconds,
       0
     )
   }
 }
 
-showDescription('A rotating 3D triangle rendered with depth testing.', [
+showDescription('A 3D cube rendered with depth testing.', [
   'W/A/S/D: move the camera',
   'Q/E: move the camera down/up',
   'Right click + drag: look around',
 ])
 
+// prettier-ignore
+const cubeVertices = new Float32Array([
+  // front
+  -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5,
+  -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5,
+  // back
+  0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5,
+  0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5,
+  // left
+  -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5,
+  -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5,
+  // right
+  0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5,
+  0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5,
+  // top
+  -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5,
+  -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5,
+  // bottom
+  -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5,
+  -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5,
+])
+
 const camera = new Camera3D({ position: new Vec3(0, 0, 3) })
 const renderer = new Renderer3D({ camera })
 
-const scene = new Scene('render3d-basic', {
+const scene = new Scene('render3d-cube', {
   managers: [new EventsManager(), new CameraMovementManager3D()],
   systems: [renderer, new RotatingSystem()],
   onLoaded: async (ecs) => {
     ecs
       .create()
-      .add(new Transform3D(), new Renderable3D({ color: [0.2, 0.7, 1] }))
+      .add(
+        new Transform3D(),
+        new Renderable3D({ vertices: cubeVertices, color: [1, 0.5, 0.2] })
+      )
   },
 })
 
