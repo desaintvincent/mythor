@@ -93,6 +93,10 @@ module.exports = {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
         loader: 'file-loader',
       },
+      {
+        test: /\.(?:wav|mp3|ogg)$/i,
+        loader: 'file-loader',
+      },
     ],
   },
   resolve: {

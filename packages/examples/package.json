@@ -39,6 +39,8 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
+    "@mythor/assets": "^0.1.0",
+    "@mythor/audio": "^0.1.0",
     "@mythor/core": "^0.4.10",
     "@mythor/events": "^0.4.6",
     "@mythor/fsm": "^0.1.0",

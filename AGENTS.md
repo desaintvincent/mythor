@@ -21,12 +21,13 @@ All code comments and human-facing text (UI strings, example descriptions, commi
 | `@mythor/events` | Input (keyboard, mouse) — depends on core+math+renderer |
 | `@mythor/physic2d` | 2D physics via planck-js — depends on core+math |
 | `@mythor/tiled` | Tiled map loader — depends on core+math+physic2d+renderer |
+| `@mythor/audio` | Web Audio API wrapper (Manager + Component + System) — depends on core+math+assets |
 | `@mythor/game` | Game loop, Scene management — depends on core+events+math+renderer |
 | `@mythor/ui` | UI primitives (Button + Panel/Label/Button factories) — depends on core+renderer+events+math |
 | `@mythor/examples` | Webpack dev app, private, not published |
 | `@mythor/eslint-config` | Shared ESLint + Prettier rules |
 
-Dependency order matters for build: `math → core → assets → renderer/physic2d → events/tiled → game`.
+Dependency order matters for build: `math → core → assets → renderer/physic2d → events/tiled/audio → game`.
 
 ## Commands (from repo root)
 

@@ -1,0 +1,43 @@
+{
+  "name": "@mythor/audio",
+  "description": "Mythor audio",
+  "version": "0.1.0",
+  "author": "thomas <destvincent@hotmail.fr>",
+  "homepage": "https://github.com/desaintvincent/mythor/blob/main/packages/audio#readme",
+  "license": "MIT",
+  "main": "lib/audio.js",
+  "typings": "lib/audio.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/desaintvincent/mythor.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc --watch",
+    "doc": "typedoc --plugin typedoc-plugin-markdown --out docs ./src/audio.ts",
+    "clean": "rm -rf lib docs",
+    "lint": "eslint . --max-warnings 0"
+  },
+  "bugs": {
+    "url": "https://github.com/desaintvincent/mythor/issues"
+  },
+  "devDependencies": {
+    "@mythor/eslint-config": "^1.3.9"
+  },
+  "dependencies": {
+    "@mythor/assets": "^0.1.0",
+    "@mythor/core": "^0.4.10",
+    "@mythor/math": "^0.3.10"
+  }
+}

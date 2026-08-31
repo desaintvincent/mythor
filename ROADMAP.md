@@ -4,27 +4,6 @@ This document tracks features that have been discussed but are **not yet started
 It exists to capture intent and rough design direction before implementation begins —
 nothing here is final, and no code has been written for these items.
 
-## `@mythor/audio`
-
-**Goal:** Web Audio API wrapper, following the same shape as `@mythor/events`.
-
-- **Dependencies:** `@mythor/core`, `@mythor/math` (same dependency level as `events`,
-  so it can build in parallel with it — see the package dependency order in `AGENTS.md`).
-- **Proposed API:**
-  - `AudioManager` (a `Manager` subclass, singleton like `EventsManager`):
-    `load(key, url)`, `play(key, options)`, `stop(key)`, master volume and
-    per-channel volume controls.
-  - `Sound` / `AudioSource` component: attaches playback to an entity, with an
-    optional positional/spatial mode driven by the entity's `Transform` (panning
-    based on distance/position relative to the active camera or listener).
-- **Testing approach:** mock `AudioContext` (jsdom does not implement Web Audio),
-  unit-test `AudioManager`/`AudioSource` logic in a `node` test environment the
-  same way `PhysicSystem` is tested — no real audio playback in CI.
-- **Sequencing:** `@mythor/ui` (button hover/click) already exists; wire
-  `Button.onClick`/`onHoverChange` callbacks in `@mythor/ui` to
-  `AudioManager.play(...)` once this package lands, instead of adding a
-  hard dependency from `@mythor/ui` to `@mythor/audio`.
-
 ## `@mythor/fsm`
 
 **Goal:** generic, ECS-independent finite state machine primitive, usable both
@@ -79,28 +58,6 @@ kept intentionally minimal — not a full authoritative server framework.
   logic in `node` env with a fake/mock socket transport — no real network
   round-trips in CI.
 
-## `@mythor/assets`
-
-**Goal:** unified asset loading/preloading, replacing the current situation
-where each package (renderer's `TextureManager`, `tiled`) loads its own assets
-independently with no shared progress reporting or caching.
-
-- **Dependencies:** `@mythor/core` only (renderer/tiled would depend on it,
-  not the other way around, to avoid inverting the existing dependency order
-  documented in `AGENTS.md`).
-- **Proposed API:**
-  - `AssetManager`: `load(manifest)`, `get(key)`, `onProgress(callback)`,
-    per-type loaders (`image`, `json`, `audio` — pluggable so `@mythor/audio`
-    and `@mythor/tiled` can register their own loader instead of duplicating
-    fetch/cache logic).
-  - Manifest-driven preloading for a loading-screen flow (`game` package
-    already has a loading scene concept — this should plug into it rather than
-    replace it).
-- **Sequencing:** ideally before/alongside `@mythor/audio`, since audio assets
-  benefit from the same preload/cache pipeline as textures.
-- **Testing approach:** unit-test manifest parsing, cache hits/misses, and
-  progress reporting in `node` env with mocked `fetch`/loaders.
-
 ## Tooling / build improvements
 
 **Goal:** address structural build/tooling gaps identified during codebase review,
@@ -121,10 +78,9 @@ independent of any new package feature.
 
 ## Notes
 
-- `@mythor/audio` should follow the dependency ordering already documented in
-  `AGENTS.md` (`math → core → renderer/physic2d → events/tiled → game`),
-  inserting `audio` alongside `events`/`tiled`.
-- `@mythor/audio` doesn't exist yet; this file is the only artifact produced
-  for that work so far — no scaffolding, no stub package.
 - `@mythor/ui` has been implemented (see `packages/ui`); its section was
   removed from this document accordingly.
+- `@mythor/assets` has been implemented (see `packages/assets`); its section
+  was removed from this document accordingly.
+- `@mythor/audio` has been implemented (see `packages/audio`); its section
+  was removed from this document accordingly.
