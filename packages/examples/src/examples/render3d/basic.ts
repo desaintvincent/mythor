@@ -9,6 +9,7 @@ import {
 import { EventsManager } from '@mythor/events'
 import { Game, Scene } from '@mythor/game'
 import showDescription from '../../util/showDescription'
+import StatisticsManager from '@mythor/game/lib/managers/StatisticsManager'
 
 // A tiny example-only system spinning the entity. Rotation over time is not
 // the renderer's responsibility, so it does not belong in @mythor/renderer3d
@@ -50,7 +51,11 @@ const rainbowTriangleColors = new Float32Array([
 ])
 
 const scene = new Scene('render3d-basic', {
-  managers: [new EventsManager(), new CameraMovementManager3D()],
+  managers: [
+    new EventsManager(),
+    new CameraMovementManager3D(),
+    new StatisticsManager(),
+  ],
   systems: [renderer, new RotatingSystem()],
   onLoaded: async (ecs) => {
     ecs

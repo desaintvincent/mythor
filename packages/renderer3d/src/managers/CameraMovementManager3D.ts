@@ -46,6 +46,7 @@ export default class CameraMovementManager3D extends Manager {
       Math.sin(this.yaw) * Math.cos(this.pitch)
     ).normalize()
     const right = forward.cross(camera.up).normalize()
+    const up = right.cross(forward).normalize()
 
     let movement = Vec3.zero()
 
@@ -62,10 +63,10 @@ export default class CameraMovementManager3D extends Manager {
       movement = movement.sub(right.times(moveSpeed * elapsedTimeInSeconds))
     }
     if (events.keyIsDown(Key.e)) {
-      movement = movement.add(camera.up.times(moveSpeed * elapsedTimeInSeconds))
+      movement = movement.add(up.times(moveSpeed * elapsedTimeInSeconds))
     }
     if (events.keyIsDown(Key.q)) {
-      movement = movement.sub(camera.up.times(moveSpeed * elapsedTimeInSeconds))
+      movement = movement.sub(up.times(moveSpeed * elapsedTimeInSeconds))
     }
 
     camera.position = camera.position.add(movement)

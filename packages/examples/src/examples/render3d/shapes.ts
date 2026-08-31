@@ -15,6 +15,7 @@ import {
 import { EventsManager } from '@mythor/events'
 import { Game, Scene } from '@mythor/game'
 import showDescription from '../../util/showDescription'
+import StatisticsManager from '@mythor/game/lib/managers/StatisticsManager'
 
 showDescription('Several 3D primitives rendered on top of a ground plane.', [
   'W/A/S/D: move the camera',
@@ -71,7 +72,11 @@ const prism = createTriangularPrism([
 ])
 
 const scene = new Scene('render3d-shapes', {
-  managers: [new EventsManager(), new CameraMovementManager3D()],
+  managers: [
+    new EventsManager(),
+    new CameraMovementManager3D(),
+    new StatisticsManager(),
+  ],
   systems: [renderer],
   onLoaded: async (ecs) => {
     ecs
