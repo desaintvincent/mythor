@@ -1,5 +1,5 @@
 import { Ecs, getConstructor, getSignature, Manager } from '@mythor/core'
-import Stats = require('stats.js')
+import Stats from 'stats.js'
 import { EventsManager, Key } from '@mythor/events'
 
 const objectToTable = (

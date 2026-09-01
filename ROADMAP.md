@@ -33,11 +33,6 @@ kept intentionally minimal — not a full authoritative server framework.
 **Goal:** address structural build/tooling gaps identified during codebase review,
 independent of any new package feature.
 
-- **Dual ESM+CJS build** (or pure ESM with an `exports` map) for each published
-  package. Currently every package builds to commonjs only (`module: "commonjs"`
-  in the root `tsconfig.json`), which prevents tree-shaking for consumers using
-  modern bundlers — meaningful for a game framework where bundle size matters.
-
 ## Notes
 
 - `@mythor/ui` has been implemented (see `packages/ui`); its section was
@@ -48,6 +43,10 @@ independent of any new package feature.
   was removed from this document accordingly.
 - `@mythor/fsm` has been implemented (see `packages/fsm`); its section was
   removed from this document accordingly.
+- **Dual ESM+CJS build** (or pure ESM with an `exports` map) for each published
+  package has been implemented. Packages now build CommonJS to `lib/` and ESM
+  to `lib/esm/`, with bundler-friendly `module` metadata preserved for tree-
+  shaking while keeping existing deep-import paths working.
 - Injectable logging has been implemented (`EcsOptions.logger`, plus optional
   `logger` params on `TiledMapParser` and `loadTexture`); its section was
   removed from this document accordingly.
