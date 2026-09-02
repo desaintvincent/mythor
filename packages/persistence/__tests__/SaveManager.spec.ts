@@ -1,6 +1,5 @@
-import { Component, Ecs } from '@mythor/core'
+import { Component, Ecs, Serializable } from '@mythor/core'
 import SaveManager from '../src/managers/SaveManager'
-import Serializable from '../src/Serializable'
 import StorageBackend from '../src/storage/StorageBackend'
 
 interface CoinsData {

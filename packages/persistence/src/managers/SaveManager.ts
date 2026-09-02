@@ -1,5 +1,11 @@
-import { Component, Constructor, Manager, getConstructor } from '@mythor/core'
-import Serializable, { isSerializable } from '../Serializable'
+import {
+  Component,
+  Constructor,
+  Manager,
+  getConstructor,
+  Serializable,
+  isSerializable,
+} from '@mythor/core'
 import StorageBackend from '../storage/StorageBackend'
 import LocalStorageBackend from '../storage/LocalStorageBackend'
 

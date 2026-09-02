@@ -4,30 +4,6 @@ This document tracks features that have been discussed but are **not yet started
 It exists to capture intent and rough design direction before implementation begins —
 nothing here is final, and no code has been written for these items.
 
-## `@mythor/net`
-
-**Goal:** basic multiplayer networking primitives (state sync over WebSocket),
-kept intentionally minimal — not a full authoritative server framework.
-
-- **Dependencies:** `@mythor/core`, `@mythor/math`.
-- **Proposed API:**
-  - `NetworkManager` (a `Manager` subclass): connect/disconnect, message
-    send/broadcast, connection state.
-  - `Networked` component: marks an entity/component set for replication;
-    simple dirty-checking + serialization reusing the same opt-in strategy as
-    `@mythor/persistence` where possible (shared serialization primitives are
-    worth extracting if both packages land).
-  - Sync model: start with a simple snapshot/interpolation approach for
-    positions, not full authoritative simulation — keep scope small.
-- **Open question:** client-server vs. peer-to-peer as the default topology;
-  this needs a decision before implementation, since it changes the shape of
-  `NetworkManager`.
-- **Sequencing:** should land after `@mythor/persistence` if serialization
-  primitives are shared between the two.
-- **Testing approach:** unit-test message encode/decode and reconciliation
-  logic in `node` env with a fake/mock socket transport — no real network
-  round-trips in CI.
-
 ## Tooling / build improvements
 
 **Goal:** address structural build/tooling gaps identified during codebase review,
@@ -43,6 +19,17 @@ independent of any new package feature.
   was removed from this document accordingly.
 - `@mythor/fsm` has been implemented (see `packages/fsm`); its section was
   removed from this document accordingly.
+- `@mythor/net` has been implemented (see `packages/net`): a client-side,
+  server-authoritative networking package with a `NetworkManager` (WebSocket
+  transport, pluggable for testing), `OwnedNetworked`/`PredictionSystem`
+  (client-side prediction + reconciliation) and `RemoteNetworked`/
+  `RemoteInterpolationSystem` (dual-snapshot buffered interpolation, no
+  extrapolation). `Serializable`/`isSerializable` were moved from
+  `@mythor/persistence` into `@mythor/core` (re-exported unchanged from
+  `@mythor/persistence`) so both packages share the same serialization
+  primitive. No server/relay/anti-cheat code is shipped — that remains the
+  game's responsibility; its section was removed from this document
+  accordingly.
 - **Dual ESM+CJS build** (or pure ESM with an `exports` map) for each published
   package has been implemented. Packages now build CommonJS to `lib/` and ESM
   to `lib/esm/`, with bundler-friendly `module` metadata preserved for tree-

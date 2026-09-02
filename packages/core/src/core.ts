@@ -27,3 +27,7 @@ export {
   getConstructor,
   getSignature,
 } from './collections/Signable'
+export {
+  default as Serializable,
+  isSerializable,
+} from './serialization/Serializable'
