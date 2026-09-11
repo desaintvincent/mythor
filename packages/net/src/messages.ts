@@ -7,10 +7,12 @@
 
 export interface SnapshotEntity {
   id: string
-  transform: {
-    position: [number, number]
-    rotation: number
-  }
+  /**
+   * Serialized payload of every networked component attached to this
+   * entity, keyed by component constructor name (same convention as
+   * `@mythor/persistence`'s `SaveManager.registerComponent`).
+   */
+  components: Record<string, unknown>
   /**
    * Present only for entities owned by the client receiving this
    * snapshot: the highest input `seq` the server had processed for this

@@ -8,7 +8,7 @@ import { isNetMessage, NetMessage } from '@mythor/net'
  * the reader is expected to write themselves.
  */
 
-export interface Connection {
+interface Connection {
   socket: WebSocket
   send: (message: NetMessage) => void
 }

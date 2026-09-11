@@ -1,11 +1,21 @@
-import { Connection, startWsServer } from './wsServer'
+import { Ecs, Entity, Transform } from '@mythor/core'
+import { Vec2 } from '@mythor/math'
+import {
+  BroadcastSystem,
+  Networked,
+  ServerNetworkManager,
+} from '@mythor/net/server'
 
 /**
- * Server for the "prediction" example: a single owned entity per
- * connection, moved with `dx`/`dy` input.
+ * Server for the "prediction" example: a headless `@mythor/core` `Ecs`
+ * running one `Transform`-carrying entity per connection, moved with
+ * `dx`/`dy` input. Replication is entirely generic: this file never
+ * builds a snapshot payload itself, `BroadcastSystem` does that for every
+ * `Networked` entity's `NetworkSync` components (here, `Transform`,
+ * which implements it natively in `@mythor/core`).
  *
- * `applyMoveInput` below is deliberately duplicated from the client example
- * (`2--prediction.ts`). This is not an oversight: `@mythor/net`'s
+ * `applyMoveInput` below is deliberately duplicated from the client
+ * example (`2--prediction.ts`). This is not an oversight: `@mythor/net`'s
  * client-side prediction replays inputs locally using the client's own
  * `applyInput` function, so the server MUST run the exact same
  * deterministic movement rule, or the client's prediction will constantly
@@ -16,6 +26,7 @@ import { Connection, startWsServer } from './wsServer'
  * Run with: yarn workspace @mythor/examples run server:net-prediction
  */
 
+const PORT = 8082
 const SPEED = 200 // pixels per second
 const TICK_RATE_HZ = 20
 
@@ -24,61 +35,58 @@ interface MoveInput {
   dy: number
 }
 
-interface PlayerState {
-  entityId?: string
-  x: number
-  y: number
-  lastProcessedSeq: number
+function applyMoveInput(entity: Entity, input: MoveInput, dt: number): void {
+  const transform = entity.get(Transform)
+  transform.position.vSet(
+    transform.position.add(
+      new Vec2(input.dx * SPEED * dt, input.dy * SPEED * dt)
+    )
+  )
 }
 
-function applyMoveInput(state: PlayerState, input: MoveInput, dt: number) {
-  state.x += input.dx * SPEED * dt
-  state.y += input.dy * SPEED * dt
-}
+async function main() {
+  const ecs = new Ecs()
+  const manager = new ServerNetworkManager({ port: PORT })
+  ecs.registerManagers(manager)
+  ecs.registerSystems(new BroadcastSystem())
+  await ecs.init()
 
-const players = new Map<Connection, PlayerState>()
+  // Entities are keyed by the id the client's own `OwnedNetworked` entity
+  // generated locally: the server has no way to know it ahead of time, so
+  // it lazily creates the authoritative entity on the first input seen
+  // for that id.
+  const entityIdByConnectionId = new Map<string, string>()
 
-startWsServer({
-  port: 8082,
-  onConnection: (connection) => {
-    players.set(connection, { x: 0, y: 0, lastProcessedSeq: -1 })
-  },
-  onMessage: (connection, message) => {
-    if (message.type !== 'input') {
-      return
+  manager.onDisconnect((connection) => {
+    const entityId = entityIdByConnectionId.get(connection.id)
+    entityIdByConnectionId.delete(connection.id)
+
+    if (entityId) {
+      ecs.entity(entityId)?.destroy()
     }
-
-    const state = players.get(connection)
-
-    if (!state) {
-      return
-    }
-
-    state.entityId = message.entityId
-    applyMoveInput(state, message.input as MoveInput, 1 / TICK_RATE_HZ)
-    state.lastProcessedSeq = message.seq
-  },
-  onClose: (connection) => {
-    players.delete(connection)
-  },
-})
-
-setInterval(() => {
-  players.forEach((state, connection) => {
-    if (!state.entityId) {
-      return
-    }
-
-    connection.send({
-      v: 1,
-      type: 'snapshot',
-      entities: [
-        {
-          id: state.entityId,
-          transform: { position: [state.x, state.y], rotation: 0 },
-          ackSeq: state.lastProcessedSeq,
-        },
-      ],
-    })
   })
-}, 1000 / TICK_RATE_HZ)
+
+  manager.onInput((connection, entityId, seq, input) => {
+    let entity = ecs.entity(entityId)
+
+    if (!entity) {
+      entity = ecs.create(entityId)
+      entity.add(
+        new Transform(),
+        new Networked({ ownerConnectionId: connection.id })
+      )
+      entityIdByConnectionId.set(connection.id, entityId)
+    }
+
+    void seq
+    applyMoveInput(entity, input as MoveInput, 1 / TICK_RATE_HZ)
+  })
+
+  manager.listen()
+  // eslint-disable-next-line no-console
+  console.log(`Listening on ws://localhost:${PORT}`)
+
+  setInterval(() => ecs.update(1 / TICK_RATE_HZ, 0), 1000 / TICK_RATE_HZ)
+}
+
+main()

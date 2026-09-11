@@ -4,9 +4,10 @@
 
 
 <p>
-@mythor/net exports minimal client-side multiplayer networking primitives:
-a WebSocket-backed NetworkManager, client-side prediction/reconciliation for
-entities the client owns, and snapshot interpolation for remote entities.
+@mythor/net turns any @mythor/core Ecs into a networked game: broadcast
+(server), prediction/reconciliation (owned entities), snapshot interpolation
+(remote entities), auto spawn/despawn of remote entities, and a generic
+event channel — all generic over whatever components your own game defines.
 </p>
 <p align="center">
     <a href="">
@@ -25,27 +26,47 @@ entities the client owns, and snapshot interpolation for remote entities.
 listen-server — the code is identical either way) runs `@mythor/core`
 headless and owns the authoritative simulation.
 
-**This package ships client-side code only.** It does **not** include:
+The package ships both halves:
 
-- any server / `ws`-relay implementation,
-- any anti-cheat or input-validation logic,
-- peer-to-peer/WebRTC support (the `Transport` interface is transport-agnostic,
-  so a future `WebRTCTransport` could be added later without touching
-  `NetworkManager`, `PredictionSystem`, or `RemoteInterpolationSystem`).
+- `@mythor/net` (default entry): client-side — `NetworkManager`,
+  `OwnedNetworked`/`PredictionSystem`, `RemoteNetworked`/
+  `RemoteInterpolationSystem`/`RemoteEntitySyncSystem`.
+- `@mythor/net/server`: server-side (Node-only, depends on `ws`) —
+  `ServerNetworkManager`, `BroadcastSystem`, `Networked`.
 
-Implementing the server side is the game's responsibility. At minimum, the
-server must:
+**What it does *not* ship**: any anti-cheat/input-validation logic, or
+peer-to-peer/WebRTC support (the `Transport`/`ServerTransport` interfaces are
+transport-agnostic, so a future `WebRTCTransport` could be added later
+without touching any of the systems above). A game is still responsible for
+its own authoritative movement/gameplay rules — `@mythor/net` only handles
+delivery, bookkeeping and replication around them.
 
-- receive `InputMessage`s and run the exact same `applyInput` function
-  authoritatively (deterministic, same code as the client),
-- track the last processed input sequence per connection/entity,
-- periodically broadcast `SnapshotMessage`s, setting `ackSeq` only on the
-  entities owned by the message's recipient (omitted for every other
-  entity in that snapshot).
+## The core idea: components opt in, the lib never hardcodes a type
+
+Any component can become network-syncable by implementing a small
+structural interface — no change to `@mythor/net` needed for a new
+component type:
+
+```ts
+interface NetworkSync<T = unknown> {
+  serialize(): T
+  deserialize(data: T): void
+}
+
+interface NetworkInterpolatable<T = unknown> extends NetworkSync<T> {
+  interpolate(from: T, to: T, alpha: number): T
+}
+```
+
+`@mythor/core`'s `Transform` already implements both, so it works out of the
+box. Components that only implement `NetworkSync` (no `interpolate`) are
+snapped to the latest received value on remote entities instead of blended
+— no lerp assumption is ever forced onto arbitrary data (e.g. a `Health`
+component).
 
 ## Usage
 
-### Connecting
+### Connecting (client)
 
 ```ts
 import { NetworkManager } from '@mythor/net'
@@ -69,10 +90,9 @@ interface MoveInput {
   dx: number
 }
 
-function applyInput(transform: Transform, input: MoveInput, dt: number): void {
-  transform.position.vSet(
-    transform.position.add(new Vec2(input.dx * dt, 0))
-  )
+function applyInput(entity: Entity, input: MoveInput, dt: number): void {
+  const transform = entity.get(Transform)
+  transform.position.vSet(transform.position.add(new Vec2(input.dx * dt, 0)))
 }
 
 const player = ecs.create()
@@ -87,35 +107,88 @@ player.add(
 ecs.registerSystems(new PredictionSystem())
 ```
 
-`applyInput` **must be deterministic** (pure function of `transform`, `input`
+`applyInput` **must be deterministic** (pure function of `entity`, `input`
 and `dt`): it is replayed against unacknowledged inputs whenever the server
-sends a corrected snapshot.
+sends a corrected snapshot, and the exact same function must run
+authoritatively on the server.
 
-### Entities you don't own (snapshot interpolation)
+### Entities you don't own (auto spawn/despawn + interpolation)
 
 ```ts
-import { RemoteNetworked, RemoteInterpolationSystem } from '@mythor/net'
+import {
+  RemoteEntitySyncSystem,
+  RemoteInterpolationSystem,
+  NetworkManager,
+} from '@mythor/net'
+import { Transform } from '@mythor/core'
 
-const remotePlayer = ecs.create(remoteId)
-remotePlayer.add(new Transform())
-remotePlayer.add(new RemoteNetworked({ interpolationDelay: 0.1 }))
+const networkManager = ecs.manager(NetworkManager)
+networkManager.registerComponent(Transform, () => new Transform())
 
-ecs.registerSystems(new RemoteInterpolationSystem())
+ecs.registerSystems(new RemoteEntitySyncSystem(), new RemoteInterpolationSystem())
 ```
 
-Remote entities are smoothed by buffering the last two received snapshots
-and interpolating between them with a fixed render-lag (`interpolationDelay`).
-If no newer snapshot arrives, the entity holds its last known position —
-there is no extrapolation.
+Remote entities never need to be created by your game code:
+`RemoteEntitySyncSystem` spawns one automatically (with a fresh instance of
+every registered component present in the snapshot) the first time it
+appears in a snapshot, and destroys it once it's no longer present.
+`RemoteInterpolationSystem` then blends (or snaps) each of its networked
+components frame after frame, buffering the last two received snapshots and
+rendering with a fixed render-lag (`RemoteNetworked`'s `interpolationDelay`).
+If no newer snapshot arrives, the entity holds its last known value — there
+is no extrapolation.
+
+### Broadcasting entities (server)
+
+```ts
+import { ServerNetworkManager, BroadcastSystem, Networked } from '@mythor/net/server'
+import { Ecs, Transform } from '@mythor/core'
+
+const ecs = new Ecs()
+const networkManager = new ServerNetworkManager({ port: 8080 })
+ecs.registerManagers(networkManager)
+ecs.registerSystems(new BroadcastSystem())
+await ecs.init()
+networkManager.listen()
+
+const player = ecs.create(entityId)
+player.add(new Transform(), new Networked({ ownerConnectionId: connection.id }))
+
+setInterval(() => ecs.update(1 / 20, 0), 1000 / 20)
+```
+
+`BroadcastSystem` scans every `Networked` entity's own components for
+whichever ones implement `NetworkSync`, serializes them, and sends a
+per-recipient snapshot to every connection — only the entity's own
+`ownerConnectionId` gets `ackSeq` set, so it reconciles locally on the owning
+client while every other client treats it as remote/interpolated. Your game
+never builds a snapshot payload by hand.
+
+### Non-entity events (e.g. "play a sound")
+
+Both `NetworkManager` (client) and `ServerNetworkManager` (server) expose a
+generic, untyped message channel, independent of entity replication:
+
+```ts
+// server
+serverNetworkManager.broadcast({ sound: 'explosion' })
+serverNetworkManager.sendTo(connectionId, { sound: 'ping' })
+
+// client
+networkManager.onMessage((payload) => {
+  if (payload.sound) playSound(payload.sound)
+})
+```
 
 ### Custom transport (testing)
 
-`NetworkManager` accepts any `Transport` implementation, which makes it easy
-to unit test networked systems in Node with a fake transport instead of a
-real WebSocket:
+Both `NetworkManager` and `ServerNetworkManager` accept a pluggable
+transport, which makes it easy to unit test networked systems in Node
+without a real socket:
 
 ```ts
 const networkManager = new NetworkManager({ transport: myFakeTransport })
+const serverNetworkManager = new ServerNetworkManager({ port: 8080, transport: myFakeServerTransport })
 ```
 
 ## A few links to help you get started

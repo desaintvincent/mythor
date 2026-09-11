@@ -1,8 +1,10 @@
-import { Ecs, Transform } from '@mythor/core'
+import { Ecs } from '@mythor/core'
 import NetworkManager from '../src/managers/NetworkManager'
 import RemoteNetworked from '../src/components/RemoteNetworked'
 import RemoteInterpolationSystem from '../src/systems/RemoteInterpolationSystem'
 import FakeTransport from './util/FakeTransport'
+import Counter from './util/Counter'
+import Flag from './util/Flag'
 
 async function setup() {
   const ecs = new Ecs()
@@ -16,70 +18,98 @@ async function setup() {
   return { ecs, transport, manager }
 }
 
-function snapshot(id: string, position: [number, number], rotation: number) {
+function snapshot(id: string, value: number): string {
   return JSON.stringify({
     v: 1,
     type: 'snapshot',
-    entities: [{ id, transform: { position, rotation } }],
+    entities: [{ id, components: { Counter: { value } } }],
+  })
+}
+
+function flagSnapshot(id: string, active: boolean): string {
+  return JSON.stringify({
+    v: 1,
+    type: 'snapshot',
+    entities: [{ id, components: { Flag: { active } } }],
   })
 }
 
 describe('RemoteInterpolationSystem', () => {
   it('does nothing until at least two samples are received', async () => {
     const { ecs, transport } = await setup()
-    const entity = ecs.create()
-    entity.add(new Transform())
-    entity.add(new RemoteNetworked({ interpolationDelay: 0 }))
+    const entity = ecs.create('remote')
+    entity.add(new Counter(), new RemoteNetworked({ interpolationDelay: 0 }))
 
-    transport.emit(snapshot(entity._id, [5, 0], 0))
+    transport.emit(snapshot('remote', 10))
     ecs.update(0, 0)
 
-    expect(entity.get(Transform).position.x).toBe(0)
+    expect(entity.get(Counter).value).toBe(0)
   })
 
-  it('blends position/rotation between the last two snapshots', async () => {
+  it('blends between the last two snapshots (interpolatable component)', async () => {
     jest.useFakeTimers()
     const start = 1_000_000
     jest.setSystemTime(start)
 
     const { ecs, transport } = await setup()
-    const entity = ecs.create()
-    entity.add(new Transform())
-    entity.add(new RemoteNetworked({ interpolationDelay: 0 }))
+    const entity = ecs.create('remote')
+    entity.add(new Counter(), new RemoteNetworked({ interpolationDelay: 0 }))
 
-    transport.emit(snapshot(entity._id, [0, 0], 0))
+    transport.emit(snapshot('remote', 0))
     ecs.update(0, 0)
 
-    jest.setSystemTime(start + 1000) // +1s
-    transport.emit(snapshot(entity._id, [10, 0], 0))
-    ecs.update(0, 0) // dispatches snapshot then interpolates at renderTime = start+1s
+    jest.setSystemTime(start + 1000)
+    transport.emit(snapshot('remote', 10))
+    ecs.update(0, 0)
 
-    // renderTime aligns exactly with the second sample -> alpha = 1
-    expect(entity.get(Transform).position.x).toBeCloseTo(10)
+    expect(entity.get(Counter).value).toBeCloseTo(10)
 
     jest.useRealTimers()
   })
 
-  it('holds last known position when no newer snapshot arrives', async () => {
+  it('holds last known value when no newer snapshot arrives', async () => {
     jest.useFakeTimers()
     const start = 1_000_000
     jest.setSystemTime(start)
 
     const { ecs, transport } = await setup()
-    const entity = ecs.create()
-    entity.add(new Transform())
-    entity.add(new RemoteNetworked({ interpolationDelay: 0 }))
+    const entity = ecs.create('remote')
+    entity.add(new Counter(), new RemoteNetworked({ interpolationDelay: 0 }))
 
-    transport.emit(snapshot(entity._id, [0, 0], 0))
+    transport.emit(snapshot('remote', 0))
     ecs.update(0, 0)
     jest.setSystemTime(start + 100)
-    transport.emit(snapshot(entity._id, [10, 0], 0))
+    transport.emit(snapshot('remote', 10))
     ecs.update(0, 0)
 
-    jest.setSystemTime(start + 100_000) // long after, no new sample
+    jest.setSystemTime(start + 100_000)
     ecs.update(0, 0)
 
-    expect(entity.get(Transform).position.x).toBeCloseTo(10)
+    expect(entity.get(Counter).value).toBeCloseTo(10)
+
+    jest.useRealTimers()
+  })
+
+  it('snaps (no blend) a component that only implements NetworkSync', async () => {
+    jest.useFakeTimers()
+    const start = 1_000_000
+    jest.setSystemTime(start)
+
+    const { ecs, transport } = await setup()
+    const entity = ecs.create('remote')
+    entity.add(new Flag(), new RemoteNetworked({ interpolationDelay: 0 }))
+
+    transport.emit(flagSnapshot('remote', false))
+    ecs.update(0, 0)
+
+    // Only 1ms later, i.e. alpha would be tiny if this were blended.
+    jest.setSystemTime(start + 1)
+    transport.emit(flagSnapshot('remote', true))
+    ecs.update(0, 0)
+
+    // Snap-only components jump straight to the latest value, never
+    // partially blend regardless of elapsed time.
+    expect(entity.get(Flag).active).toBe(true)
 
     jest.useRealTimers()
   })

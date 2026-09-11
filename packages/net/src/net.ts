@@ -4,6 +4,7 @@ export {
   NetworkManagerOptions,
   ConnectionState,
 } from './managers/NetworkManager'
+export { default as Networked, NetworkedOptions } from './components/Networked'
 export {
   default as OwnedNetworked,
   OwnedNetworkedOptions,
@@ -15,8 +16,15 @@ export {
 } from './components/RemoteNetworked'
 export { default as PredictionSystem } from './systems/PredictionSystem'
 export { default as RemoteInterpolationSystem } from './systems/RemoteInterpolationSystem'
+export { default as RemoteEntitySyncSystem } from './systems/RemoteEntitySyncSystem'
 export { default as Transport } from './transport/Transport'
 export { default as WebSocketTransport } from './transport/WebSocketTransport'
+export {
+  NetworkSync,
+  NetworkInterpolatable,
+  isNetworkSync,
+  isNetworkInterpolatable,
+} from './sync/NetworkSync'
 export {
   NetMessage,
   SnapshotMessage,

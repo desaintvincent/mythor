@@ -2,12 +2,13 @@ import {
   NetworkManager,
   OwnedNetworked,
   RemoteNetworked,
+  RemoteEntitySyncSystem,
   PredictionSystem,
   RemoteInterpolationSystem,
 } from '@mythor/net'
 import { createGame } from '@mythor/game'
 import { EventsManager, Key } from '@mythor/events'
-import { Transform } from '@mythor/core'
+import { Entity, System, Transform } from '@mythor/core'
 import { Vec2 } from '@mythor/math'
 import {
   FillRect,
@@ -22,13 +23,16 @@ import showDescription from '../../util/showDescription'
  * Combined multiplayer demo: your own square is predicted/reconciled
  * (`OwnedNetworked` + `PredictionSystem`, same movement rule as
  * `2--prediction.ts`), while every other connected client's square is
- * spawned dynamically and smoothed via `RemoteNetworked` +
- * `RemoteInterpolationSystem`.
+ * spawned/despawned automatically by `RemoteEntitySyncSystem` (registered
+ * component: `Transform`, which implements `NetworkSync` natively in
+ * `@mythor/core`) and smoothed by `RemoteInterpolationSystem` — this
+ * example never diffs snapshots by hand.
  *
- * `@mythor/net` does not manage entity lifecycle on its own — spawning and
- * despawning remote entities as players join/leave is this example's own
- * responsibility, driven by diffing each incoming snapshot's entity list
- * against the previously known one.
+ * The only thing left for this example to do is presentation: give
+ * remote entities their (blue) look as soon as they're spawned, via a
+ * tiny local system reacting to `RemoteAppearanceSystem`'s entity
+ * creation hook. `@mythor/net` only ever touches network-relevant
+ * components (`Transform` here), never rendering ones.
  */
 showDescription(
   'Combined multiplayer demo: your square (red) is predicted locally, ' +
@@ -50,16 +54,26 @@ interface MoveInput {
   dy: number
 }
 
-function applyMoveInput(
-  transform: Transform,
-  input: MoveInput,
-  dt: number
-): void {
+function applyMoveInput(entity: Entity, input: MoveInput, dt: number): void {
+  const transform = entity.get(Transform)
   transform.position.vSet(
     transform.position.add(
       new Vec2(input.dx * SPEED * dt, input.dy * SPEED * dt)
     )
   )
+}
+
+class RemoteAppearanceSystem extends System {
+  public constructor() {
+    super('RemoteAppearanceSystem', [RemoteNetworked])
+  }
+
+  protected onEntityCreation(entity: Entity): void {
+    entity.add(
+      new Renderable(),
+      new FillRect({ size: new Vec2(40, 40), color: colorBlue })
+    )
+  }
 }
 
 createGame({
@@ -71,13 +85,18 @@ createGame({
   systems: [
     new Renderer(),
     new PredictionSystem(),
+    new RemoteEntitySyncSystem(),
+    new RemoteAppearanceSystem(),
     new RemoteInterpolationSystem(),
   ],
   onInit: async (ecs) => {
     const networkManager = ecs.manager(NetworkManager)
     const events = ecs.manager(EventsManager)
-    const remoteEntityIds = new Set<string>()
-    let ownEntityId: string | undefined
+
+    networkManager.registerComponent(
+      Transform,
+      () => new Transform({ size: new Vec2(40, 40) })
+    )
 
     ecs.create().add(
       new Transform({ position: Vec2.zero(), size: new Vec2(40, 40) }),
@@ -95,44 +114,6 @@ createGame({
         applyInput: applyMoveInput,
       })
     )
-
-    networkManager.onSnapshot((message) => {
-      const seenThisFrame = new Set<string>()
-
-      message.entities.forEach((snapshotEntity) => {
-        // Our own entity is handled by PredictionSystem, not here.
-        if (snapshotEntity.ackSeq !== undefined) {
-          ownEntityId = snapshotEntity.id
-
-          return
-        }
-
-        seenThisFrame.add(snapshotEntity.id)
-
-        if (remoteEntityIds.has(snapshotEntity.id)) {
-          return
-        }
-
-        remoteEntityIds.add(snapshotEntity.id)
-        ecs
-          .create(snapshotEntity.id)
-          .add(
-            new Transform({ size: new Vec2(40, 40) }),
-            new Renderable(),
-            new FillRect({ size: new Vec2(40, 40), color: colorBlue }),
-            new RemoteNetworked()
-          )
-      })
-
-      remoteEntityIds.forEach((id) => {
-        if (seenThisFrame.has(id) || id === ownEntityId) {
-          return
-        }
-
-        remoteEntityIds.delete(id)
-        ecs.entity(id)?.destroy()
-      })
-    })
 
     networkManager.connect('ws://localhost:8084')
   },

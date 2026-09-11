@@ -1,7 +1,7 @@
 import { NetworkManager, OwnedNetworked, PredictionSystem } from '@mythor/net'
 import { createGame } from '@mythor/game'
 import { EventsManager, Key } from '@mythor/events'
-import { Transform } from '@mythor/core'
+import { Entity, Transform } from '@mythor/core'
 import { Vec2 } from '@mythor/math'
 import { FillRect, Renderable, Renderer, colorRed } from '@mythor/renderer'
 import showDescription from '../../util/showDescription'
@@ -32,7 +32,8 @@ interface MoveInput {
   dy: number
 }
 
-function applyMoveInput(transform: Transform, input: MoveInput, dt: number) {
+function applyMoveInput(entity: Entity, input: MoveInput, dt: number): void {
+  const transform = entity.get(Transform)
   transform.position.vSet(
     transform.position.add(
       new Vec2(input.dx * SPEED * dt, input.dy * SPEED * dt)

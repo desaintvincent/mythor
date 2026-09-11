@@ -1,16 +1,20 @@
-import { Ecs, Transform } from '@mythor/core'
-import { Vec2 } from '@mythor/math'
+import { Ecs } from '@mythor/core'
 import NetworkManager from '../src/managers/NetworkManager'
 import OwnedNetworked from '../src/components/OwnedNetworked'
 import PredictionSystem from '../src/systems/PredictionSystem'
 import FakeTransport from './util/FakeTransport'
+import Counter, { CounterData } from './util/Counter'
 
 interface Input {
-  dx: number
+  delta: number
 }
 
-function applyInput(transform: Transform, input: Input, dt: number): void {
-  transform.position.vSet(transform.position.add(new Vec2(input.dx * dt, 0)))
+function applyInput(
+  entity: import('@mythor/core').Entity,
+  input: Input,
+  dt: number
+): void {
+  entity.get(Counter).value += input.delta * dt
 }
 
 async function setup() {
@@ -25,110 +29,101 @@ async function setup() {
   return { ecs, transport, manager }
 }
 
+function snapshot(
+  id: string,
+  components: Record<string, unknown>,
+  ackSeq: number
+): string {
+  return JSON.stringify({
+    v: 1,
+    type: 'snapshot',
+    entities: [{ id, components, ackSeq }],
+  })
+}
+
 describe('PredictionSystem', () => {
-  it('predicts by applying input immediately every frame', async () => {
-    const { ecs } = await setup()
-    let input: Input = { dx: 1 }
+  it('predicts input locally every frame using a generic component', async () => {
+    const { ecs, transport } = await setup()
+    let delta = 1
+
     const entity = ecs.create()
-    entity.add(new Transform())
-    entity.add(new OwnedNetworked<Input>({ getInput: () => input, applyInput }))
+    entity.add(
+      new Counter(),
+      new OwnedNetworked<Input>({ getInput: () => ({ delta }), applyInput })
+    )
 
     ecs.update(1, 1)
+    expect(entity.get(Counter).value).toBeCloseTo(1)
 
-    expect(entity.get(Transform).position.x).toBeCloseTo(1)
-
-    input = { dx: 2 }
+    delta = 2
     ecs.update(1, 2)
+    expect(entity.get(Counter).value).toBeCloseTo(3)
 
-    expect(entity.get(Transform).position.x).toBeCloseTo(3)
+    void transport
   })
 
   it('sends an input message for every predicted frame', async () => {
     const { ecs, transport } = await setup()
+
     const entity = ecs.create()
-    entity.add(new Transform())
     entity.add(
-      new OwnedNetworked<Input>({ getInput: () => ({ dx: 1 }), applyInput })
+      new Counter(),
+      new OwnedNetworked<Input>({ getInput: () => ({ delta: 1 }), applyInput })
     )
 
     ecs.update(1, 1)
-    // Outbox queued during this frame's system pass is only flushed at the
-    // start of the manager's *next* update (frame-synced discipline).
     ecs.update(0, 1)
 
     expect(transport.sent).toHaveLength(1)
-    const message = JSON.parse(transport.sent[0])
-    expect(message).toEqual({
+    expect(JSON.parse(transport.sent[0])).toEqual({
       v: 1,
       type: 'input',
       entityId: entity._id,
       seq: 0,
-      input: { dx: 1 },
+      input: { delta: 1 },
     })
   })
 
-  it('reconciles by snapping to authoritative state and replaying unacked inputs', async () => {
+  it('reconciles a generic NetworkSync component from an authoritative snapshot', async () => {
     const { ecs, transport } = await setup()
+
     const entity = ecs.create()
-    entity.add(new Transform())
     entity.add(
-      new OwnedNetworked<Input>({ getInput: () => ({ dx: 1 }), applyInput })
+      new Counter(),
+      new OwnedNetworked<Input>({ getInput: () => ({ delta: 1 }), applyInput })
     )
 
-    // Frame 1: predicts seq 0 (dx 1, dt 1) -> position.x = 1 (queued, not
-    // yet flushed: outbox flush happens at the start of the *next* frame)
-    ecs.update(1, 1)
-    // Frame 2: manager flushes seq 0; predicts seq 1 (dx 1, dt 1) -> x = 2
-    ecs.update(1, 2)
-    expect(entity.get(Transform).position.x).toBeCloseTo(2)
+    ecs.update(1, 1) // predicts seq 0 -> value 1 (not yet flushed)
+    ecs.update(1, 2) // flushes seq 0, predicts seq 1 -> value 2
     expect(transport.sent).toHaveLength(1)
 
-    // Server acked seq 0 only, authoritative x is 1 (matches, no misprediction)
-    transport.emit(
-      JSON.stringify({
-        v: 1,
-        type: 'snapshot',
-        entities: [
-          {
-            id: entity._id,
-            transform: { position: [1, 0], rotation: 0 },
-            ackSeq: 0,
-          },
-        ],
-      })
-    )
+    const data: CounterData = { value: 1 }
+    transport.emit(snapshot(entity._id, { Counter: data }, 0))
 
-    // Frame 3: manager update dispatches the snapshot (reconcile: snap to
-    // x=1, replay pending seq 1 -> x=2), then predicts seq 2 -> x=3
-    ecs.update(1, 3)
-
-    expect(entity.get(Transform).position.x).toBeCloseTo(3)
+    ecs.update(1, 3) // reconciles: snaps to 1, replays seq1(dt=1)->2, predicts seq2(dt=1)->3
+    expect(entity.get(Counter).value).toBeCloseTo(3)
   })
 
-  it('ignores snapshot entries without ackSeq (remote entities)', async () => {
+  it('ignores snapshot entries without ackSeq', async () => {
     const { ecs, transport } = await setup()
+
     const entity = ecs.create()
-    entity.add(new Transform())
     entity.add(
-      new OwnedNetworked<Input>({ getInput: () => ({ dx: 1 }), applyInput })
+      new Counter(),
+      new OwnedNetworked<Input>({ getInput: () => ({ delta: 1 }), applyInput })
     )
 
     ecs.update(1, 1)
-    expect(entity.get(Transform).position.x).toBeCloseTo(1)
 
     transport.emit(
       JSON.stringify({
         v: 1,
         type: 'snapshot',
-        entities: [
-          { id: entity._id, transform: { position: [99, 99], rotation: 0 } },
-        ],
+        entities: [{ id: entity._id, components: { Counter: { value: 999 } } }],
       })
     )
-    ecs.update(1, 2)
 
-    // Not reconciled (no ackSeq): position keeps predicting normally,
-    // unaffected by the remote-only snapshot entry.
-    expect(entity.get(Transform).position.x).toBeCloseTo(2)
+    ecs.update(1, 2)
+    expect(entity.get(Counter).value).toBeCloseTo(2)
   })
 })

@@ -1,4 +1,4 @@
-import { Component, Transform } from '@mythor/core'
+import { Component, Entity } from '@mythor/core'
 
 interface PendingInput<TInput> {
   seq: number
@@ -10,14 +10,15 @@ interface OwnedNetworkedOptions<TInput> {
   /** Reads the current local input for this entity (game-supplied). */
   getInput: () => TInput
   /**
-   * Applies an input to `Transform` for `dt` seconds. Must be a pure
-   * function of (transform, input, dt) — it is called once per frame to
-   * predict locally, and replayed on top of the authoritative state every
-   * time the server acknowledges an input, so non-determinism here will
-   * produce visibly wrong corrections. The exact same function must be
-   * used authoritatively on the server process.
+   * Applies an input to the entity's own components for `dt` seconds.
+   * Must be a pure function of (entity, input, dt) — it is called once
+   * per frame to predict locally, and replayed on top of the
+   * authoritative state every time the server acknowledges an input, so
+   * non-determinism here will produce visibly wrong corrections. The
+   * exact same function must be used authoritatively on the server
+   * process.
    */
-  applyInput: (transform: Transform, input: TInput, dt: number) => void
+  applyInput: (entity: Entity, input: TInput, dt: number) => void
 }
 
 /**
@@ -28,7 +29,7 @@ interface OwnedNetworkedOptions<TInput> {
 class OwnedNetworked<TInput = unknown> extends Component {
   public readonly getInput: () => TInput
   public readonly applyInput: (
-    transform: Transform,
+    entity: Entity,
     input: TInput,
     dt: number
   ) => void

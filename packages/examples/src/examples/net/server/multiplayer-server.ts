@@ -1,23 +1,32 @@
-import { SnapshotEntity } from '@mythor/net'
-import { Connection, startWsServer } from './wsServer'
+import { Ecs, Entity, Transform } from '@mythor/core'
+import { Vec2 } from '@mythor/math'
+import {
+  BroadcastSystem,
+  Networked,
+  ServerNetworkManager,
+} from '@mythor/net/server'
 
 /**
- * Server for the combined "multiplayer" example: every connection controls
- * its own entity (same movement rule as the "prediction" example) and sees
- * every other connection's entity as a remote, interpolated entity.
+ * Server for the combined "multiplayer" example: every connection
+ * controls its own entity (same movement rule as the "prediction"
+ * example) and sees every other connection's entity as a remote,
+ * interpolated entity.
  *
- * `applyMoveInput` is duplicated from the client example (`4--multiplayer.ts`)
- * for the same reason as in `prediction-server.ts`: it must run identically
- * on both sides for prediction/reconciliation to work without jitter.
+ * This is functionally identical to `prediction-server.ts` — the
+ * per-recipient snapshot shaping (only the owning connection sees
+ * `ackSeq` on its own entity) is handled generically by `BroadcastSystem`
+ * for every connection, not something this example has to build by hand.
+ * It's kept as a separate file/port only to match this demo's own client
+ * (`4--multiplayer.ts`).
  *
- * Unlike the other example servers, this one builds a different snapshot
- * payload per recipient: `ackSeq` is only set on the entity that belongs to
- * the connection receiving the message, so every other client treats it as
- * a remote entity (see `SnapshotEntity`'s `ackSeq` doc in `@mythor/net`).
+ * `applyMoveInput` is duplicated from the client example for the same
+ * reason as in `prediction-server.ts`: it must run identically on both
+ * sides for prediction/reconciliation to work without jitter.
  *
  * Run with: yarn workspace @mythor/examples run server:net-multiplayer
  */
 
+const PORT = 8084
 const SPEED = 200 // pixels per second
 const TICK_RATE_HZ = 20
 
@@ -26,61 +35,54 @@ interface MoveInput {
   dy: number
 }
 
-interface PlayerState {
-  entityId?: string
-  x: number
-  y: number
-  lastProcessedSeq: number
+function applyMoveInput(entity: Entity, input: MoveInput, dt: number): void {
+  const transform = entity.get(Transform)
+  transform.position.vSet(
+    transform.position.add(
+      new Vec2(input.dx * SPEED * dt, input.dy * SPEED * dt)
+    )
+  )
 }
 
-function applyMoveInput(state: PlayerState, input: MoveInput, dt: number) {
-  state.x += input.dx * SPEED * dt
-  state.y += input.dy * SPEED * dt
-}
+async function main() {
+  const ecs = new Ecs()
+  const manager = new ServerNetworkManager({ port: PORT })
+  ecs.registerManagers(manager)
+  ecs.registerSystems(new BroadcastSystem())
+  await ecs.init()
 
-const players = new Map<Connection, PlayerState>()
+  const entityIdByConnectionId = new Map<string, string>()
 
-startWsServer({
-  port: 8084,
-  onConnection: (connection) => {
-    players.set(connection, { x: 0, y: 0, lastProcessedSeq: -1 })
-  },
-  onMessage: (connection, message) => {
-    if (message.type !== 'input') {
-      return
+  manager.onDisconnect((connection) => {
+    const entityId = entityIdByConnectionId.get(connection.id)
+    entityIdByConnectionId.delete(connection.id)
+
+    if (entityId) {
+      ecs.entity(entityId)?.destroy()
     }
-
-    const state = players.get(connection)
-
-    if (!state) {
-      return
-    }
-
-    state.entityId = message.entityId
-    applyMoveInput(state, message.input as MoveInput, 1 / TICK_RATE_HZ)
-    state.lastProcessedSeq = message.seq
-  },
-  onClose: (connection) => {
-    players.delete(connection)
-  },
-})
-
-setInterval(() => {
-  Array.from(players.keys()).forEach((recipient) => {
-    const entities: SnapshotEntity[] = []
-
-    players.forEach((state, connection) => {
-      if (!state.entityId) {
-        return
-      }
-
-      entities.push({
-        id: state.entityId,
-        transform: { position: [state.x, state.y], rotation: 0 },
-        ackSeq: connection === recipient ? state.lastProcessedSeq : undefined,
-      })
-    })
-
-    recipient.send({ v: 1, type: 'snapshot', entities })
   })
-}, 1000 / TICK_RATE_HZ)
+
+  manager.onInput((connection, entityId, seq, input) => {
+    let entity = ecs.entity(entityId)
+
+    if (!entity) {
+      entity = ecs.create(entityId)
+      entity.add(
+        new Transform(),
+        new Networked({ ownerConnectionId: connection.id })
+      )
+      entityIdByConnectionId.set(connection.id, entityId)
+    }
+
+    void seq
+    applyMoveInput(entity, input as MoveInput, 1 / TICK_RATE_HZ)
+  })
+
+  manager.listen()
+  // eslint-disable-next-line no-console
+  console.log(`Listening on ws://localhost:${PORT}`)
+
+  setInterval(() => ecs.update(1 / TICK_RATE_HZ, 0), 1000 / TICK_RATE_HZ)
+}
+
+main()

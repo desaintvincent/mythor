@@ -1,20 +1,23 @@
-import { Entity, System, Transform } from '@mythor/core'
+import { Entity, System, getConstructor } from '@mythor/core'
 import type { IEcs } from '@mythor/core'
-import { Vec2 } from '@mythor/math'
 import NetworkManager from '../managers/NetworkManager'
 import RemoteNetworked from '../components/RemoteNetworked'
+import { isNetworkInterpolatable, isNetworkSync } from '../sync/NetworkSync'
 
 /**
- * For entities controlled elsewhere (`RemoteNetworked`): blends
- * `Transform` between the last two received snapshots using a fixed
- * render delay, no prediction/extrapolation. If no newer snapshot has
- * arrived, holds the last known value (accepted graceful degradation).
+ * For entities controlled elsewhere (`RemoteNetworked`): for each
+ * attached component implementing `NetworkSync`, blends between the last
+ * two received samples if it also implements `NetworkInterpolatable`
+ * (e.g. `Transform`), or snaps to the latest sample otherwise (no lerp
+ * assumption forced on arbitrary data). Uses a fixed render delay, no
+ * prediction/extrapolation. If no newer snapshot has arrived, holds the
+ * last known value (accepted graceful degradation).
  */
 class RemoteInterpolationSystem extends System {
   private networkManager!: NetworkManager
 
   public constructor() {
-    super('RemoteInterpolationSystem', [RemoteNetworked, Transform])
+    super('RemoteInterpolationSystem', [RemoteNetworked])
   }
 
   protected async onSystemInit(ecs: IEcs): Promise<void> {
@@ -31,42 +34,61 @@ class RemoteInterpolationSystem extends System {
           return
         }
 
-        entity.get(RemoteNetworked).pushSample({
-          t: Date.now() / 1000,
-          position: new Vec2(
-            snapshotEntity.transform.position[0],
-            snapshotEntity.transform.position[1]
-          ),
-          rotation: snapshotEntity.transform.rotation,
+        const remote = entity.get(RemoteNetworked)
+
+        entity.components.forEach((component) => {
+          if (!isNetworkSync(component)) {
+            return
+          }
+
+          const data = snapshotEntity.components[component.constructor.name]
+
+          if (data === undefined) {
+            return
+          }
+
+          remote.pushSample(getConstructor(component), {
+            t: Date.now() / 1000,
+            data,
+          })
         })
       })
     })
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   protected onEntityUpdate(entity: Entity): void {
     const remote = entity.get(RemoteNetworked)
-
-    if (remote.sampleCount < 2) {
-      return
-    }
-
-    const from = remote.sampleAt(0)
-    const to = remote.sampleAt(1)
-
-    if (!from || !to) {
-      return
-    }
-
-    const transform = entity.get(Transform)
     const renderTime = Date.now() / 1000 - remote.interpolationDelay
-    const span = to.t - from.t
-    const alpha = span > 0 ? clamp((renderTime - from.t) / span, 0, 1) : 1
 
-    transform.position.vSet(
-      from.position.add(to.position.sub(from.position).times(alpha))
-    )
-    transform.rotation = from.rotation + (to.rotation - from.rotation) * alpha
+    entity.components.forEach((component) => {
+      if (!isNetworkSync(component)) {
+        return
+      }
+
+      const constructor = getConstructor(component)
+
+      if (remote.sampleCount(constructor) < 2) {
+        return
+      }
+
+      const from = remote.sampleAt(constructor, 0)
+      const to = remote.sampleAt(constructor, 1)
+
+      if (!from || !to) {
+        return
+      }
+
+      if (!isNetworkInterpolatable(component)) {
+        component.deserialize(to.data)
+
+        return
+      }
+
+      const span = to.t - from.t
+      const alpha = span > 0 ? clamp((renderTime - from.t) / span, 0, 1) : 1
+
+      component.deserialize(component.interpolate(from.data, to.data, alpha))
+    })
   }
 }
 

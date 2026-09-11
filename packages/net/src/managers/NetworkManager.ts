@@ -1,4 +1,4 @@
-import { Manager } from '@mythor/core'
+import { Component, Constructor, Manager } from '@mythor/core'
 import type { IEcs } from '@mythor/core'
 import Transport from '../transport/Transport'
 import WebSocketTransport from '../transport/WebSocketTransport'
@@ -37,10 +37,28 @@ class NetworkManager extends Manager {
   private readonly stateChangeHandlers = new Set<
     (state: ConnectionState) => void
   >()
+  private readonly componentFactories = new Map<string, () => Component>()
 
   public constructor(options?: NetworkManagerOptions) {
     super('NetworkManager')
     this.transport = options?.transport ?? new WebSocketTransport()
+  }
+
+  /**
+   * Registers a component type so newly-seen remote entities can be
+   * spawned with a fresh instance of it (mirrors
+   * `@mythor/persistence`'s `SaveManager.registerComponent`). Keyed by
+   * `constructor.name`, matching the wire format's component keys.
+   */
+  public registerComponent<C extends Component>(
+    constructor: Constructor<C>,
+    factory: () => C
+  ): void {
+    this.componentFactories.set(constructor.name, factory)
+  }
+
+  public createRegisteredComponent(name: string): Component | undefined {
+    return this.componentFactories.get(name)?.()
   }
 
   public get state(): ConnectionState {
